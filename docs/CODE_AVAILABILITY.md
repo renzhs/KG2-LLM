@@ -10,7 +10,7 @@
 
 > 本文的全部实验代码、自建数据集 DNUI-IKG、各数据集的最终超参配置与逐折结果文件均已开源，
 > 地址为 https://github.com/renzhs/KG2-LLM。仓库提供 11 种知识追踪方法在统一实现、
-> 统一划分与统一调参预算下的完整管线，以及无需 GPU、约 10 s 即可重建本文表 1～表 4 并逐行
+> 统一划分与统一调参预算下的完整管线，以及无需 GPU、约 1 s 即可重建本文表 1～表 4 并逐行
 > 比对的复现脚本。
 
 **精简版**（放脚注、致谢或"数据可用性"栏）：
@@ -30,7 +30,7 @@
 > per-fold result files are publicly available at https://github.com/renzhs/KG2-LLM.
 > The repository contains the complete pipeline that implements and fairly tunes 11
 > knowledge-tracing methods under identical data splits and tuning budgets, together with a
-> GPU-free script that rebuilds Tables 1–4 of this paper in about 10 seconds and diffs them
+> GPU-free script that rebuilds Tables 1–4 of this paper in about 1 second and diffs them
 > against the archived camera-ready values.
 
 **Short**:
@@ -63,7 +63,7 @@
 % 放在 \subsubsection{数据集} 之后、或 \subsection{基准协议} 开头
 本文的全部实验代码、自建数据集 DNUI-IKG、各数据集的最终超参配置与逐折结果文件
 均已开源\footnote{\url{https://github.com/renzhs/KG2-LLM}}，
-其中包含无需 GPU、约 10\,s 即可重建本文表~\ref{tab:dataset}～表~\ref{tab:kt-ours}
+其中包含无需 GPU、约 1\,s 即可重建本文表~\ref{tab:dataset}～表~\ref{tab:kt-ours}
 并逐行比对的复现脚本。
 ```
 

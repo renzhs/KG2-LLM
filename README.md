@@ -58,7 +58,7 @@ pip install -r requirements.txt
 - PyTorch ≥ 2.0（GPU 可选：CPU 也能跑通 DNUI-IKG 的全部流程，只是慢）
 - 生成 GES 结果需 `DEEPSEEK_API_KEY`（见 `docs/REPRODUCIBILITY.md`）；复核已报告数值不需要
 
-## 4. 快速开始（无需 GPU，约 10 秒）
+## 4. 快速开始（无需 GPU，约 1 秒）
 
 仓库附带全部逐折/逐种子结果，因此**不训练也能重建论文的每一张表**，并与投稿版快照逐行比对：
 
@@ -84,7 +84,7 @@ python experiments/run/run_kt.py --dataset dnui_syn --models all --epochs 8 --ta
 
 | 级别 | 做什么 | 代价 |
 |---|---|---|
-| A | 从已存结果重建全部表格、复核显著性 | 无需 GPU，约 10 秒（实测） |
+| A | 从已存结果重建全部表格、复核显著性 | 无需 GPU，约 1 秒（实测 1.04 s） |
 | B | 重跑单个数据集上 11 个模型 | 单卡 V100：DNUI-IKG 上 8 epoch 实测 171 s；60 epoch 视数据集规模约 20 分钟 ~ 数小时 |
 | C | 从零复现主表（调参 + 5 折 × 11 模型 + 聚合） | 单卡 V100 数天量级，可断点续跑 |
 

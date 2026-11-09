@@ -21,7 +21,7 @@
 | 数据准备（DNUI-IKG） | `bash scripts/00_prepare_data.sh` | **1.5 s** |
 | 冒烟（11 模型 × 8 epoch） | `bash scripts/01_kt_smoke.sh` | **171 s** |
 | 资源推荐 + CSG 归因 | `bash scripts/02_downstream.sh rec` | **< 60 s** |
-| 重建表 1–4 并 diff | `bash scripts/03_tables.sh` | **≈ 10 s** |
+| 重建表 1–4 并 diff | `bash scripts/03_tables.sh` | **≈ 1 s** |
 | 完整主表（调参 + 5 折 × 11 模型） | `bash scripts/04_full_bench.sh` | 数天量级 |
 
 主表慢在两处：ASSIST12（2.5 M 交互）与 ASSIST15（68 万交互）的**链式调参与基线调参**，

@@ -42,7 +42,7 @@ python experiments/data/prep_bench.py --only assist09,assist15,assist17,statics1
 
 ## 2. 三条复现路径（按代价从低到高）
 
-### 路径 A：只复核论文数字（**无需 GPU，约 10 秒**）
+### 路径 A：只复核论文数字（**无需 GPU，约 1 秒**）
 
 仓库已附带全部逐折/逐种子结果 JSON，因此可以直接重建论文的每一张表：
 
