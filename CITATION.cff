@@ -5,7 +5,7 @@ abstract: "Reference implementation and self-built dataset for dual knowledge-gr
 type: software
 license: MIT
 license-url: "https://opensource.org/licenses/MIT"
-repository-code: "https://github.com/<your-account>/KG2-LLM"
+repository-code: "https://github.com/renzhs/KG2-LLM"
 authors:
   - family-names: "Ren"
     given-names: "Zhisen"

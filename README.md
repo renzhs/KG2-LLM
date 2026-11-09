@@ -6,6 +6,9 @@
 表图的生成脚本。
 
 > 论文状态：投稿中（《计算机工程与应用》）。若本文被接收，将在此处补全卷期页码与 DOI。
+>
+> **仓库地址**：<https://github.com/renzhs/KG2-LLM> ·
+> `git clone git@github.com:renzhs/KG2-LLM.git`
 
 ## 1. 一分钟了解
 
