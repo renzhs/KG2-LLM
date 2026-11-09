@@ -1,0 +1,46 @@
+{
+ "dnui_real": {
+  "name": "dnui_real",
+  "users": 17862,
+  "n_skill": 66,
+  "n_question": 467,
+  "interactions": 17862,
+  "avg_len": 1.0,
+  "median_len": 1,
+  "max_len": 1,
+  "correct_rate": 0.9403
+ },
+ "dnui_syn": {
+  "name": "dnui_syn",
+  "users": 2147,
+  "n_skill": 66,
+  "n_question": 467,
+  "interactions": 117865,
+  "avg_len": 54.9,
+  "median_len": 57,
+  "max_len": 77,
+  "correct_rate": 0.627
+ },
+ "assist09": {
+  "name": "assist09",
+  "users": 3852,
+  "n_skill": 149,
+  "n_question": 17751,
+  "interactions": 278390,
+  "avg_len": 72.27,
+  "median_len": 23,
+  "max_len": 1021,
+  "correct_rate": 0.6576
+ },
+ "assist12": {
+  "name": "assist12",
+  "users": 27141,
+  "n_skill": 198,
+  "n_question": 50983,
+  "interactions": 2504175,
+  "avg_len": 92.27,
+  "median_len": 40,
+  "max_len": 1683,
+  "correct_rate": 0.6957
+ }
+}

@@ -1,0 +1,130 @@
+{
+ "dataset": "assist09",
+ "args": {
+  "dataset": "assist09",
+  "models": [
+   "DGCLKT"
+  ],
+  "epochs": 60,
+  "batch": 64,
+  "lr": 0.002,
+  "patience": 5,
+  "max_len": 200,
+  "min_len": 3,
+  "max_users": 0,
+  "seed": 42,
+  "tag": "ab-no-graph",
+  "d": 256,
+  "layers": 2,
+  "steps": 2,
+  "hops": 1,
+  "dropout": 0.1,
+  "gated_fuse": true,
+  "topm": 0,
+  "wprior": 0.5,
+  "graph_in": false,
+  "seq_enc": "gru",
+  "use_tune": true,
+  "ablation": true,
+  "ab_no_graph": true,
+  "ab_no_calib": false,
+  "ab_no_scope": false,
+  "ab_struct_only": false
+ },
+ "results": {
+  "DGCLKT": {
+   "AUC": 0.749,
+   "ACC": 0.7231,
+   "RMSE": 0.4304,
+   "n": 41641,
+   "base_rate": 0.6547,
+   "epochs_run": 15,
+   "train_sec": 26.7,
+   "params": 6096131,
+   "history": [
+    {
+     "epoch": 10,
+     "loss": 0.5243,
+     "valid": {
+      "AUC": 0.7736,
+      "ACC": 0.7259,
+      "RMSE": 0.4267,
+      "n": 20124,
+      "base_rate": 0.6261
+     }
+    },
+    {
+     "epoch": 11,
+     "loss": 0.5219,
+     "valid": {
+      "AUC": 0.77,
+      "ACC": 0.7247,
+      "RMSE": 0.4291,
+      "n": 20124,
+      "base_rate": 0.6261
+     }
+    },
+    {
+     "epoch": 12,
+     "loss": 0.518,
+     "valid": {
+      "AUC": 0.7683,
+      "ACC": 0.7254,
+      "RMSE": 0.4288,
+      "n": 20124,
+      "base_rate": 0.6261
+     }
+    },
+    {
+     "epoch": 13,
+     "loss": 0.5126,
+     "valid": {
+      "AUC": 0.7688,
+      "ACC": 0.7263,
+      "RMSE": 0.4287,
+      "n": 20124,
+      "base_rate": 0.6261
+     }
+    },
+    {
+     "epoch": 14,
+     "loss": 0.5041,
+     "valid": {
+      "AUC": 0.7638,
+      "ACC": 0.723,
+      "RMSE": 0.431,
+      "n": 20124,
+      "base_rate": 0.6261
+     }
+    },
+    {
+     "epoch": 15,
+     "loss": 0.4893,
+     "valid": {
+      "AUC": 0.7615,
+      "ACC": 0.7217,
+      "RMSE": 0.4335,
+      "n": 20124,
+      "base_rate": 0.6261
+     }
+    }
+   ],
+   "best_valid_auc": 0.7736
+  }
+ },
+ "data_meta": {
+  "source": "ASSISTments2009 skill_builder_data_corrected",
+  "prereq_source": "induced_from_sequences (co-occurrence adjacent pairs + mean relative position; top_q=0.9, min_count=5)",
+  "stats": {
+   "name": "assist09",
+   "users": 3852,
+   "n_skill": 149,
+   "n_question": 17751,
+   "interactions": 278390,
+   "avg_len": 72.27,
+   "median_len": 23,
+   "max_len": 1021,
+   "correct_rate": 0.6576
+  }
+ }
+}

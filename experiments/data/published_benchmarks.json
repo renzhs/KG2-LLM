@@ -1,0 +1,120 @@
+{
+  "_comment": [
+    "已发表基准数字汇总（用于论文对比实验章节的'文献报告值'对照）。",
+    "所有数字均为 5 折交叉验证在测试集上的平均 AUC。",
+    "本文件里的数字是从原文 PDF 直接抄录并做过坐标级核对（见 tools/verify_pub_numbers 说明），",
+    "不要凭记忆修改；如需更新请回到原文核对。"
+  ],
+  "protocols": {
+    "akt_2020": {
+      "source": "Ghosh, Heffernan, Lan. Context-Aware Attentive Knowledge Tracing. KDD 2020 (arXiv:2007.12324)",
+      "split": "作者自建 5 折划分（随论文代码 arghosh/AKT 发布：data/assist2009_pid, assist2015, assist2017_pid, statics）",
+      "metric": "AUC（预测未来作答正确与否）",
+      "sequence": "序列长度 > 200 的按 200 切块（非截断），评测覆盖全部交互",
+      "question_ids": "仅 ASSISTments2009 与 ASSISTments2017 含题目 id，故仅这两个数据集报告 AKT-R 变体",
+      "note": "本论文的 assist09_akt / assist15 / assist17 / statics11 直接使用该仓库的官方划分，因此可与此表逐项对照"
+    },
+    "pykt_simplekt": {
+      "source": "Liu et al. pykt benchmark (NeurIPS 2022 D&B) 的数字，经 Liu et al. SimpleKT. ICLR 2023 (arXiv:2302.06881) Table 2/3 转载",
+      "split": "同上 5 折划分（pykt 统一实现了全部基线）",
+      "metric": "AUC / ACC",
+      "note": "与 AKT 原文的差异主要来自实现细节（是否使用题目 id、超参搜索预算、批大小等），故两套数字并列给出，不做混用"
+    }
+  },
+  "akt_2020_table2_auc": {
+    "columns": ["BKT+", "DKT", "DKT+", "DKVMN", "SAKT", "AKT-NR", "AKT-R"],
+    "rows": {
+      "statics11": {
+        "published_name": "Statics2011",
+        "values": {
+          "BKT+": [0.75, null],
+          "DKT": [0.8233, 0.0039],
+          "DKT+": [0.8301, 0.0039],
+          "DKVMN": [0.8195, 0.0041],
+          "SAKT": [0.8029, 0.0032],
+          "AKT-NR": [0.8265, 0.0049],
+          "AKT-R": [null, null]
+        }
+      },
+      "assist09_akt": {
+        "published_name": "ASSISTments2009",
+        "values": {
+          "BKT+": [0.69, null],
+          "DKT": [0.817, 0.0043],
+          "DKT+": [0.8024, 0.0045],
+          "DKVMN": [0.8093, 0.0044],
+          "SAKT": [0.752, 0.004],
+          "AKT-NR": [0.8169, 0.0045],
+          "AKT-R": [0.8346, 0.0036]
+        }
+      },
+      "assist15": {
+        "published_name": "ASSISTments2015",
+        "values": {
+          "BKT+": [null, null],
+          "DKT": [0.731, 0.0018],
+          "DKT+": [0.7313, 0.0018],
+          "DKVMN": [0.7276, 0.0017],
+          "SAKT": [0.7212, 0.002],
+          "AKT-NR": [0.7828, 0.0019],
+          "AKT-R": [null, null]
+        }
+      },
+      "assist17": {
+        "published_name": "ASSISTments2017",
+        "values": {
+          "BKT+": [null, null],
+          "DKT": [0.7263, 0.0054],
+          "DKT+": [0.7124, 0.0041],
+          "DKVMN": [0.7073, 0.0044],
+          "SAKT": [0.6569, 0.0027],
+          "AKT-NR": [0.7282, 0.0037],
+          "AKT-R": [0.7702, 0.0026]
+        }
+      }
+    },
+    "_verification": [
+      "ASSISTments2009 行与原文 Table 5（Rasch 消融）完全一致：DKT 0.817 / DKT+ 0.8024 / DKVMN 0.8093 / SAKT 0.752 / AKT-NR 0.8169 / AKT-R 0.8346",
+      "ASSISTments2017 行与原文 Table 5 完全一致：DKT 0.7263 / DKT+ 0.7124 / DKVMN 0.7073 / SAKT 0.6569 / AKT-NR 0.7282 / AKT-R 0.7702",
+      "SAKT 列与原文 Table 4 一致：Statics2011 0.8029 / ASSISTments2009 0.752 / ASSISTments2015 0.7212 / ASSISTments2017 0.6569",
+      "Statics2011 的 AKT-NR 0.8265 与原文 Table 4 一致；该数据集无题目 id，故 AKT-R 为空"
+    ]
+  },
+  "simplekt_iclr2023_table2_auc": {
+    "source": "SimpleKT (ICLR 2023) Table 2；数据集 D1 = 同时含题目与技能信息，D2 = 仅含其一",
+    "map_to_ours": {
+      "AS2009": "assist09_akt",
+      "Statics2011": "statics11",
+      "AS2015": "assist15"
+    },
+    "datasets": ["AS2009", "AL2005", "BD2006", "NIPS34", "Statics2011", "AS2015", "POJ"],
+    "rows": {
+      "DKT": ["0.7541", "0.8149", "0.8015", "0.7689", "0.8222", "0.7271", "0.6089"],
+      "DKT+": ["0.7547", "0.8156", "0.8020", "0.7696", "0.8279", "0.7285", "0.6173"],
+      "DKT-F": ["-", "0.8147", "0.7985", "0.7733", "0.7839", "-", "0.6030"],
+      "KQN": ["0.7477", "0.8027", "0.7936", "0.7684", "0.8232", "0.7254", "0.6080"],
+      "LPKT": ["0.7814", "0.8274", "0.8055", "0.8035", "-", "-", "-"],
+      "IEKT": ["0.7861", "0.8416", "0.8125", "0.8045", "-", "-", "-"],
+      "DKVMN": ["0.7473", "0.8054", "0.7983", "0.7673", "0.8093", "0.7227", "0.6056"],
+      "ATKT": ["0.7470", "0.7995", "0.7889", "0.7665", "0.8055", "0.7245", "0.6075"],
+      "GKT": ["0.7424", "0.8110", "0.8046", "0.7689", "0.8040", "0.7258", "0.6070"],
+      "SAKT": ["0.7246", "0.7880", "0.7740", "0.7517", "0.7965", "0.7114", "0.6095"],
+      "SAINT": ["0.6958", "0.7775", "0.7781", "0.7873", "0.7599", "0.7026", "0.5563"],
+      "AKT": ["0.7853", "0.8306", "0.8208", "0.8033", "0.8309", "0.7281", "0.6281"],
+      "SimpleKT": ["0.7744", "0.8254", "0.8160", "0.8035", "0.8199", "0.7248", "0.6252"]
+    },
+    "_note": "AS2017 与 Statics2011 之外的两个自建划分（dnui_syn / assist09 / assist12）无已发表数字，全部由我们复现"
+  },
+  "dimkt_sigir2022_table3": {
+    "source": "DIMKT (SIGIR 2022) Table 3；数据集为 ASSIST2012 / Eedi2020，与本论文所用划分不同，仅作方法层面的旁证",
+    "ASSIST2012": {
+      "DKT": 0.7304, "DKT+": 0.7119, "DKVMN": 0.7255, "SAKT": 0.7279, "CKT": 0.7351,
+      "PEBG": 0.7652, "EKT": 0.7732, "AKT": 0.7841, "LPKT": 0.7824, "DIMKT": 0.7899
+    },
+    "Eedi2020": {
+      "DKT": 0.7649, "DKT+": 0.7337, "DKVMN": 0.7576, "SAKT": 0.7620, "CKT": 0.7644,
+      "PEBG": 0.8005, "EKT": 0.8024, "AKT": 0.8041, "LPKT": 0.8042, "DIMKT": 0.8074
+    },
+    "_note": "ASSIST2012 (K=265, 29018 学生) 与本论文的 assist12 并非同一预处理，数字不可直接比较"
+  }
+}

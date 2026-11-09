@@ -1,0 +1,695 @@
+q_id,kt_id,stem,option_A,option_B,option_C,option_D,answer,score
+00316ae6-59e1-49bf-a316-6fd86a6fdfe8,194,JFrame中内容窗格缺省的布局管理器是（ ）,FlowLayout,BorderLayout,GridLayout,CardLayout,B,1
+00f65403-de11-4acd-ad98-ba9db0c168c9,188,"声明一个数组,__[ ] a = new Dog[]{};空格处应该填写的的内容为",int,Dog,String,List,B,1
+00f65404-de11-4acd-ad98-ba9db0c168c9,189,以下代码编译和运行，正确的选项是？,编译时会出现一些错误,运行时，会出现一些错误,输出0,输出null,B,1
+00f65405-de11-4acd-ad98-ba9db0c168c9,190,你想用下面的代码查找数组最后一个元素的值，当你编译并运行它的时候，会发,编译和输出0,编译和输出null,运行时异常,编译时错误,A,1
+0118d35a-b995-45af-baea-927c5b6299a3,104,深度学习模型的训练过程中，哪项技术是按照一定概率失活神经元来防止过拟合？,Dropout,增加数据集大小,减少网络层数,正则化,A,1
+02408a9a-e881-40a0-99e6-e80638bb926c,103,称为BP神经网络的原因是由于？, 它使用了贝叶斯概率理论进行权重更新, 它采用了反向传播（BP）算法来训练神经网络,它的网络结构是基于生物神经元的精确模拟,它的输出层总是包含二进制值（0或1）,B,1
+024bcca9-5dbc-4c06-8323-c036ed7cacd3,194,"下列代码运行后的结果是什么？ import javax.swing.*; import java.awt.*;  public class Main {     public static void main(String[] args) {         JFrame frame = new JFrame(""Border Example"");         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);         frame.setSize(300, 200);         JButton button1 = new ",窗口中有三个按钮，水平排列在顶部, 窗口中有三个按钮，分布在窗口的北、中、南三个区域,窗口中只有一个按钮在中心位置,窗口中没有任何内容,B,1
+02ef0b56-79da-4a60-a906-34f23baccb31,178,下面类的定义中结构正确的是 ?,class A,class 2A,int class A,public  class A (),A,1
+0399414e-5070-4340-b2f9-f547e62393fe,199,编译和运行代码，下列哪项应该放在////以便代码编译时不会出错？ public class Example{          static void method throws Exception{                  throw new EOFException();}                  public static void main(String[] args)                  { try{method();                          }                    catch(////){ }      ,IOException e,EOFException e,NullPointerException e,Exception e,D,1
+04c3b2a0-d149-4973-baee-a8d5f6c115cf,194,FlowLayout的布局策略是（ ）,按添加的顺序由左至右将组件排列在容器中,按设定的行数和列数以网格的形式排列组件,将窗口划分成五部分，在这五个区域中添加组件,组件相互叠加排列在容器中,A,1
+06492abe-0965-48db-934c-3982ae319372,194,AWT包含了最基本的GUI工具，包含控件、容器和（ ）,数据传送器,布局管理器,用户界面构件,图形和图像工具,B,1
+0793d8fe-d295-423a-a02e-1145abddfb1e,187,"如下面代码所示，说法正确的是  public class Practice1{  public static void main(String args[]) {   double[] a = { 9.12, 9.25, 8.87, 9.99, 6.99, 7.88 };   AverageScore avg = new AverageScore();   avg.setStrategy(new StrategyA());   System.out.printf(""算法A:得分:%5.3f%n"",avg.getAverage(a));   avg.setStrategy(new Strateg",(A) 方法setStrategy的参数类型有误，会出现编译错误,方法setStrategy定义时，参数类型既可以是StrategyA，也可以是StrategyB，这段代码都不会有编译错误,如果StrategyA和StrategyB是方法setStrategy形参类型的派生类，这段代码不会出错；如果AverageScore类中定义了重载方法setStrategy，参数类型分别为StrategyA和StrategyB，这段代码也不会出错,"以上说法都不对
+",C,1
+0854af9c-5fa0-4599-88c8-e7dc09ee027f,205,在JDBC中，以下哪个接口用于执行预编译的SQL语句？,Statement,PreparedStatement,CallableStatement,ResultSet,B,1
+08c6502b-a3a3-438b-ab93-1d0184b47ea5,193,以下哪个语句用于创建一个存储String类型键和Integer类型值的HashMap？,HashMap map = new HashMap<>();," HashMap<String, Integer> map = new HashMap<>();"," HashMap<Object, Object> map = new HashMap<>();","HashMap<String, int> map = new HashMap<>();",B,1
+09bb1942-3fb7-4d5b-a903-5cc92feafe1e,203,"以下选项可以填入到划线处的是？ import java.io.*; import java.util.Properties;  public class PropertiesExample {     public static void main(String[] args) {         Properties prop = new Properties();          try {             prop.load(new FileInputStream(""config.properties""));              // 获取属性值             ",load,getProperty,setProperty,store,B,1
+0a57e632-30bf-4676-9672-729b902e4a01,84,"下列语句序列执行后，k 的值是(    )   int x=6, y=10, k=5; switch( x%y ){          case 0: k=x*y;       case 6: k=x/y;       case 12: k=x-y;       default: k=x*y-x; }",60,5,0,54,D,1
+0a6c1617-8301-4f9a-a1c3-58d9595c1735,196,"以下是一个计算矩形面积的方法，请选择正确的选项。 public double calculateArea(double length, double width) {     return length * width; } ",方法名称错误，应该是area,"参数名称不规范，应该是length和width
+",缺少对参数的合法性检查，如长度和宽度不能为负数,以上都正确,C,1
+0ab755ab-6053-493f-9590-7a973da8e5ee,188,引用数组元素时，数组下标可以是,整型常量,整型变量,整型表达式,以上均可,D,1
+0b3d0c4a-1b60-4e6c-adee-a7a5ce5e2a12,180,假设有一个Animal类，有name和age两个属性。以下哪种初始化方式可以确保在创建Animal对象时必须提供name和age的值（  ）,public Animal() {},"public Animal(String name, int age) {}",public Animal(String name) {},public Animal(int age) {},B,1
+0b5c0a46-8fad-4902-bd60-5b8a9bb1f8df,77,下列关于转义符的描述错误的是？,\n回车,\n换行,\t制表符,\\反斜杠,A,1
+0b92bd1c-15a7-4798-9d85-0131be5b55a4,178,请选择缺少的代码。 public class Rectangle {   //需要填入代码    public double findArea() {        return width * length;     }     public double findPremeter() {         return 2 * (width + length);     } },double width;,double length; ,double width;double length;,double w;double l;,C,1
+0b9affa0-10ea-473d-8b6e-8d1dcbdabaac,205,在JDBC中，以下哪个接口用于表示SQL查询的结果集？,Statement,Connection,ResultSet,DriverManager,C,1
+0bf0a90d-e8a1-41fa-8105-9990d7108d9c,195,所有事件类的父类是（ ）,ActionEvent,TextEvent,AWTEvent,EventObject,D,1
+0c3fc1f9-4a3b-4462-a75b-75be12df6217,79,以下哪个代码行将导致编译错误？ public class Test {     int x = 10; // (A)     public static void main(String[] args) {         int y = 20; // (B)         {             int z = 30; // (C)             System.out.println(x + y + z);         }         System.out.println(z); // (D)     } },(A),(B),(C),(D),D,1
+0c8d3d77-412a-49cb-b587-9de57da80a5d,178,Java 类可以作为( ),类型定义机制,数据封装机制,类型定义机制和数据封装机制,上述都不对,C,1
+0d6ae4a4-4351-4494-a3f9-89c4d7542e5f,77,以下关于JVM的叙述，正确的是？,JVM运行于操作系统之上，它依赖于操作系统,JVM运行于操作系统之上，它与操作系统无关,JVM支持Java程序运行，它不能直接运行Java字节码文件,JVM支持Java程序运行，它能够直接运行Java源代码文件,A,1
+0d88d045-2c90-4890-97d0-2ad167e54a63,77,下列哪项不是Java语言中所规定的注释样式？,//单行注释,/单行注释,"／*
+*单行或多行注释
+*/","/**
+*文档注释
+*/",B,1
+0da16299-a565-47c0-8c5c-76882fffb487,203,"下面的程序段的功能是(   )。  File file1=new File(""d:\\xxx\\yyy\\zzz"");  file1.mkdirs();",在当前目录下生成子目录：\xxx\yyy\zzz,生成目录： d:\xxx\yyy\zzz,在当前目录下生成文件xxx.yyy.zzz,以上说法都不对 ,B,1
+0eaa4310-fa72-48d3-8375-3a5e64ec7230,202,新建一个流对象，下面那个选项的代码是错误的,new BufferedWriter(new FileWriter(“a.txt”));,new BufferedReader (new FileInputStream(“a.dat”));,new GZIPOutputStream(new FileOutputStream(“a.zip”));,new ObjectInputStream(new FileInputStream(“a.dat”));,B,1
+0ed8a8d0-f692-4048-93a4-e6eaa3631db2,187,"如下面代码所示，说法正确的是  public class OrderTest {  public static void main(String[] args) {   placeOrder(new Order(""0001"",200),new AliPay());    }  public static void placeOrder(Order order, Payment payment) {   order.setPayment(payment);   order.printOrder();  } } ",方法placeOrder定义时，参数为Payment类型，调用时，用AliPay类型，会有编译错误,"placeOrder方法定义时，参数类型为Payment，如果AliPay实现了Payment，调用时，可以用AliPay类型，不会出编译错误
+",order.setPayment(payment);方法的实参payment，指向Payment类型的实例,"Payment必须是类，不能是接口，才可以作为placeOrder方法的参数
+",B,1
+0f0b530c-1c30-43ef-ae0c-6bedb8d2c633,100,在二分类问题中，最常用的损失函数是？, 均方误差（MSE）,二元交叉熵（Binary Cross-Entropy）,绝对误差和（MAE）,铰链损失（Hinge Loss）,B,1
+0f83c2c1-6e6d-43db-888a-9c8a8a6adc44,184,类Test1、Test2定义如下：  1．  public  class  Test1  2．{ public  float  aMethod（float a，float b） throws  3．  IOException {      }  4． }  5． public  class  Test2  extends  Test1{  6．  7．}  将以下哪种方法插入行6是不合法的。,float  aMethod（float  a，float  b）{ },public  int  aMethod（int a，int b）throws  Exception{ },public  float  aMethod（float  p，float q）{ },public  int  aMethod（int a，int  b）throws IOException{ },A,1
+1011449a-d845-4fbf-b99d-badcc1a41822,180,以下Java代码的运行结果是什么（  ） public class Test {     int a = 10;     {         a++;     }     public static void main(String[] args) {         Test test = new Test();         System.out.println(test.a);     } } ,9,10,11,编译错误,C,1
+108aa5cd-0b6b-4044-aab2-4fec1774a2ab,197,以下哪个方法不是Graphics类的方法？,"drawLine(int x1, int y1, int x2, int y2)","drawString(String str, int x, int y)",setVisible(boolean b),"fillRect(int x, int y, int width, int height)",C,1
+108e0bd3-f127-47e6-8d54-0ceb66e0dbad,198,"编译和运行以下代码的结果是什么？ class Example{         public static void main(String[] args){                 try{                         args=null;                         args[0]=""test"";                         System.out.println(args[0]);                 }                 catch(Exception e){                  ",test,Exception,Compilation error,NullPointerException,C,1
+11180b0f-09bf-42c3-9ede-3f0937570693,103,BP神经网络的全称是什么？,前向传播神经网络,基本感知神经网络,反向传播神经网络,双向传播神经网络,C,1
+114541b1-1168-4737-a599-6bb985f4f9d5,181,访问修饰符范围由大到小分别是,private-default-protected-public,public-default-protected-private  ,private-protected-default-public,public-protected-default-private,D,1
+12641ea1-18e4-468b-ac53-904bc7821d77,99,神经网络中的“隐藏层”主要作用是什么？,接收输入数据,输出最终预测结果,从输入数据中提取特征,存储所有权重,C,1
+14043e8b-bddc-4093-85d3-9e0eb00889c8,93,格式化 Date 日期对象用 类（）,DateTime,DateFormat,DateMillis,CurrentMillis,B,1
+1404f9fe-cf37-4a9f-942f-bbc6144c811d,90,下列代码的运行结果？  class Example {         static int i; public static void main(String [] args) {       System.out.println(i); } },0,1,null,编译错误,A,1
+152b9017-b042-4766-9ca6-4335a5c78e8f,186,以下关于抽象类和接口的介绍，有误的是,不能直接实例化对象,可以包含抽象方法，非抽象子类必须覆盖抽象方法,一个类只能实现一个接口,一个类只能继承一个抽象类,C,1
+15424cb7-0dcc-473d-9a66-d5ed90488f04,182,下列关于静态方法的说法错误的是（  ）,静态方法可以直接通过类名调用，无需创建类的实例,静态方法不能访问类的非静态成员变量,静态方法可以访问类的静态成员变量和其他静态方法,静态方法必须通过类的实例来调用,D,1
+154a0d42-1d8b-47a6-9f67-c2ad5d02d36d,88,以下代码编译和运行，正确的选项是？ class Example {   static int x[]=new int[15];     public static void main(String [] args)     {                System.out.println(x[5]);     } },编译时会出现一些错误,运行时，会出现一些错误,输出0,输出null,C,1
+1571a8ee-3f2e-4bc5-8640-c91b52cb8e8c,205,Statement 是 Java 执行数据库操作的一个重要接口，用于在已经建立数据库连接的基础 上，向数据库发送要执行的()。,对象,关键字,SQL语句,数据库表名字,C,1
+16ee0b6a-0db9-4b0c-8b32-42d71b3dcddd,87,下面哪种写法可以实现访问数组arr的第1个元素?,arr[0],arr(0),arr[1],arr(1),A,1
+17377f40-24fc-4c9c-b0ce-77671e8d3f3b,85,用do while循环语句来实现阶乘的计算，需要用到几个变量，下面描述正确的是：,不需要变量;,1个变量，int num，用来保存要输入的计算阶乘的数字;,"2个变量，
+int num，用来保存要输入的计算阶乘的数字;
+int fact，用来保存最后得到的阶乘的结果;","3个变量，
+int num，用来保存要输入的计算阶乘的数字;
+int fact，用来保存最后得到的阶乘的结果;
+int i，自增变量，用来判断是否改结束循环",D,1
+17908a3d-fa85-4160-b9a6-ac0dd78026ea,180,以下关于对象初始化的说法中，错误的是（  ）,使用默认构造函数创建对象时，可以不传递任何参数,可以在构造函数中调用其他构造函数进行初始化,对象的属性只能在声明时初始化，不能在构造函数中初始化,可以使用初始化块来初始化对象的属性,C,1
+17e94984-0c2d-4abb-98da-8c7a41e0b7f6,205,在JDBC中，以下哪个方法用于执行SQL更新语句（如INSERT、UPDATE、DELETE）？,executeQuery(),executeUpdate(),execute(),getConnection(),B,1
+187944f2-b9a8-410a-9070-acc08b3172ac,88,"以下代码编译和运行，输出结果是？ public static void main(String[] args) {         char s1[] = ""ABCDEF"".toCharArray();         int i=0;         while (s1[i++] != '\0'){             System.out.println(s1[i++]);         }     }",ABCDEF,输出BDF后报运行错误,ABCDE,BCDE,B,1
+189a2aeb-1ab8-47af-a287-b256d5acb578,198,"public static void main(String[] args) { try { int a = 1-1; System.out.println(""a = "" + a); int b = 4 / a; int c[] = {1}; c[10] = 99; } catch(ArithmeticException e) { System.out.println(""除数不准许为0""); } catch(ArrayIndexOutOfBoundsException e) { System.out.println(""数组越界""); } }",a = 0,"a = 0
+除数不允许为0","a = 1
+数组越界","a = 0
+除数不允许为0
+数组越界",B,1
+18e68683-7998-4e4f-b7a7-8519c0358713,112,在GRU模型中，更新门(z)和重置门(r)的输出范围是多少？,"[-1, 1]","[0, 1]","[1, 无穷大)","(0, 1)",B,1
+19924a2e-f578-410b-8757-a82b8af2c03d,95,被誉为卷积神经网络之父的是哪位计算机科学家？,Yoshua Bengio,Geoffrey Hinton,Yann LeCun（杨立昆）,Andrew Ng（吴恩达）,C,1
+1a088009-aeb4-4945-b08a-b153c0207419,203,"下述代码中，file.exists()的返回值类型是什么。 import java.io.File; import java.text.SimpleDateFormat;   public class Main {     public static void main(String[] args) {         File file = new File(System.getProperty(""user.home"") + ""\\Desktop\\example.txt"");         if (file.exists()) {             System.out.print",int,String,boolean,File,C,1
+1a77fbfd-15af-4e61-ab6c-3632f814494e,87,"下面程序的功能为计算数组下标为奇数的各元素的和，空白处应填入的代码是？ public class SumOfArray {    public static void main(String  []args)    {        int a[] = { 1, 3, 5, 7, 9, 10 };        int total=0;       for ( int i = 1; i < a.length; _______ )             total+=a[i];       System.out.println( ""Total of array elements: "" + to",i++;,i--,I=i+2;,i+=1;,C,1
+1a87e4a0-139b-4aaa-89fb-e1b3917af20f,103,BP神经网络的训练过程中，什么是批量大小？,网络中神经元的数量,网络中层的数量,每次迭代中用于计算梯度和更新权重的样本数量,神经网络训练过程中学习率的大小,C,1
+1aaa4183-da85-4751-b2f4-520b7e222073,83,"执行下列程序段后，m,x,y的值分别是（ ） int x = 2,y = 4; boolean m; m = ++x > y --;","true,2,4","false,3,3","true,3,3","false,2,4",B,1
+1b17483a-12c3-41eb-99ff-d9e14a44b264,179,下面关于Java中类的说法哪个是不正确的？,类体中只能有变量定义和成员方法的定义，不能有其他语句。,构造函数是类中的特殊方法。,类一定要声明为public的，才可以执行。,一个java文件中可以有多个class定义。,C,1
+1bb1ba3c-8f27-4cd0-8fb3-6fdaba50359f,200,当一个线程调用 sleep()方法时，它会进入（   ）状态。,新建,可运行,阻塞,死亡,C,1
+1bc61085-eb7f-4ebc-9adb-1fc37bc29c6e,85,"下列Java程序执行之后，j的值是？  public class A {     public static void main(String[] args) {          int j = 2, i = 5;          while (j < i--)  j++;          System.out.println(j);     } }",2,3,4,5,C,1
+1c9ef637-22b9-4f9a-859d-74b8a9cf8f38,89,"关于以下application的说明，正确的是（ ） 1．  class   StaticStuff  2． {   3．                  static  int  x=10；  4．                  static  { x+=5；}  5．                  public  static  void  main（String  args[ ]）  6．                  {  7．                       System.out.println(""x="" + x);  8．                 ",4行与9行不能通过编译，因为缺少方法名和返回类型,9行不能通过编译，因为只能有一个静态初始化器,编译通过，执行结果为：x=5,编译通过，执行结果为：x=3,C,1
+1ce44c03-8d8b-4646-848c-5a885b1f51ce,199,编译和运行代码，正确的选项是什么？ class Example {  public static void main(String [] args) { Integer i=null;  method(i); } static void method(int k) { System.out.println(k); } } Select all right answer? ,异常：NullPointerException,异常：NumberFormatException,null,0,A,1
+1de729e9-5b54-4be0-9772-ac7e8552c421,183,"给定下面的类定义,//处应该填入哪条语句？ class Base{ Base(int i){} } class DefCon extends Base{ DefCon(int i){ //XX } }",super();,this();,this(99);,super(99);,D,1
+1f709bbe-3fd1-43ec-b4c1-cbbb99012a7d,82,"针对以下代码问题，下列描述错误的是？ 1 public class SelfIntroduction { 2   public static void main(String[] args) { 3     System.out.println(""姓名：***"") 4     System.out.println(""学号：***""); 5     System.out.println(""班级：软工**班""); 6     system.out.println(""爱好：***""); 7   }",第8行少写“}”，语句不完整,"第4行语法错误，应改为System.out.print(""学号：***"");",第6行没有区分大小写，system应为System,第3行代码没有分号“;”,B,1
+1f9ad9d0-cd4e-4eef-a7e3-baa577e3937f,98,监督学习与非监督学习的主要区别是什么？,监督学习使用有标签的数据，非监督学习使用无标签的数据,监督学习用于分类问题，非监督学习用于回归问题,监督学习需要人工干预，非监督学习完全自动化,监督学习处理静态数据，非监督学习处理动态数据,A,1
+2085c327-6afc-43fe-b969-1c7133755d73,191,关于Java中的LinkedList，以下说法错误的是（  ）,可以通过add(Object obj)方法向链表尾部添加元素,可以通过get(int index)方法根据索引获取元素,删除元素时只能通过remove(Object obj)方法删除第一个匹配的元素,可以在链表的任何位置插入新元素,C,1
+20ce863f-ce92-495c-bb0a-c98dd6494cf5,93,Math.round(21.5)的结果是 （）,22,21,21.5,22.5,A,1
+210c3316-d4ad-4c22-bd01-4fb025e153b9,194,"下列代码运行后的结果是什么？ import javax.swing.*; import java.awt.*;  public class Main {     public static void main(String[] args) {         JFrame frame = new JFrame(""Button Example"");         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);         frame.setSize(300, 200);         JButton button = new J",窗口中没有任何内容,窗口中有一个标签,窗口中有一个按钮,窗口中有一个文本框,C,1
+211ade71-9900-44f6-a5ea-659bbbe57bf7,95,标志着CNN面世的模型是哪个？,LeNet,VGG,AlexNet,ResNet,A,1
+2218918f-393a-4f89-bcb7-a7fc44ce13e2,203,"以下程序是递归删除某个目录下的所有的文件，可以填入到划线处的选项是： public class DeteleFile {  public static void main(String[] args) {   File f=new File(""D:\\cutvideo"");   deteleShowFile(f);    System.out.println(""删除成功"");  }  static void deteleShowFile(File file) {   File [] fileList=file.listFiles();//将文件夹下面的文件取出来存到数组中   for(File",save,delete,close,write,B,1
+23a1e0d0-e360-4c3c-996b-2fc8b67cab4c,110,循环神经网络主要用来处理哪种类型的数据？,静态图像,时序数据,非结构化文本,结构化表格数据,B,1
+23bf1085-5b38-40d5-8251-ac8f32d9a877,181,下面哪两个关键字是类的可见性修饰符(),public和默认的,public和private,private和默认的,protected和默认的,A,1
+252141fe-3413-4f39-b9b6-8ba5943d0a13,84,下列关于分支结构说法错误的是（）,switch支持double类型匹配,switch适合做值匹配的分支选择,if适合做区间匹配,switch中的case值不允许重复，不能用变量,A,1
+2729e334-d955-4e05-860c-c7e9345e3a95,83,"如果int a=9, b=20; 则System.out.printf(""%d,%d"",a--,--b);的输出结果是（ ）。","9,19","10,19","9,20","10,20",A,1
+2a569ea1-c3ec-4c1a-b33e-f8f2eb2f9493,191,以下哪个方法不是Collection接口中的方法（  ）,containsAll(Collection c),retainAll(Collection c),sort(),addAll(Collection<? extends E> c),C,1
+2aa4b606-cc69-40ce-938e-4721b3774a80,84,"在Java中，如下代码输出结果是（ ） public static void main(String[ ] args) { int i=1; switch(++i){ case1: System.out.println(""i是1""); case2: System.out.println(""i是2""); case3: System.out.println(""i是3""); default: System.out.println(""i不符合判断条件""); }}",i是2,"i是1
+i是2
+i是3
+i不符合判断条件","i是2
+i不符合判断条件","i是2
+i是3
+i不符合判断条件",D,1
+2af213f7-07a8-4812-8d74-a538ffd574e9,184,以下说法不正确的是：,所有类中都有toString()方法；,所有类中都有equals()方法；,所有类中都有hashCode()方法；,所有类中都有toObject()方法；,D,1
+2b36b710-83c6-4092-bc04-6674466f7d85,199,自定义异常类是，可以继承的类是：,Error,Applet,Exception 及其子类,AssertionError,C,1
+2b7cbcc0-80e4-4b9d-ad65-39122280d87d,200,假设有一个线程正在运行，调用了 interrupt() 方法后，该线程的中断状态将被设置为（   ）,FALSE,TRUE,null,不确定,B,1
+2c147488-37a3-416a-ad89-cc5cffb1c9c2,96,以下哪个不是深度学习在图像处理领域的应用？,自动驾驶中的物体检测,医疗影像分析,语音识别,图像的风格迁移,C,1
+2ca31da0-9ea8-4af3-ad10-edc5e5d0f80f,196,在Java中，使用以下哪个类可以进行基本的图形绘制？,JFrame,Graphics,Color,Dimension,B,1
+2d255283-7746-4d81-b23c-42c67c5db653,25,"设 A为已定义的类名,下列声明并创建A类的对象a的语句中正确的是?",A a=new A( );,public A a=A( );,A  a=new class( );,a A,A,1
+2d4625cf-84b8-463a-b080-89f1288c72fe,89,下列代码运行结果是什么？ public class hello {  public static int a(int i) {   return b(i);  }  public static int b(int i) {   return c(i+2);  }  public static int c(int i) {   return 2*i;  }  public static void main(String[] args) {   System.out.println(a(10));  } },10,20,22,24,D,1
+2e6fbf11-3047-4ef5-8006-6bea24550229,90,"下列代码的运行结果？ public class Method{      public String show(String name){          String oneself = name + ""今年成年啦""；          return oneself； }      public static void main(String[] args){          Method method = new Method()；          System.out.println(method.show(“小宝”)) } }",没有输出,编译错误,小宝今年成年啦,小宝,C,1
+2ec1a864-3cf1-4ea8-b7cb-cf50f126b35b,105,在进行卷积操作时，如果输入特征图的深度为3，卷积核的深度也应该是？,1,2,3,可以是任意值,C,1
+2f6dc4aa-c884-41bd-9a50-94d9ee49f3dd,186, 现有类A和接口B，以下描述中表示类A实现接口B的语句是,"class  A  implements  B    
+",class  B  implements A,class  A  extends  B,class  B  extends A,A,1
+2fadfd84-24c0-42c7-91f9-b27f8a0e941d,188,下面哪一个是合法的数组声明和构造语句? ,int[] ages = [100];,int ages = new int[100];,int[] ages = new int[100];,int() ages = new int(100);,C,1
+30439c70-67ca-4772-825f-6ab9e1a7af92,200,在 Java 中，关于线程的创建以下哪种说法是正确的是（   ）,只能通过继承 Thread 类来创建线程,只能通过继承 Thread 类来创建线程,不能通过实现 Callable 接口创建线程,以上都不对,B,1
+306956a0-8f44-4c35-9071-29dc0cc49c0f,186,下面关于Java接口的说法错误的是,一个Java接口是一些方法特征的集合，但没有方法的实现,Java接口中定义的方法在不同的地方被实现，可以具有完全不同的行为,Java接口中可以声明私有成员,Java接口不能被实例化,C,1
+307a5faf-8a2f-4d52-af2c-3fd8641ee0dc,80,为了实现如下运行效果的程序，以下变量声明正确的是： ------大连老菜------ [0] 红油里脊 [1] 咸鱼饼子 [2] 三鲜焖子 [3] 清蒸牙片 [4] 干炸蛎蝗 请输入您想品尝的两道菜，中间用空格隔开[0~3]：1 3 您刚点的菜是 1 和 3,"int choice1 = 0,
+int choice2 = 0;","int choice1 = 0,int choice2 = 0;","int choice1 = 0,choice2 = 0;",以上声明都不对,C,1
+30cef4c3-6dc0-455b-a29e-a96966710dc9,191,下面关于Java中ArrayList的描述正确的是（  ）,存储元素个数可变,不允许重复元素,线程安全的,无法通过索引访问元素,A,1
+31a3c87d-fbaf-400f-a754-b623a2ed72dd,198,"编译和运行以下程序，运行结果是什么？ public class Test{   static int thrower() throws Exception {   return 42;  }   public static void main(String[] args) {    try {    int x  = thrower();   } catch (Exception e) {     x++;   } finally {    System.out.println(""x = "" + x);   }   } } ",x = 42,x = 43,编译失败,代码能运行，但无输出,C,1
+31c5162c-14e6-4667-b17a-6c25d9a120d9,85,下面程序段完成后，t的值是多少？ int n = 6; int sum = 0;   // 合计值 int t = 127; for (int i = 0; i < n; i++) {    t -= 50;    if (t < 0) {        continue;    }    sum += t; },127,0,-23,-173,D,1
+32e3f32c-d84d-4035-b76e-ea7c07b22544,181,"以下代码需要补充完整，关于添加的语句说法正确的是 public class Point {     private double x;     private double y;      public Point(double x, double y) {         this.x = x;         this.y = y;     }      public void getDistance(Point p) {         double d = (this.x - p.x) * (this.x - p.x) + (this.y - p.y) * (this.y - p.y)",p1.setX(1);,p1.x=1;,p1.getX(1);,无法修改，因为x为private修饰的属性，并且类Point没有提供set方法,D,1
+34fa7c34-1c7f-4357-b538-d580994bdfea,91,"class Clidders { public final void flipper() {  System.out.println(""Clidder""); } } public class Clidlets extends Clidders { public void flipper() { System.out.println(""Flip a Clidlet""); super.flipper(); } public static void main(String [] args) { new Clidlets().flipper(); } } 选择正确的选项：",Flip a Clidlet,Flip a Clidder,"Flip a Clidder
+Flip a Clidlet",Compilation fails.,D,1
+3516b8e1-a037-4dac-ac7f-4028721306b7,82,"运行下列代码后，控制台输出的值是多少？ public class PrintfDemo {      public static void main(String[] args){             int num1 = 20;             float num2 = 5.3f;             double num3 = 4.28;             double result = num1 + num2 * num3;             System.out.printf(""%.5f"",result);      } }",42.684,42.6840008163452,42.68400,编译错误,C,1
+3537817b-31af-4d79-99c1-76eaba35f184,89,"下列代码运行结果是什么？ public class hello {  public static void sum(int i,int j) {   System.out.println(i+j);  }  public static void main(String[] args) {   sum(2,3);  } }",2,3,4,5,D,1
+35c36092-b1cf-475d-8488-92bc24d7c22d,182,下面关于静态代码块的说法正确的是（  ）,静态代码块在类加载时执行，只执行一次,静态代码块可以访问类的实例变量和实例方法,每个类的实例都会执行一次静态代码块,静态代码块只能放在类的最前面,A,1
+35c56558-190e-4754-89d0-095936b128ba,180,"阅读以下代码，当创建Person对象并调用display方法时，输出结果是什么（  ） public class Person {     private String name;     private int age;     public Person() {         name = ""Unknown"";         age = 18;     }     public Person(String name, int age) {         this.name = name;         this.age = age;     }     public void di","Name: Unknown, Age: 18","Name: Alice, Age: 25","Name: null, Age: 0",编译错误,B,1
+36bd9baf-d6cc-4963-abb6-ed1d6b93c862,186,在Java接口中定义常量，下面语法错误的是,static int MALE = 1;,final int MALE = 1;,int MALE = 1;,private int MALE = 1;,D,1
+37eb9e02-1650-4195-ba20-82b61a496765,80,"阅读以下程序代码，判断以下说法错误的是： 1 public class Demo{ 2      public static void main(String[] args){ 3             int num1 = 20; 4             float num2 = 5.3f; 5             double num3 = 4.28; 6             char c = 'x'; 7             boolean flag = true; 8             String s = ""Hello world!"" 9           ",第3行 定义一个int型的变量num1并赋值为20,"第4行 定义一个float型的变量num2,并赋值为5.3f","第6行 定义一个char类型的变量c,并赋值为'x'","第7行 定义一个布尔型的变量flag,其赋值应该为“true”，上面的程序应该加双引号",D,1
+381be9f3-15d1-4afe-b359-1e2b0fa9d511,109,在图像识别任务中，卷积神经网络通常用来识别图像中的哪种内容？,文本内容,物体边缘,物体类别,颜色分布,C,1
+38213bdc-ddce-44cc-ba11-67123f95ab3d,200,如果一个线程在等待一个对象上的锁，而该锁被其他线程持有，那么这个线程将进入（   ）状态。,新建,可运行,阻塞,死亡,C,1
+3848266c-a6e8-4f88-bd0b-0ba9f61475a2,105,卷积神经网络（CNN）中的“卷积层”主要作用是什么？,增加网络的深度,减少计算量,提取图像特征,所有以上选项,C,1
+387bdfdf-ad24-4b81-a55e-ace0a06cb527,84,下面的方法，当输入为2的时候返回值是多少:（  ) public int getValue(int i) {          int result = 0;          switch (i) {             case 1:                 result = result + i;             case 2:                 result = result + i * 2;             case 3:                 result = result + i * 3;         }         r,0,2,4,10,D,1
+39043389-02e2-48a8-831f-a5b4f3611941,83,在Java中“小于等于”的比较操作符是（   ） 。, <<, =<, !=, <=,D,1
+39380f60-678a-4f1d-b0c2-1592899f98c4,97,Keras中的model.fit()方法用于什么？,训练模型,评估模型,预测新数据,可视化模型结构,A,1
+39aeed13-e633-4112-bf34-0c91b2b23eee,183,下列代码的输出结果是？ class Uber { static int y = 2; Uber(int x) { this(); y = y * 2; } Uber() { y++; } } class Minor extends Uber { Minor() { super(y); y = y + 3; } public static void main(String [] args) { new Minor(); System.out.println(y); } },6,7,8,9,D,1
+39d3847e-d649-42d9-b721-67820595a566,200,在 Java 中，线程的状态不包含以下哪个（   ）,新创建,可运行,已终止,已完成,D,1
+39ee357c-f7fa-43fd-80f1-f0d491d1866d,195,点击JButton对象产生的事件类型是（ ）,ActionEvent,TextEvent,KeyEvent,MouseEvent,A,1
+3a182ec0-3a2e-4d1e-80c2-ab6fcddfa31c,180,"有以下Student类的定义： public class Student {     private String name;     private int age;     private String gender;     // 构造函数和其他方法省略 } 现在需要创建一个Student对象，要求name为""Tom""，age为20，gender为""male""，并且使用构造函数进行初始化。以下哪个选项是正确的构造函数定义和使用方式（  ）","public Student(String name, int age, String gender) { this.name = name; this.age = age; this.gender = gender; }，然后在主方法中使用new Student(""Tom"", 20, ""male"");","public Student(String name, int age) { this.name = name; this.age = age; }，然后在主方法中使用new Student(""Tom"", 20);，再单独设置gender = ""male"";","public Student(String name, String gender) { this.name = name; this.gender = gender; }，然后在主方法中使用new Student(""Tom"", ""male"");，再单独设置age = 20;","public Student() {}，然后在主方法中使用new Student();，再分别设置name = ""Tom""; age = 20; gender = ""male"";",A,1
+3c7ce604-0cc0-48d3-9b95-203472ed797f,104,在网络优化中，什么是欠拟合？, 模型在训练集上表现良好，但在测试集上表现不佳。,模型在训练集和测试集上的表现都很差。,模型在训练集上表现过于完美，但在测试集上性能显著下降。,模型无法区分训练数据中的不同类别。,B,1
+3cbf15c8-ba8b-45b5-8cad-46c25a556dc4,196,"以下代码段将绘制什么图形？ Graphics g = ...; g.fillOval(20, 20, 80, 40); ",空心椭圆,填充椭圆,空心圆,填充圆,B,1
+3dba8974-41b6-41d0-b665-1bbc67bf0dff,187,补充以下代码，缺少的语句应该为 interface CanFly {  void fly(); } class Balloon implements CanFly{ //缺少的语句 } public class Test1 {   public static void main(String[] args) {   CanFly balloon=new Balloon();   balloon.fly();  } }," public void fly() {
+ System.out.println("" Balloon can fly. "");  
+ }", void fly();,"void fly() {
+ System.out.println("" Balloon can fly. "");  
+ }",以上答案都不对,A,1
+3df9d2e2-99ef-49b9-bc16-b829748513cb,202,字节流有两个抽象基类（）和 （），分别处理字节流的输入和输出。,InputStream;FileReader;,InputStream;OutputStream;,FileReader；OutputStream;,FileReader;FileWriter;,B,1
+3f40d492-3adf-45c9-b1c3-fe9437f8123f,191,在Java的集合框架中，下列哪个类实现了List接口并且允许存储重复的元素（  ）,HashSet,TreeSet,LinkedList,HashMap,C,1
+40cfe7aa-d898-4172-ab15-1e71ed2569f8,198,假设有自定义异常类MyException，那么抛出该异常的语句正确的是 ,throw new Exception(),throw new MyException(),throw MyException,throws Exception,B,1
+41805754-97bb-4f5b-bc72-d2a41eb056a2,190,"编译和运行以下代码的结果是什么？ class Example {   public static void main(String [] args) {  String elements[]={""for"",""tea"",""too""};    String first=(elements.length>0)?elements[0]:null;    System.out.println(first); } } ",编译失败,运行时引发的异常,打印：空,打印：for,D,1
+419548d3-e2fe-4149-af92-5022c321b878,204,"以下是JDBC连接数据库的部分代码，下列选项中，可以被填入到划线处的是：  String url = ""_____:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=true""; String username=""root""; String password=""123456""; Connection connection = DriverManager.getConnection(url,username,password); ",http,ws,tcp,jdbc,D,1
+42101dc1-1551-4f5c-adff-c40d853776eb,194,以下关于JTextField的描述，不正确的是（ ）,可以获取文本框上的文本,可以修改文本框上的文本,可以在文本框中添加图标,可以设置文本框是否可编辑,C,1
+42138bde-849a-4611-93a2-9344ffd21ecb,98,机器学习的主要目的是什么？,让计算机自动编程,使计算机能够从数据中学习并改进其性能,替代人类进行所有决策,预测股票市场的未来走势,B,1
+43a261d9-bd70-4fdb-9c9c-d1a07d98c860,200,在多线程编程中，如果希望一个线程等待另一个线程完成某个任务后再继续执行，可以使用以下哪个机制（   ）,线程的 join()方法,线程的 sleep()方法,对象的 wait()方法,对象的 notify()方法,A,1
+44e5ad5c-b26b-4861-8e9d-7498d19df6a1,186,在Java接口中，下列选项中属于有效的方法声明是,public void aMethod();,void aMethod();,void aMethod(){},private void aMethod();,B,1
+454600d2-eae5-47d4-8c8c-6420a4e76d54,204,"以下是JDBC连接数据库的部分代码，关于划线处，下列选项中说法正确的是：  String url = ""jdbc:mysql://localhost:3306/______?useUnicode=true&characterEncoding=utf8&useSSL=true""; String username=""root""; String password=""123456""; Connection connection = DriverManager.getConnection(url,username,password); ",应填入用户名和密码,应填入数据库名,应填入表名,应填入编码名称,B,1
+458b9373-9cb0-441b-b1fa-24fa5d6a249e,198,"public class Test {  static int thrower() throws Exception {   return 42;  }  public static void main(String[] args) {   int x =0;   try {     x = thrower();   } catch (Exception e) {     x++;   } finally {    System.out.println(""x = "" + ++x);   }  } }",x = 42,x = 43,编译失败,代码能运行，但无输出,B,1
+45dbf4bd-cebb-4564-a3f7-6f91f179c5ab,192,在Java的Map集合中，哪个方法用于获取指定键所对应的值？,get(),put(),remove(),containsKey(),A,1
+45e876c6-48f4-42ca-b0ef-7bcbfcb2a42e,190,"int[] arr = {2, 4, 6, 8};     下列哪个选项正确实现了对数组’arr’的遍历？","for (int i = 0; i <= arr.length; i++) {
+       System.out.println(arr[i]);
+   }","for (int i = 0; i < arr.length; i++) {
+       System.out.println(arr[i]);
+   }","for (int i = 1; i <= arr.length; i++) {
+       System.out.println(arr[i]);
+   } ","for (int i = 0; i < arr.length - 1; i++) {
+       System.out.println(arr[i]);
+   }",B,1
+45ed6357-3fff-4981-8944-499f1dc06d69,197,以下哪个方法是JFrame用于设置其关闭操作的？,setCloseable(true),setDefaultCloseOperation(),close(),dispose(),B,1
+466330ff-7b06-4ccf-9df8-71a3d54801d8,185,"当你试着编译运行下面的代码的时候，可能会发生什么？ abstract class Base{ abstract public void myfunc(); public void another(){ System.out.println(""Another method""); } } public class Abs extends Base{ public static void main(String argv[]){ Abs a = new Abs(); a.amethod(); } public void myfunc(){ System.out.println(""My func"");","编译正确，输出： ""My Func""",编译错误： 提示Base类没有抽象方法,编译正确，但运行时提示Base类没有抽象方法,以上都不对,A,1
+476224ca-ee56-4215-9c60-3f46cf1f3bcc,182,关于静态方法和实例方法的区别，以下说法错误的是（  ）,静态方法可以直接通过类名调用，实例方法必须通过对象调用,静态方法只能访问静态成员变量和静态方法，实例方法可以访问所有成员变量和方法,静态方法没有 this 关键字，实例方法有 this 关键字,静态方法不占用内存空间，实例方法占用内存空间,D,1
+4857e87d-c04c-4665-b3d9-2a68d445b8c8,104,以下哪种情况最可能表明模型发生了过拟合？,训练误差和测试误差都很低,训练误差很低，但测试误差很高, 训练误差和测试误差都很高,训练误差很高，但测试误差很低,B,1
+48a728ae-fce6-4609-b612-d2598051cac1,179,"关于这条语句Point2D[] p = new Point2D[] {new Point2D(3, 7), new Point2D(4, 6)};，说法正确的是",创建了1个Point2D类型的对象 p,创建了3个Point2D类型的对象，因为new Point2D 出现了3次,创建了2个Point2D类型的对象，对象名为p,创建了2个Point2D类型的对象，存放于数组p中,D,1
+48b36903-56b7-4823-b510-7394b505795b,25,下面类的定义中结构正确的是 ?,class A,class 2A,int class A,public  class A (),A,1
+4a0dbdad-ba6a-465e-bcae-c53612352d9e,81,为了实现如下运行效果的程序，以下变量声明正确的是： What's your name? My name is Runner Hello Runner ！,String name = null;,string name = “”;,char name = ‘’;,Char name = “”;,A,1
+4a28faaf-94a3-4841-8507-3c6ea7e66725,192,在Java中，以下哪个类是线程安全的Map实现，并且基于跳表数据结构？,Hashtable,ConcurrentHashMap,TreeMap,LinkedHashMap,B,1
+4a63b034-03ad-40c6-a1fb-a518b433c76d,184,关于Object类说法正确的是：, Object类是所有类的父类,B: Object类是所有类的子类,Object类是所有自定义类的父类, Object类是用户自定义的类,A,1
+4abc41bb-6228-47eb-9417-5ada68ea11d7,204,在JDBC中，以下哪个类用于管理数据库驱动程序的加载和连接？,DriverManager,Connection,Statement,ResultSet,A,1
+4ad8ad0b-5f75-4888-ab9d-49c8a0da4f3d,182,静态成员变量的生命周期是（  ）,从对象创建到对象销毁,从类加载到类卸载,从主方法开始到主方法结束,不确定，取决于具体的使用情况,B,1
+4b4f9c1d-7363-427a-b33c-8548f452eec8,93,下面是正确的正则表达式的是（），此正则表达式用来匹配8位数字或者字母,"String userRegex=""[\\w&&[^_]]{8}"";","String userRegex=""[\\w&&[_]]{8}"";"," String userRegex=""[\\w&&[^_]]{18}"";","String userRegex=""[\w&&[^_]]{8}"";",A,1
+4c51bf1f-00b5-4e42-b9a4-6d44d9bc5ca7,196,以下是一个自定义绘制面板的代码片段，其中缺少了一部分，请选择正确的代码补全。 public class MyPanel extends JPanel {     @Override     protected void paintComponent(Graphics g) {         super.paintComponent(g);         // 在这里添加绘制代码     } } ,"g.drawString(""Hello, World!"", 50, 50);",Graphics2D g2d = (Graphics2D) g;,setBackground(Color.WHITE);,repaint();,D,1
+4cbe402c-2aed-4d27-b3f6-992cbeee1060,178,请选择缺少的代码。 public class Employee {   String name;   double basePay;   double bonus;  public double calculateSalary() {   double income =  basePay+bonus;   //需要填入代码  } },return income;,System.out.println(income);,return name;,不需要填入代码,A,1
+4cd1c405-93c6-48f0-a5ce-3aea11adfd0d,181,下列选项中关于Java中封装的说法错误的是,封装就是将属性私有化，提供共有的方法访问私有属性,属性的访问方法包括setter方法和getter方法,setter方法用于赋值，getter方法用于取值,包含属性的类都必须封装属性，否则无法通过编译,D,1
+4ce6b439-54ce-4243-89ad-d4b1ee701cce,192,在Java中，以下哪个方法用于从Map中移除指定键及其对应的值，并返回该值？,remove(Object key),clear(),delete(Object key),erase(Object key),A,1
+4ed2e9e7-1423-4931-bb35-112cc6e6d738,202,"以下程序的作用是从一个文件中读取文件并输出，下列那个选项适合填入到程序中的两个划线处？   public class Example {     public static void main(String [] args)     {         _______ fis = null;         try {             fis = new _______(""chapter23/src/tempfile3"");                         byte[] bytes = new byte[4];             int readCount = 0",InputStream,OutputStream,FileInputStream,FileOutputStream,C,1
+4ed6b3d1-de98-4074-9bf0-c047e2769bc1,184,若在某一个类定义中定义有如下的方法:final void  testMethod( ) 该方法属于 ?,本地方法,最终方法,静态方法,抽象方法,B,1
+4efce54e-ba32-475b-88d9-65a54077e5b5,83,"下面代码的输出结果为（ ） int m = 5,n = 6; int x = (m++) + n; int y =(–m) + n; System.out.print(“x=” + x+ “,”); System.out.println(“y=” + y);","x=11,y=0","x=10,y=11","x=10,y=12","x=12,y=10",A,1
+4f0e3541-5597-45fd-9606-ef2efd81a179,108,以下哪个不是典型的CNN架构？,LeNet,AlexNet,LSTM,ResNet,C,1
+4f51ae7d-05c7-4e5e-8384-f62c0549b915,95,鲁姆哈特（Rumelhart）提出了什么模型或算法解决线性不可分问题？,感知机（Perceptron）,决策树,支持向量机（SVM）,反向传播算法（Backpropagation）,D,1
+503c3ba0-a63d-4d9e-a74d-7602a783478b,85,下面程序段完成后，sum的值是多少？ int n = 6; int sum = 0;   // 合计值 int t = 127; for (int i = 0; i < n; i++) {    t += 200;    if (sum + t > 1000) {       break;    }    sum += t; },0,854,127,1581,B,1
+50813f4c-2631-4fef-9aea-4985f373c8c0,198,"编译和运行以下代码 class Example{         public static void main(String[] args){         try{               trythis();               return;                 }        catch(IOException x1){                         System.out.println(""Exception1"");                         return;                 }            ","exception1
+finally",exception1,"exception2
+finally",无显示,C,1
+50af4499-8e16-4dec-aa76-9b74b1488a88,198,编译和运行以下代码的结果是什么？ class Example {     public static void main(String []args)    {        System.out.println(3/0);    } } ,编译器错误,语法错误,java.lang.ArtithmeticException异常：输出为0,无限大的数,C,1
+50c66ba2-b2c6-49a2-9188-3d0566eaf80f,197,以下哪个方法用于请求重新绘制JPanel的内容？,invalidate(),validate(),repaint(),update(),C,1
+5202a677-68d2-48e8-9cae-7d664b3d25b2,93,随机生成10内整数，下面正确的是（）,"Scanner scanner=new Scanner(System.in);
+int number=scanner.nextInt(10);",int number=scanner.nextInt(10);,int number=random.nextInt(12);,"Random random=new Random();
+ int number=random.nextInt(10);",D,1
+5223370a-282c-479e-ae25-4374d68d04e2,83,下面程序段： boolean a = false; boolean b = true; boolean c = (a && b) && (!b); boolean result = (a & b) & (!b); 执行完后，正确的结果是（）。,c=false; result=false;,c=true; result=true;,c=true; result=false;,c=false; result=true;,A,1
+52588a61-b940-4910-bff9-5db96596f7ae,94,深度学习中的“深度”通常指的是什么？,神经网络的宽度,神经网络的层数,神经网络的复杂度,神经网络的学习能力,B,1
+531f99cb-e87c-44a2-80a6-1a5a1ff1b838,179,下列代码运行结果是什么？ class Example {   int x=12; public void  method(int x) {    x+=x;    System.out.println(x); } public static void main(String [] args) {     Example t=new Example();    t.method(5); } },5,10,12,17,B,1
+53636cdf-c53b-4106-957e-988d06d0e957,89,"每个类都定义有( ) ,以便初始化其成员变量",方法,main() 方法,构造方法,对象,C,1
+53925953-851a-4f86-a11c-a93390c7554c,83,"下面代码编译运行之后，输出结果将是：（    ）。 public class Test{    public static void main(String args[ ]){         int x=4;         System.out.println(""value is ""+ ((x>4) ? 99.9 :9));     } }",value is 99.99,value is 9,value is 9.0,编译错误,C,1
+53aac221-1205-4858-bde9-d2ec4eca3ae5,205,在JDBC中，以下哪个方法用于执行SQL查询并返回结果集？,executeUpdate(),executeQuery(),execute(),getConnection(),B,1
+55e06f26-935c-4f1d-9ed6-59a0e7b50156,201,假设有一个类 Resource，其中有一个方法 methodA() 被 synchronized 修饰。如果有两个线程对象 thread1 和 thread2，分别创建了 Resource 类的两个不同对象 resource1 和 resource2。当 thread1 正在执行 resource1 的 methodA() 方法时，thread2 可以同时执行（  ）的 methodA() 方法。,resource1,resource2,thread1 和 thread2 都可以,都不可以,B,1
+564e76a4-d58d-4822-b64f-33809661082c,184,在Person类中，我们重写了equals()方法，以便比较两个Person对象是否具有相同的name和age属性。在比较name属性时，我们使用了String类的（      ）方法来确保比较的是字符串的内容而不是引用。,==,equals(),=,indexOf,B,1
+568be0ef-f77f-4560-812a-ff1a111f39d8,92,下面代码运行的结果是(     ) ArrayList<String> al = newArrayList<String>(); al.add(true); al.add(123); al.add(“abc”); System.out.println(al);,编译失败 ,"[true,123]","[true,123,abc]",[abc],A,1
+577447c5-d139-42d5-9571-0c5eb720b2c0,191,在Java中，要实现元素的自然排序和定制排序，可以使用以下哪个接口（  ）,Comparable,Iterable,Collection,Comparator,D,1
+57e9a9dc-1a57-4bbe-a606-73ed762c1053,200,如果一个线程被另一个线程中断，那么被中断的线程会抛出（   ）异常。,InterruptedException,ThreadInterruptedException,InterruptException,ThreadException,A,1
+5829c9ae-d7dd-449c-bf7d-f6f9eec6822f,190,"以下代码编译和运行，输出结果是？ public static void main(String[] args) {         char s1[] = ""ABCDEF"".toCharArray();         int i=0;         while (s1[i++] != '\0'){             System.out.println(s1[i++]);         }     }",ABCDEF,输出BDF后报运行错误,ABCDE,BCDE,B,1
+58c991ae-cf25-4090-8965-c7aefa1f8d20,88,"编译和运行以下代码的结果是什么？ class Example {   public static void main(String [] args) {  String elements[]={""for"",""tea"",""too""};    String first=(elements.length>0)?elements[0]:null;    System.out.println(first); } } ",编译失败,运行时引发的异常,打印：空,打印：for,D,1
+58ec7fed-87e4-4bc3-9e87-79fa9f270482,179,"以下代码的运行结果是？ class User{public int i=10;} class Example {   public static void main(String [] args) { Example o=new Example();   o.amethod();   } public void amethod() {   int i=99;    User v=new User();    v.i=30;    another(v, i); System.out.println (v.i); } public void another(User v,int i) { i=0;",10 0 30,10 0 20,20 0 30,20 99 30,B,1
+596a9986-d77a-4e23-bf59-0dd11ab4096b,190,"定义一个数组a：int[ ]  a={1,2,3,4,5,6,7,8,9,10},为了打印输出数组a的最后一个数组元素，下面正确的代码是(  )。",System.out.println(a[10]);,System.out.println(a[9]);,System.out.println(a[a.length]);,System.out.println(a(8));,B,1
+5a36f1bf-fc59-4099-8527-a8d9f949e6d0,185,以下描述错误的有( ),abstract 可以修饰类、接口、方法,abstract修饰的类主要用于被继承,abstract 可以修饰变量,abstract修饰的类，其子类也可以是abstract修饰的,C,1
+5c0a162f-88cd-4fa3-86ab-63c9025e10a8,113,在模式识别中，特征提取的目的是什么？,减少数据的存储需求,提高数据的可读性,提取出对分类或识别有用的信息,去除数据中的噪声,C,1
+5c6dc181-2c47-4f28-bca3-8dc7df51bc24,194,在BorderLayout布局中，在容器P的下面添加一个表签L使用的语句是（ ）,P.add(L),"P.add(L,”South”)","P.add(L, ”North”)","L.add(P, ”North”)",C,1
+5c743793-2742-407d-a6fb-069afdd6daad,189,"int[] arr = {1, 2, 3, 4};     如果想将数组中的最后一个元素4修改为10，正确的方式是：",arr[4] = 10;,arr(4) = 10;,arr[3] = 10;,"arr.set(4, 10);",C,1
+5cd351fa-bc66-49ad-ba9c-42591ef58148,180,如果一个类中有多个构造函数，以下说法正确的是（  ）,只能调用其中一个构造函数来创建对象,可以同时调用多个构造函数来创建对象,构造函数的调用顺序是随机的,构造函数的调用顺序是从右到左依次调用,A,1
+5d970e0c-52dc-45f2-84c9-9441d2dfcb5c,85,"当编译并运行下列程序段时，运行结果是什么？     public static void main(String[ ] args) {         int i=0;         while (i--<0){              System.out.println(""The value of i is ""+i);          }          System.out.println(""The end"");      }",编译时错误,运行时错误,The end,The value of i is 0,C,1
+5e1f7e26-0f8e-4c57-aca5-a60f9626226a,189,下面哪种写法可以实现访问数组arr的第1个元素?,arr[0],arr(0),arr[1],arr(1),A,1
+5e3d391c-8fdb-4c40-ab9c-6b938044aada,197,在Java中，若想将大量数据以图形化方式展示，如绘制柱状图、折线图等，通常会使用哪个库？, java.util,java.io,JFreeChart,java.sql,C,1
+5eb17057-29b3-4b6d-a873-6d5fd4acaa8a,193,以下哪个类可以用于存储泛型对象？,Vector,ArrayList<T>,Hashtable,"HashMap<String, Object>",B,1
+5f0de0be-582f-4c49-8d9e-03a9ef1857ec,85,下面程序中，y输出的是：（  ） int y = 0; for (int i = 0; i<10; ++i) {     y += i; } System.out.println(y);,45,12,11,10,A,1
+5f0f2f9b-a7fc-464a-ad4f-703325ccfbb3,85,假设有如下程序： public class Demo {       public static void main(String args[]) {              int sum = 0 ;             int x = 10 ;             while (x > 0) {                 sum += x ;                         }             System.out.println(sum) ;        } } 请问程序最终的执行结果是什么？,55.0,10.0,程序错误，死循环,15.0,C,1
+5f228d22-3efc-4356-ae10-5fc7466599c7,85,在Java中，以下程序段的输出结果是（  ）。         int n=9;         while(n>6){             n--;             System.out.print(n);         },987,876,8765,9876,B,1
+5f2817f5-0167-4fb6-916e-f0b6b955b061,90,在某个类中存在一个方法：void getSort(int x)，以下能作为这个方法重载声明的是(  )。,public getSort(float x),int getSort(int y),"double getSort(int x,int y) ","void get(int x,int y)",C,1
+5f60473f-3325-4211-a38e-2384bd6cdb7b,108,ResNet模型的核心思想是什么？,多尺度卷积,深度可分离卷积,残差连接,全局平均池化,C,1
+6173ef4d-9877-4078-9be5-fadb05f4758e,90,"下列代码运行结果是什么？ public class hello {  public static void sum(int i,int j) {   System.out.println(i+j);  }  public static void main(String[] args) {   sum(2,3);  } } ",2,3,4,5,D,1
+617b2c73-bd63-4e5d-a70b-6b4d93340848,90,下列代码，前者与后者是重载关系的是？,public void show(){}和public void show(int num){},public void show(){}和public void print(int num){},public void show(){}和public int show(int num){},public void show(int a){}和public void show1(int b){},A,1
+61d42485-5e0a-423b-8e5e-49c1c44a2cb3,195,"JButton button = new JButton(""Click me!""); button.addActionListener(new ActionListener() {     public void actionPerformed(ActionEvent e) {         // Do something when the button is clicked     } }); 当按钮被点击时，以下哪项会触发？",actionPerformed 方法,button对象的构造函数,addActionListener 方法, actionPerformed 方法不会触发,A,1
+62400358-4d94-44ce-8f63-5e5263afe045,85,分析下列代码的运行结果是什么？     int x=0;     one:     while(x<20) {         two:             System.out.print(++x);             if(x>3)               break two;     },编译错误,0,1,2,A,1
+629de7eb-c0d9-4995-83f3-1799561cbc6c,79,运行下列代码后，控制台输出的值是多少？ public class Test {     public static void main(String[] args) {         long bigNumber = 1000000000L;         long smallerNumber = bigNumber;         bigNumber *= 2;         System.out.println(smallerNumber);     } },1000000000,2000000000,500000000,编译错误,A,1
+62c56fe0-8433-43d0-9622-3dc7ac35096f,86,下面关于数组定义语句不正确的是(  )。,"int[ ]  a1,a2; ","int a0[ ]={11,2,30,84,5}; ",double[] d=new double[8]; ,"float f[ ]=new  {2.0f,3.5f,5.6f,7.8f};",D,1
+6311b02e-71a2-4d69-9aa0-671da5c5fb5a,97,下列选项哪个不是深度学习框架？,TensorFlow,PyTorch,Scikit-learn,PaddlePaddle,C,1
+63a50046-28a7-4eda-8895-6986bbb17fbc,79,运行下列代码后，控制台输出的值是多少？ public class Test {     public static void main(String[] args) {         byte b = 100;         int i = b;         System.out.println(i);     } },100,-100,256,编译错误,A,1
+63aeeb84-a3e6-4501-befc-1ae85d5edaf0,79,运行下列代码后，控制台输出的值是多少？ public class Test {     public static void main(String[] args) {         char c = 'A';         int i = (int) c;         System.out.println(i);     } },65,97,0,编译错误,A,1
+63c29c15-127d-4c4b-a066-d2edfcff080c,200,在 Java 中，以下哪个关键字可以用来创建同步方法或同步代码块（   ）,static,final,synchronized,abstract,C,1
+63c89d14-2e31-45ce-809a-a16caba4365e,193,以下关于泛型通配符<?>的说法，哪个是正确的？,它表示集合中只能存储一种未知类型的对象。,它表示集合中可以存储任何类型的对象。, 它表示集合中不能存储null值。,它用于限定集合中的元素必须是某个特定类型的子类。,B,1
+64f6d817-91d1-4a1d-bd03-38f5d1ab26ed,196,在Java中，用于旋转图形的方法是？,rotate(double theta),turn(double theta),spin(double theta),twist(double theta),A,1
+64fc9a6c-5518-4cb8-b0b3-cabf660f7d77,199,以下代码中，哪一行会抛出自定义异常？ class MyException extends Exception {} public class Test {     static void validate(int age) throws MyException {// 第 2 行         if (age < 18) {             throw new MyException();         }     }     public static void main(String[] args) {// 第3 行         try {             vali,第 1 行,第 2 行,第 3 行,不会抛出异常,A,1
+651aee42-8804-49e1-acfd-71e6912e89d6,199,"以下代码的运行结果是什么？ class MyException extends Exception {} public class Test {     public static void main(String[] args) {         try {             throw new MyException();         } catch (MyException e) {             System.out.println(""Caught MyException"");         } catch (Exception e) {            ",编译错误,"输出 ""Caught MyException""","输出 ""Caught Exception""",运行时错误,B,1
+6581169b-bbdf-4fee-b1bd-d1f83f1a1231,90,"ReturnType  method(byte x, double y)                             {     return  (short)x/y*2; }  ReturnType可以是什么类型？",byte,short,int,double,D,1
+66456382-13b0-4676-81e7-423ad29d7066,94,深度学习相比传统机器学习，其主要优势通常在于什么？,需要更少的数据,更快的训练速度,自动提取特征,更容易的解释性,C,1
+6666a4ec-1af1-462a-9f21-d42dcd0d9d15,196,如果要填充一个圆形区域，应该使用以下哪个方法？,drawOval,fillRect,fillOval,drawRoundRect,C,1
+6745f8aa-a54f-4149-a2ad-075df76b2616,179,"关于下面Java语句说法错误的是 Account shuke = new Account(); // 舒克的账户 shuke.name = ""舒克""; // 舒克的账户名 shuke.no = ""6226 1111""; // 〃的账号 shuke.balance = 1000; // 〃的可用余额 ","创建了1个对象名为shuke
+",创建了3个对象，分别为shuke.name、shuke.no和shuke.balance,可以得出Account至少有3个属性，分别为name、no、balance,"可以得出Account至少有2个String类型的属性，分别为name、no
+",B,1
+67548d41-eacd-494a-8015-fab0f7daa1fb,80,为了实现如下运行效果的程序，以下变量声明错误的是： ---------- [0]录入学生信息 [1]修改学生信息 [2]删除学生信息 [3]查询学生信息 请输入您要执行的功能编号[0~3]：2 您刚选择的功能编号是 2,double choice = 0.0;,char choice = ‘0’;,String choice = “0”;,int choice = 0.0;,D,1
+6903a0de-e70d-4611-aa5d-33c97daf17a2,183,"下列代码的输出结果是？ class Clidders { public final void flipper() {  System.out.println(""Clidder""); } } public class Clidlets extends Clidders { public void flipper() { System.out.println(""Flip a Clidlet""); super.flipper(); } public static void main(String [] args) { new Clidlets().flipper(); } }",Flip a Clidlet,Flip a Clidder,"Flip a Clidder
+Flip a Clidlet",编译失败,D,1
+69a457cd-9963-4b7d-9af5-00a15876a799,201,在 Java 中，使用 wait() 方法导致线程等待时，以下哪种情况不会导致线程被唤醒（   ）,另一个线程调用了同一对象的 notify() 方法,另一个线程调用了同一对象的 notifyAll() 方法,该线程自己调用了 wait() 方法,另一个线程中断了正在等待的线程,C,1
+69cb2371-0c25-4c28-a190-db3ab4081d73,188,"声明一个数组,__[ ] a = new String[]{};空格处应该填写的的内容为",int,double,String,string,C,1
+69cb5929-565e-48e1-bb38-3ce9d03b92c9,180,"在Java中，以下代码片段中的两个Person对象的name属性是否相同（  ） Person p1 = new Person(""John""); Person p2 = new Person(""John""); ",相同，因为它们都指向同一个引用,"相同，因为它们的名字都是""John""",不相同，因为它们是两个不同的对象实例,无法确定,C,1
+6b2879ba-1d17-49d3-a754-ca142d7328b9,84,下列Java程序段的输出结果是？ int a = 0 ; while ( a < 5 ) {     switch(a){         case 0:         case 3 : a = a + 2;         case 1 :         case 2 : a = a + 3;         default : a = a + 5;     } } System.out.print ( a ) ;,0,5,10,其他,C,1
+6bd20ba6-ccc8-42ab-a12e-c5de5478cb71,93,下面将字符串转换为整数类型的操作正确的是（）,"String string=""12345"";
+int number=new Int(string);
+",int number=Int(string);,"String string=""12345"";
+int number=Integer.parseInt(string);",int number=Parse(string);,C,1
+6bdc2fcc-790d-4ce4-a82a-99fcc8fde7f0,186,定义接口的属性的修饰符为,static final,public  static,public  static final,public final,C,1
+6bff31e3-1ffe-476d-978c-0da54c73d518,93,"对于下列代码： String str1 = ""AAA软件教育"";  String str2 = ""AAA软件教育"";  String str3 = new String(""AAA软件教育"");  StringBuffer str4 = new StringBuffer(""AAA软件教育""); 以下表达式返回 true 的是（ ）",str1 == str2 ,str2 == str3 ,str1 == str4 ,str3 == str4 ,A,1
+6d86e62b-ae2d-46c6-9873-0d14854d147b,202,"以下程序的作用是向一个文件中写入数据，下列那个选项适合填入到划线处？   public class FileOutputStreamTest01 {     public static void main(String[] args) {         _______ fos = null;         try {             fos = new __________(""tempfile3"", true);             String s = ""我是一个中国人，我骄傲！！！"";             byte[] bs = s.getBytes();//将字符串转",FileInputStream FileInputStream read,FileOutputStream FileOutputStream read,FileInputStream FileInputStream write,FileOutputStream FileOutputStream write,D,1
+6d900ca5-7923-4992-8e42-9890d5595c5f,202,以下选项可以填入到划线处的是？ public class BufferedReaderTest02 {     public static void main(String[] args) throws Exception{          BufferedReader br = new BufferedReader(_________);          String line = null;         while((line = br.readLine()) != null){             System.out.println(line);         }    ,"new InputStreamReader(new FileInputStream(""Copy02.java""))","new FileInputStream(""Copy02.java"")","new InputStreamReader(""Copy02.java"")","""Copy02.java""",A,1
+6dbf9562-e3d1-42ff-83e7-a8bcccf98b70,25,Java 类可以作为( ),类型定义机制,数据封装机制,类型定义机制和数据封装机制,上述都不对,C,1
+6de546f8-1518-4afe-adcb-84a3fc395294,204,在JDBC中，以下哪个方法用于加载数据库驱动程序？,Class.forName(),DriverManager.getConnection(),Connection.createStatement(),Statement.executeQuery(),A,1
+6e0b0c4c-db19-4544-b9ce-fd191d7fb235,89,下面哪些论述是正确的？,构造方法不能被继承,构造方法可以被覆盖,父类的构造方法可以通过this来调用,任何方法中都可以使用this或者super,A,1
+6f6e9cc5-4ee9-4f60-8e70-89380f62bf5b,106,池化窗口的大小和步长通常设置为多少？,总是相同的值,可以是任意的，取决于具体任务,窗口大小总是步长的两倍,窗口大小必须是2的幂次方,B,1
+7081b654-0228-4ff2-866e-bd9e76e1d0dd,182,以下关于静态内部类的说法正确的是（  ）,静态内部类可以直接访问外部类的实例变量和实例方法,静态内部类不能访问外部类的静态变量和静态方法,静态内部类可以用外部类.静态内部类的方式创建对象,静态内部类必须在外部类的内部定义，但可以在外部类的外部使用,D,1
+716c766e-be5d-45de-af4b-a80d851a4fc8,197,以下是一个简化的Java Swing程序框架，其中MyPanel类继承了JPanel并重写了paintComponent方法以进行自定义绘图。请补全paintComponent方法，使其绘制一个红色的填充圆和一个蓝色的空心矩形。 import javax.swing.*; import java.awt.*;  public class MyPanel extends JPanel {     @Override     protected void paintComponent(Graphics g) {         super.paintComponent(g);         //,"g.setColor(Color.RED); g.fillOval(50, 50, 100, 100); g.setColor(Color.BLUE); g.drawRect(200, 50, 150, 100);","g.setColor(Color.RED); g.drawOval(50, 50, 100, 100); g.setColor(Color.BLUE); g.fillRect(200, 50, 150, 100);","g.setColor(Color.BLUE); g.fillOval(50, 50, 100, 100); g.setColor(Color.RED); g.drawRect(200, 50, 150, 100);","g.setColor(Color.BLUE); g.drawOval(50, 50, 100, 100); g.setColor(Color.RED); g.fillRect(200, 50, 150, 100);",A,1
+7171b8f3-69c4-425e-8aa8-c447b7780714,98,下列哪个不是机器学习算法的性能评估指标？,准确率,召回率,F1分数,响应时间,D,1
+729693fc-f1c2-4517-be77-04589964c0c6,196,"以下代码片段是在什么场景下使用的？ graphics.drawLine(x1, y1, x2, y2); ",绘制一个点,绘制一条直线,填充一个矩形,绘制一个圆形,B,1
+72b07f50-0200-4692-816f-33303a97db3f,185,"以下代码的输出是什么？ abstract class Shape {     abstract void draw(); } class Circle extends Shape {     void draw() {         System.out.println(""Drawing a Circle"");     } } public class Test {     public static void main(String[] args) {         Shape shape = new Circle();         shape.draw();     } }",编译错误,"输出 ""Drawing a Circle""","输出 ""Drawing a Shape""",运行时错误,B,1
+72e626dd-bc3e-4fb7-8e79-29a5a384c987,182,以下代码的输出结果是（  ） public class Test {     public static int count = 0;     public Test() {         count++;     }     public static void main(String[] args) {         Test t1 = new Test();         Test t2 = new Test();         System.out.println(Test.count);     } } ,0,1,2,编译错误,C,1
+73646d40-4aaf-465b-9927-26348d64e7e7,182,"以下代码的输出结果是（  ） public class Person {     static String name;     public Person(String n) {         name = n;     }     public static void show() {         System.out.println(name);     }     public static void main(String[] args) {         Person p1 = new Person(""张三"");         Person p2 = new Person",张三,李四,null,编译错误,C,1
+74b8d3e4-ab7d-40f7-a88e-389dbfedbbfe,193,以下哪个方法签名表示一个返回类型为T的方法，其中T是泛型类型参数？,public <T> T getElement(), public T getElement<T>(),public T getElement(),public <T extends Object> T getElement(),A,1
+762fa9bc-71da-408e-adb8-43c9585f1156,84,"下面程序段的输出结果是：(   )     public static void main(String[] args) {         int x=1,a=0,b=0;         switch(x)         {             case 0:b++;             case 1:a++;             case 2:a++; b++;         }         System.out.println(""a=""+a+"",b=""+b);     }","a=2,b=1","a=1,b=1","a=1,b=0","a=2,b=2",A,1
+768d3204-327d-448b-b738-01c9c6cec8e6,203,"编写Java程序，在用户桌面创建一个名为""test_folder""的文件夹，然后删除该文件夹。以下选项可以填到横线处的是？ import java.io.File;   public class Main {     public static void main(String[] args) {         File folder = new File(System.getProperty(""user.home"") + ""\\Desktop\\test_folder"");         if (folder._____()) {             System.out.print",create close,mkdir close,create delete,mkdir delete,D,1
+76c0262d-bf6b-453a-9c9f-5fe93319e64f,106,在卷积神经网络中，平均池化和最大池化的主要区别是什么？,平均池化减少特征图的深度，而最大池化增加特征图的深度。,平均池化考虑邻域内的所有值，而最大池化只考虑最大值。,两者没有区别，它们是同一种操作的不同名称,平均池化在图像去噪方面更有效，而最大池化在特征提取方面更有效。,B,1
+76cc1555-7c8f-4cd6-ade0-1e52e0038ae5,79,运行下列代码后，控制台输出的值是多少？ public class Test {     public static void main(String[] args) {         boolean isTrue = true;         boolean isFalse = isTrue;         isTrue = false;         System.out.println(isFalse);     } },true,false,null,编译错误,A,1
+76d17c1f-5a25-49ce-bd02-200490bd321d,111,LSTM中的“门”是如何实现的？,通过激活函数（如sigmoid或tanh）的非线性变换,通过简单的线性变换,通过卷积操作,通过全连接层,A,1
+76d61554-ac44-4183-ae27-4481c3802b66,77,以下关于Java文件名的叙述，正确的是？,Java源文件的扩展名应为.java,Java源文件的文件名应与文件中的类名不一致,Java字节码文件的扩展名应为.java,一个Java源文件中只能包含一个Java类,A,1
+7875ebe4-1bb8-4e98-9de8-b8f65dcf9580,184,在Java中，所有类都隐式地或直接地继承自（      ）类。,Override,Object,A,没有这样的类,B,1
+78833131-af73-458e-8ca3-f31031419f00,194,下列不属于JLabel的属性的是（ ）,rows,text,icon,horizontalAlign,A,1
+7a9b3d44-0d51-4547-ae7b-7e4aadbd8223,90,在某个类中存在一个方法：void getSort(int x)，以下能作为这个方法重载声明的是(  )。,public getSort(float x),int getSort(int y),"double getSort(int x,int y) ","void get(int x,int y)",C,1
+7c18bc22-ca09-4171-86cd-1cd28fc64a4a,89,"下面代码的运行结果是什么？ public class test {  public static void sum(int a,int b){   System.out.println(a+b);  }  public static void sum(double a,double b){   System.out.println(2*(a+b));  }  public static void main(String[] args) {   sum(2,3);  } }",5,5.0,10,10.0,A,1
+7c20bba3-b6da-42a2-997c-aca1c73ca977,193,以下哪个说法是正确的，关于泛型方法和泛型类的区别？,泛型方法必须定义在泛型类中。,泛型类可以包含非泛型方法。,泛型方法的类型参数在调用时才确定。,泛型类的类型参数在定义时就确定，且不能在实例化时改变。,D,1
+7cc6ee51-3bb5-4999-8ffc-3dc188e32842,82,运行下列代码后，控制台输出的值是多少？ public class Test {    public static void main(String[] args) {      double pi = 3.1415926;      double circleArea = pi;      pi = 3.1415;      System.out.println(circleArea);    } },3.14,3.1415,3.1415926,null,C,1
+7d679ec0-6d4e-49c2-8cd1-69a1c58246a3,25,以下类的定义中非法的是？,"class A{
+int a,b;
+}","class A{
+int i,j;
+i = j = 10;
+}","class A{
+int i;
+double f;
+}","class A{
+int i = 12;
+double f = 1.2;
+}",B,1
+7e44542b-7e86-4885-b854-6223cacebeec,192,在Java中，以下哪个方法用于向Map中添加一个新的键值对，如果键已存在，则覆盖旧的值？,putIfAbsent(),replace(),computeIfPresent(),merge(),B,1
+7e9d46f3-0847-42a4-9178-a72d7107459d,110,以下哪个激活函数不是循环神经网络中常用的？,Sigmoid,Tanh,ReLU,Softmax,D,1
+7eaaf1cc-8767-4a38-8028-903e259ae57c,189,你想用下面的代码查找数组最后一个元素的值，当你编译并运行它的时候，会发 生什么？ public class MyAr{ public static void main(String argv[]){ int[] i = new int[5]; System.out.println(i[5]); } },编译和输出0,编译和输出null,运行时异常,编译时错误,C,1
+7f1a6822-3a78-4c6a-91d1-9cfea504c2b6,113,模式识别的主要任务是什么？,从输入数据中提取特征,对输入数据进行分类或识别,优化算法的参数,生成新的数据样本,B,1
+7f5e42b2-788d-431c-84fa-24fee387a2ef,180,关于Java对象的初始化顺序，以下说法正确的是（  ）,先执行静态代码块，再执行非静态代码块，最后执行构造方法,先执行非静态代码块，再执行静态代码块，最后执行构造方法,先执行构造方法，再执行静态代码块，最后执行非静态代码块,先执行构造方法，再执行非静态代码块，最后执行静态代码块,A,1
+7fa85f8a-73a8-4f14-9d6c-4f0e2c77e9bb,80,为了实现如下运行效果的程序，以下变量声明的最佳方案是： ---------- 计算机产生1~10之间的一个数，看看你能不能猜中~ 请输入您猜的数字：8 计算机产生的数字是7，您猜的数字是8,int guess = 0;,"int random = 0；
+int guess = 0;",int random = 0;,"double random = 0；
+double guess = 0;",B,1
+7fbd1c37-d172-4338-8ca3-67a15cf1ccf9,187,实现以下接口的选项有误的是 public interface Charge { public abstract void receive(); },"// 公共汽车类的收费功能
+class Bus implements Charge {
+ public void receive() {
+  System.out.println(""公交收费1元"");
+ }
+}","// 电影院类的收费功能
+class Cinema implements Charge {
+ public void receive() {
+  System.out.println(""电影院收费80元"");
+ }
+}","// 出租车类的收费功能
+class Taxi implements Charge {
+ private double distance;
+ public double receive() {
+  return  10 + distance / 2 * 0.4;  
+ } 
+}","//火车类的收费功能
+class Train implements Charge {
+ private double distance;
+ public void receive() {
+  System.out.println(""火车收费费用""+distance*100);
+ }
+}",C,1
+808e5e5a-e15f-4e05-8c65-bee0ebccd869,197,在Java的图形化编程中，用于执行自定义绘图操作的方法是？,paint(),draw(),repaint(),refresh(),A,1
+80dd9f50-6090-4ea9-9c77-47912cbda068,184,重写equals()方法时，首先通常检查传入的对象是否就是当前对象，如果是，则使用（      ）运算符来判断它们是否相等。,equals(),==,=,indexOf,B,1
+80e00d14-e272-4835-b2e9-2c2c99721057,197,下面关于JPanel的说法，哪一项是正确的？,JPanel不能包含其他组件,"JPanel默认情况下是透明的
+",JPanel不具有绘制图形的能力,JPanel不能作为JFrame的内容面板,B,1
+80f0e3b1-6b04-4967-81a9-db504992782d,112,在GRU网络中，重置门的作用是什么？,控制输入信息的流动,控制输出信息的流动,决定前一时刻隐藏状态如何影响当前时刻的候选隐藏状态,决定前一时刻隐藏状态如何完全被忽略,C,1
+8132f2c5-1b6a-4b68-ad63-5438718ccfe6,83,下面的运算符中，用于执行除法运算是哪个（ ）,/,\,%,*,A,1
+835c31c7-f02a-47a5-ad47-c869b80fbe34,181,假设我们有以下Java类定义：  public class MyClass {     public int publicVar = 0;     int defaultVar = 1;     private int privateVar = 2; } 哪个变量可以在同一个包中的其他类中访问？,publicVar,defaultVar,privateVar,所有变量,B,1
+83e8d009-004f-4a9c-9db8-373ff594ac76,187,给定如下Java程序代码，在横线处加入（ ）语句，可以使这段代码编译通过。 interface Parent{     public int count(int i); } public class Test implements Parent {     public int count(int i){         return i % 9; }   public static void main(String[] args){         ________________         int i = p.count(20);     } } ,Test p = new Test(12);,Parent p = new Test();,Parent p = new Parent();,Test p = new Parent();,B,1
+856da603-c2b9-402e-b5d3-26c61372cff2,179,"在Java中，以下程序编译运行后的输出结果为（ ）。 public class Test {     int x, y;     Test(int x, int y) {         this.x = x;         this.y = y;     }     public static void main(String[] args) {         Test pt1, pt2;         pt1 = new Test(3, 3);         pt2 = new Test(4, 4);         System.out.print(pt1.x + pt2.x);",6, 3  4,8,7,D,1
+8616463d-f53d-4cec-b38f-edbd6653faa6,83,设有定义“int k=3;”，语法正确且值为true 的表达式是（ ）,k=3;,k++>3;,k--==3&&k++==3;,k++==3||++k>3;,D,1
+866ad117-4854-4027-a0db-052db900d315,192,在Java中，以下哪个方法用于比较两个Map是否相等，即它们是否包含相同的键值对？,equals(),compareTo(),isEqual(),sameAs(),A,1
+867b706f-267d-4b29-96e4-640b9300c41f,101,多层神经网络中的激活函数主要作用是什么？,增加网络的复杂度,引入非线性因素，使网络能够学习复杂模式,控制数据流动的速度,减少过拟合,B,1
+867d196d-34a9-44e5-b22a-1eade098887c,102,"随机梯度下降（Stochastic Gradient Descent, SGD）每次更新时使用多少数据？",一个样本,所有样本,部分样本,随机样本,A,1
+870754d5-ed56-4c3b-9c2b-c2ff62978504,91,下列代码的运行结果？  class Example {         static int myArg=1; public static void main(String [] args) {         int myArg;     System.out.println(myArg); } },0,1,因为局部变量名和static属性同名导致编译错误,因为局部变量未初始化导致编译错误,D,1
+87197ca6-f6cb-4638-a885-8e917ace3b24,77,下列哪个工具可以编译Java源文件?,javac,jdb,javadoc,junit,A,1
+87b9e672-8540-4375-909b-bb95bc233ae3,204,在JDBC中，以下哪个接口用于表示数据库的连接？,Statement,Connection,ResultSet,DriverManager,B,1
+88998f0c-d5a1-4239-81ce-4a1b85c30620,201,如果多个线程都在等待同一个对象的监视器锁，并且没有线程调用 notify() 或 notifyAll()，那么这些线程将会（   ）。,按顺序被唤醒,随机被唤醒,出现死锁,永远等待,D,1
+88b69194-69d6-4f05-a2a2-e8ff818802b0,25,关于以下类说法错误的是？ class A{  int a;  void test(int t){     double p = t * a;  } },a是成员变量,p是局部变量,test()方法外无法访问变量t,test()方法内的a不可以写作this.a,D,1
+88ecf94b-22bd-4a7f-9e81-62fa8048d0fb,201,当多个线程访问同一个共享资源时，如果没有适当的同步机制，可能会出现（   ）问题。,死锁,饥饿,竞争条件,内存泄漏,C,1
+88fc62c4-56f7-4dd7-ad8b-cf050a0b0491,192,在Java中，以下哪个接口继承了Map接口并增加了额外的功能，如根据键的自然顺序或自定义顺序对键值对进行排序？,SortedMap,NavigableMap,ConcurrentMap,SparseArray,A,1
+898a936c-2673-4b3d-91ef-d1c993d6b957,109,以下哪个领域不是卷积神经网络（CNN）的典型应用领域？,图像分类,面部识别,自然语言处理,物体检测,C,1
+8b010b7f-111f-4c96-8611-44499c11fed5,193,泛型擦除是指什么？,编译器在编译时将泛型类型信息移除。,运行时泛型类型信息被移除。,泛型类型在运行时被替换为它们的限定类型。,泛型类型在编译时被完全忽略。,A,1
+8b927ff5-0b05-4202-bcfa-9dbc8c48483a,194,"以下代码段的作用是什么？ ... button.addActionListener(new ActionListener() {     public void actionPerformed(ActionEvent e) {         label.setText(""Button Clicked!"");     } }); ...","当按钮被点击时，改变标签的文本为 ""Button Clicked!""  ","当标签被点击时，改变按钮的文本为 ""Button Clicked!""  ","当窗口关闭时，改变标签的文本为 ""Button Clicked!""  ",当按钮被点击时，关闭窗口,A,1
+8bf54a82-913f-4522-a01b-83ba2ef30bbd,85,下面程序循环结束后i的值是（   ） int y = 0; for (int i = 0; i<10; ++i) {      y += i; },9,10,不确定,11,B,1
+8c0b29c3-cbc3-4236-80a5-e9d8548df189,194,下列不属于JButton的常用方法的是（ ）,setMnemonic(),setToolTipText(),setText(),setColor(),D,1
+8c132ce7-e127-446c-8fd2-7ec734f6d99f,77,在一个Java源文件中，import、package、class的顺序是什么？,import class package,class import package,package import class,import package class,C,1
+8ce7ea98-7482-408c-ade2-bcc216b8a5ac,77,使用JDK工具生成的Java文档的文件格式是什么？,XML格式,自定义格式,二进制格式,HTML格式,D,1
+8e2803cf-8fb3-493e-9194-bb88c26ef093,83,"下列程序段执行后，k的结果是（ ） int a = 9,b = 11,k; k=a!=b?a+b:a-b;",-2,20,11,9,B,1
+8ea41dc5-eebe-4dfe-b973-259a8d8eeed6,102,梯度下降算法的主要目标是什么？,增加模型的复杂度,减少模型的损失函数值,增加模型的准确率,减少模型的召回率,B,1
+8ebf2841-4ac0-47bb-afaa-3dab7ba43b7a,106,以下哪个不是池化操作的优点？,减少计算量,提高特征的平移不变性,增加特征的复杂度,减少过拟合的风险,C,1
+9099b51f-7715-4741-a3ee-8c9f16d78bb7,87,"int[] arr = {1, 2, 3, 4};     如果想将数组中的最后一个元素4修改为10，正确的方式是：",arr[4] = 10;,arr(4) = 10;,arr[3] = 10;,"arr.set(4, 10);",C,1
+90ba38ca-132c-479a-ac43-ff530be011b8,182,在 Java 中，可以通过以下哪种方式访问静态成员变量？（  ）,类名.静态成员变量名,对象名.静态成员变量名,A 和 B 都可以,以上都不对,C,1
+90e085be-8404-44ed-b7da-1d36255d9989,195,ActionEvent事件的监听接口是（ ）,KeyListener,ActionListener,WindowListener,addActionListener,B,1
+90e6fbf2-24a4-457c-8ea5-9a66c2a6e2e6,86,下面哪一个是合法的数组声明和构造语句? ,int[] ages = [100];,int ages = new int[100];,int[] ages = new int[100];,int() ages = new int(100);,C,1
+922bb873-ccbd-4ab1-85bc-f4b848d99d58,198,如果risky()方法可能抛出IOException和RuntimeException请问，以下哪段代码是无编译错误的？,"pubilc class Check{
+public void aMethod() {
+risky();
+   }
+}
+","public class Check {
+public void aMethod() throws IOException{
+risky();
+}
+}
+","public class Check {
+public void aMethod() throws RunTimeException {
+risky();
+}
+}
+","public class Check {
+public void aMethod() throws MalformedURLException {
+try{
+risky();
+}",B,1
+924a2f3f-d0aa-44ab-b1b3-6e7de05de93f,77,下列描述错误的是？,Java语言区分大小写,Java语言中功能执行语句，每条语句以分号结尾,Java语言中结构定义语句，一般都有固定语法,public class HomeWork {public static void main(String[] args) {}}为功能执行语句,D,1
+925828a6-58fb-4878-ae1e-51035856aadf,107,以下哪个函数可以在TensorFlow中创建一个卷积层？,tf.keras.layers.MaxPooling2D,tf.keras.layers.Dense,tf.keras.layers.Conv2D,tf.keras.layers.Flatten,C,1
+9259264b-80a9-4fe0-95a0-0390ea510be1,195,改变JTextField对象产生的事件类型是（ ）,ActionEvent,TextEvent,KeyEvent,MouseEvent,B,1
+92ca2377-c32e-40c0-9df0-5d1c50ec99ed,79,"关于下列代码，以下哪个说法是正确的？ public class Test {     public static void main(String[] args) {         final String NAME;         NAME = ""Kimi"";         System.out.println(NAME);     } }",NAME 必须在声明时初始化,NAME 可以在声明后任何时候初始化,NAME 可以在声明后和使用前初始化,NAME 可以在声明后和使用后初始化,C,1
+92fc89ee-32b0-495f-9038-a9c284882e2f,178,关于以下类说法正确的是？ class A{  int a;  void A(int a){     a=a;  } }, void A(int a)是构造方法,类A没有编写带参数的构造方法," void A(int a){
+    a=a;
+ }用词方式实现了给属性a赋值",类A不可以使用 new A（）的方式创建对象，因为没有不带参数的构造方法,B,1
+933b839e-3f77-40fd-8bff-f696ff8e5ec1,103,BP神经网络中的激活函数不包括以下哪个？,Sigmoid,ReLU,Dropout,Softmax,C,1
+9458d719-2816-4a62-8d81-54ac1d792afa,186,下列选项中，用于定义接口的关键字是,interface,class,implements,abstract,A,1
+94c79edd-29ba-4b46-901f-91f6187c5939,85,为了实现如下整数的逆序输出的程序，假设使用while循环，设置变量int x=12345;以下while循环体能够执行的条件正确的是： 逆序显示正整数值。12345 倒过来读是54321。,x > 0,x >= 0,x == 0,x < 0,A,1
+9576ee3b-2081-4949-b0d2-1c0e534b9654,79,运行下列代码后，控制台输出的值是多少？ public class Test {     public static void main(String[] args) {         short s = 32767;         int i = s;         System.out.println(i);     } },32767,-32767,32768,编译错误,A,1
+95ebcb15-e8dc-408e-bb06-e1150c5277aa,197,在Java中，哪个类提供了基本的绘图功能，如绘制直线、曲线和形状？,JPanel,JFrame,Color,Graphics,D,1
+9698ed55-b757-413e-bdc4-3c9d0e72f8ff,109,以下哪个不是卷积神经网络在图像处理中的优势？,稀疏连接,参数共享,需要大量的训练数据, 对图像平移、旋转等变换具有鲁棒性,C,1
+973c2c48-26df-45ed-918f-3a9cfd8faebd,202,"    填入到划线处正确的是？ public static void main(String[] args) throws Exception{         BufferedWriter out = new BufferedWriter(new _______(new FileOutputStream(""copy"", true)));         out.write(""hello world!"");         out.write(""\n"");         out.write(""hello kitty!"");         out.flush();         out.c",OutputStreamWriter,InputStreamWriter,Reader,Writer,A,1
+9802cea0-50b7-4c39-a332-f0f52d733e15,185,"以下代码中，哪一行会导致编译错误？ abstract class Animal {     abstract void makeSound(); // 第 1 行 } class Dog extends Animal {     void makeSound() { // 第 2 行         System.out.println(""Woof!"");     } } public class Test {     public static void main(String[] args) {         Animal animal = new Animal(); // 第 3 行 ",第 1 行,第 2 行,第 3 行,第 4 行,C,1
+98040775-92ed-449d-b676-9c895e900d11,80,为了实现如下运行效果的程序，以下变量声明正确的是： What's your name? My name is Runner Hello Runner ！,String name = null;,string name = “”;,char name = ‘’;,Char name = “”;,A,1
+9808e0b3-d60a-48d1-adf7-a74e908de2e0,181,在Java中，使用哪个访问修饰符可以使得一个类成员在任何地方都被访问？,public,private,protected,default,A,1
+9831758e-dcda-4b3b-bc24-d0047ab5ca27,198,"public static void main(String[] args) { Scanner input = new Scanner(System.in); try { int num = input.nextInt(); System.out.println(""one""); } catch(Exception e) { System.out.println(""two""); } finally { System.out.println(""three""); } System.out.println(""end""); }",one three end,two three end,one two three end,two end,B,1
+999281f8-e0ef-4b48-9b3b-000bb9f4d33e,203,"以下选项可以填入到划线处的是？ import java.io.*; import java.util.Properties;  public class PropertiesExample {     public static void main(String[] args) {         Properties prop = new Properties();          try {//读取属性文件             prop.______(new FileInputStream(""config.properties""));          } catch (IOExce",load,getProperty,setProperty,store,A,1
+9a2aae7d-7ef5-495f-a1f0-de02cb288548,191,若想创建一个能够存储整数且保证元素唯一性的集合，应该选择以下哪个类（  ）,ArrayList,HashSet,Arrays.asList(),LinkedList,B,1
+9b88ec25-1a75-4be4-b4d1-9cab1790c914,85,下列Java程序执行的输出结果是？ public class Test {     public static void main(String[] args){         int y = 0;         int i = 6;         for (int j = 1; j < 6; j++) {            if (i % j == 0)            y += j;         }         System.out.print(y);     } },3,6,9,12,B,1
+9bc8304a-68c0-4523-b1c7-60f08a358fd0,204,在JDBC中，以下哪个方法用于关闭数据库连接？,close(),disconnect(),shutdown(),release(),A,1
+9c5d4b50-e549-427f-b2e0-6083510971ce,203,"下述代码中，file.lastModified()方法返回的是什么。 import java.io.File; import java.text.SimpleDateFormat;   public class Main {     public static void main(String[] args) {         File file = new File(System.getProperty(""user.home"") + ""\\Desktop\\example.txt"");         if (file.exists()) {             System.out.",一个 Date 对象，表示文件的创建时间, 一个 long 类型的值，表示自 1970 年 1 月 1 日以来的毫秒数，代表文件的最后修改时间,一个 String 类型的值，表示文件的最后修改时间的字符串格式,一个 File 对象，表示文件本身,B,1
+9ce39c28-4904-48fa-b07d-381c7a2e741b,85,用以下的for循环实现公约数的计算，如果变量为1，那循环体会被执行几次？ for (int i = 1; i < n; i++){    //循环体       },无限次,1次,0次,2次,C,1
+9ec2ea65-c1e3-4ed1-a513-41d7ec12193f,187,定义接口如下：public interface Frobnicate { public void twiddle(String s); } 以下实现接口的语句，正确的是,"public interface Frob implements Frobnicate {
+public abstract void twiddle(String s) { }
+}",public abstract class Frob implements Frobnicate { },"public class Frob extends Frobnicate {
+public void twiddle(Integer i) { }
+}
+","public class Frob implements Frobnicate {
+public void twiddle(Integer i) { }
+}
+",B,1
+9f8a9d1f-d2ab-427d-a407-89d139eec060,191,关于Java中的HashSet，以下叙述正确的是（  ）,保证元素的顺序性,不允许存储null值,基于哈希表实现,可以通过索引访问元素,C,1
+9fb4ef6d-34f6-4bf1-9d26-b14e07d0607e,180,以下关于Java对象初始化的说法中，正确的是（  ）,只有使用new关键字才能创建对象并进行初始化,可以通过克隆方式创建对象，克隆出来的对象不需要再次初始化,反序列化得到的对象会自动调用其构造函数进行初始化,以上说法都不完全正确,D,1
+9fde7da6-848b-449c-ad8f-a9dd42ba6e7a,182,下面代码中，静态变量 a 的值是多少？（  ） public class Example {     static int a = 10;     static {         a += 5;     }     public static void main(String[] args) {         System.out.println(a);     } } ,10,5,15,0,C,1
+9ff4a29d-a59e-444a-8b52-05f0461d72e1,101,多层神经网络中，信息流动的方向是？,从输入层到隐藏层再到输出层,从输出层到输入层,在同一层内循环,从隐藏层到输入层,A,1
+a08710aa-4bed-408f-8e18-73b91cc7c8af,179,以下代码的运行结果是？ public class Test {    public int testFun() {         if (1>0) {             return 1;         }    }  public static void main(String[ ] args) {         Test t=new Test();         System.out.println(t.testFun());    } },没有输出结果,1,编译错误,运行错误,C,1
+a09cd168-b7b6-4b69-8818-e5fe236eb954,96,深度学习在哪一领域的应用极大地推动了自动驾驶汽车的发展?,自然语言处理,语音识别,计算机视觉,强化学习,C,1
+a1074c21-b964-4c6c-b785-63b32e9b6326,82,运行下列代码后，控制台输出的值是多少？ public class PrintfDemo {      public static void main(String[] args){          char test = 66;          System.out.println(test);      } },66,A,test,B,D,1
+a20012a3-95bd-4066-a5df-4732c44780dd,102,在梯度下降中，学习率是一个重要的超参数，它决定了什么？,损失函数的最小值,模型的复杂度,权重更新的步长,数据集的大小,C,1
+a256ed8e-d1f2-4a81-9d52-88ed59d74ca5,192,在Java中，以下哪个方法用于获取Map中所有键的集合视图？,keySet(),values(),entrySet(),getKeys(),A,1
+a3fc2968-3de0-4572-ae25-43ee9cdc53de,113,下列哪种方法属于模式识别中的监督学习方法？,聚类分析,关联规则挖掘, K近邻算法, 异常检测,C,1
+a58a638a-f2fd-4adf-bda3-7c3a134c5013,193,以下哪个表达式可以用于检查一个对象是否是某个泛型类型的实例？, instanceof关键字可以用于泛型类型检查。,getClass()方法可以用于泛型类型检查。,泛型类型信息在运行时不可用，因此无法进行类型检查。,使用Type接口可以获取泛型类型信息并进行检查。,C,1
+a6577063-fcc8-424a-b9fe-262af693af2c,181,选择正确的代码补充程序 public class Student {     private int age;     double weight;     protected String name;     public String id; } public class StudentTest {     public static void main(String[] args) {         Student s=new Student();         //需要补充代码     } },System.out.println(s.name);      System.out.println(s.id);        System.out.println(s.weight);        System.out.println(s.age);,System.out.println(s.name);        System.out.println(s.id);        System.out.println(s.weight);,System.out.println(s.getName());        System.out.println(s.id);        System.out.println(s.weight);,System.out.println(s.name);        System.out.println(s.id);        System.out.println(s.weight);     System.out.println(s.getAge());,B,1
+a6bcf626-6081-4c80-9cd6-bcb0496a9377,97,以下哪个不是深度学习框架的特点？,自动化梯度计算,高效利用GPU加速计算,不支持自定义网络结构,丰富的预训练模型库,C,1
+a6e401e8-e8da-4690-b23f-7c10cc374cf5,186,如下面代码所示，*1*和*2*两个位置省略的修饰符分别为  public interface Employee {       *1* double MINSalary=3000; *2* void work(); //工作 } ," *1*:public final   *2*: public abstract
+
+",*1*:public final static  *2*: public , *1*:public static final   *2*: public abstract, *1*:public static  *2*: abstract,C,1
+a7896000-a459-468f-97c1-f53502135cc6,204,"以下是JDBC连接数据库的部分代码，下列选项中，可以被填入到划线处的是：  String url = ""jdbc:______://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=true""; String username=""root""; String password=""123456""; Connection connection = DriverManager.getConnection(url,username,password); ",jdbc,http,mysql,sql,C,1
+a8408546-aa7f-4517-a4a4-4f0d87e9e2fa,100,神经元输出前的非线性变换通常通过什么实现？,权重,偏差,损失函数,激活函数,D,1
+a92d3342-56a1-4108-b015-a278765fa72f,86,"声明一个数组,__[ ] a = new String[]{};空格处应该填写的的内容为",int,double,String,string,C,1
+a9dc4ca6-915e-4139-b2cb-973e1bd54ade,96,深度学习在自然语言处理的应用不包含以下哪个应用？,文本分类,情感分析,机器翻译,数据挖掘,D,1
+aa09cc64-7c32-4d31-aee7-4ea6b40bacb7,88,"定义一个数组a：int[ ]  a={1,2,3,4,5,6,7,8,9,10},为了打印输出数组a的最后一个数组元素，下面正确的代码是(  )。",System.out.println(a[10]);,System.out.println(a[9]);,System.out.println(a[a.length]);,System.out.println(a(8));,B,1
+aa0b35ba-4b9b-4398-966b-46c78e10689a,85,Java中，以下程序运行后，for循环执行的次数是：（  ） public class Main() {     public static void main(String[] args) {         int i;         for(i = 1; i < 189; i++) {             if(i == 3) break;             else continue;         }     } },2,3,188,189,B,1
+aae1a20d-e5ba-4f01-8186-08688ff39559,110,以下哪个不是循环神经网络？,GRU,CNN,LSTM,RNN,B,1
+ab5b623c-d4fa-4d99-9ce8-9642e6b2b393,195,"设置一个窗口，显示一个文本框，在*号处需要补充的代码是？ import javax.swing.*; import java.awt.*;  public class Main {     public static void main(String[] args) {         JFrame frame = new JFrame(""Text Field Example"");         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);         frame.setSize(300, 200);          ***",JTextField textField = new JTextField(20);,"JLabel label = new JLabel(""Hello, World!"", SwingConstants.LEFT);","JCheckBox checkBox = new JCheckBox(""Check me!"");","JButton button1 = new JButton(""Button 1"");",A,1
+ab5c32b0-726d-4da0-8517-0a8ca87eaa03,179,what is the result when you compile and run the following code?     class Example {   public static void main(String [] args) {     Use ref=new Use();    ref.instanceVar=5;    ref.addFive(ref);    System.out.println(ref.instanceVar); } } class Use {     int  instanceVar;     void addFive(Use param){,5,10,a runtime error,compiler error,B,1
+abbfe9ff-ac61-4496-8030-f9b47ea90293,85,"下面的程序中，循环执行后，count的值是（    ） int count = 0; do {      System.out.println(""Welcome to Java""); } while (count++ < 9); System.out.println(count);",11,10,9,8,B,1
+ac384731-8969-468f-bf01-7a50a1972156,199,以下关于自定义异常的说法，正确的是？,自定义异常必须包含一个带 String 参数的构造方法。,自定义异常可以继承 Error 类。,自定义异常必须重写 getMessage() 方法。,自定义异常可以用于替代普通的返回值。,D,1
+ad223564-2ad7-4a4e-8240-c9053f4c9c46,201,在 Java 中，以下哪种机制可以实现线程间的同步（   ）,使用 volatile 关键字,使用 synchronized 关键字或 ReentrantLock 类,使用 static 关键字,使用 static 关键字,B,1
+ad99c884-41e4-4ff7-bc92-5365fab1568c,178,下面关于Java中类的说法哪个是不正确的？,类体中只能有变量定义和成员方法的定义，不能有其他语句。,构造函数是类中的特殊方法。,类一定要声明为public的，才可以执行。,一个Java文件中可以有多个class定义。,C,1
+af46aa21-6239-4133-b73f-90b024670bab,85,"假设有如下程序： public class Demo {       public static void main(String args[]) {             String str = """" ;             for (int x = 0 ; x < 5 ; x ++) {                    str += x ;             }           System.out.println(str) ;       } } 请问程序最终的执行结果是什么？",1234,10.0,14.0,25.0,A,1
+afb38091-2841-447a-9d07-77f7208a7943,196,在Java中，以下哪个类是所有图形类的基类？,Object,Shape,Graphics,Drawable,B,1
+b03a2d46-a0ed-4f0e-a10f-84e7aba89cdf,79,运行下列代码后，控制台输出的值是多少？ public class Test {     public static void main(String[] args) {         double pi = 3.14;         double circleArea = pi;         pi = 3.1415;         System.out.println(circleArea);     } },3.14,3.1415,null,编译错误,A,1
+b07b85f7-ee1d-4948-b374-4f492b0a922f,87,你想用下面的代码查找数组最后一个元素的值，当你编译并运行它的时候，会发 生什么？ public class MyAr{ public static void main(String argv[]){ int[] i = new int[5]; System.out.println(i[5]); } },编译和输出0,编译和输出null,运行时异常,编译时错误,C,1
+b086bdd2-4a5a-4957-adb1-170a46d496de,187,"以下代码运行结果为 interface CanFly {  void fly(); } class Balloon implements CanFly{  public void fly() {  System.out.println("" Balloon can fly. "");    } } public class Test1 {   public static void main(String[] args) {   CanFly balloon=new Balloon();   balloon.fly();  } }",没有输出,Balloon can fly. ,语句CanFly balloon=new Balloon();编译错误,语句void fly();编译错误,B,1
+b0a1b8c8-f5f3-445d-a405-d253c8419564,199,"编译和运行代码，正确的选项是什么？ class Example {  public static void main(String [] args) {    try{                         Float pi=new Float (3.14f);                         if(pi>3)                                 { System.out.println(""pi is bigger than 3"");                                 }                    ",编译失败,输出：“pi is bigger than 3”,输出：“pi is bigger than 3 have nice day”,"输出：“pi is not bigger than 3 ,have a nice day”",C,1
+b1a222ac-7a14-407c-ace4-74ba658f8418,180,在Java中，以下哪项是类的属性的默认初始化值（  ）,对象属性默认为null，基本数据类型属性默认为0,对象属性默认为null，boolean类型属性默认为true,所有基本数据类型属性默认值为0，对象属性默认为null,所有属性均默认初始化为0或false,A,1
+b1c4b674-f349-428d-bd55-f6e37725ed4d,182,在 Java 中，关于静态变量的描述正确的是（  ）,"静态变量属于类的实例，每个对象有独立的副本
+","静态变量可以通过类名直接访问和修改
+",静态变量只能在类的内部方法中访问,以上说法都不正确,B,1
+b24b595c-6678-4779-a829-21f3abec1ca8,203,"下述代码中，file.length()方法返回的是什么。 import java.io.File; import java.text.SimpleDateFormat;   public class Main {     public static void main(String[] args) {         File file = new File(System.getProperty(""user.home"") + ""\\Desktop\\example.txt"");         if (file.exists()) {             System.out.printl",文件的名称,文件的创建时间,文件的大小（以字节为单位）,文件的最后修改时间,C,1
+b32d25dd-6d7c-4981-bd6d-8c380ba15ad9,183,"下列代码的输出结果是？ public class Super{   public void print(){     System.out.println (""Super-->print"");   } } public class Test extends Super{   public void print(){     System.out.println (""Test-->print"");   }   public static void main(String[] args){     Super t = new Super();     t.print();   } }  ",Super-->print,Test-->print,"Super-->print
+Test-->print",编译错误,A,1
+b3a5be49-7156-4324-83e7-960aa5e3cd0d,84,"Java中，以下程序执行后的结果是：（   ） public class Main {     public static void main(String[] args) {         int x = 2;         int y = 3;         switch(x){             default: y++;break;             case 2: x++;             case 3: y++;              case 4: x++;break;         }         System.out.println(""y=",y=3,y=4,y=5,y=6,B,1
+b3d2ab27-2ab6-4144-8789-c7a6b3fba3bf,179,下列代码的运行结果？ class Example {      int i=20;    static {int i=10;} public static void main(String [] args) {       Example a=new Example();      System.out.println(a.i); } },prints 10,prints 20,编译错误,运行异常,B,1
+b41d6673-10ac-4622-a3d3-0f20c99e42c8,191,Java中的Vector与ArrayList的主要区别不包括（  ）,Vector是同步的，而ArrayList不是,Vector可以设置初始容量，而ArrayList不可以,Vector允许null值，而ArrayList不允许,Vector是线程安全的，而ArrayList不是,C,1
+b426f7ba-be6b-4732-814a-eab3cf12c5a9,89,下面关于java语言中的方法说法错误的是,Java中的方法的参数传递是传值调用，而不是地址调用,方法体是对方法的实现，包括变量声明和Java的合法语句,如果程序定义了一个或多个构造方法，在创建对象时，也可以用系统自动生成空的构造方法,类的私有方法不能被其子类直接访问,C,1
+b47c1d34-c5a3-43aa-8259-8455a28fdd9b,191,在Java中，使用迭代器遍历集合时，若要删除当前元素可以使用（  ）方法。,remove(),delete(),clear(),erase(),A,1
+b47ce46d-d2f2-446d-8ddb-eee8f97e0a96,198,编译和运行代码，下列哪项应该放在////以便代码编译时不会出错？ public class Example{          static void method throws Exception{                  throw new EOFException();}                  public static void main(String[] args)                  { try{method();                          }                    catch(////){ }      ,IOException e,EOFException e,NullPointerException e,Exception e,D,1
+b486d03f-b52e-4b34-a22c-08fe248b7b34,192,在Java中，以下哪个类实现了NavigableMap接口，并且允许以键的自然顺序或根据构造函数指定的Comparator进行排序？,HashMap,TreeMap,LinkedHashMap,ConcurrentSkipListMap,B,1
+b51e8477-e5ad-43ad-89a2-f0d3b95bd570,84,"在Java中，下列语句序列执行后，k 的值是？ int i=10, j=18, k=30; switch( j - i ){      case 8 : k++;     case 9 : k+=2;     case 10: k+=3;     default : k/=j; }",31,32,2,33,C,1
+b5890113-bb7e-459c-bc07-4ad2725f6d4f,193,以下哪个语句正确地声明了一个存储Integer对象的ArrayList？,ArrayList list = new ArrayList();, ArrayList<Integer> list = new ArrayList<>();,ArrayList<int> list = new ArrayList<>();,ArrayList<Integer> list = new ArrayList<int>();,B,1
+b613044a-3f56-437d-82c9-ec205334d856,86,引用数组元素时，数组下标可以是,整型常量,整型变量,整型表达式,以上均可,D,1
+b62470a4-3c3c-4f7e-b86c-8bc5ead04f24,202,使用Java IO流实现对文本文件的读写过程中，需要处理下列（  ）异常,ClassNotFoundException,IOException,SQLException,RemoteException,B,1
+b6670ec2-5f9b-404c-a544-806e2b25e58e,198,"编译并运行以下代码的结果是什么？  class Example{    public static void main(String[] args){            try{ throw new NullPointerException();}            catch(NullPointerException e1){ System.out.println(""a"");}            catch(RuntimeException e1){ System.out.println(""b"");}            finally{ System.out.println(",ab,ac,abc,bc,B,1
+b6dacc44-74c9-4098-a04f-09ca04569561,88,"int[] arr = {2, 4, 6, 8};     下列哪个选项正确实现了对数组’arr’的遍历？","for (int i = 0; i <= arr.length; i++) {
+       System.out.println(arr[i]);
+   }","for (int i = 0; i < arr.length; i++) {
+       System.out.println(arr[i]);
+   }","for (int i = 1; i <= arr.length; i++) {
+       System.out.println(arr[i]);
+   } ","for (int i = 0; i < arr.length - 1; i++) {
+       System.out.println(arr[i]);
+   }",B,1
+b6f40338-d2e2-4ffd-b53b-753c55c5a4b3,198,下列异常处理语句编写正确的是,"try{ System.out.println(2/0) ;}
+
+
+
+
+","try( System.out.println(2/0)) 
+catch(Exception e) 
+(  System.out.println(e.getMessage()); )","try{ System.out.println(2/0) ;} 
+catch(Exception e) 
+{  System.out.println(e.getMessage()); }","try{ System.out.println(2/0) ;} 
+catch {  System.out.println(e.getMessage()); }
+",C,1
+b738e380-c253-4a4e-a7df-c7bd4d9aa7f2,205,在JDBC中，以下哪个异常通常表示数据库连接失败？,SQLException,IOException,ClassNotFoundException,NullPointerException,A,1
+b782db25-e801-4426-82f2-24c0d48d3039,83,"在Java中，下列程序段执行后 b3 的结果是？ boolean b1=true, b2=false, b3; b3 = b1 ? b2 : b1;",0,1,true ,false ,D,1
+b7fe389d-8a5e-47c4-a849-3407b16c67b4,198,以下关于异常的说法正确的是,一旦出现异常，整个应用程序运行就终止了。,如果一个方法声明将抛出某个异常，它就必须真的抛出那个异常。,在catch子句中匹配异常是一种精确匹配。,可能抛出RuntimeException异常的方法是不需要声明异常的。,D,1
+b824f614-ef76-4739-b332-d2dbc48ecf2a,198,数组下标越界，则发生异常，提示为,IOException,ArithmeticException,SQLException,ArrayIndexOutOfBoundsException,D,1
+b92f7b7d-c2a5-457d-b238-82f67a23ce31,198,异常是指哪类错误？,程序中的语法错误,程序的编译错误,程序执行过程中遇到的事先没有预料到的情况,程序事先定义好的，在程序执行过程中可能出现的意外情况,D,1
+b96c204c-ebcd-4cfe-817b-34c156068e95,84,"在Java中，如下代码的输出结果是（ ） public static void main(String[ ] args) { int i=0; if(++i<1) System.out.println(""i小于1""); }",i小于1,无输出,编译错误,运行时错误,B,1
+ba2d976e-4264-4f81-9f70-3bf79d865d80,83,假设有如下程序： public class Demo {           public static void main(String args[]) {                    int num = 50 ;                    num = num ++ * 2 ;                    System.out.println(num) ;          } } 该程序运行结果是什么：(    ),50.0,102.0,100.0,101.0,C,1
+ba8998ce-90d5-4bdf-83c9-2d9132234a64,178,"请选择缺少的代码。 public class Car {   //需要填入代码  public void getCarInfo() {   System.out.println(""名称："" + name);   System.out.println(""品牌："" + brand );   System.out.println(""零售价："" + retailPrice + ""万元"");  } }", String name;   String brand;  ,String name;   String brand;   double retailPrice;  ,String brand;   double retailPrice;  ,以上都不对,B,1
+babeb790-2f89-4813-94db-d9858040176b,200,当调用线程的 start()方法后，线程将进入（   ）状态。,新建,可运行,运行中,阻塞,B,1
+bb264c6b-db39-46a0-95e6-96658fba149d,185,"现有：     1. abstract class Color  {     2.protected abstract  String getRGB();     3.  }     4．     5. public class Blue extends Color  {     6．    //插入代码位置     7.  }     和四个声明：     (1) public String getRGB()  {  return ""blue"";  }     (2) String getRGB()  {  return  ""blue"";  )     (3) private  String",0,1,2,3,B,1
+bd2a6fe8-47f8-4d7c-8051-46aac0635e3d,90,"下面代码的运行结果是什么？ public class test {  public static void sum(int a,int b){   System.out.println(a+b);  }  public static void sum(double a,double b){   System.out.println(2*(a+b));  }  public static void main(String[] args) {   sum(2,3);  } }",5,5.0,10,10.0,A,2
+bda48fcd-749e-4c19-b17c-64c13f38642c,188,下面关于数组定义语句不正确的是(  )。,"int[ ]  a1,a2; ","int a0[ ]={11,2,30,84,5}; ",double[] d=new double[8]; ,"float f[ ]=new  {2.0f,3.5f,5.6f,7.8f};",D,1
+bdbc0fbe-71d6-4f21-8fc5-15c652fef370,201,如果一个线程在等待获取锁期间被中断，它会（   ）。,永远等待,抛出 InterruptedException 异常,自动重新尝试获取锁,忽略中断，继续等待,B,1
+bdd949e4-3b19-4d04-85fc-235f95c4914f,183,"假设有如下类定义，哪些代码可以被合法放置在注释""//Here""之后？ class Base { public Base (int i) {} } class MyOver extends Base { public static void main (String arg []) { MyOver m = new MyOver (10); } MyOver (int i) { super (i); } MyOver (String s, int i) { this (i); //Here } }",MyOver m = new MyOver ();,super ();,"this (""Hello"", 10);",Base b = new Base (10);,D,1
+bde4434b-8f5e-47d4-b7d4-ce709bdf9768,202, Java 的 I/O 程序设计中，下列描述正确的是（）,OutputStream 用于写操作,"
+InputStream 用于写操作",只有字节流可以进行读操作,I/O 库不支持对文件可读可写 API,A,1
+bef00bbc-2b9b-40d7-b197-a2c58136d31b,195,"JButton button = new JButton(""Click me""); button.addActionListener(new ActionListener() {     public void actionPerformed(ActionEvent e) {         System.out.println(""Button clicked!"");     } }); 当按钮被点击时，以下哪项是正确的？","JButton 的构造函数会输出 ""Button clicked!""","actionPerformed 方法会被调用，并输出 ""Button clicked!""",只有鼠标左键点击按钮时才会触发事件,必须实现 ActionListener 接口的所有方法才能编译通过,B,1
+bf7b13f2-664b-4bba-8e7c-02b95b8560b9,91,下列代码的运行结果？ class Example {      int i=20;    static {int i=10;} public static void main(String [] args) {       Example a=new Example();      System.out.println(a.i); } },prints 10,prints 20,编译错误,运行异常,B,1
+bff49e6a-48eb-4b7c-9cf1-6c8c37a8cbd2,77,"针对以下代码问题，下列描述错误的是？ 1public class SelfIntroduction { 2    public static void main(String[] args) { 3        System.out.println(""姓名：***"") 4        System.out.println(""学号：***""); 5        System.out.println(""班级：软工**班""); 6        system.out.println(""爱好：***""); 7    }",第6行没有区分大小写，system应为System,第3行代码没有分号“;”,第8行少写“}”，语句不完整,"第4行语法错误，应改为System.out.print(""学号：***"");",D,1
+c04196e1-edba-4ae0-8d7d-743372e89b69,205,在JDBC中，以下哪个方法用于从ResultSet中获取指定列的值？,getString(),getInt(),getObject(),以上都是,D,1
+c0b92a1e-10aa-4770-94f2-2b778df0eb02,198,"编译和运行以下代码, 如果oneMethod方法正常运行，将显示哪个？ public class Example{          public void test(){                  try{                          oneMethod();                          System.out.println(""condition 1"");                  }                  catch(ArrayIndexOutofBoundsException e){                 ","condition 1
+finally","condition 2
+finally",condition 3,finally,A,1
+c12a027c-0e2f-441c-81a3-89de22fa46be,100,神经元中决定输入信号的重要程度是什么？,激活函数,权重,偏差,神经网络结构,B,1
+c1b9db70-3051-4191-8cc5-04d665175e81,84,"Java中，以下程序运行输出的结果是：（  ） public class Main {     public static void main(String[] args) {         int age = 18;         if (age < 18);{             System.out.println(""未成年人"");         }         if (age > 18){             System.out.println(""成年人"");         }         if (age >=60){             System.o",未成年人,成年人,老年人,没有输出,A,1
+c296739a-eab5-4eba-90d9-590c05b92294,185,下列选项中，关于Java的抽象类和抽象方法说法不正确的是（）。,抽象类和抽象方法都通过abstract关键字来修饰,抽象类中必须包含抽象方法,抽象方法只有方法声明，没有方法实现,子类如果不重写父类所有的抽象方法，则必须设置为抽象类,B,1
+c2abe1cc-709e-4574-81d9-dec23713f4b4,90,"方法的重载是指,两个方法具有相同名称和不同的参数形式.其中不同的参数形式是指()",参数个数或者类型不同,参数有无返回值,方法的修饰符不同,以上都不对,A,1
+c3ba3bf1-b3b6-456d-a136-76a3a5529a82,202,关于文件的类都放在（）包下面,java.io,java.file,java.awt,java.otm,A,1
+c44c55e7-96ae-4bab-a24b-9a7d4b39a83c,185,以下说法哪个正确？,抽象类中一定没有构造方法,抽象类中一定要有抽象方法,抽象类中如果没有构造方法，也会有缺省的构造方法,抽象类中的方法必须全都是抽象的,C,1
+c634929e-4c85-427f-886a-1b273b784728,99,神经网络中的权重在训练过程中是如何更新的？,手动设置,根据损失函数的梯度自动调整,保持不变,随机变化,B,1
+c640359b-5834-4e97-b0d8-58adc52ab55a,190,以下代码编译和运行，正确的选项是？ class Example {   static int x[]=new int[15];     public static void main(String [] args)     {                System.out.println(x[5]);     } },编译时会出现一些错误,运行时，会出现一些错误,输出0,输出null,C,1
+c79a45f0-1a43-4de4-a294-6161ec2c6723,178,请选择缺少的代码。 public class Rectangle {    double width;    double length;    public double findArea() {          //需要填入代码         }     public double findPremeter() {         return 2 * (width + length);     } },return width * length;, System.out.print(width * length); , return w * l;,"int w,l;
+return w * l;",A,1
+c7bfe004-7aa5-467e-ac70-a89822f5520e,181,给出如下代码，如何使成员变量m被方法fun()直接访问： class Test{     private int m;     public static void fun(){         //...     } },将private int m 改为protected int m,将private int m 改为public int m,将private int m 改为static int m,将private int m 改为int m,C,1
+c7c53e79-17b7-4513-b6ff-af61f43e2fd2,201,如果一个线程持有一个对象的锁，其他线程试图访问该对象的同步方法时，将会（   ）。,直接进入该方法,阻塞，直到锁被释放,抛出异常,忽略锁，继续执行,B,1
+c871568d-9212-4bc4-9246-1bc7e95bc421,107,在卷积神经网络中，步长（Stride）是指什么？,卷积核在输入特征图上滑动的步数,卷积核在输出特征图上滑动的步数,输入特征图的像素间距,输出特征图的像素间距,A,1
+c898fcef-9c76-4a46-b2e3-bdda8b322abc,84,"Java中，以下Java程序运行输出的结果是：(  ) public class Main {     public static void main(String[] args) {         int x = 1, y = 9;         if(x > y)              x = y;             y =x;         else             x++;             y++;         System.out.println(x + "", "" + y);     } }","2,10","1,1","2,2",程序语法错误,D,1
+c8fd4840-a82f-4aaf-a1c8-51e2b9c24319,89,"ReturnType  method(byte x, double y)                             {     return  (short)x/y*2; }  ReturnType可以是什么类型？",byte,short,int,double,D,1
+c93fa030-925c-4216-83cd-155127aa7f4b,193,以下哪个方法签名表示一个接受任何类型List作为参数的方法？,public void printList(List<?> list), public <T> void printList(List<T> list),public void printList(List<Object> list),public void printList(List list),A,1
+ca4f94fa-5f54-4195-9371-4e8f334bb4c0,205,使用JDBC查询数据库时，如果结果集中没有数据，则？（ ）  ,获得的ResultSet对象为null,获得的ResultSet对象如果调用next()方法会抛出异常,获得的ResultSet对象如果调用next()方法会返回false,获得的ResultSet对象如果调用getRow()方法会返回-1,B,1
+cadec12d-fe31-4f0a-a4cd-1176da8ff849,77,下列关于JDK、JRE和JVM的描述，哪个选项正确？,JDK中包含了JRE，JVM中包含了JRE,JRE中包含了JDK，JDK中包含了JVM,JRE中包含了JDK，JVM中包含了JRE,JDK中包含了JRE，JRE中包含了JVM,D,1
+cb88cda3-132d-413f-b178-6af848fdebf2,184,"请问""abcd"" instanceof Object的返回值是(   )","""abcd""",true,false,String,B,1
+cbed65ac-be01-42df-8f49-c89c856874e9,197,当需要在一个JPanel上绘制图形时，通常需要重写哪个方法？,init(),start(),paintComponent(),stop(),C,1
+cc544d94-8826-4a14-b80f-1a034a4456e1,178,"如果以下代码的运行结果为“[王芳] 基本工资为 5000.00 , 奖金为 2300.00  , 实发薪水为7300.00”，请选择缺少的代码。 public class Employee {   String name;   double basePay;   double bonus;  public void printPayslip(){   System.out.printf(""[%s] 基本工资为 %.2f , 奖金为 %.2f "",name,basePay,bonus);   System.out.printf("" , 实发薪水为%.2f\n"",calculateSalary()", Employee employee = new Employee(); employee.printPayslip(); ," Employee employee = new Employee();  employee.name=""王芳"";  employee.basePay=5000;  employee.bonus=2300;   "," Employee.name=""王芳"";  Employee.basePay=5000;  Employee.bonus=2300;  Employee.printPayslip();  ","  Employee employee = new Employee();  employee.name=""王芳"";  employee.basePay=5000;  employee.bonus=2300;  employee.printPayslip();",D,1
+ccde0d31-37a9-4abe-95b6-28c2a26e41aa,200,下列哪个方法是所有线程类都有的方法（   ）,run(),sleep(),wait(),notify(),A,1
+cd6ff025-49c3-4f2e-b058-bc4935af698f,187,"以下代码运行结果为 interface Charge {  public abstract void receive(); } // 公共汽车类的收费功能 class Bus implements Charge {  public void receive() {   System.out.println(""公交收费1元"");  } } //电影院类的收费功能 class Cinema implements Charge {  public void receive() {   System.out.println(""电影院收费80元"");  } } public class ChargeTe",编译错误,"收费结果如下：
+公交收费1元
+电影院收费80元",收费结果如下：,"收费结果如下：
+电影院收费80元
+公交收费1元",D,1
+cd8f821d-13a0-4f81-a152-3e2d381bff82,203,"下面的程序创建了一个文件输出流对象，用来向文件test.txt中输出数据，假设程序当前目录下不存在文件test.txt，编译下面的程序Test.java后，将该程序运行3次，则文件test.txt 的内容是( )。   public class Test { public static void main(String args[]) { try { String s=“ABCDE”; byte b[]=s.getBytes(); FileOutputStream file=new FileOutputStream(“test.txt”,true); file.write(b); file.c",ABCABC,ABCDE,Test,ABCDE ABCDE ABCDE,B,1
+cdf1473d-bde3-4785-98f6-861d86770d24,183,下列哪个选项中的方法插入到//处可以正确实现方法重写？ class Animal{   public void eat(String food){}   public static void bark(){}   public void display(){} } class Cat extends Animal{   // },public static void bark(){},public final String display(){},public void eat(String food){},public boolean eat(String food){},C,1
+ce100d65-7b31-46f5-817a-42fba2d73d92,198,"编译和运行以下代码:  class Example{    public static void main(String[] args){             divide(4,0);   }  pubic static void divide(int a,int b){          try{ int c=a/b;}          catch(Exception e){  System.out.println(""Exception"");}          finally{ System.out.println(""Finally"");}          }  } ","输出:Exception
+        Finally",输出:Finally,输出:Exception,没有输出,A,1
+cf3c90e8-03f0-4876-9e63-b4c000b89b89,203,"阅读以下代码，并解释代码System.getProperty(""user.home"") + ""\\Desktop""的作用是： import java.io.File; import java.io.FilenameFilter;   public class Main {     public static void main(String[] args) {         File desktop = new File(System.getProperty(""user.home"") + ""\\Desktop"");         FilenameFilter filter = (dir, ",获取系统的根目录,获取用户文档所在的目录,获取用户桌面的目录,获取用户下载文件的目录,C,1
+cfbf47f0-be1b-48ac-8a7b-57c17e22d8ca,198,以下哪项可以代替xxxxx来表示myMethod可能引发异常？ class Example{    void myMethod() xxxxx  {    }         },throws Exception,throws Error,throws Object,throw new Exception,A,1
+d02b343f-3b53-4634-8a89-aacca998db85,184,toString()方法返回一个对象的字符串表示形式。默认情况下，Object类的toString()方法返回一个包含类名、符号@以及对象的哈希码的无符号十六进制表示的字符串。为了提供更有意义的信息，我们可以在自定义类中（      ）该方法。,继承,重写,重载,多态,B,1
+d09512a2-5971-4e50-8cb3-f3064eaf30b8,90,类Test1定义如下：  1．public  class  Test1{  2．         public  float  aMethod（float  a，float  b）{   }   3．      4．}         将以下哪种方法插入行3是不合法的。（ ） ,public  float  aMethod（float  a， float  b，float  c）{  },public  float  aMethod（float  c，float d）{  },public  int  aMethod（int  a， int b）{  },private float aMethod（int a，int b，int c）{  },B,1
+d16175e1-aa1b-4991-b690-4e1657386365,198,"编译和运行代码，正确的选项是什么？ class Example {  public static void main(String [] args) {    try{                         Float pi=new Float (3.14f);                         if(pi>3)                                 { System.out.println(""pi is bigger than 3"");                                 }                    ",编译失败,输出：“pi is bigger than 3”,输出：“pi is bigger than 3 have nice day”,"输出：“pi is not bigger than 3 ,have a nice day”",C,1
+d165f4f0-6cd4-47ec-9cf2-fb5aab8f85a5,84,下列关于switch语句说法错误的是（）,case之后可以声明常量、也可以声明范围,break关键字表示一旦执行到此关键字，就跳出switch-case结构,switch结构中的表达式，只能是如下的6种数据类型之一: byte、short、int、char、枚举类型、String类型,default结构是可选的，位置是灵活的,A,1
+d1a72e7e-6540-4f23-b20a-29d55c4bc21a,199,以下关于自定义异常的说法，错误的是？,自定义异常可以包含自定义的属性和方法。,自定义异常必须显式地使用 throws 声明。, 自定义异常可以通过 throw 关键字抛出。,自定义异常可以继承 RuntimeException 类。,B,1
+d2d124e6-739e-4a16-ac13-efbd27f71c1d,86,"定义一个数组a：int[ ]  a={1,2,3,4,5,6,7,8,9,10},为了打印输出数组a的最后一个数组元素，下面正确的代码是(  )。",System.out.println(a[10]);,System.out.println(a[9]);,System.out.println(a[a.length]);,System.out.println(a(8));,B,1
+d31527da-8d6f-4885-828f-247bfbb299a8,205,"以下程序片段中，划线处应填入（） Statement stmt = con.createStatement();  String insertData = ""INSERT INTO Employee("" + ""Name, Salary, Location) VALUES "" + ""('Amit', 30000, 'Hyderabad'), "" + ""('Kalyan', 40000, 'Vishakhapatnam'), "" + ""('Renuka', 50000, 'Delhi'), "" + ""('Archana', 15000, 'Mumbai')"";  int i = stmt.____",executeUpdate,executeQuery,update,query,A,1
+d3b87754-0e57-4d26-aa12-b5101430b1c1,186,请选择定义正确的接口的方法,public static void main (String[] args);,private void test();,public void test2();,protected void test3();,C,1
+d52ba574-986c-4a15-a57a-c35df47613b7,185,以下关于抽象类的说法，正确的是？,抽象类可以被声明为 final。,抽象类可以包含静态方法。,抽象类不能包含构造方法。,抽象类不能包含成员变量。,B,1
+d55bd0da-592e-4337-b5d2-2299fecca9b5,205,在JDBC中，以下哪个方法用于从ResultSet中获取下一行数据？,next(),getRow(),fetch(),moveNext(),A,1
+d68fd1ac-676d-4554-8e69-3aaf8e5020dc,187,下列定义接口、实现接口，代码正确的是,"public interface Strategy {
+  double computerAverage(double [] a) {   }
+ }
+public class StrategyA implements Strategy{
+    public double computerAverage(double [] a){
+       return 0; 
+    }
+}
+","public implements Strategy {
+  double computerAverage(double [] a);
+ }
+public class StrategyA interface Strategy{
+       public double computerAverage(double [] a){
+          return 0; 
+    }
+}
+","public interface Strategy {
+  double computerAverage(double [] a);
+ }
+public class StrategyA implements Strategy{
+         double computerAverage(double [] a){
+       return 0; 
+    }
+}
+","public interface Strategy {
+  double computerAverage(double [] a);
+ }
+public class StrategyA implements Strategy{
+       public double computerAverage(double [] a){
+         return 0; 
+    }
+}
+",D,1
+d6f9a8a9-120c-4233-adc2-7a2013e69397,105,下列那个选项不是卷积运算类型？,full,same,valid,pooling,D,1
+d751bf01-5265-45d1-bde7-ee53491fe87d,178,"设 A为已定义的类名,下列声明并创建A类的对象a的语句中正确的是?",A a=new A( );,public A a=A( );,A  a=new class( );,a A,A,1
+d7598ae3-da1b-4bf9-a38d-483a149d63d4,108,Batch Normalization通过规范化哪个统计量来减少内部协变量偏移？,方差,均值,均值和方差,偏度,C,1
+d7a0c3a8-71cb-49e0-9dc0-15ecca48f8cf,202,（ ）流类属于面向字符的输入流,BufferedWriter,FileInputStream,ObjectInputStream,InputStreamReader,D,1
+d7e06193-738f-4fff-91bd-efbadce802ee,205,关于PreparedStatement接口，描述正确的是：,是 Statement 的子接口，可以传入带占位符的 SQL 语句,是用于存储查询结果的接口,主要操作就是得到一个数据库的连接,具有原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）4 个特性,A,1
+d857a618-1b4e-4f6d-9881-b32f83234757,199, 以下代码中，自定义异常的定义正确的是？,class MyException extends Throwable {}, class MyException implements Exception {},class MyException extends Exception {}," class MyException extends RuntimeException, Exception {}",C,1
+d88d3014-0de4-4aed-98b1-77514d5ee598,192,在Java中，以下哪个类实现了Map接口并且不允许存储重复的键？,HashMap,TreeMap,LinkedHashMap,HashSet,D,1
+dacd0671-b19f-4ba2-8425-e0e09c524fad,189,不使用for 循环语句，下面的哪一个能做到给数组赋值？ ,"myArray{
+[1]=""One"";
+[2]=""Two"";
+[3]=""Three"";
+}","String s[5]=new String[] {""Zero"",""One"",""Two"",""Three"",""Four""};","String s[]=new String[] {""Zero"",""One"",""Two"",""Three"",""Four""};","String s[]=new String[]={""Zero"",""One"",""Two"",""Three"",""Four""};",C,1
+dbc85cde-8a33-419d-984c-b1efb1854080,86,下面程序运行结果是？ int x=30; int[] numbers=new int[x]; x=60; System.out.println(numbers.length);,60,20,30,50,C,1
+dbcee38c-7959-4fa1-9c32-6970aece379a,84,"分析如下Java代码，编译运行后的输出结果是（ ） public static void main(String[] args){ boolean b = true; System.out.print(b); if(b){ System.out.print(""真""); }else{ System.out.print(""假""); }}",true ,true 真,true 假,1,B,1
+dc005d0a-ad03-4817-bf2d-a247dd8365c1,186,关于下面接口的说法错误的是 public interface Payment {  public String pay(double price); } ,"类实现接口，必须覆盖pay方法
+
+","如果覆盖pay方法，写法可以为
+String pay(double price){
+return “待返回的值”；
+}","如果覆盖pay方法，写法可以为
+public String pay(double price){
+return “待返回的值”；
+}",类实现接口所用的关键字为implements,B,1
+dc1f91fd-0cbf-4e37-8e2e-96dbde1c94fd,195,"JButton button1 = new JButton(""Button 1""); JButton button2 = new JButton(""Button 2""); ActionListener commonListener = new ActionListener() {     public void actionPerformed(ActionEvent e) {         System.out.println(e.getActionCommand() + "" clicked"");     } }; button1.addActionListener(commonListen","Button 1 clicked 和 ""Button 2 clicked""",Button 2 clicked 两次,"只有 ""Button 1 clicked""", 不会有任何输出,A,1
+dc3125d0-7ce4-4be2-ba99-8d86eb029de4,93,"已知有定义：String s = ""AAA 软件教育""，下面表达式正确的是（ ）","s += ""you""; ",char c = s[1]; ,int len = s.length;,"String str = str.charAt(10); 
+",A,1
+dcb4f4ca-3f5f-4e0e-97db-944e5357332f,192,在Java中，以下哪个方法用于检查Map是否包含指定的键？,containsValue(),containsKey(),hasKey(),includesKey(),B,1
+dd497013-9c15-4646-b2b8-57e45c985099,87,不使用for 循环语句，下面的哪一个能做到给数组赋值？ ,"myArray{
+[1]=""One"";
+[2]=""Two"";
+[3]=""Three"";
+}","String s[5]=new String[] {""Zero"",""One"",""Two"",""Three"",""Four""};","String s[]=new String[] {""Zero"",""One"",""Two"",""Three"",""Four""};","String s[]=new String[]={""Zero"",""One"",""Two"",""Three"",""Four""};",C,1
+ddb316ca-8584-4474-aff5-5da4e52b7cdb,189,"下面程序的功能为计算数组下标为奇数的各元素的和，空白处应填入的代码是？ public class SumOfArray {    public static void main(String  []args)    {        int a[] = { 1, 3, 5, 7, 9, 10 };        int total=0;       for ( int i = 1; i < a.length; _______ )             total+=a[i];       System.out.println( ""Total of array elements: "" + to",i++;,i--,I=i+2;,i+=1;,C,1
+ddb8b9e5-0338-4d9d-9d1f-21bef777947c,179,"下列代码运行结果是什么？ public class PassObjectTest {     public static void main(String[] args) {         int x = 5;//简单类型         A y = new A();//引用类型   对象类型         System.out.println(""x="" + x);         System.out.println(""y.a="" + y.a);         y.add(x, y);         System.out.println(""x="" + x);         Syst","
+x=5
+y.a=1
+x=5
+y.a=2","
+x=5
+y.a=1
+x=5
+y.a=1","
+x=5
+y.a=1
+x=6
+y.a=2","
+x=5
+y.a=1
+x=6
+y.a=1",A,1
+ddf89225-c683-4776-bac6-6cc69ade2bf6,111,在循环神经网络中，哪种结构允许网络捕捉长期依赖关系？,卷积层,LSTM（长短期记忆网络）,池化层,密集层,B,1
+df333d0e-6f18-40d6-bd77-7947af6ff8cf,93,下面不是 String 类提供的合法方法的是（ ）,equals(),append() ,indexOf() ,trim() ,B,1
+df4aa9ff-7c22-40a8-bb41-b7f440976a10,101,下列哪种技术可以用来改善多层神经网络的泛化能力？,L1正则化,使用更多的训练数据,Dropout,以上都是可能的策略,D,1
+df7eeff9-8797-47af-b6d0-03587b963e82,85,"在JAVA中，给定代码片段如下所示，则编译运行后，输出结果是（）。 for (int i = 0; i < 10; i++) {     if (i == 10 - i) {         break;     }      if (i % 3 != 0) {         continue;     }     System.out.print(i + "" ""); }",0,0 3,0 3 6,0 3 6 9,B,1
+df8cf703-9b1b-4de6-9297-36cc10b15b1b,89,"下面方法定义中,不正确的是:","float x(int a,int b){return a-b;}","int x(int a,int b){return a-b;}","int x(int a,int b){return a*b;}","int x(int a,int b){return 1.2*(a-b);}",D,1
+dfc21f56-a460-4422-8898-3f4b18b80e2d,195,"JFrame frame = new JFrame(""Test Frame""); frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); frame.addActionListener(new ActionListener() {     public void actionPerformed(ActionEvent e) {         System.out.println(""Frame closed"");     } }); 当窗口关闭时，会发生什么？","会打印 ""Frame closed""", 程序会终止运行, 会触发 actionPerformed 方法, 以上都不会发生,B,1
+e03553b8-fe06-49b0-a39d-bab317316ca3,91,类Test1定义如下：  1．public  class  Test1{  2．         public  float  aMethod（float  a，float  b）{   }   3．     4．}         将以下哪种方法插入行3是不合法的。（ ）,public  float  aMethod（float  a， float  b，float  c）{  },public  float  aMethod（float  c，float d）{  },public  int  aMethod（int  a， int b）{  },private float aMethod（int a，int b，int c）{  },B,1
+e0a06974-cff0-4b96-a722-d934bf1d925a,185,选择正确的选项：,"public abstract class Canine { public Bark speak(); }
+}",public abstract class Canine { public Bark speak() { } },public class Canine { public abstract Bark speak(); },public class Canine abstract { public abstract Bark speak();,B,1
+e17f640a-2511-4ba4-a185-0f44d2e4c15a,92,list是一个ArrayList的对象，哪个选项的代码填写到//todo delete处，可以在Iterator遍历的过程中正确并安全的删除一个list中保存的对象？        Iterator it = list.iterator();        int index = 0;        while (it.hasNext()){               Object obj = it.next();               if (needDelete(obj)) { //needDelete返回boolean，决定是否要删除            //todo dele,list.remove(obj);,list.remove(index);,list.remove(it.next());,it.remove();,D,1
+e1998c9e-fcae-4f76-b1ca-a44a672e1ee4,92,"下面程序段完成后，控制台显示是哪个？ Map<Integer,String> map = new HashMap<Integer, String>(); map.put(1, ""张三丰""); map.put(2, ""周芷若""); map.put(3, ""汪峰""); map.put(4, ""灭绝师太"");  map.remove(1);//删除 map.put(2,""周林"");//修改 System.out.println(map);","{2=周芷若, 3=汪峰, 4=灭绝师太}","{2=周林, 3=汪峰, 4=灭绝师太} ","{1=张三丰, 2=周芷若, 3=汪峰, 4=灭绝师太}","{1=张三丰, 2=周林, 3=汪峰, 4=灭绝师太}",B,1
+e1a11486-217c-4a6a-81e5-02b293f7738b,193,以下哪个类型参数限定符表示类型T必须是Number的子类？,<T extends Number>,<T super Number>,<T implement Number>,<T Number>,A,1
+e20b5915-121e-4fce-9678-6fad24ab4aea,191,在Java集合框架中，下列哪个类不是单列集合（  ）,List,Set,Map,Queue,C,1
+e25f1c2f-8f0a-40f7-8ff4-378a7f26406e,198,编译和运行代码，正确的选项是什么？ class Example {  public static void main(String [] args) { Integer i=null;  method(i); } static void method(int k) { System.out.println(k); } } Select all right answer? ,异常：NullPointerException,异常：NumberFormatException,null,0,A,1
+e2bbd713-f8bb-4376-95ba-2ace56093f8e,181,在Java中，如果一个成员变量或方法没有指定访问修饰符，它的默认访问级别是什么？,public,private,protected,default,D,1
+e53baed2-717d-4fe8-ac60-c9ad34d0f9a5,92,"下面程序的输出的是： String name1 = ""张无忌""; String name2 = ""赵敏""; String name3 = ""周芷若""; HashMap map = new HashMap(); map.put(""zhangsan"",name1); map.put(""zhaosi"",name2); map.put(""zhouwu"",name3);  System.out.println(map); String name = (String) map.get(""zhaosi"");//根据英文名获取学生对象 System.out.println(name);", zhaosi=赵敏, 赵敏,zhaosi,"{zhaosi=赵敏, zhangsan=张无忌, zhouwu=周芷若}
+赵敏",D,1
+e5747bb9-b93a-4108-a877-ff2014722314,196,在一个几何图形类中，通常用来存储圆心坐标的成员变量是？,x和y, width和height,radius,area和perimeter,A,1
+e5b21374-89b3-431a-b45e-16302db0494d,79,运行下列代码后，控制台输出的值是多少？ public class Test {     public static void main(String[] args) {         int a = 10;         int b = a;         b = 20;         System.out.println(a);     } },10,20,null,编译错误,A,1
+ea5758fc-aa86-4b50-b959-92e44652759d,111,LSTM网络中的遗忘门的作用是什么？,决定新的信息被存储到细胞状态中,决定细胞状态中的信息被输出,决定细胞状态中的信息被遗忘,决定细胞状态中的信息被更新,C,1
+ea6c49f9-8348-4e91-8aae-aae5a062700d,89,"下列代码运行结果是什么？ public class hello {  public static int sum(int i,int j) {   return i+j;  }  public static int mul(int i,int j) {   return i*j;  }  public static void main(String[] args) {   System.out.println(mul(3,4)-sum(1,2));  } }",7,8,9,10,C,1
+eaafad93-0e53-4223-8326-e5935ebcf249,178,关于以下类说法错误的是？ class A{  int a;  void test(int t){     double p = t * a;  } },a是成员变量,p是局部变量,test()方法外无法访问变量t,test()方法内的a不可以写作this.a,D,1
+ed4c1c62-284d-434d-bd9e-7c913dd01e82,188,下面程序运行结果是？ int x=30; int[] numbers=new int[x]; x=60; System.out.println(numbers.length);,60,20,30,50,C,1
+eee015e4-e7fb-4d53-acb0-ba368e35a8b2,199,假设有自定义异常类MyException，那么抛出该异常的语句正确的是 ,throw new Exception(),throw new MyException(),throw MyException,throws Exception,B,1
+f1b0ccf6-805c-470d-9530-6114578f6577,178,以下类的定义中非法的是？,"class A{
+int a,b;
+}","class A{
+int i,j;
+i = j = 10;
+}","class A{
+int i;
+double f;
+}","class A{
+int i = 12;
+double f = 1.2;
+}",B,1
+f3b60487-6786-4422-aed8-db8d44ad70ff,185,以下对抽象类的描述正确的是（）,抽象类没有构造方法,抽象类必须提供抽象方法,抽象类提供抽象方法和非抽象方法,抽象类可以通过new关键字直接实例化,C,1
+f43fd5a7-ff97-4e4a-9116-c924c9245a7d,201,假设线程 T1 在对象 obj 上调用 wait() 方法，而线程 T2 并没有持有 obj 的锁，也没有调用 obj 的 notify() 或 notifyAll()，那么 T1 将会（   ）。,永远等待,等待一段时间后继续执行,被 T2 唤醒,抛出异常,A,1
+f44a0e61-0a4e-417f-8760-62706dfb4dd5,198,"getCustomerInfo()方法如下，try中可以捕获三种类型的异常，如果在该方法运行中产生了一个IOException，将会输出什么结果（   ）  public void getCustomerInfo() {            try {                // do something that may cause an Exception            } catch (java.io.FileNotFoundException  ex){                  System.out.print(""FileNotFoundException!",IOException!,FileNotFoundException!IOException!Exception!,IOException!Exception!,FileNotFoundException!IOException!,A,1
+f50c9f8c-7d93-48ec-a3ea-205cd191cefd,197,在Java的图形用户界面编程中，哪个类是创建窗口应用程序的基础？,JApplet,JDialog,JFrame,JWindow,C,1
+f5500d22-36ec-450f-9e84-63aeba2acd2b,89,"下列方法定义中,方法头不正确的是?",double m( int m){ },void m( int m){ },"public int m(int m, int n){ }","m( int h,int m,int n){ }",D,1
+f73faec5-60f3-4ebd-9337-924a6bf3a392,94,深度学习是哪种学习方法的子集？,弱监督学习,机器学习,强化学习,无监督学习,B,1
+f740ab57-e943-4750-8037-dbd45013f00f,99,神经网络是由什么基本单元组成的？,神经元,边缘,权重,激活函数,A,1
+f7f6e1fa-3cca-4bd7-b059-ac941ecd3d5e,181,"下列修饰符中,成员内部被()修饰后,不可以被外界访问.",default,protected,public,private,D,1
+f828a7a9-b3f0-4f08-86eb-eafb765062dd,79,关于下列代码，以下哪个说法是正确的？ public class Test {     public static void main(String[] args) {         final int MAX_VALUE = 100;         // MAX_VALUE = 200; // 这行代码将会导致编译错误         System.out.println(MAX_VALUE);     } },MAX_VALUE 是一个变量，可以在任何地方被重新赋值,MAX_VALUE 是一个变量，只能在声明时赋值一次,MAX_VALUE 是一个常量，可以在任何地方被重新赋值,MAX_VALUE 是一个常量，只能在声明时赋值一次,D,1
+f9df1b7b-dca8-457e-9d36-659b22098504,107,在卷积神经网络中，步长（Stride）是指什么？,卷积核在输入特征图上滑动的步数,卷积核在输出特征图上滑动的步数,输入特征图的像素间距,输出特征图的像素间距,A,1
+faed0bbe-d24b-4d68-991f-760837f2b864,201,假设有一个类 Counter，其中有一个成员变量 count，多个线程要对该变量进行自增操作。为了保证线程安全，应该在自增操作上添加（   ）关键字。,synchronized,static,final,volatile,A,1
+fb04155b-7410-47da-9cba-e446820bf460,112,GRU网络中不包含以下哪个组件？,更新门（Update Gate),遗忘门（Forget Gate）,重置门（Reset Gate）,候选隐藏状态（Candidate Hidden State）,B,1
+fb065e6d-cb86-4452-a795-39bda1546028,78,使用JDK工具生成的Java文档的文件格式是什么？,XML格式,自定义格式,二进制格式,HTML格式,D,1
+fc0f20dc-f1b0-40eb-91b7-cde5a3a4ae3f,201,在 Java 中，以下哪个方法是 ReentrantLock 类的方法，用于尝试获取锁（   ）,lock(),tryLock(),unlock(),newLock(),B,1
+fc1ae0d2-a752-4dfe-8cb3-624138abc388,90,"下列代码运行结果是什么？ public class hello {  public static int sum(int i,int j) {   return i+j;  }  public static int mul(int i,int j) {   return i*j;  }  public static void main(String[] args) {   System.out.println(mul(3,4)-sum(1,2));  } } ",7,8,9,10,C,2
+fd378c82-dee5-4995-8f55-820450ee9c6f,187,"补充以下代码，缺少的语句不可以为 interface CanFly {  void fly(); } class Balloon implements CanFly{  public void fly() {  System.out.println("" Balloon can fly. "");    } } public class Test1 {   public static void main(String[] args) {  //缺少的语句  } }","Balloon balloon=new Balloon();
+balloon.fly();",new Balloon().fly();,"Balloon balloon=new CanFly();
+balloon.fly();","CanFly balloon=new Balloon();
+balloon.fly();",C,1
+ff363a2b-082e-4aea-b152-aee6fd956bc6,92,下面程序段完成后，控制台显示是哪个？ Set<Integer> set = new HashSet<>();   set.add(1);   set.add(2);   set.add(3);   set.add(2);     set.remove(1);      System.out.println(set);,"[1, 2, 3, 2]","[2, 3]","[1, 2, 3]","[2, 3, 2]",B,1
+ffb8c65a-dfbf-469a-9191-7bc990246819,184,下面那个方法不是Java中Object类的方法（）,notify(),notifyAll(),sleep(),wait(),C,1
+ffed453c-67f8-4aa3-b88c-ba1d5cb3ccc1,195,"设置一个窗口，显示3个按钮，并按照水平排列，在*号处需要补充的代码是？ import javax.swing.*; import java.awt.*;  public class Main {     public static void main(String[] args) {         JFrame frame = new JFrame(""Layout Example"");         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);         frame.setSize(300, 200);         J",frame.setLayout(new BordLayout());,frame.setLayout(new FlowLayout());,"frame.setLayout(new GridLayout(3,1,1,1));","frame.add(button1, BorderLayout.NORTH);",B,1

@@ -1,0 +1,37 @@
+{
+  "courses": 3,
+  "units": 25,
+  "kts": 66,
+  "kts_recovered": 23,
+  "edges": 88,
+  "edges_with_weight": 28,
+  "questions": 467,
+  "students": 1139,
+  "students_active": 1060,
+  "interactions": 169351,
+  "mastery_labels": 17862,
+  "scope_conflict_pairs": 3,
+  "interaction_correct_rate": 0.993475,
+  "mastery_passed_dist": {
+    "2": 16796,
+    "1": 1066
+  },
+  "mastery_correct_rate_is_1": 16491,
+  "major_dist": {
+    "其他": 253,
+    "计算机科学": 106,
+    "人工智能": 96,
+    "软件工程": 684
+  },
+  "grade_dist": {
+    "1": 67,
+    "3": 256,
+    "4": 321,
+    "2": 495
+  },
+  "course_kt_count": {
+    "C1": 18,
+    "C2": 28,
+    "C3": 20
+  }
+}

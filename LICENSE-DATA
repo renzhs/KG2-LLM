@@ -1,0 +1,37 @@
+DNUI-IKG 数据集许可协议
+Data License for DNUI-IKG
+====================================
+
+适用于本仓库 data/dnui_ikg/ 目录下的全部文件（以下称"数据集"）。
+Applies to all files under data/dnui_ikg/ in this repository.
+
+1. 许可范围 / Scope
+   数据集采用 Creative Commons Attribution-NonCommercial 4.0 International
+   (CC BY-NC 4.0) 许可。全文见 https://creativecommons.org/licenses/by-nc/4.0/legalcode
+   The dataset is licensed under CC BY-NC 4.0.
+
+2. 你可以 / You may
+   · 复制、分发、修改数据集，用于非商业的教学与学术研究；
+   · 在论文、报告与课程中引用，前提是按第 3 条署名。
+   Share, adapt and build upon the dataset for non-commercial research and teaching,
+   provided you give appropriate credit.
+
+3. 署名要求 / Attribution
+   使用时须注明：数据集名称 DNUI-IKG、来源仓库与本论文引用（见 CITATION.cff），
+   并说明是否作了修改。建议在论文"实验设置"或脚注中写明。
+   You must credit the dataset name, this repository, the associated paper
+   (see CITATION.cff), and indicate if changes were made.
+
+4. 限制 / Restrictions
+   · 不得用于商业用途（含商业产品、收费服务、商业模型训练）；
+   · 不得尝试重新识别数据中的任何个体，不得将本数据集与其他数据源拼接以还原身份；
+   · 不得二次分发经过再识别的版本。
+   No commercial use. No re-identification, and no linkage with other data sources
+   to recover individual identities.
+
+5. 免责 / Disclaimer
+   数据集"按现状"提供，不含任何明示或默示担保。作者不对使用后果承担责任。
+   The dataset is provided "as is", without warranty of any kind.
+
+6. 联系 / Contact
+   任志森，大连东软信息学院 软件学院，renzhisen@neusoft.edu.cn

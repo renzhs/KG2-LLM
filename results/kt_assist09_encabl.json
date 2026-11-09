@@ -1,0 +1,181 @@
+{
+ "dataset": "assist09",
+ "seeds": [
+  42,
+  43,
+  44
+ ],
+ "epochs": 60,
+ "batch": 64,
+ "final_cfg": {
+  "seq_enc": "gru",
+  "layers": 1,
+  "graph_in": true,
+  "d": 256,
+  "dropout": 0.2,
+  "lr": 0.004,
+  "gated_fuse": false,
+  "steps": 2,
+  "hops": 1,
+  "topm": 8,
+  "wprior": 0.0
+ },
+ "final_cfg_file": "kt_model_cfg_assist09.json",
+ "variants": {
+  "Transformer(2层)": {
+   "seq_enc": "transformer",
+   "layers": 2,
+   "graph_in": false
+  },
+  "Transformer(3层)": {
+   "seq_enc": "transformer",
+   "layers": 3,
+   "graph_in": false
+  },
+  "LSTM(1层)": {
+   "seq_enc": "lstm",
+   "layers": 1,
+   "graph_in": false
+  },
+  "GRU(1层)": {
+   "seq_enc": "gru",
+   "layers": 1,
+   "graph_in": false
+  },
+  "GRU(1层)+图平滑输入": {
+   "seq_enc": "gru",
+   "layers": 1,
+   "graph_in": true
+  },
+  "GRU(2层)": {
+   "seq_enc": "gru",
+   "layers": 2,
+   "graph_in": false
+  }
+ },
+ "summary": {
+  "Transformer(2层)": {
+   "mean": 0.7345,
+   "std": 0.0051,
+   "per_seed": [
+    0.7387,
+    0.7361,
+    0.7288
+   ],
+   "val_mean": 0.7592,
+   "val_per_seed": [
+    0.7634,
+    0.7605,
+    0.7536
+   ]
+  },
+  "Transformer(3层)": {
+   "mean": 0.6454,
+   "std": 0.0321,
+   "per_seed": [
+    0.6115,
+    0.6494,
+    0.6754
+   ],
+   "val_mean": 0.6811,
+   "val_per_seed": [
+    0.645,
+    0.6862,
+    0.7122
+   ]
+  },
+  "LSTM(1层)": {
+   "mean": 0.7596,
+   "std": 0.0005,
+   "per_seed": [
+    0.7601,
+    0.7592,
+    0.7595
+   ],
+   "val_mean": 0.7813,
+   "val_per_seed": [
+    0.7836,
+    0.7811,
+    0.7791
+   ]
+  },
+  "GRU(1层)": {
+   "mean": 0.7626,
+   "std": 0.0018,
+   "per_seed": [
+    0.7606,
+    0.7631,
+    0.764
+   ],
+   "val_mean": 0.785,
+   "val_per_seed": [
+    0.7821,
+    0.7867,
+    0.7862
+   ]
+  },
+  "GRU(1层)+图平滑输入": {
+   "mean": 0.7629,
+   "std": 0.0029,
+   "per_seed": [
+    0.7656,
+    0.7599,
+    0.7633
+   ],
+   "val_mean": 0.7846,
+   "val_per_seed": [
+    0.7861,
+    0.7811,
+    0.7865
+   ]
+  },
+  "GRU(2层)": {
+   "mean": 0.7591,
+   "std": 0.0007,
+   "per_seed": [
+    0.7589,
+    0.7585,
+    0.7598
+   ],
+   "val_mean": 0.7809,
+   "val_per_seed": [
+    0.7797,
+    0.7816,
+    0.7813
+   ]
+  }
+ },
+ "paired_vs_ref": {
+  "Transformer(2层)": {
+   "n": 3,
+   "mean_delta": -0.0284,
+   "better_seeds": 0,
+   "worse_seeds": 3
+  },
+  "Transformer(3层)": {
+   "n": 3,
+   "mean_delta": -0.1175,
+   "better_seeds": 0,
+   "worse_seeds": 3
+  },
+  "LSTM(1层)": {
+   "n": 3,
+   "mean_delta": -0.0033,
+   "better_seeds": 0,
+   "worse_seeds": 3
+  },
+  "GRU(1层)": {
+   "n": 3,
+   "mean_delta": -0.0004,
+   "better_seeds": 2,
+   "worse_seeds": 1
+  },
+  "GRU(2层)": {
+   "n": 3,
+   "mean_delta": -0.0039,
+   "better_seeds": 0,
+   "worse_seeds": 3
+  }
+ },
+ "selected_variant_guess": "GRU(1层)+图平滑输入"
+}

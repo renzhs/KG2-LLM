@@ -1,0 +1,23 @@
+% 由 experiments/tools/lr_expand_audit.py 自动生成
+\begin{table*}[t]
+\centering
+\caption{学习率扩搜前后的验证集选点对照（仅列扩搜后选点\textbf{移出原网格}的 9 个单元）。``网格内''为固定网格 $\{0.5,1,2,4,8\}\times10^{-3}$（GKT 为 $\{1,2,4\}\times10^{-3}$）上的验证集最优；``扩搜后''为向命中方向倍增扩搜后重新选优的结果。$\Delta$AUC 为扩搜后减扩搜前的\textbf{验证集} AUC。本表数值取自调参阶段单次运行（公开基准第 1 折、自建划分种子 42），用于说明选点过程，与主表的多折/多种子均值不可直接比较。}
+\label{tab:lrexp}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcccccc}
+\toprule
+数据集 & 模型 & 命中 & 网格内 & 扩搜后 & 验证 AUC（前$\rightarrow$后） & $\Delta$AUC & 试验数 \\
+\midrule
+ASSIST15 & AKT & 下界 & $0.5\times10^{-3}$ & $0.125\times10^{-3}$ & $0.7053\rightarrow0.7061$ & $+0.0008$ & 12 \\
+ & DKVMN & 上界 & $8\times10^{-3}$ & $16\times10^{-3}$ & $0.6944\rightarrow0.6953$ & $+0.0009$ & 11 \\
+ & SAINT & 下界 & $0.5\times10^{-3}$ & $0.125\times10^{-3}$ & $0.7033\rightarrow0.7041$ & $+0.0008$ & 12 \\
+ & SAKT & 下界 & $0.5\times10^{-3}$ & $0.125\times10^{-3}$ & $0.6934\rightarrow0.6947$ & $+0.0013$ & 12 \\
+ & SimpleKT & 下界 & $0.5\times10^{-3}$ & $0.125\times10^{-3}$ & $0.7050\rightarrow0.7066$ & $+0.0016$ & 12 \\
+Statics11 & SAKT & 下界 & $0.5\times10^{-3}$ & $0.125\times10^{-3}$ & $0.8000\rightarrow0.8018$ & $+0.0018$ & 12 \\
+DNUI-IKG & AKT & 下界 & $0.5\times10^{-3}$ & $0.25\times10^{-3}$ & $0.7271\rightarrow0.7275$ & $+0.0004$ & 11 \\
+ & SAKT & 下界 & $0.5\times10^{-3}$ & $0.25\times10^{-3}$ & $0.7190\rightarrow0.7194$ & $+0.0004$ & 11 \\
+ASSIST12$^{S}$ & SAKT & 下界 & $0.5\times10^{-3}$ & $0.125\times10^{-3}$ & $0.6892\rightarrow0.6906$ & $+0.0014$ & 11 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

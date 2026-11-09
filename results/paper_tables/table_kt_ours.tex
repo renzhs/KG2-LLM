@@ -1,0 +1,24 @@
+% 由 tools/make_paper_tables.py 自动生成
+\begin{table*}[t]
+\centering
+\caption{本文方法（DGCL-KT）与各数据集最强基线的三指标对比。``最强基线''为该数据集上基线中 AUC 最高者（多位并列时取表中靠前者）；$\Delta$ 为本文减最强基线（按表内报告的四位小数均值相减，读者可直接复核）。标记规则\textbf{对三个指标完全一致}：$\ddagger$（粗体）表示本文在该指标上经\textbf{配对检验显著更优}（AUC/ACC 越大越好、RMSE 越小越好；公开基准以 5 折为配对单元、自建划分以 3 个随机种子为配对单元，配对 $t$ 检验双侧 $p<0.05$，见 4.1.5 节）；\underline{下划线}表示差异\textbf{不显著}，此时本文不主张占优。故表中不存在``数值更大即加粗''的隐式规则——如 DNUI-IKG 一行三个指标的下划线即表示该数据集上不主张任何优势。自建划分的三个数据集均取 3 个随机种子（42/43/44）的均值$\pm$种子标准差；其中 BKT、BKT$+$ 为确定性算法、种子间标准差为 0，故只报均值。}
+% 多种子口径: DNUI-IKG [42, 43, 44] 种子, ASSIST09(自建划分) [42, 43, 44] 种子, ASSIST12(自建划分) [42, 43, 44] 种子
+\label{tab:kt-ours}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccccccc}
+\toprule
+数据集 & 最强基线 & 基线 AUC & 本文 AUC & $\Delta$AUC & 基线 ACC & 本文 ACC & 基线 RMSE & 本文 RMSE \\
+\midrule
+ASSIST09 & DKT$+$ & 0.8087 & \textbf{0.8184$\pm$0.0042}$^{\ddagger}$ & $+0.0097$ & 0.7655 & \underline{0.7669} & 0.3999 & \underline{0.3998} \\
+ASSIST15 & GKT & 0.7278 & \textbf{0.7306$\pm$0.0013}$^{\ddagger}$ & $+0.0028$ & 0.7499 & \underline{0.7503} & 0.4130 & \textbf{0.4125}$^{\ddagger}$ \\
+ASSIST17 & AKT & 0.7316 & \textbf{0.7912$\pm$0.0065}$^{\ddagger}$ & $+0.0596$ & 0.7032 & \textbf{0.7318}$^{\ddagger}$ & 0.4427 & \textbf{0.4205}$^{\ddagger}$ \\
+Statics11 & SimpleKT & 0.8194 & \textbf{0.8252$\pm$0.0058}$^{\ddagger}$ & $+0.0058$ & 0.8030 & \textbf{0.8054}$^{\ddagger}$ & 0.3691 & \textbf{0.3660}$^{\ddagger}$ \\
+DNUI-IKG & SimpleKT & 0.7426 & \underline{0.7429$\pm$0.0004} & $+0.0003$ & 0.6986 & \underline{0.6988} & 0.4445 & \underline{0.4445} \\
+ASSIST09(自建划分) & AKT & 0.7535 & \textbf{0.7629$\pm$0.0029}$^{\ddagger}$ & $+0.0094$ & 0.7304 & \textbf{0.7378}$^{\ddagger}$ & 0.4263 & \textbf{0.4208}$^{\ddagger}$ \\
+ASSIST12(自建划分) & AKT & 0.7573 & \textbf{0.7704$\pm$0.0005}$^{\ddagger}$ & $+0.0131$ & 0.7458 & \textbf{0.7519}$^{\ddagger}$ & 0.4163 & \textbf{0.4117}$^{\ddagger}$ \\
+\bottomrule
+\end{tabular}}
+\par\smallskip\footnotesize 配对 $t$ 检验（双侧）$p$ 值：ASSIST09 $p=0.0030$，ASSIST15 $p=0.0006$，ASSIST17 $p=0.0000$，Statics11 $p=0.0060$，DNUI-IKG $p=0.5624$，ASSIST09(自建划分) $p=0.0393$，ASSIST12(自建划分) $p=0.0002$。（此处 $p$ 值对应 AUC；ACC 与 RMSE 的配对检验结论见表内标记。）$\Delta$AUC 的 95\% 置信区间：ASSIST09 $[+0.0055,+0.0138]$，ASSIST15 $[+0.0020,+0.0036]$，ASSIST17 $[+0.0514,+0.0677]$，Statics11 $[+0.0028,+0.0089]$，DNUI-IKG $[-0.0016,+0.0022]$，ASSIST09(自建划分) $[+0.0011,+0.0178]$，ASSIST12(自建划分) $[+0.0123,+0.0138]$。逐配对单元胜负（本文胜/总单元数）：ASSIST09 5/5 折胜，ASSIST15 5/5 折胜，ASSIST17 5/5 折胜，Statics11 5/5 折胜，DNUI-IKG 2/3 种子胜，ASSIST09(自建划分) 3/3 种子胜，ASSIST12(自建划分) 3/3 种子胜。
+\par\footnotesize 功效说明：配对 $t$ 检验的自由度分别为 4（5 折）与 2（3 种子），对应的双侧临界值 $|t|_{0.025}$ 为 2.776 与 \textbf{4.303}。据此计算 80\% 功效下的\textbf{最小可检出效应} $\mathrm{MDES}=(t_{0.025,n-1}+t_{0.80,n-1})\,s_d/\sqrt{n}$（$s_d$ 为配对差值的标准差）：DNUI-IKG 上为 $0.0023$，ASSIST09（自建划分）上为 $0.0104$。DNUI-IKG 的观测效应（$+0.0003$）仅为该下限的 13\%，故``不显著''反映的是\textbf{样本量不足以分辨该量级的差异}，\textbf{不能解读为两方法等价}；ASSIST09（自建划分）的观测效应（$+0.0094$）亦略低于其下限，故该处 $p=0.0393$ 需谨慎对待，本文不据此单独作强主张。
+\end{table*}

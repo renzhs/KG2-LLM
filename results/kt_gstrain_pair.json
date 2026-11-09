@@ -1,0 +1,798 @@
+{
+ "assist09_akt": {
+  "dataset": "assist09_akt",
+  "pretty": "ASSIST09（AKT 划分）",
+  "anchor_folds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "n_anchor": 5,
+  "method": {
+   "folds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "n": 5,
+   "main_mean": 0.81836,
+   "main_std": 0.004171090984382865,
+   "gstrain_mean": 0.81884,
+   "gstrain_std": 0.004293366977093838,
+   "delta": 0.00048000000000003595
+  },
+  "best_baseline": "DKT+",
+  "best_baseline_row": {
+   "folds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "n": 5,
+   "main_mean": 0.8086800000000001,
+   "main_std": 0.0038854858126108225,
+   "gstrain_mean": 0.8086800000000001,
+   "gstrain_std": 0.0038854858126108225,
+   "delta": 0.0
+  },
+  "gap_main": 0.009679999999999911,
+  "gap_gstrain": 0.010159999999999947,
+  "rows": {
+   "AKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.79674,
+    "main_std": 0.0037607180165495115,
+    "gstrain_mean": 0.79678,
+    "gstrain_std": 0.0037130849707487346,
+    "delta": 4.0000000000040004e-05
+   },
+   "BKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.67064,
+    "main_std": 0.006255237805231697,
+    "gstrain_mean": 0.67064,
+    "gstrain_std": 0.006255237805231697,
+    "delta": 0.0
+   },
+   "BKT+": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.67964,
+    "main_std": 0.006114572756947124,
+    "gstrain_mean": 0.67964,
+    "gstrain_std": 0.006114572756947124,
+    "delta": 0.0
+   },
+   "DGCLKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.81836,
+    "main_std": 0.004171090984382865,
+    "gstrain_mean": 0.81884,
+    "gstrain_std": 0.004293366977093838,
+    "delta": 0.00048000000000003595
+   },
+   "DKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.8075600000000001,
+    "main_std": 0.0038991024608235336,
+    "gstrain_mean": 0.8075600000000001,
+    "gstrain_std": 0.0038991024608235336,
+    "delta": 0.0
+   },
+   "DKT+": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.8086800000000001,
+    "main_std": 0.0038854858126108225,
+    "gstrain_mean": 0.8086800000000001,
+    "gstrain_std": 0.0038854858126108225,
+    "delta": 0.0
+   },
+   "DKVMN": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.73332,
+    "main_std": 0.004742573141238859,
+    "gstrain_mean": 0.73332,
+    "gstrain_std": 0.004742573141238859,
+    "delta": 0.0
+   },
+   "GKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.80736,
+    "main_std": 0.004516968009627679,
+    "gstrain_mean": 0.80792,
+    "gstrain_std": 0.005638439500429175,
+    "delta": 0.0005600000000000049
+   },
+   "SAINT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.79234,
+    "main_std": 0.004822136455970522,
+    "gstrain_mean": 0.7924,
+    "gstrain_std": 0.004789050010179495,
+    "delta": 5.999999999994898e-05
+   },
+   "SAKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.7839200000000001,
+    "main_std": 0.004799687489826845,
+    "gstrain_mean": 0.78416,
+    "gstrain_std": 0.004605757266726106,
+    "delta": 0.00023999999999990695
+   },
+   "SimpleKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.78958,
+    "main_std": 0.006547671341782516,
+    "gstrain_mean": 0.78944,
+    "gstrain_std": 0.006714759861677864,
+    "delta": -0.00013999999999991797
+   }
+  },
+  "incomplete": {}
+ },
+ "assist15": {
+  "dataset": "assist15",
+  "pretty": "ASSIST15",
+  "anchor_folds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "n_anchor": 5,
+  "method": {
+   "folds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "n": 5,
+   "main_mean": 0.7306,
+   "main_std": 0.0013341664064126528,
+   "gstrain_mean": 0.73042,
+   "gstrain_std": 0.0012214745187681848,
+   "delta": -0.000180000000000069
+  },
+  "best_baseline": "GKT",
+  "best_baseline_row": {
+   "folds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "n": 5,
+   "main_mean": 0.72776,
+   "main_std": 0.0019034179782696193,
+   "gstrain_mean": 0.72786,
+   "gstrain_std": 0.001969263821838,
+   "delta": 9.999999999998899e-05
+  },
+  "gap_main": 0.0028400000000000647,
+  "gap_gstrain": 0.0025600000000000067,
+  "rows": {
+   "AKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.7194,
+    "main_std": 0.0020952326839756667,
+    "gstrain_mean": 0.7194,
+    "gstrain_std": 0.0020952326839756667,
+    "delta": 0.0
+   },
+   "BKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.62136,
+    "main_std": 0.0016318700928689182,
+    "gstrain_mean": 0.62136,
+    "gstrain_std": 0.0016318700928689182,
+    "delta": 0.0
+   },
+   "BKT+": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.63332,
+    "main_std": 0.0017598295371995549,
+    "gstrain_mean": 0.63332,
+    "gstrain_std": 0.0017598295371995549,
+    "delta": 0.0
+   },
+   "DGCLKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.7306,
+    "main_std": 0.0013341664064126528,
+    "gstrain_mean": 0.73042,
+    "gstrain_std": 0.0012214745187681848,
+    "delta": -0.000180000000000069
+   },
+   "DKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.72644,
+    "main_std": 0.0018609137540466292,
+    "gstrain_mean": 0.72644,
+    "gstrain_std": 0.0018609137540466292,
+    "delta": 0.0
+   },
+   "DKT+": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.72442,
+    "main_std": 0.0017935997323817847,
+    "gstrain_mean": 0.72442,
+    "gstrain_std": 0.0017935997323817847,
+    "delta": 0.0
+   },
+   "DKVMN": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.70758,
+    "main_std": 0.0027994642344562667,
+    "gstrain_mean": 0.70758,
+    "gstrain_std": 0.0027994642344562667,
+    "delta": 0.0
+   },
+   "GKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.72776,
+    "main_std": 0.0019034179782696193,
+    "gstrain_mean": 0.72786,
+    "gstrain_std": 0.001969263821838,
+    "delta": 9.999999999998899e-05
+   },
+   "SAINT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.7152999999999999,
+    "main_std": 0.0022472205054244413,
+    "gstrain_mean": 0.7152999999999999,
+    "gstrain_std": 0.0022472205054244413,
+    "delta": 0.0
+   },
+   "SAKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.71638,
+    "main_std": 0.0017626684316683111,
+    "gstrain_mean": 0.7164,
+    "gstrain_std": 0.0017564168070250369,
+    "delta": 2.0000000000020002e-05
+   },
+   "SimpleKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.71904,
+    "main_std": 0.0019856988694159825,
+    "gstrain_mean": 0.71906,
+    "gstrain_std": 0.0020156884679929836,
+    "delta": 2.0000000000020002e-05
+   }
+  },
+  "incomplete": {}
+ },
+ "assist17": {
+  "dataset": "assist17",
+  "pretty": "ASSIST17",
+  "anchor_folds": [
+   1
+  ],
+  "n_anchor": 1,
+  "method": {
+   "folds": [
+    1
+   ],
+   "n": 1,
+   "main_mean": 0.8013,
+   "main_std": 0.0,
+   "gstrain_mean": 0.8002,
+   "gstrain_std": 0.0,
+   "delta": -0.0010999999999999899
+  },
+  "best_baseline": "AKT",
+  "best_baseline_row": {
+   "folds": [
+    1
+   ],
+   "n": 1,
+   "main_mean": 0.7315,
+   "main_std": 0.0,
+   "gstrain_mean": 0.7315,
+   "gstrain_std": 0.0,
+   "delta": 0.0
+  },
+  "gap_main": 0.06979999999999997,
+  "gap_gstrain": 0.06869999999999998,
+  "rows": {
+   "AKT": {
+    "folds": [
+     1
+    ],
+    "n": 1,
+    "main_mean": 0.7315,
+    "main_std": 0.0,
+    "gstrain_mean": 0.7315,
+    "gstrain_std": 0.0,
+    "delta": 0.0
+   },
+   "BKT": {
+    "folds": [
+     1
+    ],
+    "n": 1,
+    "main_mean": 0.6025,
+    "main_std": 0.0,
+    "gstrain_mean": 0.6025,
+    "gstrain_std": 0.0,
+    "delta": 0.0
+   },
+   "BKT+": {
+    "folds": [
+     1
+    ],
+    "n": 1,
+    "main_mean": 0.607,
+    "main_std": 0.0,
+    "gstrain_mean": 0.607,
+    "gstrain_std": 0.0,
+    "delta": 0.0
+   },
+   "DGCLKT": {
+    "folds": [
+     1
+    ],
+    "n": 1,
+    "main_mean": 0.8013,
+    "main_std": 0.0,
+    "gstrain_mean": 0.8002,
+    "gstrain_std": 0.0,
+    "delta": -0.0010999999999999899
+   },
+   "DKT": {
+    "folds": [
+     1
+    ],
+    "n": 1,
+    "main_mean": 0.7285,
+    "main_std": 0.0,
+    "gstrain_mean": 0.7285,
+    "gstrain_std": 0.0,
+    "delta": 0.0
+   },
+   "DKT+": {
+    "folds": [
+     1
+    ],
+    "n": 1,
+    "main_mean": 0.7293,
+    "main_std": 0.0,
+    "gstrain_mean": 0.7293,
+    "gstrain_std": 0.0,
+    "delta": 0.0
+   },
+   "DKVMN": {
+    "folds": [
+     1
+    ],
+    "n": 1,
+    "main_mean": 0.6794,
+    "main_std": 0.0,
+    "gstrain_mean": 0.6794,
+    "gstrain_std": 0.0,
+    "delta": 0.0
+   },
+   "GKT": {
+    "folds": [
+     1
+    ],
+    "n": 1,
+    "main_mean": 0.7215,
+    "main_std": 0.0,
+    "gstrain_mean": 0.7219,
+    "gstrain_std": 0.0,
+    "delta": 0.00039999999999995595
+   },
+   "SAINT": {
+    "folds": [
+     1
+    ],
+    "n": 1,
+    "main_mean": 0.7231,
+    "main_std": 0.0,
+    "gstrain_mean": 0.7235,
+    "gstrain_std": 0.0,
+    "delta": 0.00040000000000006697
+   },
+   "SAKT": {
+    "folds": [
+     1
+    ],
+    "n": 1,
+    "main_mean": 0.6654,
+    "main_std": 0.0,
+    "gstrain_mean": 0.6654,
+    "gstrain_std": 0.0,
+    "delta": 0.0
+   },
+   "SimpleKT": {
+    "folds": [
+     1
+    ],
+    "n": 1,
+    "main_mean": 0.7307,
+    "main_std": 0.0,
+    "gstrain_mean": 0.7307,
+    "gstrain_std": 0.0,
+    "delta": 0.0
+   }
+  },
+  "incomplete": {}
+ },
+ "statics11": {
+  "dataset": "statics11",
+  "pretty": "Statics11",
+  "anchor_folds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "n_anchor": 5,
+  "method": {
+   "folds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "n": 5,
+   "main_mean": 0.82524,
+   "main_std": 0.005795946859659786,
+   "gstrain_mean": 0.82492,
+   "gstrain_std": 0.005653936681640508,
+   "delta": -0.00031999999999998696
+  },
+  "best_baseline": "SimpleKT",
+  "best_baseline_row": {
+   "folds": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "n": 5,
+   "main_mean": 0.81942,
+   "main_std": 0.005892113372975791,
+   "gstrain_mean": 0.81938,
+   "gstrain_std": 0.005876818867380563,
+   "delta": -4.0000000000040004e-05
+  },
+  "gap_main": 0.005819999999999936,
+  "gap_gstrain": 0.005539999999999989,
+  "rows": {
+   "AKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.81874,
+    "main_std": 0.0037885353370399003,
+    "gstrain_mean": 0.81858,
+    "gstrain_std": 0.004022064146678913,
+    "delta": -0.000160000000000049
+   },
+   "BKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.5977,
+    "main_std": 0.006579133681572369,
+    "gstrain_mean": 0.5977,
+    "gstrain_std": 0.006579133681572369,
+    "delta": 0.0
+   },
+   "BKT+": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.62264,
+    "main_std": 0.008448550171479116,
+    "gstrain_mean": 0.62264,
+    "gstrain_std": 0.008448550171479116,
+    "delta": 0.0
+   },
+   "DGCLKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.82524,
+    "main_std": 0.005795946859659786,
+    "gstrain_mean": 0.82492,
+    "gstrain_std": 0.005653936681640508,
+    "delta": -0.00031999999999998696
+   },
+   "DKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.819,
+    "main_std": 0.005491812087098408,
+    "gstrain_mean": 0.819,
+    "gstrain_std": 0.005491812087098408,
+    "delta": 0.0
+   },
+   "DKT+": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.81896,
+    "main_std": 0.005278541465215565,
+    "gstrain_mean": 0.81896,
+    "gstrain_std": 0.005278541465215565,
+    "delta": 0.0
+   },
+   "DKVMN": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.81174,
+    "main_std": 0.005317706272444903,
+    "gstrain_mean": 0.81174,
+    "gstrain_std": 0.005317706272444903,
+    "delta": 0.0
+   },
+   "GKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.81782,
+    "main_std": 0.005506995551114951,
+    "gstrain_mean": 0.81772,
+    "gstrain_std": 0.005507903412370252,
+    "delta": -9.999999999998899e-05
+   },
+   "SAINT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.8141200000000001,
+    "main_std": 0.006769933529954321,
+    "gstrain_mean": 0.81416,
+    "gstrain_std": 0.006752258881293009,
+    "delta": 3.999999999992898e-05
+   },
+   "SAKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.79896,
+    "main_std": 0.005980635417746163,
+    "gstrain_mean": 0.79896,
+    "gstrain_std": 0.005980635417746163,
+    "delta": 0.0
+   },
+   "SimpleKT": {
+    "folds": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "n": 5,
+    "main_mean": 0.81942,
+    "main_std": 0.005892113372975791,
+    "gstrain_mean": 0.81938,
+    "gstrain_std": 0.005876818867380563,
+    "delta": -4.0000000000040004e-05
+   }
+  },
+  "incomplete": {}
+ }
+}

@@ -1,0 +1,87 @@
+{
+ "dataset": "dnui_syn",
+ "seeds": [
+  42,
+  43,
+  44
+ ],
+ "epochs": 60,
+ "cfg_source": "/home/renzhisen/paper/knowledgeMap/results/kt_model_cfg_dnui_syn.json",
+ "summary": {
+  "完整模型": {
+   "mean": 0.7429,
+   "std": 0.0004,
+   "per_seed": [
+    0.7426,
+    0.7427,
+    0.7433
+   ]
+  },
+  "w/o 图编码": {
+   "mean": 0.742,
+   "std": 0.0005,
+   "per_seed": [
+    0.7416,
+    0.7426,
+    0.7419
+   ]
+  },
+  "w/o 反向标定": {
+   "mean": 0.7429,
+   "std": 0.0008,
+   "per_seed": [
+    0.7434,
+    0.7433,
+    0.7419
+   ]
+  },
+  "仅结构先验": {
+   "mean": 0.7429,
+   "std": 0.0008,
+   "per_seed": [
+    0.7434,
+    0.7433,
+    0.7419
+   ]
+  },
+  "w/o CSG 门控": {
+   "mean": 0.7427,
+   "std": 0.0006,
+   "per_seed": [
+    0.7433,
+    0.7428,
+    0.7421
+   ]
+  }
+ },
+ "paired_vs_full": {
+  "w/o 图编码": {
+   "n": 3,
+   "mean_delta": -0.0008,
+   "std_delta": 0.0007,
+   "better_seeds": 0,
+   "worse_seeds": 3
+  },
+  "w/o 反向标定": {
+   "n": 3,
+   "mean_delta": -0.0,
+   "std_delta": 0.0012,
+   "better_seeds": 2,
+   "worse_seeds": 1
+  },
+  "仅结构先验": {
+   "n": 3,
+   "mean_delta": -0.0,
+   "std_delta": 0.0012,
+   "better_seeds": 2,
+   "worse_seeds": 1
+  },
+  "w/o CSG 门控": {
+   "n": 3,
+   "mean_delta": -0.0001,
+   "std_delta": 0.001,
+   "better_seeds": 2,
+   "worse_seeds": 1
+  }
+ }
+}

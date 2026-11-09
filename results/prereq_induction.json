@@ -1,0 +1,18 @@
+{
+ "assist09": {
+  "source": "induced",
+  "n_edges": 384,
+  "acyclic": true,
+  "reached": 149,
+  "top_q": 0.9,
+  "min_count": 5
+ },
+ "assist12": {
+  "source": "induced",
+  "n_edges": 820,
+  "acyclic": true,
+  "reached": 198,
+  "top_q": 0.9,
+  "min_count": 5
+ }
+}

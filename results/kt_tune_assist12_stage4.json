@@ -1,0 +1,100 @@
+{
+ "dataset": "assist12",
+ "stage": 4,
+ "base": {},
+ "epochs": 25,
+ "seed": 42,
+ "n_trials": 8,
+ "rows": [
+  {
+   "seq_enc": "gru",
+   "layers": 1,
+   "graph_in": false,
+   "val": 0.7302,
+   "test": 0.7285,
+   "acc": 0.7326,
+   "epochs_run": 16,
+   "sec": 45.2
+  },
+  {
+   "seq_enc": "gru",
+   "layers": 1,
+   "graph_in": true,
+   "val": 0.7302,
+   "test": 0.7292,
+   "acc": 0.7328,
+   "epochs_run": 23,
+   "sec": 105.8
+  },
+  {
+   "seq_enc": "gru",
+   "layers": 2,
+   "graph_in": false,
+   "val": 0.7326,
+   "test": 0.7311,
+   "acc": 0.7337,
+   "epochs_run": 17,
+   "sec": 55.6
+  },
+  {
+   "seq_enc": "lstm",
+   "layers": 1,
+   "graph_in": false,
+   "val": 0.7306,
+   "test": 0.7285,
+   "acc": 0.7326,
+   "epochs_run": 20,
+   "sec": 61.7
+  },
+  {
+   "seq_enc": "lstm",
+   "layers": 1,
+   "graph_in": true,
+   "val": 0.7312,
+   "test": 0.7286,
+   "acc": 0.7322,
+   "epochs_run": 25,
+   "sec": 118.5
+  },
+  {
+   "seq_enc": "transformer",
+   "layers": 2,
+   "graph_in": false,
+   "val": 0.7244,
+   "test": 0.7232,
+   "acc": 0.7295,
+   "epochs_run": 23,
+   "sec": 123.8
+  },
+  {
+   "seq_enc": "transformer",
+   "layers": 2,
+   "graph_in": true,
+   "val": 0.7251,
+   "test": 0.7219,
+   "acc": 0.7291,
+   "epochs_run": 25,
+   "sec": 181.8
+  },
+  {
+   "seq_enc": "transformer",
+   "layers": 3,
+   "graph_in": false,
+   "val": 0.725,
+   "test": 0.7235,
+   "acc": 0.7302,
+   "epochs_run": 17,
+   "sec": 122.4
+  }
+ ],
+ "best": {
+  "seq_enc": "gru",
+  "layers": 2,
+  "graph_in": false,
+  "val": 0.7326,
+  "test": 0.7311,
+  "acc": 0.7337,
+  "epochs_run": 17,
+  "sec": 55.6
+ }
+}

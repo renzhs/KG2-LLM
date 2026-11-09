@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\centering
+\caption{dnui_syn 上学习资源推荐：作用域内精度与跨作用域串味率（$s$ 前缀表示作用域内指标）。验证集选定：就绪度项=ready_c、协同项=gcf、$\gamma^\ast$=0.1}
+\label{tab:rec_dnui_syn}
+\begin{tabular}{lcccccc}
+\toprule
+方法 & sRecall@10 & sNDCG@10 & Recall@10 & NDCG@10 & CSCR@10 $\downarrow$ & CSCR@20 $\downarrow$ \\
+\midrule
+先修就绪度(结构) & 0.2380 & 0.1657$^{\ddagger}$ & 0.1700 & 0.1614 & 0.3604 & 0.6601 \\
+先修就绪度(反向标定) & 0.2409 & 0.1706$^{\ddagger}$ & 0.1716 & 0.1651 & 0.3604 & 0.6601 \\
+Popularity & 0.0000 & 0.0000$^{\ddagger}$ & 0.0222 & 0.0215 & 0.2328 & 0.2632 \\
+SVD(MF) & 0.0239 & 0.0134$^{\ddagger}$ & 0.0181 & 0.0139 & 0.0410 & 0.2307 \\
+KG-CF(无门控) & 0.0135 & 0.0080$^{\ddagger}$ & 0.0118 & 0.0100 & 0.0376 & 0.1961 \\
+KG-CF+反向标定 & 0.0124 & 0.0073$^{\ddagger}$ & 0.0108 & 0.0091 & 0.0343 & 0.1900 \\
+DGCL-Rec-无CSG(消融) & 0.2459 & 0.1851$^{\ddagger}$ & 0.1372 & 0.1465 & 0.0304 & 0.2223 \\
+先修就绪度+CSG & 0.2419 & 0.1711$^{\ddagger}$ & 0.1312 & 0.1319 & \textbf{0.0000} & 0.0075 \\
+\textbf{DGCL-Rec(本文)} & 0.2924 & 0.2117 & 0.1591 & 0.1638 & \textbf{0.0000} & 0.0075 \\
+DGCL-Rec-无反向标定(消融) & 0.2925 & \textbf{0.2169}$^{\star}$ & 0.1592 & 0.1681 & \textbf{0.0000} & 0.0075 \\
+DGCL-Rec-无图谱协同(消融) & 0.2419 & 0.1711$^{\ddagger}$ & 0.1312 & 0.1319 & \textbf{0.0000} & 0.0075 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\footnotesize 配对 bootstrap 检验（以 DGCL-Rec 为参照，重采样 2000 次）：$^{\ddagger}$ 本文方法显著更优；$^{\star}$ 该方法显著更优（$p<0.05$）。
+\end{table}

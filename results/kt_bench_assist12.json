@@ -1,0 +1,302 @@
+{
+ "dataset": "assist12",
+ "folds": [
+  "all"
+ ],
+ "expect_folds": 1,
+ "n_folds_used": 1,
+ "complete": true,
+ "missing_models": [],
+ "partial_models": {},
+ "summary": {
+  "BKT": {
+   "AUC": {
+    "mean": 0.6198,
+    "std": 0.0,
+    "n": 1
+   },
+   "ACC": {
+    "mean": 0.6938,
+    "std": 0.0,
+    "n": 1
+   },
+   "RMSE": {
+    "mean": 0.4545,
+    "std": 0.0,
+    "n": 1
+   },
+   "params": 792,
+   "train_sec_mean": 47.1
+  },
+  "BKT+": {
+   "AUC": {
+    "mean": 0.631,
+    "std": 0.0,
+    "n": 1
+   },
+   "ACC": {
+    "mean": 0.7009,
+    "std": 0.0,
+    "n": 1
+   },
+   "RMSE": {
+    "mean": 0.4516,
+    "std": 0.0,
+    "n": 1
+   },
+   "params": 792,
+   "train_sec_mean": 69.7
+  },
+  "DKT": {
+   "AUC": {
+    "mean": 0.7232,
+    "std": 0.0,
+    "n": 1
+   },
+   "ACC": {
+    "mean": 0.7303,
+    "std": 0.0,
+    "n": 1
+   },
+   "RMSE": {
+    "mean": 0.4272,
+    "std": 0.0,
+    "n": 1
+   },
+   "params": 150214,
+   "train_sec_mean": 485.8
+  },
+  "DKT+": {
+   "AUC": {
+    "mean": 0.7252,
+    "std": 0.0,
+    "n": 1
+   },
+   "ACC": {
+    "mean": 0.7317,
+    "std": 0.0,
+    "n": 1
+   },
+   "RMSE": {
+    "mean": 0.4267,
+    "std": 0.0,
+    "n": 1
+   },
+   "params": 201298,
+   "train_sec_mean": 966.3
+  },
+  "DKVMN": {
+   "AUC": {
+    "mean": 0.7104,
+    "std": 0.0,
+    "n": 1
+   },
+   "ACC": {
+    "mean": 0.7249,
+    "std": 0.0,
+    "n": 1
+   },
+   "RMSE": {
+    "mean": 0.4313,
+    "std": 0.0,
+    "n": 1
+   },
+   "params": 84038,
+   "train_sec_mean": 3987.8
+  },
+  "SAKT": {
+   "AUC": {
+    "mean": 0.7157,
+    "std": 0.0,
+    "n": 1
+   },
+   "ACC": {
+    "mean": 0.727,
+    "std": 0.0,
+    "n": 1
+   },
+   "RMSE": {
+    "mean": 0.4297,
+    "std": 0.0,
+    "n": 1
+   },
+   "params": 942081,
+   "train_sec_mean": 646.7
+  },
+  "AKT": {
+   "AUC": {
+    "mean": 0.7577,
+    "std": 0.0,
+    "n": 1
+   },
+   "ACC": {
+    "mean": 0.7461,
+    "std": 0.0,
+    "n": 1
+   },
+   "RMSE": {
+    "mean": 0.4159,
+    "std": 0.0,
+    "n": 1
+   },
+   "params": 6832257,
+   "train_sec_mean": 179.1
+  },
+  "GKT": {
+   "AUC": {
+    "mean": 0.7237,
+    "std": 0.0,
+    "n": 1
+   },
+   "ACC": {
+    "mean": 0.7305,
+    "std": 0.0,
+    "n": 1
+   },
+   "RMSE": {
+    "mean": 0.4272,
+    "std": 0.0,
+    "n": 1
+   },
+   "params": 63174,
+   "train_sec_mean": 3519.6
+  },
+  "SAINT": {
+   "AUC": {
+    "mean": 0.7574,
+    "std": 0.0,
+    "n": 1
+   },
+   "ACC": {
+    "mean": 0.7452,
+    "std": 0.0,
+    "n": 1
+   },
+   "RMSE": {
+    "mean": 0.416,
+    "std": 0.0,
+    "n": 1
+   },
+   "params": 7477249,
+   "train_sec_mean": 436.2
+  },
+  "SimpleKT": {
+   "AUC": {
+    "mean": 0.7559,
+    "std": 0.0,
+    "n": 1
+   },
+   "ACC": {
+    "mean": 0.7409,
+    "std": 0.0,
+    "n": 1
+   },
+   "RMSE": {
+    "mean": 0.4186,
+    "std": 0.0,
+    "n": 1
+   },
+   "params": 7031976,
+   "train_sec_mean": 234.3
+  },
+  "DGCLKT": {
+   "AUC": {
+    "mean": 0.7705,
+    "std": 0.0,
+    "n": 1
+   },
+   "ACC": {
+    "mean": 0.752,
+    "std": 0.0,
+    "n": 1
+   },
+   "RMSE": {
+    "mean": 0.4118,
+    "std": 0.0,
+    "n": 1
+   },
+   "params": 14418434,
+   "train_sec_mean": 359.4
+  }
+ },
+ "per_fold": {
+  "BKT": {
+   "all": {
+    "AUC": 0.6198,
+    "ACC": 0.6938,
+    "RMSE": 0.4545
+   }
+  },
+  "BKT+": {
+   "all": {
+    "AUC": 0.631,
+    "ACC": 0.7009,
+    "RMSE": 0.4516
+   }
+  },
+  "DKT": {
+   "all": {
+    "AUC": 0.7232,
+    "ACC": 0.7303,
+    "RMSE": 0.4272
+   }
+  },
+  "DKT+": {
+   "all": {
+    "AUC": 0.7252,
+    "ACC": 0.7317,
+    "RMSE": 0.4267
+   }
+  },
+  "DKVMN": {
+   "all": {
+    "AUC": 0.7104,
+    "ACC": 0.7249,
+    "RMSE": 0.4313
+   }
+  },
+  "SAKT": {
+   "all": {
+    "AUC": 0.7157,
+    "ACC": 0.727,
+    "RMSE": 0.4297
+   }
+  },
+  "AKT": {
+   "all": {
+    "AUC": 0.7577,
+    "ACC": 0.7461,
+    "RMSE": 0.4159
+   }
+  },
+  "GKT": {
+   "all": {
+    "AUC": 0.7237,
+    "ACC": 0.7305,
+    "RMSE": 0.4272
+   }
+  },
+  "SAINT": {
+   "all": {
+    "AUC": 0.7574,
+    "ACC": 0.7452,
+    "RMSE": 0.416
+   }
+  },
+  "SimpleKT": {
+   "all": {
+    "AUC": 0.7559,
+    "ACC": 0.7409,
+    "RMSE": 0.4186
+   }
+  },
+  "DGCLKT": {
+   "all": {
+    "AUC": 0.7705,
+    "ACC": 0.752,
+    "RMSE": 0.4118
+   }
+  }
+ },
+ "best_model": "DGCLKT"
+}

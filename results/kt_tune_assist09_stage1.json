@@ -1,0 +1,197 @@
+{
+ "dataset": "assist09",
+ "stage": 1,
+ "base": {},
+ "epochs": 60,
+ "seed": 42,
+ "n_trials": 16,
+ "rows": [
+  {
+   "gated_fuse": false,
+   "steps": 1,
+   "hops": 1,
+   "topm": 0,
+   "val": 0.7572,
+   "test": 0.7297,
+   "acc": 0.7101,
+   "epochs_run": 18,
+   "sec": 21.5
+  },
+  {
+   "gated_fuse": false,
+   "steps": 1,
+   "hops": 1,
+   "topm": 8,
+   "val": 0.757,
+   "test": 0.7327,
+   "acc": 0.7155,
+   "epochs_run": 16,
+   "sec": 19.6
+  },
+  {
+   "gated_fuse": false,
+   "steps": 1,
+   "hops": 2,
+   "topm": 0,
+   "val": 0.7573,
+   "test": 0.7315,
+   "acc": 0.7136,
+   "epochs_run": 17,
+   "sec": 21.4
+  },
+  {
+   "gated_fuse": false,
+   "steps": 1,
+   "hops": 2,
+   "topm": 8,
+   "val": 0.7576,
+   "test": 0.7315,
+   "acc": 0.7149,
+   "epochs_run": 20,
+   "sec": 25.2
+  },
+  {
+   "gated_fuse": false,
+   "steps": 2,
+   "hops": 1,
+   "topm": 0,
+   "val": 0.7583,
+   "test": 0.7314,
+   "acc": 0.7152,
+   "epochs_run": 16,
+   "sec": 19.5
+  },
+  {
+   "gated_fuse": false,
+   "steps": 2,
+   "hops": 1,
+   "topm": 8,
+   "val": 0.758,
+   "test": 0.7317,
+   "acc": 0.7162,
+   "epochs_run": 16,
+   "sec": 19.5
+  },
+  {
+   "gated_fuse": false,
+   "steps": 2,
+   "hops": 2,
+   "topm": 0,
+   "val": 0.7585,
+   "test": 0.7319,
+   "acc": 0.713,
+   "epochs_run": 17,
+   "sec": 20.8
+  },
+  {
+   "gated_fuse": false,
+   "steps": 2,
+   "hops": 2,
+   "topm": 8,
+   "val": 0.7587,
+   "test": 0.7317,
+   "acc": 0.713,
+   "epochs_run": 17,
+   "sec": 20.9
+  },
+  {
+   "gated_fuse": true,
+   "steps": 1,
+   "hops": 1,
+   "topm": 0,
+   "val": 0.7557,
+   "test": 0.7315,
+   "acc": 0.7138,
+   "epochs_run": 16,
+   "sec": 20.0
+  },
+  {
+   "gated_fuse": true,
+   "steps": 1,
+   "hops": 1,
+   "topm": 8,
+   "val": 0.7565,
+   "test": 0.73,
+   "acc": 0.7137,
+   "epochs_run": 19,
+   "sec": 22.5
+  },
+  {
+   "gated_fuse": true,
+   "steps": 1,
+   "hops": 2,
+   "topm": 0,
+   "val": 0.7563,
+   "test": 0.73,
+   "acc": 0.7138,
+   "epochs_run": 19,
+   "sec": 24.1
+  },
+  {
+   "gated_fuse": true,
+   "steps": 1,
+   "hops": 2,
+   "topm": 8,
+   "val": 0.756,
+   "test": 0.7299,
+   "acc": 0.714,
+   "epochs_run": 19,
+   "sec": 22.1
+  },
+  {
+   "gated_fuse": true,
+   "steps": 2,
+   "hops": 1,
+   "topm": 0,
+   "val": 0.7586,
+   "test": 0.7304,
+   "acc": 0.7139,
+   "epochs_run": 20,
+   "sec": 23.6
+  },
+  {
+   "gated_fuse": true,
+   "steps": 2,
+   "hops": 1,
+   "topm": 8,
+   "val": 0.7591,
+   "test": 0.7309,
+   "acc": 0.7143,
+   "epochs_run": 20,
+   "sec": 24.1
+  },
+  {
+   "gated_fuse": true,
+   "steps": 2,
+   "hops": 2,
+   "topm": 0,
+   "val": 0.7588,
+   "test": 0.7308,
+   "acc": 0.7143,
+   "epochs_run": 20,
+   "sec": 23.9
+  },
+  {
+   "gated_fuse": true,
+   "steps": 2,
+   "hops": 2,
+   "topm": 8,
+   "val": 0.7588,
+   "test": 0.7309,
+   "acc": 0.7135,
+   "epochs_run": 20,
+   "sec": 25.3
+  }
+ ],
+ "best": {
+  "gated_fuse": true,
+  "steps": 2,
+  "hops": 1,
+  "topm": 8,
+  "val": 0.7591,
+  "test": 0.7309,
+  "acc": 0.7143,
+  "epochs_run": 20,
+  "sec": 24.1
+ }
+}

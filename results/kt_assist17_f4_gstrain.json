@@ -1,0 +1,297 @@
+{
+ "dataset": "assist17_f4",
+ "args": {
+  "dataset": "assist17_f4",
+  "models": [
+   "all"
+  ],
+  "epochs": 60,
+  "batch": 64,
+  "lr": 0.002,
+  "patience": 10,
+  "max_len": 200,
+  "no_chunk": false,
+  "min_len": 3,
+  "max_users": 0,
+  "train_max_users": 0,
+  "seed": 42,
+  "tag": "gstrain",
+  "d": 128,
+  "layers": 1,
+  "steps": 2,
+  "hidden": 128,
+  "mem_size": 64,
+  "key_dim": 64,
+  "val_dim": 64,
+  "hops": 0,
+  "dropout": 0.2,
+  "gated_fuse": false,
+  "topm": 0,
+  "wprior": 0.0,
+  "graph_in": false,
+  "seq_enc": "transformer",
+  "use_tune": false,
+  "lr_map": {},
+  "model_cfg_file": "results/kt_model_cfg_assist17_f1.json",
+  "ablation": false,
+  "oom_retries": 3,
+  "oom_backoff": 15.0,
+  "no_reuse": false,
+  "redo_models": [],
+  "ab_no_graph": false,
+  "ab_no_calib": false,
+  "ab_no_scope": false,
+  "ab_struct_only": false,
+  "graph_scope": "train",
+  "model_cfg": {
+   "DKT": {
+    "hidden": 256,
+    "lr": 0.008
+   },
+   "DKT+": {
+    "hidden": 256,
+    "lr": 0.008
+   },
+   "DKVMN": {
+    "mem_size": 32,
+    "key_dim": 64,
+    "val_dim": 64,
+    "batch": 128,
+    "lr": 0.008
+   },
+   "SAKT": {
+    "d": 128,
+    "layers": 2,
+    "lr": 0.0005
+   },
+   "AKT": {
+    "lr": 0.0005
+   },
+   "GKT": {
+    "hidden": 64,
+    "steps": 3,
+    "batch": 274,
+    "lr": 0.002
+   },
+   "SAINT": {
+    "lr": 0.004
+   },
+   "SimpleKT": {
+    "d": 256,
+    "layers": 1,
+    "lr": 0.0005
+   },
+   "DGCLKT": {
+    "seq_enc": "gru",
+    "layers": 2,
+    "graph_in": false,
+    "d": 256,
+    "dropout": 0.2,
+    "lr": 0.004,
+    "gated_fuse": false,
+    "steps": 2,
+    "hops": 1,
+    "topm": 0,
+    "wprior": 1.0
+   }
+  }
+ },
+ "results": {
+  "BKT": {
+   "AUC": 0.5985,
+   "ACC": 0.6418,
+   "RMSE": 0.4755,
+   "n": 183373,
+   "base_rate": 0.3661,
+   "train_sec": 23.5,
+   "params": 408
+  },
+  "BKT+": {
+   "AUC": 0.6022,
+   "ACC": 0.6445,
+   "RMSE": 0.4745,
+   "n": 183373,
+   "base_rate": 0.3661,
+   "train_sec": 33.6,
+   "params": 408,
+   "gamma": 1.0,
+   "best_valid_auc": 0.6082
+  },
+  "DKT": {
+   "AUC": 0.7145,
+   "ACC": 0.6874,
+   "RMSE": 0.4491,
+   "n": 183373,
+   "base_rate": 0.3661,
+   "epochs_run": 17,
+   "train_sec": 66.7,
+   "params": 368998,
+   "history": [
+    {
+     "epoch": 12,
+     "loss": 0.5128,
+     "valid": {
+      "AUC": 0.7085,
+      "ACC": 0.6777,
+      "RMSE": 0.4565,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    },
+    {
+     "epoch": 13,
+     "loss": 0.497,
+     "valid": {
+      "AUC": 0.7053,
+      "ACC": 0.6764,
+      "RMSE": 0.4585,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    },
+    {
+     "epoch": 14,
+     "loss": 0.488,
+     "valid": {
+      "AUC": 0.7026,
+      "ACC": 0.6738,
+      "RMSE": 0.4609,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    },
+    {
+     "epoch": 15,
+     "loss": 0.4818,
+     "valid": {
+      "AUC": 0.6999,
+      "ACC": 0.6718,
+      "RMSE": 0.463,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    },
+    {
+     "epoch": 16,
+     "loss": 0.4653,
+     "valid": {
+      "AUC": 0.699,
+      "ACC": 0.6688,
+      "RMSE": 0.4651,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    },
+    {
+     "epoch": 17,
+     "loss": 0.4514,
+     "valid": {
+      "AUC": 0.696,
+      "ACC": 0.6672,
+      "RMSE": 0.4674,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    }
+   ],
+   "best_valid_auc": 0.7156,
+   "batch_used": 64
+  },
+  "DKT+": {
+   "AUC": 0.7172,
+   "ACC": 0.6901,
+   "RMSE": 0.4476,
+   "n": 183373,
+   "base_rate": 0.3661,
+   "epochs_run": 17,
+   "train_sec": 57.4,
+   "params": 421426,
+   "history": [
+    {
+     "epoch": 12,
+     "loss": 0.6198,
+     "valid": {
+      "AUC": 0.7146,
+      "ACC": 0.683,
+      "RMSE": 0.4532,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    },
+    {
+     "epoch": 13,
+     "loss": 0.6058,
+     "valid": {
+      "AUC": 0.7117,
+      "ACC": 0.6798,
+      "RMSE": 0.456,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    },
+    {
+     "epoch": 14,
+     "loss": 0.5971,
+     "valid": {
+      "AUC": 0.7086,
+      "ACC": 0.6764,
+      "RMSE": 0.4582,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    },
+    {
+     "epoch": 15,
+     "loss": 0.5898,
+     "valid": {
+      "AUC": 0.7063,
+      "ACC": 0.674,
+      "RMSE": 0.46,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    },
+    {
+     "epoch": 16,
+     "loss": 0.5727,
+     "valid": {
+      "AUC": 0.7034,
+      "ACC": 0.6715,
+      "RMSE": 0.4619,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    },
+    {
+     "epoch": 17,
+     "loss": 0.5598,
+     "valid": {
+      "AUC": 0.7012,
+      "ACC": 0.6684,
+      "RMSE": 0.4645,
+      "n": 182526,
+      "base_rate": 0.3763
+     }
+    }
+   ],
+   "best_valid_auc": 0.7207,
+   "batch_used": 64
+  }
+ },
+ "data_meta": {
+  "source": "AKT benchmark split (assist2017_pid), fold 4",
+  "split_protocol": "AKT official 5-fold (arghosh/AKT, arXiv:2007.12324)",
+  "stats": {
+   "name": "assist17_f4",
+   "users": 1708,
+   "n_skill": 102,
+   "n_question": 3162,
+   "interactions": 942814,
+   "avg_len": 552.0,
+   "median_len": 441,
+   "max_len": 3057,
+   "correct_rate": 0.3727,
+   "prereq_edges": 322
+  }
+ }
+}

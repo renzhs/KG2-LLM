@@ -1,0 +1,558 @@
+{
+ "assist09_akt": {
+  "folds_main": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "reason": "",
+  "folds_main_used": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "folds_gstrain_used": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "per_model": {
+   "AKT": {
+    "main_mean": 0.79674,
+    "main_std": 0.0037607180165495115,
+    "main_n": 5,
+    "gstrain_mean": 0.7978500000000001,
+    "gstrain_std": 0.0032787192621510056,
+    "gstrain_n": 4,
+    "delta": 0.0011100000000000554
+   },
+   "BKT": {
+    "main_mean": 0.67064,
+    "main_std": 0.006255237805231697,
+    "main_n": 5,
+    "gstrain_mean": 0.67064,
+    "gstrain_std": 0.006255237805231697,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "BKT+": {
+    "main_mean": 0.67964,
+    "main_std": 0.006114572756947124,
+    "main_n": 5,
+    "gstrain_mean": 0.67964,
+    "gstrain_std": 0.006114572756947124,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "DGCLKT": {
+    "main_mean": 0.81836,
+    "main_std": 0.004171090984382865,
+    "main_n": 5,
+    "gstrain_mean": 0.818525,
+    "gstrain_std": 0.004890381716526135,
+    "gstrain_n": 4,
+    "delta": 0.00016499999999997073
+   },
+   "DKT": {
+    "main_mean": 0.8075600000000001,
+    "main_std": 0.0038991024608235336,
+    "main_n": 5,
+    "gstrain_mean": 0.8075600000000001,
+    "gstrain_std": 0.0038991024608235336,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "DKT+": {
+    "main_mean": 0.8086800000000001,
+    "main_std": 0.0038854858126108225,
+    "main_n": 5,
+    "gstrain_mean": 0.8086800000000001,
+    "gstrain_std": 0.0038854858126108225,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "DKVMN": {
+    "main_mean": 0.73332,
+    "main_std": 0.004742573141238859,
+    "main_n": 5,
+    "gstrain_mean": 0.73332,
+    "gstrain_std": 0.004742573141238859,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "GKT": {
+    "main_mean": 0.80736,
+    "main_std": 0.004516968009627679,
+    "main_n": 5,
+    "gstrain_mean": 0.8098666666666666,
+    "gstrain_std": 0.006092892033618625,
+    "gstrain_n": 3,
+    "delta": 0.002506666666666657
+   },
+   "SAINT": {
+    "main_mean": 0.79234,
+    "main_std": 0.004822136455970522,
+    "main_n": 5,
+    "gstrain_mean": 0.79325,
+    "gstrain_std": 0.005075759384893425,
+    "gstrain_n": 4,
+    "delta": 0.0009099999999999664
+   },
+   "SAKT": {
+    "main_mean": 0.7839200000000001,
+    "main_std": 0.004799687489826845,
+    "main_n": 5,
+    "gstrain_mean": 0.7853,
+    "gstrain_std": 0.004429446918070047,
+    "gstrain_n": 4,
+    "delta": 0.0013799999999999368
+   },
+   "SimpleKT": {
+    "main_mean": 0.78958,
+    "main_std": 0.006547671341782516,
+    "main_n": 5,
+    "gstrain_mean": 0.7909,
+    "gstrain_std": 0.006775445864787544,
+    "gstrain_n": 4,
+    "delta": 0.0013200000000000989
+   }
+  },
+  "vs_baseline_main": {
+   "method_mean": 0.81836,
+   "best_baseline": "DKT+",
+   "best_baseline_mean": 0.8086800000000001,
+   "gap": 0.009679999999999911,
+   "method_is_top": true
+  },
+  "vs_baseline_gstrain": {
+   "method_mean": 0.818525,
+   "best_baseline": "GKT",
+   "best_baseline_mean": 0.8098666666666666,
+   "gap": 0.008658333333333323,
+   "method_is_top": true
+  }
+ },
+ "assist15": {
+  "folds_main": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "reason": "",
+  "folds_main_used": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "folds_gstrain_used": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "per_model": {
+   "AKT": {
+    "main_mean": 0.7194,
+    "main_std": 0.0020952326839756667,
+    "main_n": 5,
+    "gstrain_mean": 0.719275,
+    "gstrain_std": 0.002397741993348431,
+    "gstrain_n": 4,
+    "delta": -0.00012500000000004174
+   },
+   "BKT": {
+    "main_mean": 0.62136,
+    "main_std": 0.0016318700928689182,
+    "main_n": 5,
+    "gstrain_mean": 0.62136,
+    "gstrain_std": 0.0016318700928689182,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "BKT+": {
+    "main_mean": 0.63332,
+    "main_std": 0.0017598295371995549,
+    "main_n": 5,
+    "gstrain_mean": 0.63332,
+    "gstrain_std": 0.0017598295371995549,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "DGCLKT": {
+    "main_mean": 0.7306,
+    "main_std": 0.0013341664064126528,
+    "main_n": 5,
+    "gstrain_mean": 0.73042,
+    "gstrain_std": 0.0012214745187681848,
+    "gstrain_n": 5,
+    "delta": -0.000180000000000069
+   },
+   "DKT": {
+    "main_mean": 0.72644,
+    "main_std": 0.0018609137540466292,
+    "main_n": 5,
+    "gstrain_mean": 0.72644,
+    "gstrain_std": 0.0018609137540466292,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "DKT+": {
+    "main_mean": 0.72442,
+    "main_std": 0.0017935997323817847,
+    "main_n": 5,
+    "gstrain_mean": 0.72442,
+    "gstrain_std": 0.0017935997323817847,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "DKVMN": {
+    "main_mean": 0.70758,
+    "main_std": 0.0027994642344562667,
+    "main_n": 5,
+    "gstrain_mean": 0.70758,
+    "gstrain_std": 0.0027994642344562667,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "GKT": {
+    "main_mean": 0.72776,
+    "main_std": 0.0019034179782696193,
+    "main_n": 5,
+    "gstrain_mean": 0.7282500000000001,
+    "gstrain_std": 0.003747665940288682,
+    "gstrain_n": 2,
+    "delta": 0.0004900000000001015
+   },
+   "SAINT": {
+    "main_mean": 0.7152999999999999,
+    "main_std": 0.0022472205054244413,
+    "main_n": 5,
+    "gstrain_mean": 0.715025,
+    "gstrain_std": 0.0024958298553120007,
+    "gstrain_n": 4,
+    "delta": -0.0002749999999999142
+   },
+   "SAKT": {
+    "main_mean": 0.71638,
+    "main_std": 0.0017626684316683111,
+    "main_n": 5,
+    "gstrain_mean": 0.7162999999999999,
+    "gstrain_std": 0.0020116328359486234,
+    "gstrain_n": 4,
+    "delta": -8.000000000008001e-05
+   },
+   "SimpleKT": {
+    "main_mean": 0.71904,
+    "main_std": 0.0019856988694159825,
+    "main_n": 5,
+    "gstrain_mean": 0.7191,
+    "gstrain_std": 0.0023252240035460097,
+    "gstrain_n": 4,
+    "delta": 5.999999999994898e-05
+   }
+  },
+  "vs_baseline_main": {
+   "method_mean": 0.7306,
+   "best_baseline": "GKT",
+   "best_baseline_mean": 0.72776,
+   "gap": 0.0028400000000000647,
+   "method_is_top": true
+  },
+  "vs_baseline_gstrain": {
+   "method_mean": 0.73042,
+   "best_baseline": "GKT",
+   "best_baseline_mean": 0.7282500000000001,
+   "gap": 0.0021699999999998942,
+   "method_is_top": true
+  }
+ },
+ "assist17": {
+  "folds_main": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "reason": "",
+  "folds_main_used": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "folds_gstrain_used": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "per_model": {
+   "AKT": {
+    "main_mean": 0.7316,
+    "main_std": 0.0028939592256975607,
+    "main_n": 5,
+    "gstrain_mean": 0.73265,
+    "gstrain_std": 0.0016263455967290372,
+    "gstrain_n": 2,
+    "delta": 0.0010499999999999954
+   },
+   "BKT": {
+    "main_mean": 0.6029,
+    "main_std": 0.003274141108748955,
+    "main_n": 5,
+    "gstrain_mean": 0.6029,
+    "gstrain_std": 0.003274141108748955,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "BKT+": {
+    "main_mean": 0.6069,
+    "main_std": 0.00328633534503101,
+    "main_n": 5,
+    "gstrain_mean": 0.607175,
+    "gstrain_std": 0.0037277115410575237,
+    "gstrain_n": 4,
+    "delta": 0.0002750000000000252
+   },
+   "DGCLKT": {
+    "main_mean": 0.79118,
+    "main_std": 0.006481280737632035,
+    "main_n": 5,
+    "gstrain_mean": 0.8002,
+    "gstrain_std": 0.0,
+    "gstrain_n": 1,
+    "delta": 0.009020000000000028
+   },
+   "DKT": {
+    "main_mean": 0.71858,
+    "main_std": 0.005996415596004,
+    "main_n": 5,
+    "gstrain_mean": 0.719375,
+    "gstrain_std": 0.00661280323816358,
+    "gstrain_n": 4,
+    "delta": 0.0007949999999999902
+   },
+   "DKT+": {
+    "main_mean": 0.72094,
+    "main_std": 0.005479781017522495,
+    "main_n": 5,
+    "gstrain_mean": 0.7218249999999999,
+    "gstrain_std": 0.005900494329573865,
+    "gstrain_n": 4,
+    "delta": 0.0008849999999999136
+   },
+   "DKVMN": {
+    "main_mean": 0.67544,
+    "main_std": 0.0036671514830996536,
+    "main_n": 5,
+    "gstrain_mean": 0.6792,
+    "gstrain_std": 0.00028284271247458785,
+    "gstrain_n": 2,
+    "delta": 0.0037599999999999856
+   },
+   "GKT": {
+    "main_mean": 0.71372,
+    "main_std": 0.0049896893690890174,
+    "main_n": 5,
+    "gstrain_mean": 0.7219,
+    "gstrain_std": 0.0,
+    "gstrain_n": 1,
+    "delta": 0.008179999999999965
+   },
+   "SAINT": {
+    "main_mean": 0.72466,
+    "main_std": 0.0032346560868197474,
+    "main_n": 5,
+    "gstrain_mean": 0.7235,
+    "gstrain_std": 0.0,
+    "gstrain_n": 1,
+    "delta": -0.0011599999999999389
+   },
+   "SAKT": {
+    "main_mean": 0.66394,
+    "main_std": 0.0029652993103563593,
+    "main_n": 5,
+    "gstrain_mean": 0.66605,
+    "gstrain_std": 0.0009192388155424891,
+    "gstrain_n": 2,
+    "delta": 0.0021100000000000563
+   },
+   "SimpleKT": {
+    "main_mean": 0.73146,
+    "main_std": 0.00291599039778941,
+    "main_n": 5,
+    "gstrain_mean": 0.7307,
+    "gstrain_std": 0.0,
+    "gstrain_n": 1,
+    "delta": -0.0007599999999999829
+   }
+  },
+  "vs_baseline_main": {
+   "method_mean": 0.79118,
+   "best_baseline": "AKT",
+   "best_baseline_mean": 0.7316,
+   "gap": 0.059579999999999966,
+   "method_is_top": true
+  },
+  "vs_baseline_gstrain": {
+   "method_mean": 0.8002,
+   "best_baseline": "AKT",
+   "best_baseline_mean": 0.73265,
+   "gap": 0.06755,
+   "method_is_top": true
+  }
+ },
+ "statics11": {
+  "folds_main": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "reason": "",
+  "folds_main_used": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "folds_gstrain_used": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "per_model": {
+   "AKT": {
+    "main_mean": 0.81874,
+    "main_std": 0.0037885353370399003,
+    "main_n": 5,
+    "gstrain_mean": 0.81858,
+    "gstrain_std": 0.004022064146678913,
+    "gstrain_n": 5,
+    "delta": -0.000160000000000049
+   },
+   "BKT": {
+    "main_mean": 0.5977,
+    "main_std": 0.006579133681572369,
+    "main_n": 5,
+    "gstrain_mean": 0.5977,
+    "gstrain_std": 0.006579133681572369,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "BKT+": {
+    "main_mean": 0.62264,
+    "main_std": 0.008448550171479116,
+    "main_n": 5,
+    "gstrain_mean": 0.62264,
+    "gstrain_std": 0.008448550171479116,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "DGCLKT": {
+    "main_mean": 0.82524,
+    "main_std": 0.005795946859659786,
+    "main_n": 5,
+    "gstrain_mean": 0.82492,
+    "gstrain_std": 0.005653936681640508,
+    "gstrain_n": 5,
+    "delta": -0.00031999999999998696
+   },
+   "DKT": {
+    "main_mean": 0.819,
+    "main_std": 0.005491812087098408,
+    "main_n": 5,
+    "gstrain_mean": 0.819,
+    "gstrain_std": 0.005491812087098408,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "DKT+": {
+    "main_mean": 0.81896,
+    "main_std": 0.005278541465215565,
+    "main_n": 5,
+    "gstrain_mean": 0.81896,
+    "gstrain_std": 0.005278541465215565,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "DKVMN": {
+    "main_mean": 0.81174,
+    "main_std": 0.005317706272444903,
+    "main_n": 5,
+    "gstrain_mean": 0.81174,
+    "gstrain_std": 0.005317706272444903,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "GKT": {
+    "main_mean": 0.81782,
+    "main_std": 0.005506995551114951,
+    "main_n": 5,
+    "gstrain_mean": 0.81772,
+    "gstrain_std": 0.005507903412370252,
+    "gstrain_n": 5,
+    "delta": -9.999999999998899e-05
+   },
+   "SAINT": {
+    "main_mean": 0.8141200000000001,
+    "main_std": 0.006769933529954321,
+    "main_n": 5,
+    "gstrain_mean": 0.81416,
+    "gstrain_std": 0.006752258881293009,
+    "gstrain_n": 5,
+    "delta": 3.999999999992898e-05
+   },
+   "SAKT": {
+    "main_mean": 0.79896,
+    "main_std": 0.005980635417746163,
+    "main_n": 5,
+    "gstrain_mean": 0.79896,
+    "gstrain_std": 0.005980635417746163,
+    "gstrain_n": 5,
+    "delta": 0.0
+   },
+   "SimpleKT": {
+    "main_mean": 0.81942,
+    "main_std": 0.005892113372975791,
+    "main_n": 5,
+    "gstrain_mean": 0.81938,
+    "gstrain_std": 0.005876818867380563,
+    "gstrain_n": 5,
+    "delta": -4.0000000000040004e-05
+   }
+  },
+  "vs_baseline_main": {
+   "method_mean": 0.82524,
+   "best_baseline": "SimpleKT",
+   "best_baseline_mean": 0.81942,
+   "gap": 0.005819999999999936,
+   "method_is_top": true
+  },
+  "vs_baseline_gstrain": {
+   "method_mean": 0.82492,
+   "best_baseline": "SimpleKT",
+   "best_baseline_mean": 0.81938,
+   "gap": 0.005539999999999989,
+   "method_is_top": true
+  }
+ }
+}

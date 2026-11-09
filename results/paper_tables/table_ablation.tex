@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\caption{消融实验：各模块对知识追踪性能（AUC）的贡献}
+\label{tab:ablation}
+\begin{tabular}{lcc}
+\toprule
+配置 & dnui_syn & assist09 \\
+\midrule
+DGCL-KT（完整） & 0.7429 & 0.7629 \\
+去除 CKG 图编码 & 0.7420 & 0.7613 \\
+去除反向耦合标定 & 0.7429 & 0.7624 \\
+仅结构先验 & 0.7429 & 0.7624 \\
+去除 CSG 门控 & 0.7427 & 0.7629 \\
+\bottomrule
+\end{tabular}
+\end{table}

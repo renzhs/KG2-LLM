@@ -1,0 +1,12 @@
+# 核心依赖（知识追踪 / 推荐 / 路径 / 消融 / 建表 全部只需这四项）
+numpy>=1.24
+torch>=2.0
+scipy>=1.10
+matplotlib>=3.7
+
+# ---- 可选 ----
+# GES（图谱证据子图约束的 RAG）需要联网调用 DeepSeek；命中磁盘缓存时不需要
+requests>=2.28
+
+# 仅 experiments/kg/build_dual_graph.py（从教学平台 MySQL 导出）需要
+# pymysql>=1.1

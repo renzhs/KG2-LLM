@@ -1,0 +1,14 @@
+# 统一换行符，避免 Windows 上 clone 后 .sh 带 CRLF 无法执行
+* text=auto eol=lf
+
+*.sh   text eol=lf
+*.py   text eol=lf
+*.md   text eol=lf
+*.cff  text eol=lf
+*.tex  text eol=lf
+*.json text eol=lf
+*.csv  text eol=lf
+
+*.png  binary
+*.pdf  binary
+*.pkl  binary

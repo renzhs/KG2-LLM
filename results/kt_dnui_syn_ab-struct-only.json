@@ -1,0 +1,145 @@
+{
+ "dataset": "dnui_syn",
+ "args": {
+  "dataset": "dnui_syn",
+  "models": [
+   "DGCLKT"
+  ],
+  "epochs": 60,
+  "batch": 64,
+  "lr": 0.002,
+  "patience": 5,
+  "max_len": 200,
+  "min_len": 3,
+  "max_users": 0,
+  "seed": 42,
+  "tag": "ab-struct-only",
+  "d": 128,
+  "layers": 1,
+  "steps": 2,
+  "hops": 1,
+  "dropout": 0.1,
+  "gated_fuse": false,
+  "topm": 0,
+  "wprior": 0.0,
+  "graph_in": true,
+  "seq_enc": "gru",
+  "use_tune": true,
+  "ablation": true,
+  "ab_no_graph": false,
+  "ab_no_calib": false,
+  "ab_no_scope": false,
+  "ab_struct_only": true
+ },
+ "results": {
+  "DGCLKT": {
+   "AUC": 0.7433,
+   "ACC": 0.699,
+   "RMSE": 0.445,
+   "n": 23744,
+   "base_rate": 0.6104,
+   "epochs_run": 13,
+   "train_sec": 8.3,
+   "params": 365570,
+   "history": [
+    {
+     "epoch": 8,
+     "loss": 0.5745,
+     "valid": {
+      "AUC": 0.7281,
+      "ACC": 0.6942,
+      "RMSE": 0.4471,
+      "n": 11921,
+      "base_rate": 0.6277
+     }
+    },
+    {
+     "epoch": 9,
+     "loss": 0.573,
+     "valid": {
+      "AUC": 0.7254,
+      "ACC": 0.6905,
+      "RMSE": 0.4475,
+      "n": 11921,
+      "base_rate": 0.6277
+     }
+    },
+    {
+     "epoch": 10,
+     "loss": 0.5724,
+     "valid": {
+      "AUC": 0.7273,
+      "ACC": 0.6897,
+      "RMSE": 0.4473,
+      "n": 11921,
+      "base_rate": 0.6277
+     }
+    },
+    {
+     "epoch": 11,
+     "loss": 0.5732,
+     "valid": {
+      "AUC": 0.7271,
+      "ACC": 0.6929,
+      "RMSE": 0.4469,
+      "n": 11921,
+      "base_rate": 0.6277
+     }
+    },
+    {
+     "epoch": 12,
+     "loss": 0.5732,
+     "valid": {
+      "AUC": 0.7265,
+      "ACC": 0.6919,
+      "RMSE": 0.4473,
+      "n": 11921,
+      "base_rate": 0.6277
+     }
+    },
+    {
+     "epoch": 13,
+     "loss": 0.5705,
+     "valid": {
+      "AUC": 0.727,
+      "ACC": 0.6931,
+      "RMSE": 0.4465,
+      "n": 11921,
+      "base_rate": 0.6277
+     }
+    }
+   ],
+   "best_valid_auc": 0.7281
+  }
+ },
+ "data_meta": {
+  "source": "DNUI-IKG-S (semi-synthetic, calibrated on real curriculum DAG + real scope labels + real interaction volume)",
+  "generator": "2PL IRT + slip/guess",
+  "params": {
+   "slip": 0.08,
+   "guess": 0.15,
+   "theta_mu": 0.45,
+   "theta_std": 1.0,
+   "b_range": [
+    -1.2,
+    1.2
+   ],
+   "a_range": [
+    0.8,
+    1.6
+   ],
+   "out_of_scope_rate": 0.1
+  },
+  "stats": {
+   "name": "dnui_syn",
+   "users": 2147,
+   "n_skill": 66,
+   "n_question": 467,
+   "interactions": 117865,
+   "avg_len": 54.9,
+   "median_len": 57,
+   "max_len": 77,
+   "correct_rate": 0.627
+  }
+ }
+}

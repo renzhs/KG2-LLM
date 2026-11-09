@@ -1,0 +1,1487 @@
+{
+ "units": [
+  {
+   "expand_rows": [],
+   "dataset": "assist09_akt_f1",
+   "model": "AKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.7951,
+   "test_in": 0.8,
+   "lr_all": 0.004,
+   "val_all": 0.7951,
+   "test_all": 0.8,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09_akt_f1",
+   "model": "DKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.8075,
+   "test_in": 0.8034,
+   "lr_all": 0.004,
+   "val_all": 0.8075,
+   "test_all": 0.8034,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09_akt_f1",
+   "model": "DKT+",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.8079,
+   "test_in": 0.8033,
+   "lr_all": 0.004,
+   "val_all": 0.8079,
+   "test_all": 0.8033,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.016,
+     "val": 0.7286,
+     "test": 0.7338
+    }
+   ],
+   "dataset": "assist09_akt_f1",
+   "model": "DKVMN",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": true,
+   "hit_endpoint": true,
+   "lr_in": 0.008,
+   "val_in": 0.7304,
+   "test_in": 0.7335,
+   "lr_all": 0.008,
+   "val_all": 0.7304,
+   "test_all": 0.7335,
+   "moved": false,
+   "n_trials": 8,
+   "n_expand_trials": 1
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09_akt_f1",
+   "model": "GKT",
+   "grid": [
+    0.001,
+    0.004
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.002,
+   "val_in": 0.8075,
+   "test_in": 0.8036,
+   "lr_all": 0.002,
+   "val_all": 0.8075,
+   "test_all": 0.8036,
+   "moved": false,
+   "n_trials": 4,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09_akt_f1",
+   "model": "SAINT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.7912,
+   "test_in": 0.7906,
+   "lr_all": 0.004,
+   "val_all": 0.7912,
+   "test_all": 0.7906,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.000125,
+     "val": 0.7801,
+     "test": 0.7811
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7805,
+     "test": 0.7816
+    }
+   ],
+   "dataset": "assist09_akt_f1",
+   "model": "SAKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.7817,
+   "test_in": 0.7819,
+   "lr_all": 0.0005,
+   "val_all": 0.7817,
+   "test_all": 0.7819,
+   "moved": false,
+   "n_trials": 9,
+   "n_expand_trials": 2
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09_akt_f1",
+   "model": "SimpleKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.7908,
+   "test_in": 0.7935,
+   "lr_all": 0.004,
+   "val_all": 0.7908,
+   "test_all": 0.7935,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 6.25e-05,
+     "val": 0.7049,
+     "test": 0.7012
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.7056,
+     "test": 0.702
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.706,
+     "test": 0.7019
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.7061,
+     "test": 0.7029
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7051,
+     "test": 0.7017
+    }
+   ],
+   "dataset": "assist15_f1",
+   "model": "AKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.7053,
+   "test_in": 0.7016,
+   "lr_all": 0.000125,
+   "val_all": 0.7061,
+   "test_all": 0.7029,
+   "moved": true,
+   "n_trials": 12,
+   "n_expand_trials": 5
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist15_f1",
+   "model": "DKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.001,
+   "val_in": 0.7139,
+   "test_in": 0.7108,
+   "lr_all": 0.001,
+   "val_all": 0.7139,
+   "test_all": 0.7108,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist15_f1",
+   "model": "DKT+",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.7149,
+   "test_in": 0.711,
+   "lr_all": 0.004,
+   "val_all": 0.7149,
+   "test_all": 0.711,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.016,
+     "val": 0.6953,
+     "test": 0.6895
+    },
+    {
+     "lr": 0.016,
+     "val": 0.6822,
+     "test": 0.6782
+    },
+    {
+     "lr": 0.016,
+     "val": 0.6953,
+     "test": 0.6904
+    },
+    {
+     "lr": 0.032,
+     "val": 0.6872,
+     "test": 0.6848
+    }
+   ],
+   "dataset": "assist15_f1",
+   "model": "DKVMN",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": true,
+   "hit_endpoint": true,
+   "lr_in": 0.008,
+   "val_in": 0.6944,
+   "test_in": 0.6905,
+   "lr_all": 0.016,
+   "val_all": 0.6953,
+   "test_all": 0.6895,
+   "moved": true,
+   "n_trials": 11,
+   "n_expand_trials": 4
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist15_f1",
+   "model": "GKT",
+   "grid": [
+    0.001,
+    0.004
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.001,
+   "val_in": 0.7147,
+   "test_in": 0.7104,
+   "lr_all": 0.001,
+   "val_all": 0.7147,
+   "test_all": 0.7104,
+   "moved": false,
+   "n_trials": 4,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 6.25e-05,
+     "val": 0.7035,
+     "test": 0.7005
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.7036,
+     "test": 0.7008
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.7041,
+     "test": 0.6994
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.7041,
+     "test": 0.7009
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7034,
+     "test": 0.6995
+    }
+   ],
+   "dataset": "assist15_f1",
+   "model": "SAINT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.7033,
+   "test_in": 0.699,
+   "lr_all": 0.000125,
+   "val_all": 0.7041,
+   "test_all": 0.6994,
+   "moved": true,
+   "n_trials": 12,
+   "n_expand_trials": 5
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 6.25e-05,
+     "val": 0.6894,
+     "test": 0.6871
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.6938,
+     "test": 0.6917
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.6945,
+     "test": 0.691
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.6947,
+     "test": 0.6916
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.6933,
+     "test": 0.6914
+    }
+   ],
+   "dataset": "assist15_f1",
+   "model": "SAKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.6934,
+   "test_in": 0.6902,
+   "lr_all": 0.000125,
+   "val_all": 0.6947,
+   "test_all": 0.6916,
+   "moved": true,
+   "n_trials": 12,
+   "n_expand_trials": 5
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 6.25e-05,
+     "val": 0.7047,
+     "test": 0.701
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.7052,
+     "test": 0.7016
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.7066,
+     "test": 0.7022
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.7059,
+     "test": 0.702
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7052,
+     "test": 0.7016
+    }
+   ],
+   "dataset": "assist15_f1",
+   "model": "SimpleKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.705,
+   "test_in": 0.7008,
+   "lr_all": 0.000125,
+   "val_all": 0.7066,
+   "test_all": 0.7022,
+   "moved": true,
+   "n_trials": 12,
+   "n_expand_trials": 5
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.000125,
+     "val": 0.7329,
+     "test": 0.7304
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7337,
+     "test": 0.7313
+    }
+   ],
+   "dataset": "assist17_f1",
+   "model": "AKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.7339,
+   "test_in": 0.7315,
+   "lr_all": 0.0005,
+   "val_all": 0.7339,
+   "test_all": 0.7315,
+   "moved": false,
+   "n_trials": 9,
+   "n_expand_trials": 2
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.016,
+     "val": 0.7156,
+     "test": 0.725
+    }
+   ],
+   "dataset": "assist17_f1",
+   "model": "DKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": true,
+   "hit_endpoint": true,
+   "lr_in": 0.008,
+   "val_in": 0.7192,
+   "test_in": 0.7285,
+   "lr_all": 0.008,
+   "val_all": 0.7192,
+   "test_all": 0.7285,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 1
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.016,
+     "val": 0.7168,
+     "test": 0.7273
+    }
+   ],
+   "dataset": "assist17_f1",
+   "model": "DKT+",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": true,
+   "hit_endpoint": true,
+   "lr_in": 0.008,
+   "val_in": 0.7198,
+   "test_in": 0.7293,
+   "lr_all": 0.008,
+   "val_all": 0.7198,
+   "test_all": 0.7293,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 1
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.016,
+     "val": 0.675,
+     "test": 0.6798
+    }
+   ],
+   "dataset": "assist17_f1",
+   "model": "DKVMN",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": true,
+   "hit_endpoint": true,
+   "lr_in": 0.008,
+   "val_in": 0.6762,
+   "test_in": 0.6794,
+   "lr_all": 0.008,
+   "val_all": 0.6762,
+   "test_all": 0.6794,
+   "moved": false,
+   "n_trials": 8,
+   "n_expand_trials": 1
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist17_f1",
+   "model": "GKT",
+   "grid": [
+    0.001,
+    0.004
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.002,
+   "val_in": 0.7167,
+   "test_in": 0.7235,
+   "lr_all": 0.002,
+   "val_all": 0.7167,
+   "test_all": 0.7235,
+   "moved": false,
+   "n_trials": 4,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist17_f1",
+   "model": "SAINT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.7261,
+   "test_in": 0.7232,
+   "lr_all": 0.004,
+   "val_all": 0.7261,
+   "test_all": 0.7232,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.000125,
+     "val": 0.6657,
+     "test": 0.6638
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.6666,
+     "test": 0.6647
+    }
+   ],
+   "dataset": "assist17_f1",
+   "model": "SAKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.6675,
+   "test_in": 0.6654,
+   "lr_all": 0.0005,
+   "val_all": 0.6675,
+   "test_all": 0.6654,
+   "moved": false,
+   "n_trials": 9,
+   "n_expand_trials": 2
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.000125,
+     "val": 0.7301,
+     "test": 0.728
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7315,
+     "test": 0.7295
+    }
+   ],
+   "dataset": "assist17_f1",
+   "model": "SimpleKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.7325,
+   "test_in": 0.7307,
+   "lr_all": 0.0005,
+   "val_all": 0.7325,
+   "test_all": 0.7307,
+   "moved": false,
+   "n_trials": 9,
+   "n_expand_trials": 2
+  },
+  {
+   "expand_rows": [],
+   "dataset": "statics11_f1",
+   "model": "AKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.8214,
+   "test_in": 0.8207,
+   "lr_all": 0.004,
+   "val_all": 0.8214,
+   "test_all": 0.8207,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "statics11_f1",
+   "model": "DKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.002,
+   "val_in": 0.8208,
+   "test_in": 0.8254,
+   "lr_all": 0.002,
+   "val_all": 0.8208,
+   "test_all": 0.8254,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "statics11_f1",
+   "model": "DKT+",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.001,
+   "val_in": 0.8217,
+   "test_in": 0.8243,
+   "lr_all": 0.001,
+   "val_all": 0.8217,
+   "test_all": 0.8243,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "statics11_f1",
+   "model": "DKVMN",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.8145,
+   "test_in": 0.817,
+   "lr_all": 0.004,
+   "val_all": 0.8145,
+   "test_all": 0.817,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "statics11_f1",
+   "model": "GKT",
+   "grid": [
+    0.001,
+    0.004
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.001,
+   "val_in": 0.8211,
+   "test_in": 0.8229,
+   "lr_all": 0.001,
+   "val_all": 0.8211,
+   "test_all": 0.8229,
+   "moved": false,
+   "n_trials": 4,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "statics11_f1",
+   "model": "SAINT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.8175,
+   "test_in": 0.8176,
+   "lr_all": 0.004,
+   "val_all": 0.8175,
+   "test_all": 0.8176,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 6.25e-05,
+     "val": 0.7944,
+     "test": 0.7943
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.8,
+     "test": 0.7999
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.8018,
+     "test": 0.8018
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.7992,
+     "test": 0.7994
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7996,
+     "test": 0.7993
+    }
+   ],
+   "dataset": "statics11_f1",
+   "model": "SAKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.8,
+   "test_in": 0.8001,
+   "lr_all": 0.000125,
+   "val_all": 0.8018,
+   "test_all": 0.8018,
+   "moved": true,
+   "n_trials": 12,
+   "n_expand_trials": 5
+  },
+  {
+   "expand_rows": [],
+   "dataset": "statics11_f1",
+   "model": "SimpleKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.001,
+   "val_in": 0.8211,
+   "test_in": 0.8215,
+   "lr_all": 0.001,
+   "val_all": 0.8211,
+   "test_all": 0.8215,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.000125,
+     "val": 0.7258,
+     "test": 0.742
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7261,
+     "test": 0.7424
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7275,
+     "test": 0.7418
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7259,
+     "test": 0.7424
+    }
+   ],
+   "dataset": "dnui_syn",
+   "model": "AKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.7271,
+   "test_in": 0.7423,
+   "lr_all": 0.00025,
+   "val_all": 0.7275,
+   "test_all": 0.7418,
+   "moved": true,
+   "n_trials": 11,
+   "n_expand_trials": 4
+  },
+  {
+   "expand_rows": [],
+   "dataset": "dnui_syn",
+   "model": "DKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.001,
+   "val_in": 0.7217,
+   "test_in": 0.7367,
+   "lr_all": 0.001,
+   "val_all": 0.7217,
+   "test_all": 0.7367,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "dnui_syn",
+   "model": "DKT+",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.002,
+   "val_in": 0.7223,
+   "test_in": 0.7362,
+   "lr_all": 0.002,
+   "val_all": 0.7223,
+   "test_all": 0.7362,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "dnui_syn",
+   "model": "DKVMN",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.001,
+   "val_in": 0.7247,
+   "test_in": 0.7398,
+   "lr_all": 0.001,
+   "val_all": 0.7247,
+   "test_all": 0.7398,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "dnui_syn",
+   "model": "GKT",
+   "grid": [
+    0.001,
+    0.004
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.001,
+   "val_in": 0.7214,
+   "test_in": 0.7341,
+   "lr_all": 0.001,
+   "val_all": 0.7214,
+   "test_all": 0.7341,
+   "moved": false,
+   "n_trials": 4,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.000125,
+     "val": 0.7264,
+     "test": 0.7421
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7269,
+     "test": 0.7423
+    }
+   ],
+   "dataset": "dnui_syn",
+   "model": "SAINT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.7269,
+   "test_in": 0.7423,
+   "lr_all": 0.0005,
+   "val_all": 0.7269,
+   "test_all": 0.7423,
+   "moved": false,
+   "n_trials": 9,
+   "n_expand_trials": 2
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.000125,
+     "val": 0.7178,
+     "test": 0.734
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7185,
+     "test": 0.7349
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7168,
+     "test": 0.7338
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.7194,
+     "test": 0.7363
+    }
+   ],
+   "dataset": "dnui_syn",
+   "model": "SAKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.719,
+   "test_in": 0.7366,
+   "lr_all": 0.00025,
+   "val_all": 0.7194,
+   "test_all": 0.7363,
+   "moved": true,
+   "n_trials": 11,
+   "n_expand_trials": 4
+  },
+  {
+   "expand_rows": [],
+   "dataset": "dnui_syn",
+   "model": "SimpleKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.001,
+   "val_in": 0.727,
+   "test_in": 0.743,
+   "lr_all": 0.001,
+   "val_all": 0.727,
+   "test_all": 0.743,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09",
+   "model": "AKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.7767,
+   "test_in": 0.7524,
+   "lr_all": 0.004,
+   "val_all": 0.7767,
+   "test_all": 0.7524,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09",
+   "model": "DKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.001,
+   "val_in": 0.7614,
+   "test_in": 0.7329,
+   "lr_all": 0.001,
+   "val_all": 0.7614,
+   "test_all": 0.7329,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09",
+   "model": "DKT+",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.001,
+   "val_in": 0.7632,
+   "test_in": 0.7326,
+   "lr_all": 0.001,
+   "val_all": 0.7632,
+   "test_all": 0.7326,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.016,
+     "val": 0.7422,
+     "test": 0.7178
+    }
+   ],
+   "dataset": "assist09",
+   "model": "DKVMN",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": true,
+   "hit_endpoint": true,
+   "lr_in": 0.008,
+   "val_in": 0.7428,
+   "test_in": 0.7153,
+   "lr_all": 0.008,
+   "val_all": 0.7428,
+   "test_all": 0.7153,
+   "moved": false,
+   "n_trials": 8,
+   "n_expand_trials": 1
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09",
+   "model": "GKT",
+   "grid": [
+    0.001,
+    0.004
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.001,
+   "val_in": 0.7651,
+   "test_in": 0.7361,
+   "lr_all": 0.001,
+   "val_all": 0.7651,
+   "test_all": 0.7361,
+   "moved": false,
+   "n_trials": 4,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09",
+   "model": "SAINT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.7732,
+   "test_in": 0.7478,
+   "lr_all": 0.004,
+   "val_all": 0.7732,
+   "test_all": 0.7478,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09",
+   "model": "SAKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.001,
+   "val_in": 0.7494,
+   "test_in": 0.717,
+   "lr_all": 0.001,
+   "val_all": 0.7494,
+   "test_all": 0.717,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist09",
+   "model": "SimpleKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.7753,
+   "test_in": 0.7513,
+   "lr_all": 0.004,
+   "val_all": 0.7753,
+   "test_all": 0.7513,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist12",
+   "model": "AKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.7127,
+   "test_in": 0.7122,
+   "lr_all": 0.004,
+   "val_all": 0.7127,
+   "test_all": 0.7122,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist12",
+   "model": "DKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.001,
+   "val_in": 0.7049,
+   "test_in": 0.7036,
+   "lr_all": 0.001,
+   "val_all": 0.7049,
+   "test_all": 0.7036,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist12",
+   "model": "DKT+",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.002,
+   "val_in": 0.7069,
+   "test_in": 0.706,
+   "lr_all": 0.002,
+   "val_all": 0.7069,
+   "test_all": 0.706,
+   "moved": false,
+   "n_trials": 6,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist12",
+   "model": "DKVMN",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.6883,
+   "test_in": 0.6873,
+   "lr_all": 0.004,
+   "val_all": 0.6883,
+   "test_all": 0.6873,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist12",
+   "model": "GKT",
+   "grid": [
+    0.001,
+    0.004
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.001,
+   "val_in": 0.7062,
+   "test_in": 0.7056,
+   "lr_all": 0.001,
+   "val_all": 0.7062,
+   "test_all": 0.7056,
+   "moved": false,
+   "n_trials": 4,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist12",
+   "model": "SAINT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.7101,
+   "test_in": 0.7102,
+   "lr_all": 0.004,
+   "val_all": 0.7101,
+   "test_all": 0.7102,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  },
+  {
+   "expand_rows": [
+    {
+     "lr": 0.000125,
+     "val": 0.6872,
+     "test": 0.6877
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.6906,
+     "test": 0.6907
+    },
+    {
+     "lr": 0.000125,
+     "val": 0.6895,
+     "test": 0.6888
+    },
+    {
+     "lr": 0.00025,
+     "val": 0.6872,
+     "test": 0.6877
+    }
+   ],
+   "dataset": "assist12",
+   "model": "SAKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": true,
+   "hit_hi": false,
+   "hit_endpoint": true,
+   "lr_in": 0.0005,
+   "val_in": 0.6892,
+   "test_in": 0.6886,
+   "lr_all": 0.000125,
+   "val_all": 0.6906,
+   "test_all": 0.6907,
+   "moved": true,
+   "n_trials": 11,
+   "n_expand_trials": 4
+  },
+  {
+   "expand_rows": [],
+   "dataset": "assist12",
+   "model": "SimpleKT",
+   "grid": [
+    0.0005,
+    0.008
+   ],
+   "hit_lo": false,
+   "hit_hi": false,
+   "hit_endpoint": false,
+   "lr_in": 0.004,
+   "val_in": 0.706,
+   "test_in": 0.7067,
+   "lr_all": 0.004,
+   "val_all": 0.706,
+   "test_all": 0.7067,
+   "moved": false,
+   "n_trials": 7,
+   "n_expand_trials": 0
+  }
+ ],
+ "summary": {
+  "n_units": 56,
+  "n_hit": 24,
+  "n_lo": 18,
+  "n_hi": 6,
+  "n_moved": 9,
+  "n_stayed": 15
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "DKT": {
+  "lr": 0.001
+ },
+ "DKT+": {
+  "lr": 0.002
+ },
+ "SAKT": {
+  "lr": 0.00025,
+  "d": 128,
+  "layers": 2
+ },
+ "AKT": {
+  "lr": 0.00025,
+  "d": 256,
+  "layers": 1
+ },
+ "DKVMN": {
+  "mem_size": 32,
+  "key_dim": 64,
+  "val_dim": 64,
+  "batch": 128,
+  "lr": 0.001
+ },
+ "GKT": {
+  "hidden": 64,
+  "steps": 3,
+  "batch": 186,
+  "lr": 0.001
+ },
+ "SAINT": {
+  "lr": 0.0005
+ },
+ "SimpleKT": {
+  "d": 256,
+  "layers": 1,
+  "lr": 0.001
+ },
+ "DGCLKT": {
+  "seq_enc": "gru",
+  "layers": 1,
+  "graph_in": true,
+  "d": 128,
+  "dropout": 0.1,
+  "lr": 0.004,
+  "gated_fuse": false,
+  "steps": 2,
+  "hops": 2,
+  "topm": 0,
+  "wprior": 0.0
+ }
+}

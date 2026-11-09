@@ -1,0 +1,43 @@
+% 由 tools/kt_endpoint_audit.py 自动生成
+\begin{table*}[t]
+\centering
+\caption{学习率网格端点审计与定向扩搜结果。模型侧搜索网格为 $\{0.5,1,2,4,8\}\times10^{-3}$（GKT 因逐时刻图传播开销大，按同等墙钟预算收窄为 $\{1,2,4\}\times10^{-3}$）。``命中端点''指该单元在网格下界或上界取到最优；``最终学习率''给出扩展搜索后的选定值，``—''表示该单元在扩展搜索后仍回到原网格端点取值、即扩搜未改变选点。论文 4.1.2 节 (4) 的端点审计结论即由本表支撑。}
+\label{tab:endpoint}
+\small
+\begin{tabular}{llcccc}
+\toprule
+数据集 & 模型 & 网格 & 命中下界 & 命中上界 & 最终学习率 \\
+\midrule
+ASSIST09 & DKVMN & $[0.5,8]\times10^{-3}$ & — & $\surd$ & — \\
+ASSIST09 & SAKT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & — \\
+\midrule
+ASSIST15 & DKVMN & $[0.5,8]\times10^{-3}$ & — & $\surd$ & $16\times10^{-3}$ \\
+ASSIST15 & SAKT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & $0.125\times10^{-3}$ \\
+ASSIST15 & AKT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & $0.125\times10^{-3}$ \\
+ASSIST15 & GKT & $[1,4]\times10^{-3}$ & $\surd$ & — & — \\
+ASSIST15 & SAINT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & $0.125\times10^{-3}$ \\
+ASSIST15 & SimpleKT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & $0.125\times10^{-3}$ \\
+\midrule
+ASSIST17 & DKT & $[0.5,8]\times10^{-3}$ & — & $\surd$ & — \\
+ASSIST17 & DKT$+$ & $[0.5,8]\times10^{-3}$ & — & $\surd$ & — \\
+ASSIST17 & DKVMN & $[0.5,8]\times10^{-3}$ & — & $\surd$ & — \\
+ASSIST17 & SAKT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & — \\
+ASSIST17 & AKT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & — \\
+ASSIST17 & SimpleKT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & — \\
+\midrule
+Statics11 & SAKT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & $0.125\times10^{-3}$ \\
+Statics11 & GKT & $[1,4]\times10^{-3}$ & $\surd$ & — & — \\
+\midrule
+DNUI-IKG & SAKT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & $0.25\times10^{-3}$ \\
+DNUI-IKG & AKT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & $0.25\times10^{-3}$ \\
+DNUI-IKG & GKT & $[1,4]\times10^{-3}$ & $\surd$ & — & — \\
+DNUI-IKG & SAINT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & — \\
+\midrule
+ASSIST09(自建) & DKVMN & $[0.5,8]\times10^{-3}$ & — & $\surd$ & — \\
+ASSIST09(自建) & GKT & $[1,4]\times10^{-3}$ & $\surd$ & — & — \\
+\midrule
+ASSIST12(自建) & SAKT & $[0.5,8]\times10^{-3}$ & $\surd$ & — & $0.125\times10^{-3}$ \\
+ASSIST12(自建) & GKT & $[1,4]\times10^{-3}$ & $\surd$ & — & — \\
+\bottomrule
+\end{tabular}
+\end{table*}

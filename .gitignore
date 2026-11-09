@@ -1,0 +1,29 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# ---- 运行产物 ----
+logs/
+data/processed/
+*.pkl
+*.pkl.part
+*.log
+
+# ---- 公开数据集：受各自许可约束，不入库（见 docs/EXPERIMENTS.md 第 0 节）----
+data/public/*
+!data/public/.gitkeep
+
+# ---- 编辑器 / 系统 ----
+.DS_Store
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+
+# ---- 本地环境文件（绝不要提交任何 API key）----
+.env
+.env.*

@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this code or the DNUI-IKG dataset, please cite the paper below."
+title: "KG2-LLM: Learning Tracking and Resource Recommendation Fusing Dual Knowledge Graphs and Large Language Models"
+abstract: "Reference implementation and self-built dataset for dual knowledge-graph + LLM personalized learning tracking and resource recommendation, including 11 knowledge-tracing baselines under a unified fair-tuning protocol."
+type: software
+license: MIT
+license-url: "https://opensource.org/licenses/MIT"
+repository-code: "https://github.com/<your-account>/KG2-LLM"
+authors:
+  - family-names: "Ren"
+    given-names: "Zhisen"
+    affiliation: "School of Software, Dalian Neusoft University of Information"
+    email: "renzhisen@neusoft.edu.cn"
+  - family-names: "Shao"
+    given-names: "Xinxin"
+    affiliation: "School of Software, Dalian Neusoft University of Information"
+  - family-names: "Ren"
+    given-names: "Zheng"
+    affiliation: "School of Software, Dalian Neusoft University of Information"
+keywords:
+  - knowledge graph
+  - large language model
+  - knowledge tracing
+  - personalized learning recommendation
+  - learning path planning
+  - retrieval-augmented generation
+  - educational data mining
+version: "1.0.0"
+date-released: "2026-11-09"
+preferred-citation:
+  type: article
+  title: "融合双知识图谱与大语言模型的学习跟踪与资源推荐"
+  authors:
+    - family-names: "Ren"
+      given-names: "Zhisen"
+    - family-names: "Shao"
+      given-names: "Xinxin"
+    - family-names: "Ren"
+      given-names: "Zheng"
+  journal: "计算机工程与应用 (Computer Engineering and Applications)"
+  year: 2026
+  note: "Manuscript submitted for publication"

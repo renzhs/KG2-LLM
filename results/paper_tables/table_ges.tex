@@ -1,0 +1,13 @@
+\begin{table}[htbp]
+\centering
+\caption{大语言模型推荐：图谱证据子图与作用域门控的作用（两法使用**同一召回池**，仅差作用于过滤与证据注入）}
+\label{tab:ges}
+\begin{tabular}{lcccccc}
+\toprule
+方法 & HR $\downarrow$ & ETR $\uparrow$ & SCR $\uparrow$ & PR $\uparrow$ & NDCG@10 $\uparrow$ & 返回条数 \\
+\midrule
+Direct & 0.0000 & 0.0000 & 0.3600 & 0.4225 & 0.1334 & 10.0000 \\
+\textbf{GES（本文）} & 0.0000 & 0.9050 & 1.0000 & 0.9325 & 0.1542 & 9.7500 \\
+\bottomrule
+\end{tabular}
+\end{table}
