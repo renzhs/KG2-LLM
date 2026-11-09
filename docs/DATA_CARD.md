@@ -101,17 +101,18 @@ P(correct | θ_i, b_k, a_k) = g + (1 − s − g) · σ(a_k (θ_i − b_k))
 
 ## 6. 版本与校验
 
-本版本对应论文投稿稿。各文件 SHA-256 前 16 位（`sha256sum data/dnui_ikg/*` 可复核）：
+本版本对应论文投稿稿，文件均为 UTF-8 + LF 换行（`.gitattributes` 已强制）。
+各文件 SHA-256 前 16 位（`sha256sum data/dnui_ikg/*` 可复核）：
 
 | 文件 | SHA-256[:16] | 文件 | SHA-256[:16] |
 |---|---|---|---|
-| attempted.csv | `61443ec46d928445` | mastery.csv | `aece8353c9bdc2f9` |
-| courses.csv | `00acc7445f1437c2` | materials.csv | `364c0d7872bad49f` |
-| edges.csv | `cb9915d3236b99e1` | questions.csv | `4276f590dae37be3` |
-| enrolled.csv | `d15c54e812ea1874` | same_name_as.csv | `d08b512aace9fc85` |
-| interactions.csv | `ad26df4d140eaa3e` | scope_conflicts.csv | `8c100ef36881d327` |
-| kts.csv | `0f16d694e0d8dc1c` | similar_to.csv | `e97fc6c8ca78d6ce` |
-| students.csv | `78ee7c91a66e62a2` | units.csv | `17f73c928b717714` |
+| attempted.csv | `ea28e9cec92a5737` | mastery.csv | `315d68eadde759c9` |
+| courses.csv | `3256274788822a3d` | materials.csv | `fc2c9fea0008395c` |
+| edges.csv | `51f7bb708520e178` | questions.csv | `639a7c5b116f68c2` |
+| enrolled.csv | `1eb0e3d45f40cd44` | same_name_as.csv | `7585b7447b5c2f8b` |
+| interactions.csv | `0c9c1f9eabe4eec6` | scope_conflicts.csv | `30c506dcc00b72ca` |
+| kts.csv | `153f28c4fe27ebae` | similar_to.csv | `69f2660d3e3989bf` |
+| students.csv | `42cefc2baddcdc1a` | units.csv | `4112cec5ffa0c5df` |
 
 ## 7. 公开基准不在本仓库内
 
