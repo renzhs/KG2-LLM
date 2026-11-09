@@ -42,15 +42,17 @@ python experiments/data/prep_bench.py --only assist09,assist15,assist17,statics1
 
 ## 2. 三条复现路径（按代价从低到高）
 
-### 路径 A：只复核论文数字（**无需 GPU，1 分钟**）
+### 路径 A：只复核论文数字（**无需 GPU，约 10 秒**）
 
 仓库已附带全部逐折/逐种子结果 JSON，因此可以直接重建论文的每一张表：
 
 ```bash
-python experiments/tools/make_paper_tables.py        # 重建表 1/2/3
-python experiments/tools/kt_significance.py          # 重建表 4（配对检验）
-python experiments/tools/dataset_stats.py            # 表 1 的数据来源
-bash   experiments/run/make_tables.sh                # 上面三步的聚合封装
+bash   scripts/03_tables.sh                          # 一步到位：重建表 1-4 + 与快照 diff
+
+# 等价的手工步骤（注意 --frozen：results/ 是投稿版快照，mtime 无意义）
+python experiments/tools/make_paper_tables.py --frozen   # 表 1/2/3/4
+python experiments/tools/kt_significance.py              # 表 4 的配对检验（写 kt_signif.json）
+python experiments/tools/dataset_stats.py                # 表 1 的数据来源
 ```
 
 产物写入 `results/table_*.tex`，可与 `results/paper_tables/`（投稿版快照）逐行 `diff` 核对。

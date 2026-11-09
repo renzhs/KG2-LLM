@@ -39,7 +39,8 @@ KG2-LLM/
 └── docs/
     ├── DATA_CARD.md         数据集说明（来源、字段、隐私、半合成口径、校验和）
     ├── EXPERIMENTS.md       脚本 ↔ 论文表图 对照 + 三条复现路径
-    └── REPRODUCIBILITY.md   环境、种子、耗时、已知差异
+    ├── REPRODUCIBILITY.md   环境、种子、耗时、已知差异
+    └── CODE_AVAILABILITY.md 论文里标注代码地址的表述模板（中英/匿名评审）
 ```
 
 ## 3. 安装
