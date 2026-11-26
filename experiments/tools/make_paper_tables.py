@@ -129,7 +129,7 @@ def write_dataset_table():
             f"{s['correct']:.4f} & {s['edges']} \\\\".replace(",", "\\,"))
     lines += ["\\bottomrule", "\\end{tabular}", "\\end{table*}"]
     p = os.path.join(RESULTS, "table_dataset.tex")
-    with open(p, "w", encoding="utf-8") as f:
+    with open(p, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines) + "\n")
     print(f"[table] -> {p}")
 
@@ -224,7 +224,7 @@ def write_main_table():
         lines.append(f"{name} & " + " & ".join(cells) + " \\\\")
     lines += ["\\bottomrule", "\\end{tabular}}", "\\end{table*}"]
     p = os.path.join(RESULTS, "table_kt_bench.tex")
-    with open(p, "w", encoding="utf-8") as f:
+    with open(p, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines) + "\n")
     print(f"[table] -> {p}")
 
@@ -247,7 +247,7 @@ def write_main_table():
             row.append(txt)
         md.append(f"| {PLAIN_DS.get(m, m)} | " + " | ".join(row) + " |")
     pmd = os.path.join(RESULTS, "table_kt_bench.md")
-    with open(pmd, "w", encoding="utf-8") as f:
+    with open(pmd, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(md) + "\n")
     print(f"[table] -> {pmd}")
     return data
@@ -355,7 +355,7 @@ def write_pub_table(data):
         lines.pop()
     lines += ["\\bottomrule", "\\end{tabular}}", "\\end{table*}"]
     p = os.path.join(RESULTS, "table_kt_pub.tex")
-    with open(p, "w", encoding="utf-8") as f:
+    with open(p, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines) + "\n")
     print(f"[table] -> {p}")
     if missing:
@@ -409,7 +409,7 @@ def write_pub_table(data):
                       f"{f(ref)} | **{f(mv)}** | {d(pv)} | {d(ref)} |")
             cur = ds
     pmd = os.path.join(RESULTS, "table_kt_pub.md")
-    with open(pmd, "w", encoding="utf-8") as f:
+    with open(pmd, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(md) + "\n")
     print(f"[table] -> {pmd}")
 
@@ -716,7 +716,7 @@ def write_ours_table(data):
     if multi_note:
         lines.insert(4, f"% 多种子口径: {', '.join(multi_note)}")
     p = os.path.join(RESULTS, "table_kt_ours.tex")
-    with open(p, "w", encoding="utf-8") as f:
+    with open(p, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines) + "\n")
     print(f"[table] -> {p}")
     print(f"[table] 本文 vs 最强基线：胜 {n_win} / 平 {n_tie} / 负 {n_lose}"

@@ -43,7 +43,7 @@ echo "===== [3/4] diff against the camera-ready snapshot ====="
 status=0
 for f in table_dataset.tex table_kt_pub.tex table_kt_bench.tex table_kt_ours.tex; do
   if [[ -f "results/paper_tables/$f" && -f "results/$f" ]]; then
-    if diff -q "results/paper_tables/$f" "results/$f" >/dev/null; then
+    if diff --strip-trailing-cr -q "results/paper_tables/$f" "results/$f" >/dev/null; then
       echo "  [match]   $f"
     else
       echo "  [DIFF ]   $f  -- diff results/paper_tables/$f results/$f"

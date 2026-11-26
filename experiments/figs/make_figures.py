@@ -107,7 +107,7 @@ def save(fig, name):
 
 def tex_write(name, lines):
     p = os.path.join(RES, name)
-    with open(p, "w", encoding="utf-8") as f:
+    with open(p, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines))
     print("  table ->", p)
     return p
@@ -1009,7 +1009,7 @@ def write_summary():
                      f"同名跨课程受控探查: {d.get('_probe_summary')}")
         lines.append("")
     p = os.path.join(RES, "summary.md")
-    with open(p, "w", encoding="utf-8") as f:
+    with open(p, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines))
     print("  summary ->", p)
 
@@ -1023,7 +1023,7 @@ def write_provenance():
     使"图-表口径分裂"这类缺陷在审计阶段就暴露，而不是等评审看到。
     """
     p = os.path.join(RES, "fig_provenance.json")
-    with open(p, "w", encoding="utf-8") as f:
+    with open(p, "w", encoding="utf-8", newline="\n") as f:
         json.dump(_PROV, f, ensure_ascii=False, indent=1)
     print("  provenance ->", p)
 
