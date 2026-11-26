@@ -184,28 +184,13 @@ here because they determine the scale of the reported values.
    de-leakage audit in Table 13(c). Using the wrong scope is the most common cause of a
    mismatch with the shipped reference values.
 
-## 9. Citation
-
-```bibtex
-@misc{ren2026kg2llm,
-  title        = {KG2-LLM: Learning Tracking and Resource Recommendation
-                  Fusing Dual Knowledge Graphs and Large Language Models},
-  author       = {Ren, Zhisen and Shao, Xinxin and Ren, Zheng},
-  year         = {2026},
-  howpublished = {\url{https://github.com/renzhs/KG2-LLM}}
-}
-```
-
-Machine-readable metadata is in [`CITATION.cff`](CITATION.cff) (GitHub shows a "Cite this
-repository" button). If you use **DNUI-IKG**, please cite this repository as well.
-
-## 10. License
+## 9. License
 
 - **Code**: MIT — see [`LICENSE`](LICENSE)
 - **DNUI-IKG data**: CC BY-NC 4.0 — see [`LICENSE-DATA`](LICENSE-DATA) (non-commercial research
   only, attribution required)
 
-## 11. Contact
+## 10. Contact
 
 Zhisen Ren, School of Software, Dalian Neusoft University of Information, Dalian 116023, China
 · renzhisen@neusoft.edu.cn · renzhisen@126.com
