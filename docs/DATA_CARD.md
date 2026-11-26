@@ -118,7 +118,7 @@ P(correct | θ_i, b_k, a_k) = g + (1 − s − g) · σ(a_k (θ_i − b_k))
 
 ## 6. 版本与校验
 
-本版本对应论文投稿稿，文件均为 UTF-8 + LF 换行（`.gitattributes` 已强制）。
+本版本为公开数据集版本 v1.1，文件均为 UTF-8 + LF 换行（`.gitattributes` 已强制）。
 各文件 SHA-256 前 16 位（`sha256sum data/dnui_ikg/*` 可复核）：
 
 | 文件 | SHA-256[:16] | 文件 | SHA-256[:16] |

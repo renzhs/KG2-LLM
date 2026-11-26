@@ -1,8 +1,8 @@
 # Script ↔ table/figure map, and how to reproduce
 
 Every script is driven by command-line flags only and resolves all paths through
-`experiments/paths.py`. Table and figure numbers below follow the submitted manuscript; the LaTeX
-`sci-paper` labels are stable even when floats shift.
+`experiments/paths.py`. Table and figure numbers below are the ones used throughout this
+repository; the LaTeX `sci-paper` labels are stable even when floats shift.
 
 ## 0. Data preparation
 
@@ -59,7 +59,7 @@ python experiments/tools/check_downstream.py             # Tables 6-10 + in-text
 ```
 
 Outputs land in `results/table_*.tex` and can be diffed line by line against
-`results/paper_tables/` (the camera-ready snapshot). `check_downstream.py` exits non-zero on any
+`results/paper_tables/` (the shipped snapshot). `check_downstream.py` exits non-zero on any
 mismatch, so it can be wired into CI.
 
 ### Tier B — rerun one dataset (single GPU: 10 min to hours)
@@ -141,7 +141,7 @@ cutoff, seed, sample size and the paper table it supports.
 
 `results/exploratory/` currently holds `repair_plan.json` (budget sweep over local path repair) and
 `evidence_intervention.json` (LLM evidence self-correction). Both were implemented during
-exploration and are **not** used to support any claim in the manuscript; the scripts are
+exploration and are **not** used to support any reported claim; the scripts are
 `experiments/run/run_repair_plan.py` and `experiments/run/run_evidence_intervention.py`.
 
 ## 5. Dual-graph construction and the resource layer (optional)

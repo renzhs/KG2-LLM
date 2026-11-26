@@ -65,7 +65,7 @@ cells). Therefore:
 
 ## 6. Snapshot mode (`--frozen`)
 
-`results/` is a **submission snapshot**; its mtimes depend on clone order and carry no information.
+`results/` is a **frozen snapshot**; its mtimes depend on clone order and carry no information.
 `make_paper_tables.py` normally uses "is the multi-seed artefact newer than the main run" to decide
 whether a derived artefact is stale, which fires spuriously on a snapshot. Hence
 `scripts/03_tables.sh` passes `--frozen`:

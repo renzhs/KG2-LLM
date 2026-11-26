@@ -39,7 +39,7 @@ echo "===== [2/4] recompute paired tests (DeltaAUC / 95% CI / p / MDES) ====="
 $PY experiments/tools/kt_significance.py 2>&1 | tail -18
 
 echo
-echo "===== [3/4] diff against the camera-ready snapshot ====="
+echo "===== [3/4] diff against the shipped snapshot ====="
 status=0
 for f in table_dataset.tex table_kt_pub.tex table_kt_bench.tex table_kt_ours.tex; do
   if [[ -f "results/paper_tables/$f" && -f "results/$f" ]]; then

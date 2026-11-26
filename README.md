@@ -3,10 +3,9 @@
 **Coupling dual knowledge graphs with large language models for learning tracking and
 resource recommendation.**
 
-This repository is the reference implementation and the released dataset for the manuscript
-*"Coupling Dual Knowledge Graphs with Large Language Models for Learning Tracking and Resource
-Recommendation"* (Chinese title: 融合双知识图谱与大语言模型的学习跟踪与资源推荐), currently
-under review. It contains
+This repository releases the reference implementation, the full experimental pipeline and the
+self-built **DNUI-IKG** dataset for dual knowledge-graph + LLM learning tracking and resource
+recommendation. It contains
 
 - a unified, fairly-tuned implementation of **11 knowledge-tracing (KT) models** on 7 datasets;
 - the full pipeline of the three constrained pathways built on top of the dual graph
@@ -16,7 +15,7 @@ under review. It contains
 - a **prerequisite-graph de-leakage audit**, including re-induction from evaluation prefixes only;
 - the self-built **DNUI-IKG** dataset (real curriculum structure, real grade/major scope labels,
   semi-synthetic answer sequences);
-- the scripts that regenerate every table and figure of the paper.
+- the scripts that regenerate every reported table and figure.
 
 > Repository: <https://github.com/renzhs/KG2-LLM> · `git clone git@github.com:renzhs/KG2-LLM.git`
 
@@ -24,7 +23,7 @@ under review. It contains
 
 ## 1. Headline findings
 
-The paper's central claim is deliberately narrow: **the graph does not make the predictor more
+The headline claim is deliberately narrow: **the graph does not make the predictor more
 accurate, but it makes the downstream system verifiably compliant.**
 
 | Claim | Evidence |
@@ -36,10 +35,9 @@ accurate, but it makes the downstream system verifiably compliant.**
 | Replanning is cheap but not free | **326** invocations vs. **1 150** for replanning at every step (**−71.7%**), i.e. 63% *more* calls than a fixed 5-step schedule, which is why it also preserves path quality |
 | Robust to missing annotations | Under 70% of annotations masked, the hard gate's false-rejection rate is **0.7184**; equivalence-set mounting reduces it to **0.0037**, while a same-budget union baseline reaches a false-accept rate of **0.3316** |
 
-Two results are reported as **negative**, and the paper argues them explicitly rather than hiding
-them: (i) the graph-collaboration term gives no ranking gain on the recommendation side, and
-(ii) the reverse-calibration component is at best a boundary refinement, not a component
-contribution.
+Two results are reported as **negative** and argued explicitly rather than hidden: (i) the
+graph-collaboration term gives no ranking gain on the recommendation side, and (ii) the
+reverse-calibration component is at best a boundary refinement, not a component contribution.
 
 ## 2. Repository layout
 
@@ -54,23 +52,22 @@ KG2-LLM/
 │   ├── data/                prep_datasets.py (.pkl), prep_bench.py (AKT 5-fold splits)
 │   ├── run/                 run_kt.py, run_rec.py, run_abl_multi.py, run_scope_decision_v2.py, …
 │   ├── tools/               aggregation, paired tests, leakage audit, tuning gates, table builders,
-│   │                        check_downstream.py (re-verifies every downstream paper value)
+│   │                        check_downstream.py (re-verifies every downstream value)
 │   ├── kg/                  dual-graph construction and optional Neo4j loading
-│   └── figs/                make_figures.py (all paper figures)
-├── results/                 reported values (JSON) + camera-ready table snapshot (paper_tables/)
+│   └── figs/                make_figures.py (all figures)
+├── results/                 reported values (JSON) + table snapshot (paper_tables/)
 │   ├── variants/            cross-checks: legacy scope policy, prefix-only graph (de-leakage)
-│   └── exploratory/         analyses implemented but not reported in the paper
-├── figs/                    paper figures (PDF + PNG)
+│   └── exploratory/         analyses implemented but not part of the reported set
+├── figs/                    figures (PDF + PNG)
 ├── scripts/                 stage-wise entry points
 └── docs/
     ├── DATA_CARD.md         dataset provenance, fields, privacy, semi-synthetic protocol, checksums
     ├── EXPERIMENTS.md       script ↔ table/figure map + three reproduction tiers
-    ├── REPRODUCIBILITY.md   environment, seeds, runtimes, known deviations
-    └── CODE_AVAILABILITY.md wording templates for the paper's code-availability statement
+    └── REPRODUCIBILITY.md   environment, seeds, runtimes, known deviations
 ```
 
 Every result file in `results/` carries a `_meta` block (task, dataset, scope policy, graph
-scope, seed, sample size, the paper table it supports), so a number can be traced back to its
+scope, seed, sample size, the reported table it supports), so a number can be traced back to its
 protocol without reading this README.
 
 ## 3. Installation
@@ -89,7 +86,7 @@ pip install -r requirements.txt
 ## 4. Quick start (no GPU, ~10 s)
 
 All per-fold and per-seed results are shipped, so **every table can be rebuilt without training**
-and diffed against the camera-ready snapshot:
+and diffed against the shipped snapshot:
 
 ```bash
 bash scripts/03_tables.sh
@@ -97,13 +94,13 @@ bash scripts/03_tables.sh
 # [match]  table_kt_pub.tex
 # [match]  table_kt_bench.tex
 # [match]  table_kt_ours.tex
-# ... 共检查 206 项，不一致 0 项
-# ===== ALL MATCH: the shipped results rebuild every number in the paper =====
+# ... 206 checks, 0 mismatches
+# ===== ALL MATCH: the shipped results rebuild every reported number =====
 ```
 
 Step `[4/4]` runs `experiments/tools/check_downstream.py`, which re-reads `results/*.json` and
-compares every downstream value printed in the paper (Tables 6–10 and the numbers quoted in the
-text) against the manuscript, item by item.
+compares every downstream value in Tables 6–10, together with the quantities quoted alongside
+them, against the shipped reference values, item by item.
 
 One training run (DNUI-IKG × 11 models × 8 epochs; 171 s on a single V100, minutes on CPU):
 
@@ -132,7 +129,7 @@ should be kept as-is.
 
 - **Content**: 3 undergraduate courses, 66 knowledge points, 88 prerequisite edges, 467 questions,
   1 060 students with answer records, 169 351 responses, 17 862 mastery labels. It is the only
-  dataset in the paper that carries **school-stage and major scope labels**.
+  dataset here that carries **school-stage and major scope labels**.
 - **Privacy**: student number, name, department and major code were dropped; the retained
   `student_id` is an internal integer that cannot be linked to any institutional record. All
   columns were scanned for phone/e-mail/student-number patterns with zero hits.
@@ -150,19 +147,19 @@ should be kept as-is.
 
 ## 7. Protocol notes that matter when reading the numbers
 
-These three definitions changed between earlier drafts and the current submission. They are
-stated here because they determine the scale of the reported values.
+These three definitions were revised during the development of this release. They are stated
+here because they determine the scale of the reported values.
 
 1. **School-stage admission is a one-sided inequality.** A resource is admissible for a student
    if `grade(student) ≥ min(grade_scope(resource))`, i.e. higher grades may reuse lower-grade
-   resources (Eq. 10 of the paper). Under this policy 72.55% of the true positives fall inside
-   the student's scope. The alternative set-equality reading shrinks that share to 46.49% and
-   inflates CSCR to 0.3604; results under that legacy policy are kept in `results/variants/`
+   resources (the one-sided admission rule). Under this policy 72.55% of the true positives fall
+   inside the student's scope. The alternative set-equality reading shrinks that share to 46.49%
+   and inflates CSCR to 0.3604; results under that legacy policy are kept in `results/variants/`
    for comparison, never in the main tables.
 2. **Executable coverage (EC) checks unmastered prerequisites.** For a target knowledge point to
    count as covered, *every* prerequisite must either be already mastered (`X > 0` in the training
    segment) or appear earlier in the path. A prerequisite that is neither mastered nor scheduled
-   blocks the target. The paper reports EC under this strict definition; sequential compliance —
+   blocks the target. EC is reported under this strict definition; sequential compliance —
    the ordering of prerequisite pairs that *do* appear in the path — is a separate, weaker metric
    and is named accordingly.
 3. **Evidence traceability (ETR) is verified structurally.** A citation counts only if it parses
@@ -184,23 +181,23 @@ stated here because they determine the scale of the reported values.
    stable, the exact strings are not.
 4. **Graph scope**: the main protocol induces the prerequisite graph from all sequences
    (`--graph-scope all`). Re-inducing it from the evaluation prefix only (`cut`) is the
-   de-leakage audit reported in Table 13(c). Using the wrong scope is the most common cause of a
-   mismatch with the paper.
+   de-leakage audit in Table 13(c). Using the wrong scope is the most common cause of a
+   mismatch with the shipped reference values.
 
 ## 9. Citation
 
 ```bibtex
-@article{ren2026kg2llm,
-  title   = {Coupling Dual Knowledge Graphs with Large Language Models for
-             Learning Tracking and Resource Recommendation},
-  author  = {Ren, Zhisen and Shao, Xinxin and Ren, Zheng},
-  journal = {Manuscript under review},
-  year    = {2026}
+@misc{ren2026kg2llm,
+  title        = {KG2-LLM: Learning Tracking and Resource Recommendation
+                  Fusing Dual Knowledge Graphs and Large Language Models},
+  author       = {Ren, Zhisen and Shao, Xinxin and Ren, Zheng},
+  year         = {2026},
+  howpublished = {\url{https://github.com/renzhs/KG2-LLM}}
 }
 ```
 
 Machine-readable metadata is in [`CITATION.cff`](CITATION.cff) (GitHub shows a "Cite this
-repository" button). If you use **DNUI-IKG**, please cite the paper as well.
+repository" button). If you use **DNUI-IKG**, please cite this repository as well.
 
 ## 10. License
 

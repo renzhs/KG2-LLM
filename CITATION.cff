@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this code or the DNUI-IKG dataset, please cite the paper below."
+message: "If you use this code or the DNUI-IKG dataset, please cite the software below."
 title: "KG2-LLM: Learning Tracking and Resource Recommendation Fusing Dual Knowledge Graphs and Large Language Models"
 abstract: "Reference implementation and self-built dataset for dual knowledge-graph + LLM personalized learning tracking and resource recommendation, including 11 knowledge-tracing baselines under a unified fair-tuning protocol."
 type: software
@@ -28,8 +28,8 @@ keywords:
 version: "1.1.0"
 date-released: "2026-11-26"
 preferred-citation:
-  type: article
-  title: "融合双知识图谱与大语言模型的学习跟踪与资源推荐"
+  type: software
+  title: "KG2-LLM: Learning Tracking and Resource Recommendation Fusing Dual Knowledge Graphs and Large Language Models"
   authors:
     - family-names: "Ren"
       given-names: "Zhisen"
@@ -37,6 +37,5 @@ preferred-citation:
       given-names: "Xinxin"
     - family-names: "Ren"
       given-names: "Zheng"
-  journal: "计算机工程与应用 (Computer Engineering and Applications)"
+  repository-code: "https://github.com/renzhs/KG2-LLM"
   year: 2026
-  note: "Manuscript submitted for publication"
