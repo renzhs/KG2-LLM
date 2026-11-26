@@ -689,5 +689,14 @@
   "pct_ge10": 1.0,
   "pct_ge20": 1.0,
   "in_scope_share_of_rel": 1.0
+ },
+ "_meta": {
+  "task": "rec",
+  "dataset": "assist12",
+  "scope_policy": "n/a (no grade/major labels)",
+  "graph_scope": "all",
+  "cutoff": 0.7,
+  "seed": 42,
+  "paper": "Table 13(c) reference row"
  }
 }
