@@ -108,7 +108,11 @@ def main():
             with open(p_out, encoding="utf-8") as f:
                 old = json.load(f)
             if isinstance(old.get("per_seed_detail"), dict):
-                detail = old["per_seed_detail"]
+                # JSON 对象的键只能是字符串，而下面的 sd 是 int；不转回来
+                # ``sd in detail[name]`` 会恒为 False，续跑（--reuse）静默失效，
+                # 表现为「已有 N 条记录」但每个模型仍重训一遍。
+                detail = {m: {int(sd): v for sd, v in (rows or {}).items()}
+                          for m, rows in old["per_seed_detail"].items()}
                 print(f"[resume] 已有 {sum(len(v) for v in detail.values())} 条 "
                       f"(模型,种子) 记录")
         except Exception as e:                       # noqa: BLE001
@@ -166,8 +170,18 @@ def main():
                    n_full_seeds=n_full, best_seed_wins=win,
                    paired_vs_ours=paired, ours=ours,
                    wall_sec=round(time.time() - t00, 1))
-        with open(p_out, "w", encoding="utf-8") as f:
+        # Windows 下对一个已存在的结果文件直接 open("w") 可能抛
+        # PermissionError（文件被索引/杀软短暂持有），一旦发生在训练
+        # 结束之后，整轮计算就白跑了。改为写临时文件再原子替换。
+        tmp = p_out + ".tmp"
+        with open(tmp, "w", encoding="utf-8", newline="\n") as f:
             json.dump(out, f, ensure_ascii=False, indent=1)
+            f.write("\n")
+        try:
+            os.replace(tmp, p_out)
+        except PermissionError:
+            os.remove(p_out)
+            os.replace(tmp, p_out)
         return out
 
     t00 = time.time()

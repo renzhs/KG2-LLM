@@ -794,5 +794,123 @@
    }
   },
   "incomplete": {}
+ },
+ "assist09": {
+  "dataset": "assist09",
+  "pretty": "ASSIST09S（自建划分）",
+  "unit": "seed（单折、单种子配对）",
+  "anchor_folds": [
+   42
+  ],
+  "n_anchor": 1,
+  "method": {
+   "folds": [
+    42
+   ],
+   "n": 1,
+   "main_mean": 0.7656,
+   "main_std": 0.0,
+   "gstrain_mean": 0.7624,
+   "gstrain_std": 0.0,
+   "delta": -0.0031999999999999806
+  },
+  "best_baseline": "DKT+",
+  "best_baseline_row": {
+   "folds": [
+    42
+   ],
+   "n": 1,
+   "main_mean": 0.7326,
+   "main_std": 0.0,
+   "gstrain_mean": 0.7327,
+   "gstrain_std": 0.0,
+   "delta": 9.999999999998899e-05
+  },
+  "gap_main": 0.03299999999999992,
+  "gap_gstrain": 0.02969999999999995,
+  "rows": {
+   "DGCLKT": {
+    "folds": [
+     42
+    ],
+    "n": 1,
+    "main_mean": 0.7656,
+    "main_std": 0.0,
+    "gstrain_mean": 0.7624,
+    "gstrain_std": 0.0,
+    "delta": -0.0031999999999999806
+   },
+   "DKT+": {
+    "folds": [
+     42
+    ],
+    "n": 1,
+    "main_mean": 0.7326,
+    "main_std": 0.0,
+    "gstrain_mean": 0.7327,
+    "gstrain_std": 0.0,
+    "delta": 9.999999999998899e-05
+   }
+  },
+  "incomplete": {}
+ },
+ "assist12": {
+  "dataset": "assist12",
+  "pretty": "ASSIST12S（自建划分）",
+  "unit": "seed（单折、单种子配对）",
+  "anchor_folds": [
+   42
+  ],
+  "n_anchor": 1,
+  "method": {
+   "folds": [
+    42
+   ],
+   "n": 1,
+   "main_mean": 0.7705,
+   "main_std": 0.0,
+   "gstrain_mean": 0.7703,
+   "gstrain_std": 0.0,
+   "delta": -0.00019999999999997797
+  },
+  "best_baseline": "AKT",
+  "best_baseline_row": {
+   "folds": [
+    42
+   ],
+   "n": 1,
+   "main_mean": 0.7576,
+   "main_std": 0.0,
+   "gstrain_mean": 0.7571,
+   "gstrain_std": 0.0,
+   "delta": -0.000500000000000056
+  },
+  "gap_main": 0.012899999999999912,
+  "gap_gstrain": 0.01319999999999999,
+  "rows": {
+   "AKT": {
+    "folds": [
+     42
+    ],
+    "n": 1,
+    "main_mean": 0.7576,
+    "main_std": 0.0,
+    "gstrain_mean": 0.7571,
+    "gstrain_std": 0.0,
+    "delta": -0.000500000000000056
+   },
+   "DGCLKT": {
+    "folds": [
+     42
+    ],
+    "n": 1,
+    "main_mean": 0.7705,
+    "main_std": 0.0,
+    "gstrain_mean": 0.7703,
+    "gstrain_std": 0.0,
+    "delta": -0.00019999999999997797
+   }
+  },
+  "incomplete": {}
  }
 }

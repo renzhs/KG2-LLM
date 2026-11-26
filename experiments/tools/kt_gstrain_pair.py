@@ -35,6 +35,15 @@ DATASETS = ["assist09_akt", "assist15", "assist17", "statics11"]
 PRETTY = {"assist09_akt": "ASSIST09（AKT 划分）", "assist15": "ASSIST15",
           "assist17": "ASSIST17", "statics11": "Statics11"}
 
+# 自建划分（ASSIST09S / ASSIST12S）不是 K 折交叉，而是单折 + 多种子。
+# 这类数据集没有 ``kt_<ds>_f*_bench.json``，主口径在 ``kt_<ds>_multi.json``，
+# 去泄漏口径在 ``kt_<ds>_gstrain.json``；两者都是「模型 → summary.per_seed」，
+# 因此以 **seed 42** 作配对单位（表 14 的 folds 字段记作 [42]）。
+SEED_DATASETS = ["assist09", "assist12"]
+SEED_PRETTY = {"assist09": "ASSIST09S（自建划分）",
+               "assist12": "ASSIST12S（自建划分）"}
+SEED_UNIT = 42
+
 
 def _load(path):
     try:
@@ -75,6 +84,84 @@ def folds_of(pattern, ds):
         if cell:
             out[int(m.group(1))] = cell
     return out
+
+
+def seed_cell(d, unit=SEED_UNIT):
+    """从多模型汇总文件里取某一个种子的 {model: AUC}。
+
+    主口径（``kt_<ds>_multi.json``）与去泄漏口径（``kt_<ds>_gstrain.json``）
+    都是 ``run_kt_multi.py`` 的产物，summary 里每个模型有 ``AUC.per_seed``，
+    其顺序与顶层 ``seeds`` 一致。
+    """
+    if not d:
+        return {}
+    seeds = d.get("seeds") or []
+    if unit not in seeds:
+        return {}
+    i = seeds.index(unit)
+    cell = {}
+    for m, v in (d.get("summary") or {}).items():
+        ps = ((v or {}).get("AUC") or {}).get("per_seed") or []
+        if i < len(ps) and ps[i] is not None:
+            cell[m] = float(ps[i])
+    return cell
+
+
+def seed_record(ds):
+    """单折 + 多种子数据集的一条配对记录（配对单位 = seed 42）。"""
+    main_d = _load(os.path.join(RES, "kt_%s_multi.json" % ds))
+    gs_d = _load(os.path.join(RES, "kt_%s_gstrain.json" % ds))
+    if not main_d or not gs_d:
+        return None
+    main_c = seed_cell(main_d)
+    gs_c = seed_cell(gs_d)
+    models = sorted(set(main_c) & set(gs_c))
+    if METHOD not in models:
+        return None
+    rows = {}
+    for m in models:
+        rows[m] = {
+            "folds": [SEED_UNIT], "n": 1,
+            "main_mean": main_c[m], "main_std": 0.0,
+            "gstrain_mean": gs_c[m], "gstrain_std": 0.0,
+            "delta": gs_c[m] - main_c[m],
+        }
+    mine = rows[METHOD]
+    base = [(m, r) for m, r in rows.items() if m != METHOD]
+    base.sort(key=lambda kv: -kv[1]["gstrain_mean"])
+    best = base[0] if base else None
+    return {
+        "dataset": ds, "pretty": SEED_PRETTY[ds],
+        "unit": "seed（单折、单种子配对）",
+        "anchor_folds": [SEED_UNIT], "n_anchor": 1,
+        "method": mine,
+        "best_baseline": best[0] if best else None,
+        "best_baseline_row": best[1] if best else None,
+        "gap_main": (mine["main_mean"] - best[1]["main_mean"]) if best else None,
+        "gap_gstrain": (mine["gstrain_mean"] - best[1]["gstrain_mean"]) if best else None,
+        "rows": rows,
+        "incomplete": {},
+    }
+
+
+def report(rec):
+    """打印一条配对记录的终端表格。"""
+    anchor = rec["anchor_folds"]
+    print("=" * 78)
+    print("== %s  配对单位 = %s（%d）" % (rec["pretty"], anchor, len(anchor)))
+    print("%-9s %4s %16s %16s %9s" % ("模型", "n", "main", "train", "Δ"))
+    for m, r in sorted(rec["rows"].items(), key=lambda kv: -kv[1]["gstrain_mean"]):
+        mark = "  <= 本文" if m == METHOD else ""
+        print("%-9s %4d %8.4f±%.4f %8.4f±%.4f %+9.4f%s"
+              % (m, r["n"], r["main_mean"], r["main_std"],
+                 r["gstrain_mean"], r["gstrain_std"], r["delta"], mark))
+    b = rec["best_baseline"]
+    if b:
+        print("  最强基线 %s：gap main %+.4f -> train %+.4f"
+              % (b, rec["gap_main"], rec["gap_gstrain"]))
+    if rec["incomplete"]:
+        print("  [!] 折数不足（相对配对折集 %d 折）：%s"
+              % (len(anchor), rec["incomplete"]))
 
 
 def main():
@@ -135,27 +222,31 @@ def main():
             "incomplete": {m: r["n"] for m, r in rows.items() if r["n"] < len(anchor)},
         }
         out[ds] = rec
+        report(rec)
 
-        print("=" * 78)
-        print("== %s  配对折集 = %s（%d 折）" % (PRETTY[ds], anchor, len(anchor)))
-        print("%-9s %4s %16s %16s %9s" % ("模型", "n", "main", "train", "Δ"))
-        for m, r in sorted(rows.items(), key=lambda kv: -kv[1]["gstrain_mean"]):
-            mark = "  <= 本文" if m == METHOD else ""
-            print("%-9s %4d %8.4f±%.4f %8.4f±%.4f %+9.4f%s"
-                  % (m, r["n"], r["main_mean"], r["main_std"],
-                     r["gstrain_mean"], r["gstrain_std"], r["delta"], mark))
-        if best:
-            print("  最强基线 %s：gap main %+.4f -> train %+.4f"
-                  % (best[0], rec["gap_main"], rec["gap_gstrain"]))
-        if rec["incomplete"]:
-            print("  [!] 折数不足（相对配对折集 %d 折）：%s"
-                  % (len(anchor), rec["incomplete"]))
+    # 自建划分（单折 + 多种子）走 seed 配对分支
+    for ds in SEED_DATASETS:
+        rec = seed_record(ds)
+        if rec is None:
+            print("=" * 78)
+            print("== %s  [跳过] 缺 kt_%s_multi.json 或 kt_%s_gstrain.json"
+                  % (SEED_PRETTY[ds], ds, ds))
+            continue
+        out[ds] = rec
+        report(rec)
 
     if not out:
         print("[abort] 没有可用的折文件，未写出 %s" % OUT)
         return 1
-    with open(OUT, "w", encoding="utf-8") as f:
+    # Windows 下直接 open("w") 覆盖已存在文件可能 PermissionError，
+    # 故先写临时文件再原子替换。
+    tmp = OUT + ".tmp"
+    with open(tmp, "w", encoding="utf-8", newline="\n") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
+        f.write("\n")
+    if os.path.exists(OUT):
+        os.remove(OUT)
+    os.replace(tmp, OUT)
     print("\n[write] %s" % OUT)
     return 0
 

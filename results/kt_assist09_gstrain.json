@@ -1,0 +1,125 @@
+{
+ "dataset": "assist09",
+ "seeds": [
+  42
+ ],
+ "models": [
+  "DKT+",
+  "DGCLKT"
+ ],
+ "model_cfg_file": "../results/kt_model_cfg_assist09.json",
+ "args": {
+  "epochs": 60,
+  "batch": 64,
+  "lr": 0.002,
+  "patience": 10,
+  "max_len": 200,
+  "ablation": false,
+  "patience_used": 10
+ },
+ "per_seed_detail": {
+  "DKT+": {
+   "42": {
+    "AUC": 0.7327,
+    "ACC": 0.7257,
+    "RMSE": 0.4293,
+    "train_sec": 572.3
+   },
+   "42": {
+    "AUC": 0.7327,
+    "ACC": 0.7257,
+    "RMSE": 0.4293,
+    "train_sec": 1083.6
+   }
+  },
+  "DGCLKT": {
+   "42": {
+    "AUC": 0.7624,
+    "ACC": 0.7378,
+    "RMSE": 0.4202,
+    "train_sec": 1204.4
+   }
+  }
+ },
+ "summary": {
+  "DKT+": {
+   "AUC": {
+    "mean": 0.7327,
+    "std": 0.0,
+    "n": 1,
+    "per_seed": [
+     0.7327
+    ]
+   },
+   "ACC": {
+    "mean": 0.7257,
+    "std": 0.0,
+    "n": 1,
+    "per_seed": [
+     0.7257
+    ]
+   },
+   "RMSE": {
+    "mean": 0.4293,
+    "std": 0.0,
+    "n": 1,
+    "per_seed": [
+     0.4293
+    ]
+   }
+  },
+  "DGCLKT": {
+   "AUC": {
+    "mean": 0.7624,
+    "std": 0.0,
+    "n": 1,
+    "per_seed": [
+     0.7624
+    ]
+   },
+   "ACC": {
+    "mean": 0.7378,
+    "std": 0.0,
+    "n": 1,
+    "per_seed": [
+     0.7378
+    ]
+   },
+   "RMSE": {
+    "mean": 0.4202,
+    "std": 0.0,
+    "n": 1,
+    "per_seed": [
+     0.4202
+    ]
+   }
+  }
+ },
+ "complete": {
+  "DKT+": {
+   "42": true
+  },
+  "DGCLKT": {
+   "42": true
+  }
+ },
+ "n_done": 2,
+ "n_expected": 2,
+ "all_complete": true,
+ "n_full_seeds": 1,
+ "best_seed_wins": {
+  "DKT+": 0,
+  "DGCLKT": 1
+ },
+ "paired_vs_ours": {
+  "DKT+": {
+   "n": 1,
+   "wins": 1,
+   "losses": 0,
+   "mean_delta": 0.0297,
+   "std_delta": 0.0
+  }
+ },
+ "ours": "DGCLKT",
+ "wall_sec": 2293.5
+}

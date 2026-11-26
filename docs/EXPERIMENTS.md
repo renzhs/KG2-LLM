@@ -40,7 +40,7 @@ and `dnui_syn` (DNUI-IKG-S, semi-synthetic sequences — the DNUI-IKG row of Tab
 | Table 11 | Sequential-encoder comparison (Transformer / GRU / LSTM × depth) | `run/run_enc_ablation.py` → `tools/make_enc_table.py` | `results/kt_*_encabl.json` |
 | Table 12 | (a) module ablation; (b) sparse/dense knowledge-point groups | `run/run_abl_multi.py`, `run/run_sparse_eval.py` | `results/kt_*_abl.json`, `kt_*_sparse.json` |
 | Table 13 | (a) induced vs. syllabus graph; (b) edge-level leakage; (c) re-inference with a prefix-only graph | `tools/prereq_reliability.py`, `tools/graph_leak_audit.py`, `tools/kt_gstrain_pair.py`; for (c) rerun `run_rec.py --task rec/path --graph-scope cut` | `results/prereq_induction.json`, `graph_leak.json`, `results/variants/*-scopePrefix.json` |
-| Table 14 | Knowledge-tracing side: graph induced from all sequences vs. training students only | `run/run_kt_multi.py --graph-scope train`, `tools/kt_gstrain_pair.py` | `results/kt_*_gstrain.json`, `kt_gstrain_pair.json` |
+| Table 14 | Knowledge-tracing side: graph induced from all sequences vs. training students only (4 public benchmarks with K folds, plus the 2 self-built splits paired on seed 42) | `run/run_kt_multi.py --graph-scope train`, `tools/kt_gstrain_pair.py` | `results/kt_*_gstrain.json`, `kt_gstrain_pair.json` |
 | Fig. 1 | Framework overview | `figs/make_figures.py::fig_framework` | `figs/fig_framework.pdf` |
 | Fig. 2–9 | Dataset statistics, AUC error bars, per-seed scatter, compliance vs. accuracy, γ sensitivity, GES, contamination case, replanning cost, ablation | `figs/make_figures.py` | `figs/*.pdf` |
 
