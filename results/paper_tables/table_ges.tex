@@ -1,13 +1,15 @@
 \begin{table}[htbp]
 \centering
-\caption{大语言模型推荐：图谱证据子图与作用域门控的作用（两法使用**同一召回池**，仅差作用于过滤与证据注入）}
-\label{tab:ges}
+\caption{大语言模型推荐的 2×2 匹配对照：门控与证据各自的作用（四组使用\textbf{同一召回池}，仅作用域过滤与证据注入两个因素不同）}
+\label{tab:ges-2x2}
 \begin{tabular}{lcccccc}
 \toprule
-方法 & HR $\downarrow$ & ETR $\uparrow$ & SCR $\uparrow$ & PR $\uparrow$ & NDCG@10 $\uparrow$ & 返回条数 \\
+方法 & HR $\downarrow$ & ETR $\uparrow$ & SCR $\uparrow$ & 先修合规率 PCR $\uparrow$ & NDCG@10 $\uparrow$ & 返回条数 \\
 \midrule
-Direct & 0.0000 & 0.0000 & 0.3600 & 0.4225 & 0.1334 & 10.0000 \\
-\textbf{GES（本文）} & 0.0000 & 0.9050 & 1.0000 & 0.9325 & 0.1542 & 9.7500 \\
+Direct & 0.0000 & 0.0000 & 0.8775 & 0.6275 & 0.1907 & 10 \\
+GateOnly & 0.0000 & 0.0000 & 1.0000 & 0.6450 & 0.2314 & 10 \\
+EvidOnly & 0.0000 & 0.7650 & 0.8700 & 0.7925 & 0.1893 & 10 \\
+\textbf{GES（本文）} & 0.0000 & 0.7300 & 1.0000 & 0.7600 & 0.1501 & 10 \\
 \bottomrule
 \end{tabular}
 \end{table}

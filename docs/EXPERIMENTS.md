@@ -36,10 +36,11 @@ and `dnui_syn` (DNUI-IKG-S, semi-synthetic sequences — the DNUI-IKG row of Tab
 | Table 7 | Resource recommendation on ASSIST09 (scope degenerates to the full set) | `run/run_rec.py --task rec --dataset assist09` | `results/rec_assist09.json` |
 | Table 8 | Gate decisions under incomplete annotations | `run/run_scope_decision_v2.py` | `results/scope_decision.json` |
 | Table 9 | (a) learning-path quality on 3 datasets; (b) three replanning strategies | `run/run_rec.py --task path`, `--task mdrl` | `results/path_*.json`, `results/mdrl_dnui_syn.json` |
-| Table 10 | GES reliability: HR / ETR / SCR / PCR / NDCG | `run/run_rec.py --task ges` (needs an LLM credential or the disk cache) | `results/ges_dnui_syn.json` |
+| Table 10 | GES 2×2 matched control: HR / ETR / SCR / PCR / NDCG for Direct, GateOnly, EvidOnly, GES | `run/run_rec.py --task ges --ges-controls` (needs an LLM credential or the disk cache) | `results/ges_dnui_syn.json` |
 | Table 11 | Sequential-encoder comparison (Transformer / GRU / LSTM × depth) | `run/run_enc_ablation.py` → `tools/make_enc_table.py` | `results/kt_*_encabl.json` |
 | Table 12 | (a) module ablation; (b) sparse/dense knowledge-point groups | `run/run_abl_multi.py`, `run/run_sparse_eval.py` | `results/kt_*_abl.json`, `kt_*_sparse.json` |
 | Table 13 | (a) induced vs. syllabus graph; (b) edge-level leakage; (c) re-inference with a prefix-only graph | `tools/prereq_reliability.py`, `tools/graph_leak_audit.py`, `tools/kt_gstrain_pair.py`; for (c) rerun `run_rec.py --task rec/path --graph-scope cut` | `results/prereq_induction.json`, `graph_leak.json`, `results/variants/*-scopePrefix.json` |
+| Table 14 | Knowledge-tracing side: graph induced from all sequences vs. training students only | `run/run_kt_multi.py --graph-scope train`, `tools/kt_gstrain_pair.py` | `results/kt_*_gstrain.json`, `kt_gstrain_pair.json` |
 | Fig. 1 | Framework overview | `figs/make_figures.py::fig_framework` | `figs/fig_framework.pdf` |
 | Fig. 2–9 | Dataset statistics, AUC error bars, per-seed scatter, compliance vs. accuracy, γ sensitivity, GES, contamination case, replanning cost, ablation | `figs/make_figures.py` | `figs/*.pdf` |
 
@@ -108,8 +109,16 @@ python experiments/run/run_rec.py --dataset dnui_syn --task mdrl --mdrl-steps 24
 # gate robustness under missing annotations (Table 8)
 python experiments/run/run_scope_decision_v2.py --students 400 --seeds 42,43,44
 
-# generation (needs DEEPSEEK_API_KEY or a hit in the logs/ges_cache disk cache)
-python experiments/run/run_rec.py --dataset dnui_syn --task ges --llm-students 40
+# generation: 2x2 matched control (needs DEEPSEEK_API_KEY or a hit in the logs/ges_cache disk cache)
+python experiments/run/run_rec.py --dataset dnui_syn --task ges --llm-students 40 --ges-controls
+
+# knowledge tracing with a leak-free graph (training students only, Table 14)
+python experiments/run/run_kt_multi.py --dataset assist09 --models AKT DGCLKT --seeds 3 \
+       --graph-scope train --tag gstrain --model-cfg-file results/kt_model_cfg_assist09.json
+
+# scope-label decomposition (stage-only / major-only), reported in 3.8.4(5)
+SCOPE_LABEL=grade python experiments/run/run_rec.py --dataset dnui_syn --task rec --tag labelgrade
+SCOPE_LABEL=major python experiments/run/run_rec.py --dataset dnui_syn --task rec --tag labelmajor
 
 # module ablation (3 seeds) / sparse-group evaluation / encoder comparison
 python experiments/run/run_abl_multi.py    --dataset dnui_syn --seeds 42,43,44

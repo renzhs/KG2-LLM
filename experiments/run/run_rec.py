@@ -36,6 +36,11 @@ from models.llm_ges import (DeepSeek, build_evidence_subgraph,
 
 KS = (5, 10, 20)
 
+# 作用域标签的作用维度，供「单机构标签」敏感性分析使用：
+#   both（默认）学段 + 专业；grade 仅学段；major 仅专业。
+# 用环境变量而非命令行，是为了不改动 build_all*/task_* 的既有签名与调用点。
+LABEL_MODE = os.environ.get("SCOPE_LABEL", "both")
+
 
 # --------------------------------------------------------------------------
 def load(dataset):
@@ -129,7 +134,17 @@ def _adj_scope(obj, sid2row, K, scope="all", cut1=0.6, policy="down"):
                     ok_g = (g >= min(gs)) if gs else False
                 else:
                     ok_g = g in gs
-                scope_row[r, k] = bool(ok_g and ((mj in ms) or (mj == "其他")))
+                ok_m = (mj in ms) or (mj == "其他")
+                # 标签分解（单机构标签的外部效度敏感性）：只用其中一个标签维度，
+                # 检查「门控带来合规」这一机制是否依赖某一类标注。
+                #   both （默认）学段与专业同时生效，= 论文口径
+                #   grade 只用学段（忽略专业）
+                #   major 只用专业（忽略学段）
+                if LABEL_MODE == "grade":
+                    ok_m = True
+                elif LABEL_MODE == "major":
+                    ok_g = True
+                scope_row[r, k] = bool(ok_g and ok_m)
     return adj, calib, scope_row, prereq
 
 
@@ -471,8 +486,39 @@ def task_ges(obj, args):
             g_recs, g_st = [], dict(error=str(e)); print("  ges fail", e)
             g_raw_n = 0
 
-        for tag, recs, st, raw_n in (("Direct", d_recs, d_st, d_raw_n),
-                                     ("GES", g_recs, g_st, g_raw_n)):
+        # --- 2×2 匹配对照：把「作用域门控」与「证据注入」拆成两个独立因素 ---
+        #   Direct   无门控 + 无证据（现状系统）
+        #   GateOnly 有门控 + 无证据（只做作用域过滤，prompt 与 Direct 完全一致）
+        #   EvidOnly 无门控 + 有证据（只注入证据子图，不作作用域过滤）
+        #   GES      有门控 + 有证据（本文）
+        # 只有四格齐全，才能分清合规率与可追溯率各自由哪个因素带来；
+        # 只报 Direct vs GES 等于同时改了两个变量，无法归因。
+        go_recs, go_st, go_raw_n = [], {}, 0
+        eo_recs, eo_st, eo_raw_n = [], {}, 0
+        if getattr(args, "ges_controls", False):
+            try:
+                go_recs, _ = direct_recommend(ds, recall_s, names, desc, topk=args.topk)
+                go_raw_n = len(go_recs)
+                go_recs, go_st = validate(go_recs, recall_s, prereq, names, strict=True)
+            except Exception as e:
+                go_recs, go_st, go_raw_n = [], dict(error=str(e)), 0
+                print("  gate-only fail", e)
+            try:
+                eo_sub = build_evidence_subgraph_for(recall, mastered, cur, prereq, names)
+                eo_recs, _ = ges_recommend(ds, eo_sub, names, desc, topk=args.topk,
+                                           scope_filter=None)
+                eo_raw_n = len(eo_recs)
+                eo_recs, eo_st = validate(eo_recs, recall, prereq, names, strict=True)
+            except Exception as e:
+                eo_recs, eo_st, eo_raw_n = [], dict(error=str(e)), 0
+                print("  evid-only fail", e)
+
+        variants = [("Direct", d_recs, d_st, d_raw_n),
+                    ("GES", g_recs, g_st, g_raw_n)]
+        if getattr(args, "ges_controls", False):
+            variants += [("GateOnly", go_recs, go_st, go_raw_n),
+                         ("EvidOnly", eo_recs, eo_st, eo_raw_n)]
+        for tag, recs, st, raw_n in variants:
             rl = rel[r]
             # 规范 NDCG@10：DCG / IDCG，且分子分母都只认「作用域内」命中
             # （越界项既不算命中，也不进理想排序——与 CSCR 的口径保持一致）
@@ -584,7 +630,7 @@ def task_ges(obj, args):
     out["_probe"] = probe
     out["_probe_summary"] = probe_summary
     print("\n=== LLM 推荐对比 ===")
-    for tag in ("Direct", "GES"):
+    for tag in ("Direct", "GateOnly", "EvidOnly", "GES"):
         if tag in out:
             print(f"  {tag:<8}", {k: out[tag][k] for k in
                                   ("HR", "ETR", "SCR", "PR", "NDCG@10", "n")
@@ -967,6 +1013,10 @@ def main():
     ap.add_argument("--topk", type=int, default=10)
     ap.add_argument("--cand-size", type=int, default=24)
     ap.add_argument("--llm-students", type=int, default=40)
+    ap.add_argument("--ges-controls", action="store_true", dest="ges_controls",
+                    help="GES 任务额外跑 2×2 匹配对照（GateOnly / EvidOnly），"
+                         "用于把「作用域门控」与「证据注入」各自的贡献分开。"
+                         "每次调用成本翻倍，仅做归因分析时开启。")
     ap.add_argument("--path-len", type=int, default=10)
     ap.add_argument("--path-students", type=int, default=200)
     ap.add_argument("--mdrl-steps", type=int, default=20)

@@ -60,6 +60,10 @@ def main():
     ap.add_argument("--ab-no-scope", action="store_true")
     ap.add_argument("--ab-struct-only", action="store_true")
     ap.add_argument("--tag", default="multi")
+    ap.add_argument("--graph-scope", default="all", choices=("all", "train"),
+                    help="归纳先修图的数据范围：all=全量序列（主口径），"
+                         "train=仅训练学生（泄漏敏感性对照，见 M10）。"
+                         "教学大纲型图（DNUI-IKG）不受影响。")
     ap.add_argument("--model-cfg-file", default="", dest="model_cfg_file",
                     help="每模型完整配置（与 run_kt.py 同义）。多种子跑分**必须**与"
                          "主表用同一套验证集选出的超参，否则两表口径不一致。")
@@ -83,9 +87,10 @@ def main():
         print("missing", p); return 1
     with open(p, "rb") as f:
         obj = pickle.load(f)
-    adj, adj_calib = build_graph_arrays(obj)
+    adj, adj_calib = build_graph_arrays(obj, scope=getattr(args, "graph_scope", "all"))
     scope, s2i = build_scope_mask(obj)
     print(f"dataset={args.dataset} skill={obj['n_skill']} "
+          f"graph-scope={getattr(args, 'graph_scope', 'all')} "
           f"scope={'yes' if scope is not None else 'no'} "
           f"calib_nnz={int((adj_calib > 0).sum())}")
 

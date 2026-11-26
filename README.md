@@ -29,9 +29,10 @@ accurate, but it makes the downstream system verifiably compliant.**
 | Claim | Evidence |
 |---|---|
 | No stable accuracy gain on the KT side | After Holm correction over 7 datasets, DGCL-KT is significantly better than the strongest baseline on **5 of 7**; the graph-collaboration term is inside the noise band |
+| Graph leakage does not explain the gain | Inducing the prerequisite graph from **training students only** changes the lead over the strongest baseline by **≤ 0.0011 AUC** across four public benchmarks; re-running recommendation and path planning with prefix-only induction leaves the selected strategy unchanged |
 | The gate removes cross-scope contamination | CSCR@10 drops from **0.0557** (strongest related baseline) to **0.0000**; an unconstrained LLM recommends 12.25% out-of-scope items |
 | Executable, not merely ordered, paths | Executable-coverage (EC) **0.2439** vs. **0.0302** for in-scope random (**8.08×**), with sequential-compliance 1.0000 |
-| Grounded generation has a price | Evidence traceability **0.7300** (structured verification) and scope compliance **1.0000**, at a ranking cost (NDCG@10 0.1907 → 0.1501) |
+| Grounded generation: what each factor buys | A 2×2 matched control separates the two factors. Gating alone reaches scope compliance **1.0000** and *raises* in-scope NDCG@10 (**0.1907 → 0.2314**); evidence injection alone reaches traceability **0.7650** but leaves compliance at 0.8700. Combined (`GES`) gives 1.0000 / 0.7300, so the ranking cost (0.1501) is paid by the evidence constraint, not by the gate |
 | Replanning is cheap but not free | **326** invocations vs. **1 150** for replanning at every step (**−71.7%**), i.e. 63% *more* calls than a fixed 5-step schedule, which is why it also preserves path quality |
 | Robust to missing annotations | Under 70% of annotations masked, the hard gate's false-rejection rate is **0.7184**; equivalence-set mounting reduces it to **0.0037**, while a same-budget union baseline reaches a false-accept rate of **0.3316** |
 
@@ -147,8 +148,9 @@ should be kept as-is.
 
 ## 7. Protocol notes that matter when reading the numbers
 
-These three definitions were revised during the development of this release. They are stated
-here because they determine the scale of the reported values.
+These definitions were revised during the development of this release. They are stated
+here because they determine the scale of the reported values, or because they decide what a
+comparison can and cannot attribute.
 
 1. **School-stage admission is a one-sided inequality.** A resource is admissible for a student
    if `grade(student) ≥ min(grade_scope(resource))`, i.e. higher grades may reuse lower-grade
@@ -167,6 +169,16 @@ here because they determine the scale of the reported values.
    direction, and if the recommended item is one of the two endpoints. Mentioning two endpoint
    names is not enough. Empty recommendations no longer pass vacuously; the empty-return rate and
    the list-fill rate are reported alongside.
+4. **The generation experiment is a 2×2 matched control.** `Direct` (no gate, no evidence),
+   `GateOnly` (gate only, prompt byte-identical to `Direct`), `EvidOnly` (evidence only), `GES`
+   (both). All four share the same recall pool and the same students, so compliance and
+   traceability can be attributed to separate factors. Comparing `Direct` with `GES` alone changes
+   two variables at once and cannot support a causal reading. `--ges-controls` reproduces the four
+   cells; the shipped `results/ges_dnui_syn.json` contains all of them.
+5. **Scope labels can be decomposed.** `SCOPE_LABEL=grade` (stage only) and `SCOPE_LABEL=major`
+   (major only) isolate the two annotation facets; the main tables use both. The decomposition
+   shows the contamination and executable-coverage conclusions survive either facet, but it stays
+   inside one institution and is not a substitute for cross-institution validation.
 
 ## 8. Known deviations from a naive re-run
 

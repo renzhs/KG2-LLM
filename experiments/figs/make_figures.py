@@ -682,19 +682,19 @@ def fig_ges():
     if not fs:
         print("  [skip] fig_ges"); return
     d = load(fs[0])
-    tags = [t for t in ("Direct", "GES") if t in d]
+    tags = [t for t in ("Direct", "GateOnly", "EvidOnly", "GES") if t in d]
     if not tags:
         print("  [skip] fig_ges"); return
     fig, axes = plt.subplots(1, len(GES_METS), figsize=(3.1 * len(GES_METS), 3.2))
     for ax, (k, lab) in zip(axes, GES_METS):
         vals = [d[t].get(k, 0) for t in tags]
-        cols = [C["base"], C["ours"]][:len(tags)]
-        ax.bar(range(len(tags)), vals, color=cols, width=0.55)
-        ax.set_xticks(range(len(tags)), ["Direct", "GES"])
+        cols = [C["base"], C["teal"], C["orange"], C["ours"]][:len(tags)]
+        ax.bar(range(len(tags)), vals, color=cols, width=0.62)
+        ax.set_xticks(range(len(tags)), tags, rotation=20, fontsize=8)
         ax.set_title(lab, fontsize=9.5)
         ax.set_ylim(0, max(1.0, max(vals) * 1.25))
         for i, v in enumerate(vals):
-            ax.text(i, v + 0.02, f"{v:.3f}", ha="center", fontsize=8)
+            ax.text(i, v + 0.02, f"{v:.3f}", ha="center", fontsize=7.5)
     save(fig, "fig_ges")
 
 
@@ -703,22 +703,22 @@ def table_ges():
     if not fs:
         print("  [skip] table_ges"); return
     d = load(fs[0])
-    rows = [t for t in ("Direct", "GES") if t in d]
+    rows = [t for t in ("Direct", "GateOnly", "EvidOnly", "GES") if t in d]
     if not rows:
         print("  [skip] table_ges"); return
     keys = ["HR", "ETR", "SCR", "PR", "NDCG@10", "n"]
     heads = ["HR $\\downarrow$", "ETR $\\uparrow$", "SCR $\\uparrow$",
              "先修合规率 PCR $\\uparrow$", "NDCG@10 $\\uparrow$", "返回条数"]
     tex = ["\\begin{table}[htbp]", "\\centering",
-           "\\caption{大语言模型推荐：图谱证据子图与作用域门控的作用"
-           "（两法使用**同一召回池**，仅差作用于过滤与证据注入）}",
-           "\\label{tab:ges-legacy}", "\\begin{tabular}{l" + "c" * len(keys) + "}", "\\toprule",
+           "\\caption{大语言模型推荐的 2×2 匹配对照：门控与证据各自的作用"
+           "（四组使用\\textbf{同一召回池}，仅作用域过滤与证据注入两个因素不同）}",
+           "\\label{tab:ges-2x2}", "\\begin{tabular}{l" + "c" * len(keys) + "}", "\\toprule",
            "方法 & " + " & ".join(heads) + " \\\\", "\\midrule"]
     for t in rows:
         cells = []
         for k in keys:
             v = d[t].get(k)
-            cells.append("--" if v is None else f"{v:.4f}")
+            cells.append("--" if v is None else (f"{int(v)}" if k == "n" else f"{v:.4f}"))
         name = "\\textbf{GES（本文）}" if t == "GES" else t
         tex.append(name + " & " + " & ".join(cells) + " \\\\")
     tex += ["\\bottomrule", "\\end{tabular}", "\\end{table}"]

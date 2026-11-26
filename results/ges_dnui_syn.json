@@ -27,13 +27,41 @@
   "empty": 0.0,
   "fill": 1.0
  },
+ "GateOnly": {
+  "HR": 0.0,
+  "ETR": 0.0,
+  "ETR_parse": 0.0,
+  "ETR_dir": 0.0,
+  "ETR_sup": 0.0,
+  "evidence_cited_rate": 0.0,
+  "SCR": 1.0,
+  "PR": 0.645,
+  "NDCG@10": 0.2314,
+  "n": 10.0,
+  "empty": 0.0,
+  "fill": 1.0
+ },
+ "EvidOnly": {
+  "HR": 0.0,
+  "ETR": 0.765,
+  "ETR_parse": 0.765,
+  "ETR_dir": 0.765,
+  "ETR_sup": 0.765,
+  "evidence_cited_rate": 0.82,
+  "SCR": 0.87,
+  "PR": 0.7925,
+  "NDCG@10": 0.1893,
+  "n": 10.0,
+  "empty": 0.0,
+  "fill": 1.0
+ },
  "_budget": {
   "calls": 70,
-  "prompt_tokens": 66649,
-  "completion_tokens": 23735,
-  "total_tokens": 90384,
-  "seconds": 140.43,
-  "cache_hits": 16
+  "prompt_tokens": 73469,
+  "completion_tokens": 24804,
+  "total_tokens": 98273,
+  "seconds": 157.62,
+  "cache_hits": 96
  },
  "_cases": [
   {
@@ -1106,9 +1134,12 @@
   "task": "ges",
   "dataset": "dnui_syn",
   "scope_policy": "down",
-  "llm": "deepseek-chat, temperature=0",
-  "n_students": 40,
+  "graph_scope": "all",
+  "llm_students": 40,
   "topk": 10,
+  "cand_size": 24,
+  "controls": "2x2 (Direct/GateOnly/EvidOnly/GES)",
+  "seed": 42,
   "paper": "Table 10"
  }
 }

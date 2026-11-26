@@ -163,6 +163,11 @@ def sec_ges():
     exp = {
         "Direct": dict(HR=0.0, ETR=0.0, SCR=0.8775, PR=0.6275, **{"NDCG@10": 0.1907},
                        empty=0.0, fill=1.0),
+        # 2×2 匹配对照：门控与证据两个因素各自单独作用
+        "GateOnly": dict(HR=0.0, ETR=0.0, SCR=1.0000, PR=0.6450, **{"NDCG@10": 0.2314},
+                         empty=0.0, fill=1.0),
+        "EvidOnly": dict(HR=0.0, ETR=0.7650, SCR=0.8700, PR=0.7925, **{"NDCG@10": 0.1893},
+                         empty=0.0, fill=1.0),
         "GES": dict(HR=0.0, ETR=0.7300, SCR=1.0000, PR=0.7600, **{"NDCG@10": 0.1501},
                     empty=0.0, fill=1.0),
     }
@@ -173,9 +178,9 @@ def sec_ges():
         for k, v in e.items():
             chk("表10", "%s · %s" % (name, k), row.get(k), v)
         # 结构化核验的三个分步指标应与合计一致（论文 3.6 节的分步诊断）
-        if name == "GES":
+        if name in ("GES", "EvidOnly"):
             for k in ("ETR_parse", "ETR_dir", "ETR_sup"):
-                chk("表10", "GES · %s" % k, row.get(k), e["ETR"])
+                chk("表10", "%s · %s" % (name, k), row.get(k), e["ETR"])
 
 
 # ---------------------------------------------------------------- 表 8
@@ -239,8 +244,36 @@ def sec_text():
         chk("正文", "去除图谱协同带来的 sNDCG 增量", round(a - b, 4), 0.0155)
 
 
+# ---------------------------------------------------------------- 表 14
+TAB14 = {   # dataset key -> (ours_all, ours_train, base_all, base_train, gap_all, gap_train)
+    "assist09_akt": (0.8184, 0.8188, 0.8087, 0.8087, 0.0097, 0.0102),
+    "assist15": (0.7306, 0.7304, 0.7278, 0.7279, 0.0028, 0.0026),
+    "assist17": (0.8013, 0.8002, 0.7315, 0.7315, 0.0698, 0.0687),
+    "statics11": (0.8252, 0.8249, 0.8194, 0.8194, 0.0058, 0.0055),
+}
+
+
+def sec_ktgraph():
+    """表 14：知识追踪侧「全量建图 vs 仅训练学生建图」的复核。"""
+    print("\n== 表 14：知识追踪侧的建图范围 ==")
+    d = load("kt_gstrain_pair.json")
+    if d is None:
+        print("  [缺] kt_gstrain_pair.json"); FAILS.append(("ktgraph", "file", None, 1)); return
+    for key, (oa, ot, ba, bt, ga, gt) in TAB14.items():
+        row = d.get(key)
+        if row is None:
+            print("  [缺] 数据集", key); FAILS.append(("ktgraph", key, None, 1)); continue
+        m, b = row["method"], row["best_baseline_row"]
+        chk("表14", "%s · 本文全量" % key, m["main_mean"], oa)
+        chk("表14", "%s · 本文仅训练" % key, m["gstrain_mean"], ot)
+        chk("表14", "%s · 基线全量" % key, b["main_mean"], ba)
+        chk("表14", "%s · 基线仅训练" % key, b["gstrain_mean"], bt)
+        chk("表14", "%s · 领先全量" % key, row["gap_main"], ga)
+        chk("表14", "%s · 领先仅训练" % key, row["gap_gstrain"], gt)
+
+
 SECTIONS = {"rec": sec_rec, "path": sec_path, "ges": sec_ges,
-            "scope": sec_scope, "text": sec_text}
+            "scope": sec_scope, "ktgraph": sec_ktgraph, "text": sec_text}
 
 
 def main():
