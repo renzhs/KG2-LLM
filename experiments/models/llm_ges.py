@@ -288,17 +288,42 @@ def direct_recommend(ds, cands, skill_names, student_desc, topk=10):
 # ==========================================================================
 # 4. 输出校验器
 # ==========================================================================
-def validate(recs, allowed_ids, prereq_map, skill_names):
+# 证据三元组的结构化模式：(头)-[PREREQUISITE_OF w=..]->(尾)
+# 必须同时解析出主体、关系、方向与客体，才能核验「引用的是不是那条边、方向对不对」。
+EV_RE = re.compile(
+    r"[（(]\s*([^()（）\[\]]+?)\s*[)）]\s*-\s*\[\s*"
+    r"(PREREQUISITE_OF|PREVIOUS|PREREQ)\b[^\]]*\]\s*->\s*[（(]\s*([^()（）\[\]]+?)\s*[)）]")
+
+
+def _parse_evidence(ev):
+    """把 evidence 文本解析为 [(头, 关系, 尾)]；解析不出结构化的返回空表。"""
+    return [(a.strip(), rel.upper(), b.strip()) for a, rel, b in EV_RE.findall(ev or "")]
+
+
+def validate(recs, allowed_ids, prereq_map, skill_names, strict=True):
     """返回 (valid_recs, stats)。
-    - 不在 allowed_ids 中的 kt_id 记为幻觉
-    - evidence 中引用的三元组若两端技能名与关系在图中不存在, 记为不可追溯
+
+    strict=True（默认，对应论文 3.6 节的口径）要求三条同时成立：
+      1) 引用的三元组能被结构化解析出「头—关系—尾」；
+      2) 头是尾在该图上的直接先修（方向正确），即 (头,尾) 是一条真实先修边；
+      3) 该三元组与当前推荐项相关：推荐项是三元组的头或尾。
+    只出现两个端点名称不计为可追溯——旧实现正是这样，会把「B PREVIOUS A」
+    这种方向反了、且与被推荐项 C 无关的引用判为通过。
+
+    知识点名称在图内并不唯一（同名跨课程 3 组），因此按名称解析时保留候选 id 集合，
+    只要存在一条同时满足方向与关联的解释即计通过。
     """
     allowed = set(int(x) for x in allowed_ids)
-    valid = set()
+    edges = set()
     for u, lst in enumerate(prereq_map):
         for v, w in lst:
-            valid.add((skill_names[u].strip(), skill_names[v].strip()))
+            edges.add((u, v))
+    name2ids = defaultdict(set)
+    for i, n in enumerate(skill_names):
+        name2ids[str(n).strip()].add(i)
+
     keep, hallu, traceable, cited = [], 0, 0, 0
+    parsed = direction_ok = support_ok = ambiguous = 0
     for r in recs:
         try:
             kid = int(r.get("kt_id"))
@@ -306,31 +331,75 @@ def validate(recs, allowed_ids, prereq_map, skill_names):
             hallu += 1; continue
         if kid not in allowed:
             hallu += 1; continue
-        ev = (r.get("evidence") or "").strip()
+        ev = str(r.get("evidence") or "").strip()
         r = dict(r); r["kt_id"] = kid
         if ev:
             cited += 1
-            ok = any((a in ev and b in ev) for a, b in valid)
+            triples = _parse_evidence(ev)
+            ok = False
+            d_ok = s_ok = False
+            for h, rel, t in triples:
+                hs, ts = name2ids.get(h, set()), name2ids.get(t, set())
+                if len(hs) > 1 or len(ts) > 1:
+                    ambiguous = 1
+                for hi in hs:
+                    for ti in ts:
+                        if (hi, ti) in edges:
+                            d_ok = True
+                            if ti == kid or hi == kid:
+                                s_ok = True
+            parsed += bool(triples)
+            direction_ok += bool(d_ok)
+            support_ok += bool(d_ok and s_ok)
+            ok = bool(d_ok and s_ok) if strict else bool(triples)
             if ok:
                 traceable += 1
             r["evidence_valid"] = bool(ok)
+            r["evidence_direction_ok"] = bool(d_ok)
+            r["evidence_support_ok"] = bool(s_ok)
         else:
             r["evidence_valid"] = None
+            r["evidence_direction_ok"] = None
+            r["evidence_support_ok"] = None
         keep.append(r)
     n_gen = max(1, len(recs))
     stats = dict(n_returned=len(recs), n_valid=len(keep),
                  hallucination_rate=round(hallu / n_gen, 4),
                  evidence_cited_rate=round(cited / n_gen, 4),
-                 # ETR 定义为「带真实图证据的生成项比例」（分母=全部生成项），
-                 # 这样"不给证据"的 Direct 基线天然接近 0，才能体现 GES 的证据约束价值。
+                 # ETR：既方向正确、又与推荐项相关的生成项比例（分母=全部生成项）
                  evidence_traceable_rate=round(traceable / n_gen, 4),
-                 evidence_cited_precision=round(traceable / max(1, cited), 4))
+                 evidence_cited_precision=round(traceable / max(1, cited), 4),
+                 # 分步诊断：有多少引用根本解析不出结构、方向对不对、是否支撑该推荐
+                 evidence_parsed_rate=round(parsed / n_gen, 4),
+                 evidence_direction_rate=round(direction_ok / n_gen, 4),
+                 evidence_support_rate=round(support_ok / n_gen, 4),
+                 evidence_name_ambiguous=ambiguous)
     return keep, stats
 
 
+def completeness_stats(recs_all, topk):
+    """列表层面的返回质量：空返回率、平均填充率、任务成功率（非空返回占比）。
+
+    recs_all 为逐学生的原始返回（校验前）。合规率类指标在空列表上会「真空通过」
+    （scope_compliance 对空列表返回 1.0），因此必须与空返回率一起报告，
+    否则「少返回=高合规」的退化解无法被识别。
+    """
+    n = max(1, len(recs_all))
+    empty = sum(1 for r in recs_all if not r)
+    fill = sum(min(len(r), topk) / float(topk) for r in recs_all) / n
+    return dict(empty_rate=round(empty / n, 4),
+                fill_rate=round(fill, 4),
+                task_success_rate=round(1.0 - empty / n, 4))
+
+
+
 def scope_compliance(recs, scope_row):
+    """作用域合规率。空列表返回 None（无定义），不能记为 1.0。
+
+    否则「不返回任何条目」会被算成完全合规，构成可被利用的退化解。
+    """
     if not recs:
-        return 1.0
+        return None
     bad = sum(1 for r in recs if not scope_row[int(r["kt_id"])])
     return round(1.0 - bad / len(recs), 4)
 
@@ -343,7 +412,7 @@ def prereq_legality(recs, mastered, prereq, thr=0.6, need=0.5):
     学不动。PR 直接度量这一点，且只有把先修证据喂给模型（GES）才可能做好。
     """
     if not recs:
-        return 1.0
+        return None
     ok = 0
     for r in recs:
         k = int(r["kt_id"])

@@ -6,7 +6,7 @@
 --task rec   学习资源推荐: 流行度 / SVD / KG-CF / KG-CF+CSG(本文) / 就绪度 / DGCL-Rec(本文)
              指标 Recall@K, NDCG@K, Prec@K, CSCR@K(越低越好)
 --task path  学习路径推荐: 拓扑序 / 贪心就绪度 / 随机 / DGCL-Path(本文)
-             指标 完备性 / 先修合规率 / 难度平滑度 / 预期增益 / 路径串味率
+             指标 完备性 / 可执行覆盖率 / 顺序合规率 / 难度平滑度 / 路径串味率
 --task ges   LLM 推荐: Direct(无图谱证据, 无作用域) vs GES(图谱证据子图+CSG门控+输出校验)
              指标 HR(幻觉率) / ETR / SCR / NDCG, 并输出同名跨课程混淆的案例分析
 --task mdrl  MDRL 触发式重规划 vs 周期性重规划: 重规划次数 / 路径质量 / token 与耗时
@@ -71,12 +71,19 @@ def _graph_seqs(obj, scope, cut1):
             + list(obj.get("test") or []))
 
 
-def _adj_scope(obj, sid2row, K, scope="all", cut1=0.6):
+def _adj_scope(obj, sid2row, K, scope="all", cut1=0.6, policy="down"):
     """构造结构邻接 adj、反向标定邻接 calib、作用域掩码 scope_row、先修表 prereq。
 
     公开数据集无先修标注时，用 models.kg_induct 归纳有向先修 DAG（共现+位置序），
     与 run_kt.build_graph_arrays 使用同一套逻辑，保证 KT 与推荐/路径任务图一致。
     `scope` 取 "all"/"train"/"cut"，语义见 `_graph_seqs`。
+
+    `policy` 是学段准入政策，必须与论文式 (10) 一致：
+      down（默认，= 式 (10) 原文）: 学生年级不低于知识点最低适用学段即合法，
+                                    高年级可复用低年级基础内容（向下兼容）；
+      eq  （早期实现，已废弃）      : 学生年级必须属于知识点的学段集合。
+                                    本数据 grade_scope 单值，等价于要求年级相等，
+                                    会把高年级复习低年级课程判为越界。
     """
     prereq = obj.get("prereq")
     # 只有"图靠归纳得到"的数据集才受 graph-scope 影响。
@@ -117,24 +124,29 @@ def _adj_scope(obj, sid2row, K, scope="all", cut1=0.6):
                 continue
             g, mj = (v.get("grade"), v.get("major")) if isinstance(v, dict) else (v[0], v[1])
             for k, (gs, ms) in meta.items():
-                scope_row[r, k] = bool((g in gs) and ((mj in ms) or (mj == "其他")))
+                if policy == "down":
+                    # 式 (10)：单侧不等式，学生年级 ≥ 知识点最低适用学段
+                    ok_g = (g >= min(gs)) if gs else False
+                else:
+                    ok_g = g in gs
+                scope_row[r, k] = bool(ok_g and ((mj in ms) or (mj == "其他")))
     return adj, calib, scope_row, prereq
 
 
-def build_all(obj, cutoff=0.7, scope="all", cut1=0.6):
+def build_all(obj, cutoff=0.7, scope="all", cut1=0.6, policy="down"):
     K = obj["n_skill"]
     seqs = obj["train"] + obj["valid"] + obj["test"]
     X, rel, sid2row = build_interaction_matrix(seqs, K, cutoff=cutoff)
-    adj, calib, scope_row, prereq = _adj_scope(obj, sid2row, K, scope, cut1)
+    adj, calib, scope_row, prereq = _adj_scope(obj, sid2row, K, scope, cut1, policy)
     return X, rel, sid2row, adj, calib, scope_row, prereq
 
 
-def build_all_split(obj, cut1=0.6, cut2=0.7, scope="all"):
+def build_all_split(obj, cut1=0.6, cut2=0.7, scope="all", policy="down"):
     """规范三段切分：X 用 [0,cut1)，验证真值 [cut1,cut2)，测试真值 [cut2,1)。"""
     K = obj["n_skill"]
     seqs = obj["train"] + obj["valid"] + obj["test"]
     X, rv, rt, sid2row = build_interaction_matrix_split(seqs, K, 3, cut1, cut2)
-    adj, calib, scope_row, prereq = _adj_scope(obj, sid2row, K, scope, cut1)
+    adj, calib, scope_row, prereq = _adj_scope(obj, sid2row, K, scope, cut1, policy)
     return X, rv, rt, sid2row, adj, calib, scope_row, prereq
 
 
@@ -338,7 +350,8 @@ def _rec_core(X, rel_val, rel_tst, scope_row, adj, calib, args, verbose=True):
 def task_rec(obj, args):
     X, rel_val, rel_tst, sid2row, adj, calib, scope_row, prereq = \
         build_all_split(obj, args.cut1, args.cut2,
-                        scope=getattr(args, "graph_scope", "all"))
+                        scope=getattr(args, "graph_scope", "all"),
+                        policy=getattr(args, "scope_policy", "down"))
     K = obj["n_skill"]
     n_in = scope_row.sum(1)
     mask = (rel_tst * scope_row.astype(np.float32)).sum(1) > 0
@@ -379,7 +392,8 @@ def _scope_vec(obj, sid, sid2row, scope_row, K):
 def task_ges(obj, args):
     """LLM 推荐对比。为控制成本，只抽取 n 个学生。"""
     X, rel, sid2row, adj, calib, scope_row, prereq = build_all(
-        obj, args.cutoff, scope=getattr(args, "graph_scope", "all"), cut1=args.cut1)
+        obj, args.cutoff, scope=getattr(args, "graph_scope", "all"), cut1=args.cut1,
+        policy=getattr(args, "scope_policy", "down"))
     K = obj["n_skill"]
     names = obj["skill_names"]
     ktmeta = []
@@ -441,19 +455,24 @@ def task_ges(obj, args):
         top_all = recall
         try:
             d_recs, d_info = direct_recommend(ds, top_all, names, desc, topk=args.topk)
-            d_recs, d_st = validate(d_recs, top_all, prereq, names)
+            d_raw_n = len(d_recs)
+            d_recs, d_st = validate(d_recs, top_all, prereq, names, strict=True)
         except Exception as e:
             d_recs, d_st = [], dict(error=str(e)); print("  direct fail", e)
+            d_raw_n = 0
         # --- 本文 GES：作用域过滤后的候选 + 证据子图 + 输出校验 ---
         try:
             g_recs, g_info = ges_recommend(ds, sub, names, desc, topk=args.topk,
                                            scope_filter=sc)
             allowed = g_info["cands"]
-            g_recs, g_st = validate(g_recs, allowed, prereq, names)
+            g_raw_n = len(g_recs)
+            g_recs, g_st = validate(g_recs, allowed, prereq, names, strict=True)
         except Exception as e:
             g_recs, g_st = [], dict(error=str(e)); print("  ges fail", e)
+            g_raw_n = 0
 
-        for tag, recs, st in (("Direct", d_recs, d_st), ("GES", g_recs, g_st)):
+        for tag, recs, st, raw_n in (("Direct", d_recs, d_st, d_raw_n),
+                                     ("GES", g_recs, g_st, g_raw_n)):
             rl = rel[r]
             # 规范 NDCG@10：DCG / IDCG，且分子分母都只认「作用域内」命中
             # （越界项既不算命中，也不进理想排序——与 CSCR 的口径保持一致）
@@ -467,11 +486,17 @@ def task_ges(obj, args):
                     dcg += 1.0 / math.log2(j + 2)
             res[tag]["HR"].append(st.get("hallucination_rate", 0.0))
             res[tag]["ETR"].append(st.get("evidence_traceable_rate", 0.0))
+            res[tag]["ETR_parse"].append(st.get("evidence_parsed_rate", 0.0))
+            res[tag]["ETR_dir"].append(st.get("evidence_direction_rate", 0.0))
+            res[tag]["ETR_sup"].append(st.get("evidence_support_rate", 0.0))
             res[tag]["evidence_cited_rate"].append(st.get("evidence_cited_rate", 0.0))
             res[tag]["SCR"].append(scope_compliance(recs, scope_row[r]))
             res[tag]["PR"].append(prereq_legality(recs, mastered, prereq))
             res[tag]["NDCG@10"].append(dcg / idcg if idcg > 0 else 0.0)
             res[tag]["n"].append(len(recs))
+            # 空返回与填充率：合规率在空列表上会真空通过，必须一并报告
+            res[tag]["empty"].append(1.0 if raw_n == 0 else 0.0)
+            res[tag]["fill"].append(min(raw_n, args.topk) / float(args.topk))
 
         # --- 真实串味案例：Direct 推荐了作用域外的知识点（用于论文案例分析表）---
         _sc = scope_row[r]
@@ -549,9 +574,12 @@ def task_ges(obj, args):
 
     out = {}
     for tag in res:
-        out[tag] = {k: round(float(np.mean(v)), 4) for k, v in res[tag].items()}
+        out[tag] = {}
+        for k, v in res[tag].items():
+            vv = [x for x in v if x is not None]      # None = 该学生上指标无定义
+            out[tag][k] = round(float(np.mean(vv)), 4) if vv else None
     out["_budget"] = ds.budget.as_dict()
-    out["_cases"] = sorted(cases, key=lambda c: -c["n_direct_out_of_scope"])[:12]
+    out["_cases"] = sorted(cases, key=lambda c: -c.get("n_direct_out_of_scope", 0))[:12]
     out["_n_cases"] = len(cases)
     out["_probe"] = probe
     out["_probe_summary"] = probe_summary
@@ -590,14 +618,15 @@ def eval_path(path, preds, scope_row, X_row, skill_diff, K, target_raw, target_s
 
     完备性        = |路径 ∩ 全部目标| / |全部目标|        （目标含作用域外，门控方法天然吃亏）
     完备性_s      = |路径 ∩ 作用域内目标| / |作用域内目标|  （约束感知的公平覆盖率）
-    可执行覆盖率  = 「既在路径中、且其位于路径内的先修都排在它之前」的目标占比 ★核心指标
-    先修合规率    = 路径涉及的先修对中「先修在前」的比例
+    可执行覆盖率  = 「既在路径中、且其全部先修或已掌握、或排在它之前」的目标占比 ★核心指标
+    顺序合规率    = 路径内出现的先修对中「先修在前」的比例（只度量顺序，不度量掌握）
     难度平滑度    = -mean(|相邻难度差|)，越接近 0 越平滑
     路径串味率    = 路径中作用域外知识点占比，越低越好
 
-    为什么需要「可执行覆盖率」：单看完备性会偏向"撒点"式策略（随机撒 10 个点也能覆盖
-    不少目标），但那些目标在路径里次序错乱、学生根本无法按此执行。可执行覆盖率同时
-    要求「覆盖到」与「顺序合法」，才是路径推荐真正有意义的指标。
+    可执行覆盖率的判定必须同时看两件事：先修是否已掌握、或是否已排在路径更前处。
+    早期实现把「未出现在路径中的先修」一律视为学生已具备，会把「学生尚未掌握 A、
+    路径只给了 B」判为可执行，指标因此只反映已选节点之间的顺序一致性。现改为：
+    对目标 k 的每个先修 p，要求 X_row[p] > 0（训练段已掌握）或 p 出现在 k 之前。
     """
     pos = {k: i for i, k in enumerate(path)}
     ok, tot = 0, 0
@@ -613,8 +642,8 @@ def eval_path(path, preds, scope_row, X_row, skill_diff, K, target_raw, target_s
     for k in target_s:
         if k not in pos:                     # 未覆盖
             continue
-        # 路径外的先修视为"学生已具备"，不构成障碍
-        if all((p not in pos) or (pos[p] < pos[k]) for p in preds[k]):
+        # 先修必须已掌握，或已在路径中排在它之前；路径外且未掌握的先修构成阻塞
+        if all((X_row[p] > 0) or (p in pos and pos[p] < pos[k]) for p in preds[k]):
             good += 1
     ec = good / max(1, len(target_s))
     diffs = [skill_diff[k] for k in path if k in skill_diff]
@@ -623,7 +652,7 @@ def eval_path(path, preds, scope_row, X_row, skill_diff, K, target_raw, target_s
     # 没有任何先修关系时，合规率无定义（记为 None，聚合时跳过），不能报成 0
     comp = round(ok / tot, 4) if tot > 0 else None
     return dict(完备性=round(covered, 4), 完备性_s=round(covered_s, 4),
-                可执行覆盖率=round(ec, 4), 先修合规率=comp,
+                可执行覆盖率=round(ec, 4), 顺序合规率=comp,
                 难度平滑度=round(-smooth, 4),
                 路径串味率=round(bad, 4), 路径长度=len(path))
 
@@ -751,7 +780,8 @@ def task_path(obj, args):
     """
     X, rel_val, rel_tst, sid2row, adj, calib, scope_row, prereq = \
         build_all_split(obj, args.cut1, args.cut2,
-                        scope=getattr(args, "graph_scope", "all"))
+                        scope=getattr(args, "graph_scope", "all"),
+                        policy=getattr(args, "scope_policy", "down"))
     K = obj["n_skill"]
     skill_diff = {}
     for i, v in (obj.get("skill_scope") or {}).items():
@@ -796,7 +826,7 @@ def task_path(obj, args):
     out["_val_ecu"] = val_ecu
     out["_n_eval"] = n_used
     out["_split"] = dict(cut1=args.cut1, cut2=args.cut2)
-    cols = ["完备性", "完备性_s", "可执行覆盖率", "先修合规率", "难度平滑度",
+    cols = ["完备性", "完备性_s", "可执行覆盖率", "顺序合规率", "难度平滑度",
             "路径串味率", "路径长度"]
     print(f"\n评测学生数={n_used}   选定方法「{chosen}」")
     print(f"{'方法':<28}" + "".join(f"{m:<12}" for m in cols))
@@ -813,7 +843,8 @@ def task_mdrl(obj, args):
     """MDRL: 掌握度阈值触发式重规划 vs 周期性重规划。
     模拟一学期 T 个时间片, 每片学生产生若干作答; 比较重规划次数与路径质量。"""
     X, rel, sid2row, adj, calib, scope_row, prereq = build_all(
-        obj, args.cutoff, scope=getattr(args, "graph_scope", "all"), cut1=args.cut1)
+        obj, args.cutoff, scope=getattr(args, "graph_scope", "all"), cut1=args.cut1,
+        policy=getattr(args, "scope_policy", "down"))
     K = obj["n_skill"]
     order_all = topo_order(prereq, K)
     rank = {k: i for i, k in enumerate(order_all)}
@@ -850,7 +881,7 @@ def task_mdrl(obj, args):
     # 路径质量逐时步累计（审稿意见 M5）：只报"调用次数降了多少"是不够的，
     # 必须同时给出"少调用之后路径质量掉没掉"。三条策略共享完全相同的交互流，
     # 唯一差别是"什么时候重算路径"，因此质量差可直接归因于重规划的时机。
-    QUAL_KEYS = ("可执行覆盖率", "先修合规率", "难度平滑度")
+    QUAL_KEYS = ("可执行覆盖率", "顺序合规率", "难度平滑度")
     quals = {s: {q: [] for q in QUAL_KEYS} for s in STRATS}
     rng = np.random.default_rng(args.seed)
     for r in rows_m:
@@ -923,6 +954,10 @@ def main():
     ap.add_argument("--graph-scope", default="all",
                     choices=["all", "train", "cut"],
                     help="推断先修图所用的数据范围；rec/path 建议 cut，KT 建议 train")
+    # 学段准入政策（审稿意见：公式与实现必须同一政策）
+    ap.add_argument("--scope-policy", default="down", choices=["down", "eq"],
+                    help="down=式(10)单侧不等式(学生年级≥最低学段，允许向下兼容)；"
+                         "eq=早期实现的集合等号(已废弃，仅用于复现旧数)")
     # 推荐任务的三段切分（验证集用于选 γ，测试集用于报告）
     ap.add_argument("--cut1", type=float, default=0.6)
     ap.add_argument("--cut2", type=float, default=0.7)

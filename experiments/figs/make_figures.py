@@ -623,7 +623,7 @@ def fig_rec_gamma():
 # 学习路径
 # ==========================================================================
 PATH_COLS = [("完备性", "完备性"), ("完备性_s", "完备性$_s$"),
-             ("可执行覆盖率", "可执行覆盖率$\\uparrow$"), ("先修合规率", "先修合规率$\\uparrow$"),
+             ("可执行覆盖率", "可执行覆盖率$\\uparrow$"), ("顺序合规率", "顺序合规率$\\uparrow$"),
              ("难度平滑度", "难度平滑度$\\uparrow$"), ("路径串味率", "路径串味率$\\downarrow$")]
 
 
@@ -646,7 +646,7 @@ def table_path():
                "方法 & " + " & ".join(l for _, l in PATH_COLS) + " \\\\", "\\midrule"]
         # 最优值（EC 与合规率越大越好，串味率越小越好）
         bnd = {}
-        for k in ("完备性_s", "可执行覆盖率", "先修合规率", "难度平滑度"):
+        for k in ("完备性_s", "可执行覆盖率", "顺序合规率", "难度平滑度"):
             vs = [d[m].get(k) for m in methods if d[m].get(k) is not None]
             bnd[k] = max(vs) if vs else None
         vs = [d[m].get("路径串味率") for m in methods if d[m].get("路径串味率") is not None]
@@ -987,13 +987,13 @@ def write_summary():
         lines.append(f"## 学习路径（{ds}，评测学生 n={d.get('_n_eval')}，"
                      f"选定策略：{d.get('_selected')}）")
         lines.append("")
-        lines.append("| 方法 | 可执行覆盖率 | 先修合规率 | 路径串味率 | 完备性_s |")
+        lines.append("| 方法 | 可执行覆盖率 | 顺序合规率 | 路径串味率 | 完备性_s |")
         lines.append("|---|---|---|---|---|")
         for m in d:
             if m.startswith("_"):
                 continue
             v = d[m]
-            lines.append(f"| {m} | {v.get('可执行覆盖率')} | {v.get('先修合规率')} | "
+            lines.append(f"| {m} | {v.get('可执行覆盖率')} | {v.get('顺序合规率')} | "
                          f"{v.get('路径串味率')} | {v.get('完备性_s')} |")
         lines.append("")
     for f in find("ges_"):
