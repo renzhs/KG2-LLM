@@ -1,23 +1,27 @@
 #!/usr/bin/env bash
-# 从随仓库发布的 results/ 快照重建论文表 1-4，并与 results/paper_tables/ 逐行比对。
-# 全过程不需要 GPU、不需要重新训练（约 10 秒）。
+# Rebuild the knowledge-tracing tables (1-4) from the shipped results/ snapshot
+# and diff them against results/paper_tables/. No GPU, no retraining (~10 s).
 #
-# 用法:
-#   bash scripts/03_tables.sh                 # 复核快照（默认，推荐）
-#   bash scripts/03_tables.sh --reaggregate   # 刚重跑过实验，先重新聚合逐折结果再建表
+# Usage:
+#   bash scripts/03_tables.sh                 # verify the snapshot (default)
+#   bash scripts/03_tables.sh --reaggregate   # re-aggregate fold-wise results first
 #
-# 说明:
-#   · 快照模式下会跳过"多种子产物是否比主结果新"的 mtime 守卫——git clone 后
-#     所有文件的 mtime 都是检出时间，该守卫会失效并误判为陈旧（见 make_paper_tables.py）。
-#   · 建表会覆盖 results/table_*.tex 与 results/kt_signif.json；
-#     若要还原：git checkout -- results/
+# Notes:
+#   * In snapshot mode the "are multi-seed artefacts newer than the main run"
+#     mtime guard is skipped -- after a fresh git clone every file has the same
+#     checkout timestamp, which would make the guard fire spuriously
+#     (see make_paper_tables.py).
+#   * The build overwrites results/table_*.tex and results/kt_signif.json;
+#     restore with: git checkout -- results/
+#   * Step [4/4] additionally re-checks every downstream number printed in the
+#     paper (Tables 6-10) against results/*.json; see experiments/tools/check_downstream.py
 set -uo pipefail
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="${PY:-python3}"
 AGG="${1:-}"
 
 if [[ "$AGG" == "--reaggregate" ]]; then
-  echo "===== [可选] 重新聚合逐折结果 ====="
+  echo "===== [optional] re-aggregate fold-wise results ====="
   for DS in assist09_akt assist15 assist17 statics11; do
     $PY experiments/tools/aggregate_bench.py --dataset "$DS" --folds 1,2,3,4,5 2>&1 | tail -3
   done
@@ -27,33 +31,37 @@ if [[ "$AGG" == "--reaggregate" ]]; then
   echo
 fi
 
-echo "===== [1/3] 写表：dataset / kt_pub / kt_bench / kt_ours ====="
+echo "===== [1/4] build tables: dataset / kt_pub / kt_bench / kt_ours ====="
 $PY experiments/tools/make_paper_tables.py --frozen 2>&1 | tail -12
 
 echo
-echo "===== [2/3] 重算配对检验（DeltaAUC / 95%CI / p / MDES）====="
+echo "===== [2/4] recompute paired tests (DeltaAUC / 95% CI / p / MDES) ====="
 $PY experiments/tools/kt_significance.py 2>&1 | tail -18
 
 echo
-echo "===== [3/3] 与投稿版快照比对 ====="
+echo "===== [3/4] diff against the camera-ready snapshot ====="
 status=0
 for f in table_dataset.tex table_kt_pub.tex table_kt_bench.tex table_kt_ours.tex; do
   if [[ -f "results/paper_tables/$f" && -f "results/$f" ]]; then
     if diff -q "results/paper_tables/$f" "results/$f" >/dev/null; then
-      echo "  [一致]   $f"
+      echo "  [match]   $f"
     else
-      echo "  [不一致] $f  —— 逐行差异：diff results/paper_tables/$f results/$f"
+      echo "  [DIFF ]   $f  -- diff results/paper_tables/$f results/$f"
       status=1
     fi
   else
-    echo "  [跳过]   $f（缺文件）"
+    echo "  [skip ]   $f (missing file)"
   fi
 done
 
 echo
+echo "===== [4/4] downstream paper values (Tables 6-10) ====="
+$PY experiments/tools/check_downstream.py || status=1
+
+echo
 if [[ $status -eq 0 ]]; then
-  echo "===== 全部一致：仓库内保存的逐折结果可以重建论文表格 ====="
+  echo "===== ALL MATCH: the shipped results rebuild every number in the paper ====="
 else
-  echo "===== 存在差异：请检查是否改动了 results/ 下的逐折结果，或聚合口径（折数/单划分）====="
+  echo "===== MISMATCH: check whether results/ or the aggregation protocol changed ====="
 fi
 exit $status

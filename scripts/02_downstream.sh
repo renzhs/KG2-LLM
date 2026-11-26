@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
-# 下游任务：资源推荐 / 学习路径 / 重规划 / 模块消融 / 稀疏分组 / 编码器对照
+# Downstream experiments: resource recommendation / learning-path planning /
+# mastery-triggered replanning / module ablation / sparse-group evaluation /
+# encoder comparison / gate robustness under missing annotations.
 #
-# 说明:
-#   · run_rec.py 的 --graph-scope：KT 用 train，推荐/路径用 cut（去泄漏口径），all 为早期口径。
-#   · 所有命令都带 --tag，避免覆盖 results/ 里保存的论文报告值。
-#   · GES（--task ges）需要 DEEPSEEK_API_KEY，默认不跑；需要时 bash scripts/02_downstream.sh ges
+# Notes
+#   * --graph-scope for run_rec.py: `all` is the main protocol (graph induced from
+#     all sequences). `cut` re-induces the graph from the evaluation prefix only
+#     and is reported as the de-leakage audit (Table 13(c)), never as a main table.
+#   * Every command carries --tag so that the shipped paper values in results/
+#     are never overwritten.
+#   * GES (--task ges) needs DEEPSEEK_API_KEY unless the disk cache is hit;
+#     it is not part of the default run: bash scripts/02_downstream.sh ges
 set -euo pipefail
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="${PY:-python3}"
@@ -12,51 +18,62 @@ DS="${DS:-dnui_syn}"
 WHAT="${1:-all}"
 
 if [[ ! -f "data/processed/${DS}.pkl" ]]; then
-  echo "缺少 data/processed/${DS}.pkl —— 先跑 bash scripts/00_prepare_data.sh"
+  echo "missing data/processed/${DS}.pkl -- run bash scripts/00_prepare_data.sh first"
   exit 1
 fi
 
 run_rec() {
-  echo; echo "===== 资源推荐：${DS}（graph-scope=all，主口径）====="
-  $PY experiments/run/run_rec.py --dataset "$DS" --task rec --graph-scope all --tag repro
-  echo; echo "===== CSG 归因：门控是否只做『槽位释放』====="
+  echo; echo "===== resource recommendation: ${DS} (graph-scope=all, main protocol) ====="
+  $PY experiments/run/run_rec.py --dataset "$DS" --task rec --graph-scope all \
+      --scope-policy down --tag repro
+  echo; echo "===== CSG attribution: does the gate only release slots? ====="
   $PY experiments/tools/csg_attribution.py --dataset "$DS"
 }
 
 run_path() {
-  echo; echo "===== 学习路径推荐：${DS} ====="
-  $PY experiments/run/run_rec.py --dataset "$DS" --task path --graph-scope cut --tag repro
-  echo; echo "===== 动态重规划：${DS} ====="
-  $PY experiments/run/run_rec.py --dataset "$DS" --task mdrl --tag repro
+  echo; echo "===== learning-path planning: ${DS} ====="
+  $PY experiments/run/run_rec.py --dataset "$DS" --task path --graph-scope all \
+      --scope-policy down --tag repro
+  echo; echo "===== mastery-triggered replanning: ${DS} (24 steps x 50 students) ====="
+  $PY experiments/run/run_rec.py --dataset "$DS" --task mdrl --mdrl-steps 24 \
+      --mdrl-students 50 --scope-policy down --tag repro
+}
+
+run_gate() {
+  echo; echo "===== gate robustness under missing annotations (Table 8) ====="
+  SCOPE2_OUT="results/scope_decision_repro.json" SCOPE_POLICY=down \
+    $PY experiments/run/run_scope_decision_v2.py --students 400 --seeds 42,43,44
 }
 
 run_abl() {
-  echo; echo "===== 模块消融（3 种子）：${DS} ====="
+  echo; echo "===== module ablation (3 seeds): ${DS} ====="
   $PY experiments/run/run_abl_multi.py --dataset "$DS" --seeds 42,43,44
-  echo; echo "===== 稀疏/稠密知识点分组评测：${DS} ====="
+  echo; echo "===== sparse/dense knowledge-point groups: ${DS} ====="
   $PY experiments/run/run_sparse_eval.py --dataset "$DS" --seeds 42,43,44
 }
 
 run_enc() {
-  echo; echo "===== 序列通路编码器对照 ====="
+  echo; echo "===== sequential encoder comparison ====="
   $PY experiments/run/run_enc_ablation.py --datasets dnui_syn,assist09
   $PY experiments/tools/make_enc_table.py
 }
 
 run_ges() {
-  echo; echo "===== GES（需 DEEPSEEK_API_KEY 或命中磁盘缓存）====="
-  $PY experiments/run/run_rec.py --dataset "$DS" --task ges --llm-students 40 --tag repro
+  echo; echo "===== GES (needs DEEPSEEK_API_KEY or a cache hit) ====="
+  $PY experiments/run/run_rec.py --dataset "$DS" --task ges --llm-students 40 \
+      --scope-policy down --tag repro
 }
 
 case "$WHAT" in
-  all)  run_rec; run_path; run_abl; run_enc ;;
+  all)  run_rec; run_path; run_gate; run_abl; run_enc ;;
   rec)  run_rec ;;
   path) run_path ;;
+  gate) run_gate ;;
   abl)  run_abl ;;
   enc)  run_enc ;;
   ges)  run_ges ;;
-  *) echo "未知参数：$WHAT（可选 all|rec|path|abl|enc|ges）"; exit 1 ;;
+  *) echo "unknown argument: $WHAT (choose from all|rec|path|gate|abl|enc|ges)"; exit 1 ;;
 esac
 
 echo
-echo "===== DONE：结果见 results/*_repro.json ====="
+echo "===== DONE: results are written to results/*_repro.json ====="

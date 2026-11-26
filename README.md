@@ -1,169 +1,217 @@
-# KG²-LLM：双知识图谱与大语言模型协同的个性化学习跟踪与资源推荐
+# KG²-LLM
 
-本仓库是论文《融合双知识图谱与大语言模型的学习跟踪与资源推荐》的**配套代码与自建数据集**，
-包含：11 种知识追踪模型的统一实现与公平调参管线、学习资源推荐 / 学习路径推荐 / 图谱证据子图
-约束生成（GES）/ 掌握度驱动重规划（MDRL）的可执行实验、先修图去泄漏审计，以及论文全部
-表图的生成脚本。
+**Coupling dual knowledge graphs with large language models for learning tracking and
+resource recommendation.**
 
-> 论文状态：投稿中（《计算机工程与应用》）。若本文被接收，将在此处补全卷期页码与 DOI。
->
-> **仓库地址**：<https://github.com/renzhs/KG2-LLM> ·
-> `git clone git@github.com:renzhs/KG2-LLM.git`
+This repository is the reference implementation and the released dataset for the manuscript
+*"Coupling Dual Knowledge Graphs with Large Language Models for Learning Tracking and Resource
+Recommendation"* (Chinese title: 融合双知识图谱与大语言模型的学习跟踪与资源推荐), currently
+under review. It contains
 
-## 1. 一分钟了解
+- a unified, fairly-tuned implementation of **11 knowledge-tracing (KT) models** on 7 datasets;
+- the full pipeline of the three constrained pathways built on top of the dual graph
+  (course knowledge graph + learner cognitive graph): **CSG** (school-stage/major semantic
+  gating), **GES** (graph-evidence-subgraph constrained RAG) and **MDRL** (mastery-triggered
+  replanning), plus resource recommendation and learning-path planning;
+- a **prerequisite-graph de-leakage audit**, including re-induction from evaluation prefixes only;
+- the self-built **DNUI-IKG** dataset (real curriculum structure, real grade/major scope labels,
+  semi-synthetic answer sequences);
+- the scripts that regenerate every table and figure of the paper.
 
-- **问题**：跨学段、跨专业的语义匹配会让推荐内容"串味"（跨作用域语义泄漏）。
-- **方法**：课程知识图谱 CKG 与学习者认知图谱 LKG 双向耦合为底座，向上三条约束通路——
-  学段—专业语义门控 CSG、图谱证据子图约束的 RAG（GES）、掌握度阈值触发的重规划（MDRL）。
-- **主结论**：在图谱**不提升**知识追踪预测精度的前提下（消融贡献落在噪声量级），
-  图谱对下游任务的**约束满足**有稳定而显著的收益：串味率 0.3604 → 0.0000，
-  生成侧作用域合规率 0.3600 → 1.0000，重规划调用次数 −85.7%。
-- **规模**：7 个数据集（4 个公开 5 折基准 + 3 个自建划分）× 11 种知识追踪方法，
-  主结果以配对检验判定显著性。
+> Repository: <https://github.com/renzhs/KG2-LLM> · `git clone git@github.com:renzhs/KG2-LLM.git`
 
-## 2. 仓库结构
+---
+
+## 1. Headline findings
+
+The paper's central claim is deliberately narrow: **the graph does not make the predictor more
+accurate, but it makes the downstream system verifiably compliant.**
+
+| Claim | Evidence |
+|---|---|
+| No stable accuracy gain on the KT side | After Holm correction over 7 datasets, DGCL-KT is significantly better than the strongest baseline on **5 of 7**; the graph-collaboration term is inside the noise band |
+| The gate removes cross-scope contamination | CSCR@10 drops from **0.0557** (strongest related baseline) to **0.0000**; an unconstrained LLM recommends 12.25% out-of-scope items |
+| Executable, not merely ordered, paths | Executable-coverage (EC) **0.2439** vs. **0.0302** for in-scope random (**8.08×**), with sequential-compliance 1.0000 |
+| Grounded generation has a price | Evidence traceability **0.7300** (structured verification) and scope compliance **1.0000**, at a ranking cost (NDCG@10 0.1907 → 0.1501) |
+| Replanning is cheap but not free | **326** invocations vs. **1 150** for replanning at every step (**−71.7%**), i.e. 63% *more* calls than a fixed 5-step schedule, which is why it also preserves path quality |
+| Robust to missing annotations | Under 70% of annotations masked, the hard gate's false-rejection rate is **0.7184**; equivalence-set mounting reduces it to **0.0037**, while a same-budget union baseline reaches a false-accept rate of **0.3316** |
+
+Two results are reported as **negative**, and the paper argues them explicitly rather than hiding
+them: (i) the graph-collaboration term gives no ranking gain on the recommendation side, and
+(ii) the reverse-calibration component is at best a boundary refinement, not a component
+contribution.
+
+## 2. Repository layout
 
 ```
 KG2-LLM/
 ├── data/
-│   ├── dnui_ikg/            自建数据集 DNUI-IKG（脱敏 CSV，随仓库发布）
-│   └── public/              公开基准（自行下载，不入库）
+│   ├── dnui_ikg/            DNUI-IKG (de-identified CSVs, released with this repo)
+│   └── public/              public benchmarks (download yourself; not redistributed)
 ├── experiments/
-│   ├── paths.py             统一的路径解析
-│   ├── models/              kt_models.py（11 个 KT 模型）、rec_models.py、kg_induct.py、llm_ges.py
-│   ├── data/                prep_datasets.py（统一成 .pkl）、prep_bench.py（AKT 5 折切分）
-│   ├── run/                 run_kt.py、run_rec.py、run_abl_multi.py、run_bench.sh …
-│   ├── tools/               聚合、配对检验、去泄漏审计、调参门禁、建表
-│   ├── kg/                  双图谱构建与 Neo4j 装载（可选）
-│   └── figs/                make_figures.py（论文插图）
-├── results/                 论文报告值（JSON）+ 投稿版表格快照（paper_tables/）
-├── figs/                    论文插图（PNG/PDF）
-├── scripts/                 按阶段封装的一键脚本
+│   ├── paths.py             single source of truth for every path
+│   ├── models/              kt_models.py (11 KT models), rec_models.py, kg_induct.py, llm_ges.py
+│   ├── data/                prep_datasets.py (.pkl), prep_bench.py (AKT 5-fold splits)
+│   ├── run/                 run_kt.py, run_rec.py, run_abl_multi.py, run_scope_decision_v2.py, …
+│   ├── tools/               aggregation, paired tests, leakage audit, tuning gates, table builders,
+│   │                        check_downstream.py (re-verifies every downstream paper value)
+│   ├── kg/                  dual-graph construction and optional Neo4j loading
+│   └── figs/                make_figures.py (all paper figures)
+├── results/                 reported values (JSON) + camera-ready table snapshot (paper_tables/)
+│   ├── variants/            cross-checks: legacy scope policy, prefix-only graph (de-leakage)
+│   └── exploratory/         analyses implemented but not reported in the paper
+├── figs/                    paper figures (PDF + PNG)
+├── scripts/                 stage-wise entry points
 └── docs/
-    ├── DATA_CARD.md         数据集说明（来源、字段、隐私、半合成口径、校验和）
-    ├── EXPERIMENTS.md       脚本 ↔ 论文表图 对照 + 三条复现路径
-    ├── REPRODUCIBILITY.md   环境、种子、耗时、已知差异
-    └── CODE_AVAILABILITY.md 论文里标注代码地址的表述模板（中英/匿名评审）
+    ├── DATA_CARD.md         dataset provenance, fields, privacy, semi-synthetic protocol, checksums
+    ├── EXPERIMENTS.md       script ↔ table/figure map + three reproduction tiers
+    ├── REPRODUCIBILITY.md   environment, seeds, runtimes, known deviations
+    └── CODE_AVAILABILITY.md wording templates for the paper's code-availability statement
 ```
 
-## 3. 安装
+Every result file in `results/` carries a `_meta` block (task, dataset, scope policy, graph
+scope, seed, sample size, the paper table it supports), so a number can be traced back to its
+protocol without reading this README.
+
+## 3. Installation
 
 ```bash
-git clone <this-repo> && cd KG2-LLM
+git clone https://github.com/renzhs/KG2-LLM.git && cd KG2-LLM
 python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-- Python ≥ 3.10（在 3.12.3 上验证）
-- PyTorch ≥ 2.0（GPU 可选：CPU 也能跑通 DNUI-IKG 的全部流程，只是慢）
-- 生成 GES 结果需 `DEEPSEEK_API_KEY`（见 `docs/REPRODUCIBILITY.md`）；复核已报告数值不需要
+- Python ≥ 3.10 (validated on 3.12.3)
+- PyTorch ≥ 2.0; a GPU is optional — the whole DNUI-IKG pipeline runs on CPU, only slower
+- Generating new GES results requires `DEEPSEEK_API_KEY` (see `docs/REPRODUCIBILITY.md`);
+  re-checking reported values does not
 
-## 4. 快速开始（无需 GPU，约 1 秒）
+## 4. Quick start (no GPU, ~10 s)
 
-仓库附带全部逐折/逐种子结果，因此**不训练也能重建论文的每一张表**，并与投稿版快照逐行比对：
+All per-fold and per-seed results are shipped, so **every table can be rebuilt without training**
+and diffed against the camera-ready snapshot:
 
 ```bash
 bash scripts/03_tables.sh
-# [一致]   table_dataset.tex
-# [一致]   table_kt_pub.tex
-# [一致]   table_kt_bench.tex
-# [一致]   table_kt_ours.tex
-# ===== 全部一致：仓库内保存的逐折结果可以重建论文表格 =====
+# [match]  table_dataset.tex
+# [match]  table_kt_pub.tex
+# [match]  table_kt_bench.tex
+# [match]  table_kt_ours.tex
+# ... 共检查 206 项，不一致 0 项
+# ===== ALL MATCH: the shipped results rebuild every number in the paper =====
 ```
 
-跑通一次训练（DNUI-IKG × 11 个模型 × 8 epoch，单张 V100 实测 **171 s**；CPU 亦可在数分钟内完成）：
+Step `[4/4]` runs `experiments/tools/check_downstream.py`, which re-reads `results/*.json` and
+compares every downstream value printed in the paper (Tables 6–10 and the numbers quoted in the
+text) against the manuscript, item by item.
+
+One training run (DNUI-IKG × 11 models × 8 epochs; 171 s on a single V100, minutes on CPU):
 
 ```bash
 python experiments/data/prep_datasets.py --only dnui
 python experiments/run/run_kt.py --dataset dnui_syn --models all --epochs 8 --tag smoke
 ```
 
-## 5. 完整复现
+## 5. Full reproduction
 
-见 [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md)，按代价分三级：
+See [`docs/EXPERIMENTS.md`](docs/EXPERIMENTS.md). Three tiers by cost:
 
-| 级别 | 做什么 | 代价 |
+| Tier | What it does | Cost |
 |---|---|---|
-| A | 从已存结果重建全部表格、复核显著性 | 无需 GPU，约 1 秒（实测 1.04 s） |
-| B | 重跑单个数据集上 11 个模型 | 单卡 V100：DNUI-IKG 上 8 epoch 实测 171 s；60 epoch 视数据集规模约 20 分钟 ~ 数小时 |
-| C | 从零复现主表（调参 + 5 折 × 11 模型 + 聚合） | 单卡 V100 数天量级，可断点续跑 |
+| A | Rebuild all tables and re-verify all reported values from shipped results | no GPU, ~10 s |
+| B | Re-run 11 models on one dataset | 8 epochs on DNUI-IKG: 171 s on one V100; 60 epochs: ~20 min to hours depending on size |
+| C | Reproduce the main tables from scratch (tuning + 5 folds × 11 models + aggregation) | several GPU-days on one V100; resumable |
 
-`experiments/run/run_bench.sh` 内置四道**门禁**（基线调参完整性、本人配置内容级校验、
-对比矩阵完整性、学习率端点审计），目的是防止"某一侧静默偏弱"造成的不公平比较——
-它们本身也是论文"统一实现、公平调参"这一主张的证据，建议保留原样。
+`experiments/run/run_bench.sh` enforces four **gates** (baseline tuning completeness, content-level
+verification of our own configurations, comparison-matrix completeness, learning-rate endpoint
+audit). Their purpose is to prevent a silently under-tuned baseline from biasing the comparison;
+they are themselves part of the evidence for the "unified implementation, fair tuning" claim and
+should be kept as-is.
 
-## 6. 自建数据集 DNUI-IKG
+## 6. The DNUI-IKG dataset
 
-- **内容**：3 门本科课程、66 个知识点、88 条先修边、467 道题、1 060 名有作答记录的学生、
-  169 351 条作答记录、17 862 条掌握度标签；**唯一带学段—专业标注**的数据集。
-- **隐私**：已删除学号、姓名、院系与专业代码四列，保留的 `student_id` 为平台内部整数编号，
-  无法与任何校内记录直接关联；全表做过手机号/邮箱/学号模式扫描，零命中。
-- **半合成声明（务必阅读）**：平台日志"答对为止"，正确率 99.35%、掌握度 92.3% 恒为 1，
-  缺乏方差。因此论文中用于知识追踪的 **DNUI-IKG-S** 在**真实先修 DAG + 真实作用域标签 +
-  真实交互量分布**之上，用 2PL IRT + slip/guess 生成答题序列（`prep_datasets.py` 可完整重建，
-  seed=42）。**图结构与标签是真实的，序列是半合成的**——它支撑"真实课程结构与真实作用域约束下"
-  的结论，不能用于推断真实学生的学习增益。
-- 细节、字段字典、校验和见 [`docs/DATA_CARD.md`](docs/DATA_CARD.md)。
-- 公开基准（ASSIST09/15/17、Statics2011）受各自许可约束**未随仓库分发**，获取方式见
-  `docs/EXPERIMENTS.md` 第 0 节。
+- **Content**: 3 undergraduate courses, 66 knowledge points, 88 prerequisite edges, 467 questions,
+  1 060 students with answer records, 169 351 responses, 17 862 mastery labels. It is the only
+  dataset in the paper that carries **school-stage and major scope labels**.
+- **Privacy**: student number, name, department and major code were dropped; the retained
+  `student_id` is an internal integer that cannot be linked to any institutional record. All
+  columns were scanned for phone/e-mail/student-number patterns with zero hits.
+- **Semi-synthetic declaration (please read)**: the platform log is "answer until correct", so the
+  accuracy is 99.35% and the mastery label is identically 1 — no variance to model. The sequence
+  benchmark used for knowledge tracing, **DNUI-IKG-S**, therefore keeps the **real prerequisite
+  DAG, the real scope labels and the real interaction volumes**, and generates answer sequences
+  with a 2PL IRT + slip/guess process (`prep_datasets.py` rebuilds it exactly, `seed=42`).
+  **Graph structure and labels are real; the sequences are semi-synthetic.** Results support
+  claims about "real curriculum structure under real scope constraints"; they must not be used to
+  infer real students' learning gains.
+- Fields, checksums and the generation protocol: [`docs/DATA_CARD.md`](docs/DATA_CARD.md).
+- The public benchmarks (ASSIST09/12/15/17, Statics2011) are **not redistributed** because of
+  their licences; see §0 of `docs/EXPERIMENTS.md` for how to obtain them.
 
-## 7. 复现口径与已知差异
+## 7. Protocol notes that matter when reading the numbers
 
-1. **随机性**：`torch.manual_seed` 等已固定（默认 seed=42），但未启用 `cudnn.deterministic`，
-   跨硬件不保证逐位一致；单次 AUC 波动约 ±0.001。论文的显著性判断基于 5 折 / 3 种子的
-   **配对检验**，对单次波动不敏感。
-2. **单卡串行**：所有结果在单张 Tesla V100-PCIE-32GB 上以单进程串行跑出（并行会触发 CUDA OOM，
-   见 `run_bench.sh` 中 GKT 的教训）；多卡并行不改变数值，但需要自行调 `batch`。
-3. **LLM 非确定性**：GES 以 `temperature=0` 调用 DeepSeek，并带磁盘缓存；未命中缓存时重跑
-   可能得到措辞不同但结构相同的生成结果，指标（HR/ETR/SCR/PCR）稳定。
-4. **论文数值与重跑差异**：若重跑结果与论文相差超过上述波动范围，请先检查是否误用了
-   `--graph-scope`（KT 用 `train`，推荐/路径用 `cut`）或未加载 `--model-cfg-file`。
+These three definitions changed between earlier drafts and the current submission. They are
+stated here because they determine the scale of the reported values.
 
-## 8. 引用
+1. **School-stage admission is a one-sided inequality.** A resource is admissible for a student
+   if `grade(student) ≥ min(grade_scope(resource))`, i.e. higher grades may reuse lower-grade
+   resources (Eq. 10 of the paper). Under this policy 72.55% of the true positives fall inside
+   the student's scope. The alternative set-equality reading shrinks that share to 46.49% and
+   inflates CSCR to 0.3604; results under that legacy policy are kept in `results/variants/`
+   for comparison, never in the main tables.
+2. **Executable coverage (EC) checks unmastered prerequisites.** For a target knowledge point to
+   count as covered, *every* prerequisite must either be already mastered (`X > 0` in the training
+   segment) or appear earlier in the path. A prerequisite that is neither mastered nor scheduled
+   blocks the target. The paper reports EC under this strict definition; sequential compliance —
+   the ordering of prerequisite pairs that *do* appear in the path — is a separate, weaker metric
+   and is named accordingly.
+3. **Evidence traceability (ETR) is verified structurally.** A citation counts only if it parses
+   into `(head)-[PREREQUISITE_OF]->(tail)`, if `(head, tail)` is a real edge with the correct
+   direction, and if the recommended item is one of the two endpoints. Mentioning two endpoint
+   names is not enough. Empty recommendations no longer pass vacuously; the empty-return rate and
+   the list-fill rate are reported alongside.
+
+## 8. Known deviations from a naive re-run
+
+1. **Randomness**: seeds are fixed (`seed=42`), but `cudnn.deterministic` is not enabled, so
+   bit-wise reproducibility across hardware is not guaranteed; single-run AUC varies by about
+   ±0.001. Significance is judged by paired tests over 5 folds / 3 seeds, which are insensitive
+   to that jitter.
+2. **Single-GPU serial execution**: all reported numbers were produced serially on one
+   Tesla V100-PCIE-32GB (parallel runs hit CUDA OOM; see the GKT note in `run_bench.sh`).
+3. **LLM non-determinism**: GES calls DeepSeek with `temperature=0` and a disk cache. A cache miss
+   may produce differently worded but structurally identical output; the reported metrics are
+   stable, the exact strings are not.
+4. **Graph scope**: the main protocol induces the prerequisite graph from all sequences
+   (`--graph-scope all`). Re-inducing it from the evaluation prefix only (`cut`) is the
+   de-leakage audit reported in Table 13(c). Using the wrong scope is the most common cause of a
+   mismatch with the paper.
+
+## 9. Citation
 
 ```bibtex
 @article{ren2026kg2llm,
-  title   = {融合双知识图谱与大语言模型的学习跟踪与资源推荐},
-  author  = {任志森 and 邵欣欣 and 任政},
-  journal = {计算机工程与应用},
-  year    = {2026},
-  note    = {投稿中}
+  title   = {Coupling Dual Knowledge Graphs with Large Language Models for
+             Learning Tracking and Resource Recommendation},
+  author  = {Ren, Zhisen and Shao, Xinxin and Ren, Zheng},
+  journal = {Manuscript under review},
+  year    = {2026}
 }
 ```
 
-仓库元数据见 [`CITATION.cff`](CITATION.cff)（GitHub 会显示 "Cite this repository"）。
+Machine-readable metadata is in [`CITATION.cff`](CITATION.cff) (GitHub shows a "Cite this
+repository" button). If you use **DNUI-IKG**, please cite the paper as well.
 
-## 9. 许可
+## 10. License
 
-- **代码**：MIT，见 [`LICENSE`](LICENSE)
-- **DNUI-IKG 数据**：CC BY-NC 4.0，见 [`LICENSE-DATA`](LICENSE-DATA)（仅限非商业研究，须署名）
+- **Code**: MIT — see [`LICENSE`](LICENSE)
+- **DNUI-IKG data**: CC BY-NC 4.0 — see [`LICENSE-DATA`](LICENSE-DATA) (non-commercial research
+  only, attribution required)
 
-## 10. 联系方式
+## 11. Contact
 
-任志森，大连东软信息学院 软件学院，辽宁 大连 116023
-邮箱：renzhisen@neusoft.edu.cn ／ renzhisen@126.com
+Zhisen Ren, School of Software, Dalian Neusoft University of Information, Dalian 116023, China
+· renzhisen@neusoft.edu.cn · renzhisen@126.com
 
-问题、复现困难或数据使用申请请开 Issue，或直接邮件联系。
-
----
-
-## English (short)
-
-**KG²-LLM** couples a course knowledge graph and a learner cognitive graph with an LLM for
-personalized learning tracking and resource recommendation. This repository contains the
-reference implementation of 11 knowledge-tracing baselines under a unified, fairly-tuned
-protocol, the downstream experiments (resource recommendation, learning-path planning,
-graph-evidence-subgraph constrained RAG, mastery-triggered replanning), the prerequisite-graph
-de-leakage audit, and the self-built **DNUI-IKG** dataset.
-
-Headline finding: the graph modules bring **no stable gain in knowledge-tracing accuracy**, yet
-they impose **verifiable structural constraints** on downstream tasks (contamination ratio
-0.3604 → 0.0000; generation scope-compliance 0.3600 → 1.0000; replanning calls −85.7%).
-
-Quick check without a GPU: `bash scripts/03_tables.sh` rebuilds Tables 1–4 from the shipped
-result files and diffs them against the camera-ready snapshot in `results/paper_tables/`.
-
-**Data note**: DNUI-IKG-S (the sequence benchmark used for knowledge tracing) is *semi-synthetic* —
-real curriculum DAG, real grade/major scope labels and real interaction volumes, with answer
-sequences generated by a 2PL IRT + slip/guess model (see `docs/DATA_CARD.md` §5). It must not be
-used to infer real students' learning gains.
+Please open an issue for bug reports, reproduction problems or data requests. Code comments are in
+Chinese; `docs/` and this README are the English documentation.

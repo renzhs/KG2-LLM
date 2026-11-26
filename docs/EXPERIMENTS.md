@@ -1,121 +1,168 @@
-# 实验脚本 ↔ 论文表图 对照
+# Script ↔ table/figure map, and how to reproduce
 
-每个脚本都只用命令行参数控制行为，不读硬编码路径；所有路径经 `experiments/paths.py` 解析。
-下表"论文位置"的编号以投稿版为准（LaTeX 浮动体可能整体位移，`label` 名稳定）。
+Every script is driven by command-line flags only and resolves all paths through
+`experiments/paths.py`. Table and figure numbers below follow the submitted manuscript; the LaTeX
+`sci-paper` labels are stable even when floats shift.
 
-## 0. 数据准备
+## 0. Data preparation
 
 ```bash
-# (a) 公开基准（4 个），受各自许可约束，需自行下载到 data/public/
-python experiments/tools/download_datasets.py          # HF 镜像批量拉取，可只取需要的子集
-# 目录约定（AKT 官方 5 折划分）：
+# (a) public benchmarks (4), redistributed under their own licences -- download them yourself
+python experiments/tools/download_datasets.py          # batch pull from HF mirrors, subsettable
+# expected layout (AKT official 5-fold splits):
 #   data/public/AKT_repo/data/{assist2009_pid,assist2015,assist2017_pid,statics2011}/
 
-# (b) 自建数据集：已随仓库发布，无需下载
+# (b) the self-built dataset is released with this repository
 #   data/dnui_ikg/*.csv
 
-# (c) 统一成 .pkl（data/processed/）
-python experiments/data/prep_datasets.py --only dnui          # DNUI-IKG（真实掌握度 + 半合成序列）
+# (c) unify into .pkl under data/processed/
+python experiments/data/prep_datasets.py --only dnui          # DNUI-IKG (real mastery + semi-synthetic sequences)
 python experiments/data/prep_bench.py --only assist09,assist15,assist17,statics11
 ```
 
-`prep_datasets.py` 产出两个对象：`dnui_real`（(学生, 知识点) 级掌握度，真实标签）与
-`dnui_syn`（DNUI-IKG-S，半合成序列，论文表 1 的 DNUI-IKG 行即此）。
+`prep_datasets.py` emits two objects: `dnui_real` (student × knowledge-point mastery, real labels)
+and `dnui_syn` (DNUI-IKG-S, semi-synthetic sequences — the DNUI-IKG row of Table 1 refers to this).
 
-## 1. 表图对照
+## 1. Table and figure map
 
-| 论文位置 | 内容 | 脚本 | 关键产物 |
+| Paper item | Content | Script | Artefact |
 |---|---|---|---|
-| 表 1 `tab:dataset` | 7 个数据集的规模与序列特征 | `tools/dataset_stats.py`、`tools/dataset_edges.py`、`tools/make_paper_tables.py` | `results/table_dataset.tex` |
-| 表 2 `tab:kt-pub` | 本文复现值 vs 两套公开报告值（汇总） | `tools/make_paper_tables.py`（读 `experiments/data/published_benchmarks.json`） | `results/table_kt_pub.tex` |
-| 表 3 `tab:kt-bench` | **11 个模型 × 7 个数据集**的 AUC 主对比 | `run/run_bench.sh` → `tools/aggregate_bench.py` → `tools/make_paper_tables.py` | `results/kt_bench_*.json`、`results/table_kt_bench.tex` |
-| 表 4 `tab:kt-ours` | 本文方法 vs 各数据集最强基线的**配对检验**（ΔAUC/95%CI/p/MDES） | `tools/kt_significance.py` | `results/kt_signif.json` |
-| 表 5 | 主要超参数设置 | `results/kt_model_cfg_*.json`（验证集选出的最终配置） | — |
-| 表 6 `tab:enc` | 序列通路编码器对照（Transformer/GRU/LSTM × 层数） | `run/run_enc_ablation.py` → `tools/make_enc_table.py` | `results/kt_*_encabl.json` |
-| 表 7–9 | 学习资源推荐：$s$NDCG@10、CSCR@10、各策略对照 | `run/run_rec.py --task rec`、`tools/csg_attribution.py` | `results/rec_*.json` |
-| 表 10 | 学习路径推荐与动态重规划 | `run/run_rec.py --task path`、`--task mdrl` | `results/path_*.json`、`results/mdrl_*.json` |
-| 表 11 | 检索增强生成（GES）可靠性：HR/ETR/SCR/PCR | `run/run_rec.py --task ges`（需 LLM 凭证或缓存） | `results/ges_*.json` |
-| 表 12–13 | 模块消融与稀疏/稠密知识点分组评测 | `run/run_abl_multi.py`、`run/run_sparse_eval.py` | `results/kt_*_abl.json`、`kt_*_sparse.json` |
-| 表 14 `tab:graph-rel` | 先修图可靠性、归纳范围与去泄漏审计 | `tools/prereq_reliability.py`、`tools/graph_leak_audit.py`、`tools/kt_gstrain_pair.py` | `results/prereq_induction.json`、`graph_leak.json` |
-| 图 1 | 框架总体结构（示意图，脚本重绘需 matplotlib） | `figs/make_figures.py::fig_framework` | `figs/fig_framework.pdf` |
-| 图 2–11 | 数据规模、AUC 误差棒、逐种子散点、CSCR、γ 敏感性、GES、MDRL、消融 | `figs/make_figures.py` | `figs/*.pdf` |
+| Table 1 | Scale and sequence statistics of the 7 datasets | `tools/dataset_stats.py`, `tools/dataset_edges.py`, `tools/make_paper_tables.py` | `results/table_dataset.tex` |
+| Table 2 | Our reproduction vs. two independently published reference values | `tools/make_paper_tables.py` (reads `experiments/data/published_benchmarks.json`) | `results/table_kt_pub.tex` |
+| Table 3 | Key hyper-parameters (selected on the validation split) | `run/run_kt_tune.py` | `results/kt_model_cfg_*.json` |
+| Table 4 | **11 models × 7 datasets** AUC matrix (mean ± SD over folds) | `run/run_bench.sh` → `tools/aggregate_bench.py` → `tools/make_paper_tables.py` | `results/kt_bench_*.json`, `results/table_kt_bench.tex` |
+| Table 5 | Paired tests of DGCL-KT against the strongest baseline per dataset (ΔAUC / 95% CI / p / MDES) | `tools/kt_significance.py` | `results/kt_signif.json` |
+| Table 6 | Resource recommendation on DNUI-IKG | `run/run_rec.py --task rec`, `tools/csg_attribution.py` | `results/rec_dnui_syn.json` |
+| Table 7 | Resource recommendation on ASSIST09 (scope degenerates to the full set) | `run/run_rec.py --task rec --dataset assist09` | `results/rec_assist09.json` |
+| Table 8 | Gate decisions under incomplete annotations | `run/run_scope_decision_v2.py` | `results/scope_decision.json` |
+| Table 9 | (a) learning-path quality on 3 datasets; (b) three replanning strategies | `run/run_rec.py --task path`, `--task mdrl` | `results/path_*.json`, `results/mdrl_dnui_syn.json` |
+| Table 10 | GES reliability: HR / ETR / SCR / PCR / NDCG | `run/run_rec.py --task ges` (needs an LLM credential or the disk cache) | `results/ges_dnui_syn.json` |
+| Table 11 | Sequential-encoder comparison (Transformer / GRU / LSTM × depth) | `run/run_enc_ablation.py` → `tools/make_enc_table.py` | `results/kt_*_encabl.json` |
+| Table 12 | (a) module ablation; (b) sparse/dense knowledge-point groups | `run/run_abl_multi.py`, `run/run_sparse_eval.py` | `results/kt_*_abl.json`, `kt_*_sparse.json` |
+| Table 13 | (a) induced vs. syllabus graph; (b) edge-level leakage; (c) re-inference with a prefix-only graph | `tools/prereq_reliability.py`, `tools/graph_leak_audit.py`, `tools/kt_gstrain_pair.py`; for (c) rerun `run_rec.py --task rec/path --graph-scope cut` | `results/prereq_induction.json`, `graph_leak.json`, `results/variants/*-scopePrefix.json` |
+| Fig. 1 | Framework overview | `figs/make_figures.py::fig_framework` | `figs/fig_framework.pdf` |
+| Fig. 2–9 | Dataset statistics, AUC error bars, per-seed scatter, compliance vs. accuracy, γ sensitivity, GES, contamination case, replanning cost, ablation | `figs/make_figures.py` | `figs/*.pdf` |
 
-## 2. 三条复现路径（按代价从低到高）
+## 2. Three reproduction tiers (cheapest first)
 
-### 路径 A：只复核论文数字（**无需 GPU，约 1 秒**）
+### Tier A — verify the numbers (no GPU, ~10 s)
 
-仓库已附带全部逐折/逐种子结果 JSON，因此可以直接重建论文的每一张表：
+All per-fold and per-seed result JSONs are shipped, so every table can be rebuilt directly:
 
 ```bash
-bash   scripts/03_tables.sh                          # 一步到位：重建表 1-4 + 与快照 diff
+bash scripts/03_tables.sh        # one shot: Tables 1-4 + snapshot diff + Tables 6-10 re-check
 
-# 等价的手工步骤（注意 --frozen：results/ 是投稿版快照，mtime 无意义）
-python experiments/tools/make_paper_tables.py --frozen   # 表 1/2/3/4
-python experiments/tools/kt_significance.py              # 表 4 的配对检验（写 kt_signif.json）
-python experiments/tools/dataset_stats.py                # 表 1 的数据来源
+# the equivalent manual steps (note --frozen: results/ is a snapshot, mtimes are meaningless)
+python experiments/tools/make_paper_tables.py --frozen   # Tables 1/2/3/4
+python experiments/tools/kt_significance.py              # Table 5 paired tests
+python experiments/tools/check_downstream.py             # Tables 6-10 + in-text quantities
 ```
 
-产物写入 `results/table_*.tex`，可与 `results/paper_tables/`（投稿版快照）逐行 `diff` 核对。
+Outputs land in `results/table_*.tex` and can be diffed line by line against
+`results/paper_tables/` (the camera-ready snapshot). `check_downstream.py` exits non-zero on any
+mismatch, so it can be wired into CI.
 
-### 路径 B：重跑单个数据集（**单卡 10 分钟 ~ 数小时**）
+### Tier B — rerun one dataset (single GPU: 10 min to hours)
 
 ```bash
-# 冒烟：DNUI-IKG，全部 11 个模型，8 epoch
+# smoke: DNUI-IKG, all 11 models, 8 epochs
 python experiments/run/run_kt.py --dataset dnui_syn --models all --epochs 8 --tag smoke
 
-# 正式：单数据集全模型 + 复用验证集选出的配置
+# full: all models on one dataset, reusing the validation-selected configuration
 python experiments/run/run_kt.py --dataset assist09_akt_f1 --models all --epochs 60 \
        --patience 10 --tag bench --model-cfg-file results/kt_model_cfg_assist09_akt_f1.json
 ```
 
-`--use-tune` 会从 `results/kt_tune_<ds>_stage*.json` 载入**验证集**最优配置；
-`--model-cfg-file` 载入已合并的最终配置（含基线）。测试集不参与任何选择。
+`--use-tune` loads the validation-best configuration from `results/kt_tune_<ds>_stage*.json`;
+`--model-cfg-file` loads the merged final configuration (baselines included). The test split never
+participates in any selection.
 
-### 路径 C：从零复现整张主表（**单卡 V100 约数天**）
+### Tier C — rebuild the main tables from scratch (single V100: several days)
 
 ```bash
-bash experiments/run/run_bench.sh      # 阶段A 本文方法链式调参 → 阶段A2 基线调参 → 阶段B 5折×11模型 → 阶段C 聚合
+bash experiments/run/run_bench.sh      # stage A our chain tuning -> A2 baseline tuning -> B 5 folds x 11 models -> C aggregation
 ```
 
-该脚本内含**四道门禁**，是本文"统一实现、公平调参"结论的证据链，建议保留原样：
+The script embeds four **gates** which are part of the evidence for the "unified implementation,
+fair tuning" claim; please keep them intact:
 
-| 门禁 | 脚本 | 拦住什么 |
+| Gate | Script | What it catches |
 |---|---|---|
-| 基线调参完整性 | `tools/check_basetune.py` | 只搜了 lr、容量阶段没跑满却被判"已完成"（会静默形成不公平比较） |
-| 本文配置内容级校验 | `tools/check_maincfg.py` | 链式调参中途失败、`kt_maincfg` 是上一轮遗留的旧文件 |
-| 对比矩阵完整性 | `tools/check_bench.py` | 某折因 CUDA OOM 只写入部分模型，聚合时被当成"方差极小" |
-| 学习率端点审计 | `tools/kt_endpoint_audit.py`、`tools/check_lr_boundary.py` | 最优点落在网格端点 → 搜索其实没做完 |
+| Baseline tuning completeness | `tools/check_basetune.py` | only `lr` searched, capacity stages skipped, yet marked "done" (silently creates an unfair comparison) |
+| Content-level check of our own config | `tools/check_maincfg.py` | a chain tuning run that died halfway, leaving `kt_maincfg` from a previous round |
+| Comparison-matrix completeness | `tools/check_bench.py` | a fold that wrote only some models after a CUDA OOM, then passes aggregation as "tiny variance" |
+| Learning-rate endpoint audit | `tools/kt_endpoint_audit.py`, `tools/check_lr_boundary.py` | the optimum sits on the grid boundary, i.e. the search never finished |
 
-## 3. 下游任务与消融
+## 3. Downstream tasks and ablations
 
 ```bash
-# 推荐（DNUI-IKG；--graph-scope all=主口径，cut=去泄漏口径，产物加 _gscut 后缀）
+# recommendation (DNUI-IKG; --graph-scope all = main protocol, cut = de-leakage audit)
 python experiments/run/run_rec.py --dataset dnui_syn --task rec  --graph-scope all
 python experiments/run/run_rec.py --dataset assist09 --task rec  --graph-scope cut --tag gscut
 
-# 路径 / 重规划
-python experiments/run/run_rec.py --dataset dnui_syn --task path
-python experiments/run/run_rec.py --dataset dnui_syn --task mdrl
+# path planning and mastery-triggered replanning (24 steps x 50 students as in the paper)
+python experiments/run/run_rec.py --dataset dnui_syn --task path --scope-policy down
+python experiments/run/run_rec.py --dataset dnui_syn --task mdrl --mdrl-steps 24 \
+       --mdrl-students 50 --scope-policy down
 
-# 生成（需 DEEPSEEK_API_KEY，或命中 logs/ges_cache 的磁盘缓存）
+# gate robustness under missing annotations (Table 8)
+python experiments/run/run_scope_decision_v2.py --students 400 --seeds 42,43,44
+
+# generation (needs DEEPSEEK_API_KEY or a hit in the logs/ges_cache disk cache)
 python experiments/run/run_rec.py --dataset dnui_syn --task ges --llm-students 40
 
-# 模块消融（3 种子）/ 稀疏分组评测 / 编码器对照
+# module ablation (3 seeds) / sparse-group evaluation / encoder comparison
 python experiments/run/run_abl_multi.py    --dataset dnui_syn --seeds 42,43,44
 python experiments/run/run_sparse_eval.py  --dataset dnui_syn --seeds 42,43,44
 python experiments/run/run_enc_ablation.py --datasets dnui_syn,assist09
 ```
 
-> `run_rec.py` / `run_kt.py` 默认把结果写进 `results/` 下与论文同名的文件。
-> **重跑请加 `--tag`**，否则会覆盖仓库内保存的论文报告值。
+> `run_rec.py` and `run_kt.py` write to the paper-named files under `results/` by default.
+> **Always pass `--tag` when re-running**, otherwise you overwrite the shipped reported values.
 
-## 4. 双图谱构建（可选，需 MySQL/Neo4j）
+Two flags determine the numbers and are easy to get wrong:
+
+- `--scope-policy {down,eq}` — `down` (default) implements Eq. 10 as a one-sided inequality
+  (higher grades may reuse lower-grade resources); `eq` is the legacy set-equality reading kept
+  only for the comparison reported in `results/variants/`.
+- `--graph-scope {all,cut}` — `all` induces the prerequisite graph from all sequences (main
+  protocol); `cut` re-induces it from the evaluation prefix only (de-leakage audit).
+
+## 4. Result file conventions
+
+```
+results/<task>_<dataset>.json                  main protocol, cited by the paper
+results/variants/<task>_<dataset>-<variant>.json   cross-checks and audits
+results/exploratory/                           implemented but NOT reported in the paper
+```
+
+Every main file carries a `_meta` block recording task, dataset, scope policy, graph scope,
+cutoff, seed, sample size and the paper table it supports.
+
+`results/exploratory/` currently holds `repair_plan.json` (budget sweep over local path repair) and
+`evidence_intervention.json` (LLM evidence self-correction). Both were implemented during
+exploration and are **not** used to support any claim in the manuscript; the scripts are
+`experiments/run/run_repair_plan.py` and `experiments/run/run_evidence_intervention.py`.
+
+## 5. Dual-graph construction and the resource layer (optional)
 
 ```bash
-# 从教学平台库导出并规范化成 data/dnui_ikg/*.csv（需要可读的平台数据库）
+# export and normalise the teaching-platform database into data/dnui_ikg/*.csv
 python experiments/kg/build_dual_graph.py
-# 装载进 Neo4j（容器内 /var/lib/neo4j/import 指向 data/dnui_ikg）
+# build the structural resource layer (item -> knowledge-point mountings, prerequisite closure)
+# output: data/dnui_ikg/resource_layer.json -- required by run_scope_decision_v2.py (Table 8)
+python experiments/kg/build_resource_layer.py
+# load into Neo4j (in the container /var/lib/neo4j/import points at data/dnui_ikg)
 python experiments/kg/load_neo4j.py
 ```
 
-这两步只用于重建知识图谱与提供可视化，**不影响**上面任何数值结果——所有实验读的都是 CSV。
+`build_resource_layer.py` is a **structural** mapping, not a behavioural simulation: the raw
+`materials.csv` has only a header, and any resource layer derived from behaviour would inherit the
+same ceiling effect as the log itself. It normalises each question stem (with options and answer)
+into an item entity and aggregates every mounting of that entity across courses — 33 duplicated
+item groups, 21 of them cross-course. This is why "which knowledge point does this item belong to"
+is not unique in the data: a missing annotation means one of several mountings was not recorded,
+which is exactly the premise of the equivalence-set argument in §2.3.3.
+
+The graph-construction steps only rebuild the graph and support visualisation; apart from the
+resource layer they **do not** affect any reported number — every experiment reads the CSVs.

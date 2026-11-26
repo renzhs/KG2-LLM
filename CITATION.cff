@@ -25,8 +25,8 @@ keywords:
   - learning path planning
   - retrieval-augmented generation
   - educational data mining
-version: "1.0.0"
-date-released: "2026-11-09"
+version: "1.1.0"
+date-released: "2026-11-26"
 preferred-citation:
   type: article
   title: "融合双知识图谱与大语言模型的学习跟踪与资源推荐"
